@@ -1,0 +1,29 @@
+[
+  {
+    "id": "getting-started",
+    "title": "Getting Started",
+    "items": [
+      { "url": "/docs/spec/intro/", "label": "Introduction" },
+      { "url": "/docs/spec/install/", "label": "Installation" },
+      { "url": "/docs/spec/quickstart/", "label": "Quick Start" }
+    ]
+  },
+  {
+    "id": "core-concepts",
+    "title": "Core Concepts",
+    "items": [
+      { "url": "/docs/spec/tensors/", "label": "Tensors" },
+      { "url": "/docs/spec/autodiff/", "label": "Autodiff" },
+      { "url": "/docs/spec/mlir/", "label": "MLIR Integration" }
+    ]
+  },
+  {
+    "id": "reference",
+    "title": "Reference",
+    "items": [
+      { "url": "/docs/spec/syntax/", "label": "Syntax Guide" },
+      { "url": "/docs/spec/stdlib/", "label": "Standard Library" },
+      { "url": "/docs/spec/cli/", "label": "CLI Commands" }
+    ]
+  }
+]

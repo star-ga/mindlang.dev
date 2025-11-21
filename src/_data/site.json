@@ -3,10 +3,10 @@
   "shortName": "MIND",
   "url": "https://mindlang.dev",
   "author": {
-    "name": "MIND Community",
-    "url": "https://mindlang.dev"
+    "name": "MIND Team",
+    "url": "https://github.com/cputer/mind"
   },
-  "description": "The native AI language for tensors, autodiff, and MLIR execution.",
+  "description": "The native language for intelligent systems.",
   "language": "en",
   "direction": "ltr",
   "themeColor": "#4F46E5"

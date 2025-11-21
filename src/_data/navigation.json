@@ -1,27 +1,9 @@
-{
-  "header": [
-    {
-      "caption": "Features",
-      "url": "/features/",
-      "external": false
-    },
-    {
-      "caption": "Community",
-      "url": "/community/",
-      "external": false
-    },
-    {
-      "caption": "Documentation",
-      "url": "/docs/",
-      "external": false
-    },
-    {
-      "caption": "GitHub",
-      "url": "https://github.com/cputer/mind",
-      "external": true
-    }
-  ],
-  "footer": [
+[
+  { "url": "/features/", "label": "Features" },
+  { "url": "/community/", "label": "Community" },
+  { "url": "/docs/", "label": "Documentation" },
+  { "url": "https://github.com/cputer/mind", "label": "GitHub" }
+]
     {
       "title": "Getting Started",
       "items": [
