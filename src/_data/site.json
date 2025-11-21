@@ -2,14 +2,14 @@
   "name": "MIND",
   "fullName": "MIND – Machine Intelligence Native Design",
   "tagline": "The native language for intelligent systems",
-  "description": "MIND is a Rust-based, tensor-native programming language and compiler stack that unifies modeling, compilation, and deployment of intelligent systems.",
+  "description": "MIND is a Rust-based, tensor-native programming language and compiler stack.",
   "url": "https://mindlang.dev",
   "github": "https://github.com/cputer/mind",
   "runtimeRepo": "https://github.com/cputer/mind-runtime",
   "specRepo": "https://github.com/cputer/mind-spec",
   "docsPath": "/docs/",
-  "discord": "https://discord.gg/your-mindlang-invite",
-  "x": "https://x.com/your-mindlang-handle",
-  "company": "CPUTER Inc.",
-  "contactEmail": "info@cputer.com"
+  "discord": "https://discord.gg/mindlang",
+  "x": "https://x.com/mindlang",
+  "company": "STARGA, Inc.",
+  "contactEmail": "hello@starga.com"
 }

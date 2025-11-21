@@ -1,52 +1,81 @@
 :root {
   --color-bg: #ffffff;
-  --color-surface: #ffffff;
   --color-text: #111827;
   --color-muted: #6b7280;
   --color-accent: #4f46e5;
-  --color-accent-soft: #e0e7ff;
   --border-color: #e5e7eb;
 }
 
 body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--color-text); line-height: 1.6; }
 
-/* Layout Grids - This fixes the "Positioning" */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-.section { padding: 5rem 0; }
-.grid { display: grid; gap: 2rem; margin-top: 2rem; }
-.grid--two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.grid--three { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+/* --- HEADER FIXES --- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
+}
+.brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--color-text); }
+.brand-mark { height: 32px; width: 32px; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-title { font-weight: 700; font-size: 1rem; }
+.brand-tagline { font-size: 0.75rem; color: var(--color-muted); }
 
-/* Header & Nav */
-.site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 1rem 0; }
-.header-inner { display: flex; align-items: center; justify-content: space-between; }
-.brand { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-weight: 700; color: var(--color-text); }
-.nav { display: flex; gap: 1.5rem; }
-.nav-link { text-decoration: none; color: var(--color-muted); font-weight: 500; }
+/* Menu Layout */
+.nav { display: flex; gap: 1.5rem; align-items: center; }
+.nav-link { text-decoration: none; color: var(--color-muted); font-weight: 500; font-size: 0.95rem; }
 .nav-link:hover { color: var(--color-accent); }
+.header-cta { display: flex; gap: 1rem; }
 
-/* Hero & Cards */
-.hero { text-align: center; padding: 6rem 0 4rem; }
-.hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem; }
-.accent { color: var(--color-accent); }
-.card { background: var(--color-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px; }
-.card h3 { margin-top: 0; }
-
-/* Fix the Broken Tensor Example */
+/* --- TENSOR WINDOW FIX --- */
+/* This fixes the "black blob" and enables scrolling */
 .code-block {
-  background: #1e293b;
-  color: #e2e8f0;
+  background: #1e293b; /* Dark blue/slate background */
+  color: #e2e8f0;      /* Light text */
   padding: 1.5rem;
-  border-radius: 12px;
+  border-radius: 0 0 12px 12px; /* Rounded bottom only */
   text-align: left;
   font-family: 'JetBrains Mono', monospace;
-  overflow-x: auto; /* Fixes the black blob issue */
-  white-space: pre;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  overflow-x: auto;    /* ENABLES SCROLLING */
+  white-space: pre;    /* Keeps code formatting */
+  margin: 0;
 }
+.hero-card {
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+}
+.hero-card-header {
+  background: #f8fafc;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.hero-card-title { font-weight: 600; font-size: 0.9rem; color: var(--color-text); }
+.badge { background: #e0e7ff; color: #4f46e5; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700; }
+.hero-card-footnote { padding: 1rem; font-size: 0.8rem; color: var(--color-muted); background: white; margin: 0; }
+
+/* --- General Layout --- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.hero { text-align: center; padding: 5rem 0 4rem; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; }
+.accent { color: var(--color-accent); }
+.hero-lede { font-size: 1.25rem; color: var(--color-muted); max-width: 700px; margin: 0 auto 2.5rem; }
+.btn { display: inline-flex; padding: 0.6rem 1.2rem; border-radius: 99px; font-weight: 600; text-decoration: none; }
+.btn--primary { background: var(--color-accent); color: white; }
+.btn--ghost { color: var(--color-text); border: 1px solid var(--border-color); }
 
 /* Footer */
-.site-footer { background: #f9fafb; border-top: 1px solid var(--border-color); padding: 3rem 0; margin-top: 4rem; font-size: 0.9rem; }
+.site-footer { margin-top: 5rem; border-top: 1px solid var(--border-color); padding: 3rem 0; background: #f9fafb; }
 .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
-.footer-links { display: flex; gap: 3rem; }
+.footer-links { display: flex; gap: 4rem; }
 .footer-column a { display: block; text-decoration: none; color: var(--color-muted); margin-bottom: 0.5rem; }
