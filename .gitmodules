@@ -1,0 +1,3 @@
+[submodule "src/docs/spec"]
+	path = src/docs/spec
+	url = https://github.com/cputer/mind-spec.git
