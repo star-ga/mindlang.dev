@@ -27,31 +27,13 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .nav { display: flex; gap: 1.5rem; align-items: center; }
 .nav-link { text-decoration: none; color: var(--color-muted); font-weight: 500; font-size: 0.9rem; transition: color 0.2s; white-space: nowrap; }
 .nav-link:hover { color: var(--color-accent); }
-/* Active Link Style (Desktop: Bold/Color) */
 .nav-link--active { color: var(--color-text); font-weight: 600; }
 
 .header-cta { display: flex; align-items: center; gap: 1rem; margin-left: auto; }
 .nav-social-link { display: flex; align-items: center; justify-content: center; color: #000000 !important; padding: 0.25rem; transition: color 0.2s, transform 0.2s; }
 .nav-social-link:hover { color: var(--color-accent) !important; transform: scale(1.1); }
 .nav-social-link svg { display: block; width: 24px; height: 24px; }
-
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 900px) { .brand-separator, .brand-tagline { display: none; } }
-
-@media (max-width: 768px) {
-  .header-inner { flex-wrap: wrap; padding: 0.75rem 1rem; gap: 1rem; }
-  
-  /* Make Navigation a scrolling row on a new line */
-  .nav {
-    order: 3; width: 100%; overflow-x: auto; padding-bottom: 0.25rem;
-    gap: 1.25rem; border-top: 1px solid var(--border-color); padding-top: 0.75rem; margin-top: 0.25rem;
-    -webkit-overflow-scrolling: touch;
-  }
-  .nav::-webkit-scrollbar { display: none; } /* Clean Scrollbar */
-  
-  /* CRITICAL FIX: HIDE ACTIVE PAGE LINK ON MOBILE */
-  .nav-link--active { display: none; }
-}
+.mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--color-text); padding: 0.5rem; z-index: 102; }
 
 /* --- HERO & CARDS --- */
 .hero-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); overflow: hidden; text-align: left; max-width: 650px; margin: 0 auto; }
@@ -101,3 +83,26 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .footer-copy { color: var(--color-dark-grey); margin-top: 0.5rem; font-size: 0.85rem; }
 .footer-links { display: flex; gap: 4rem; }
 .footer-column a { display: block; text-decoration: none; color: var(--color-muted); margin-bottom: 0.6rem; font-size: 0.9rem; }
+
+/* --- MOBILE MEDIA QUERIES (PLACED AT BOTTOM FOR PRECEDENCE) --- */
+@media (max-width: 900px) {
+  .brand-separator, .brand-tagline { display: none; }
+}
+
+@media (max-width: 768px) {
+  .header-inner { flex-wrap: wrap; padding: 0.75rem 1rem; gap: 1rem; }
+  
+  /* Mobile Nav: Scrolling Row */
+  .nav {
+    order: 3; width: 100%; overflow-x: auto; padding-bottom: 0.25rem;
+    gap: 1.25rem; border-top: 1px solid var(--border-color); padding-top: 0.75rem; margin-top: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  
+  /* Hide active link in top menu */
+  .nav-link--active { display: none; }
+
+  /* HIDE FOOTER LINKS ON MOBILE */
+  .footer-links { display: none; }
+}
