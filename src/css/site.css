@@ -125,3 +125,14 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .footer-copy { color: var(--color-dark-grey); margin-top: 0.5rem; font-size: 0.85rem; }
 .footer-links { display: flex; gap: 4rem; }
 .footer-column a { display: block; text-decoration: none; color: var(--color-muted); margin-bottom: 0.6rem; font-size: 0.9rem; }
+
+/* --- CTA GRAPHIC --- */
+.cta-graphic {
+  display: block;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 2.5rem auto; /* Center and add spacing below */
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.2); /* Subtle purple glow */
+}
