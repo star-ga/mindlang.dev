@@ -142,3 +142,11 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   margin: 0 0 2.5rem 0 !important; /* Remove 'auto' to stop centering */
   max-width: 100%; /* Allow it to span width if needed, or keep 600px if preferred */
 }
+
+/* --- SIZE FIX --- */
+.cta-graphic {
+  max-width: 600px !important; /* Limit width again */
+  width: 100%;
+  display: block;
+  margin: 0 0 2.5rem 0 !important; /* Align Left (0 margin on left) */
+}
