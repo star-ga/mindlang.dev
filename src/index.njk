@@ -58,24 +58,38 @@ description: MIND is a tensor-native, Rust-inspired language and compiler that u
   <div class="container">
     <h2 class="section-title">Why MIND?</h2>
     <p class="section-lede">
-      Today's AI stacks are fragmented: Python for research, C++/CUDA for performance, separate runtimes for cloud and edge.
+      Today’s AI stacks are fragmented: Python for research, C++/CUDA for performance, separate runtimes for cloud and edge.
       MIND collapses that into a single language and compiler pipeline.
     </p>
 
     <div class="grid grid--three">
       <div class="card">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 17 10 11 4 5"></polyline>
+          <line x1="12" y1="19" x2="20" y2="19"></line>
+        </svg>
         <h3>One language from prototype to production</h3>
         <p>
-          Author models, training loops, and serving code in the same language. No "Python version" and "C++ version" to keep in sync.
+          Author models, training loops, and serving code in the same language. No “Python version” and “C++ version” to keep in sync.
         </p>
       </div>
       <div class="card">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="3" y1="15" x2="21" y2="15"></line>
+          <line x1="9" y1="3" x2="9" y2="21"></line>
+          <line x1="15" y1="3" x2="15" y2="21"></line>
+        </svg>
         <h3>Tensor-native and statically checked</h3>
         <p>
           Shapes, dtypes, and device semantics live in the type system, catching whole classes of bugs at compile time instead of at runtime.
         </p>
       </div>
       <div class="card">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
         <h3>Compiler-grade performance</h3>
         <p>
           The compiler lowers through MLIR into LLVM, giving you highly optimized CPU and accelerator code without hand-written kernels.

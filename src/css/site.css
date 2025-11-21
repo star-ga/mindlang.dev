@@ -117,3 +117,13 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; }
 .footer-links { display: flex; gap: 4rem; }
 .footer-column a { display: block; text-decoration: none; color: var(--color-muted); margin-bottom: 0.6rem; font-size: 0.9rem; }
+
+/* --- FEATURE ICONS --- */
+.card-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  color: var(--color-accent); /* Use the MIND Purple */
+  margin-bottom: 1rem;
+  stroke-width: 1.5;
+}
