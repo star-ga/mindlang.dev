@@ -106,3 +106,12 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   /* HIDE FOOTER LINKS ON MOBILE */
   .footer-links { display: none; }
 }
+
+/* --- RESTORED BUTTON LAYOUT --- */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows wrapping on mobile */
+  gap: 1rem;       /* Adds space between buttons */
+  margin-top: 2rem;
+}
