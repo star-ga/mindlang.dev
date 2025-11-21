@@ -1,5 +1,5 @@
 module.exports = function(eleventyConfig) {
-  // Force copy these folders to the live site
+  // Explicitly copy the css and img folders
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/img");
 
