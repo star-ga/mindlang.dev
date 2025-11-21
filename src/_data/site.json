@@ -1,0 +1,13 @@
+{
+  "authorEmail": "hello@mindlang.dev",
+  "authorName": "MIND Language",
+  "copyright": "MIND Language Community",
+  "name": "MIND Language",
+  "slogen": "Native language for intelligent systems",
+  "social": {
+    "twitter": "https://twitter.com/mindlang",
+    "github": "https://github.com/cputer/mind",
+    "discord": ""
+  },
+  "url": "https://mindlang.dev"
+}
