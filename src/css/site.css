@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+
 :root {
   --color-bg: #ffffff;
   --color-text: #111827;
@@ -15,7 +17,7 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 .brand { display: flex; align-items: center; text-decoration: none; color: var(--color-text); }
 .brand-mark { height: 32px; width: 32px; margin-right: 0.75rem; }
-.brand-title { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
+.brand-title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
 .brand-separator { margin: 0 0.75rem; color: var(--color-border); font-weight: 300; font-size: 1.25rem; }
 .brand-tagline { font-size: 0.85rem; color: var(--color-muted); font-weight: 400; white-space: nowrap; }
 @media (max-width: 900px) { .brand-separator, .brand-tagline { display: none; } }
