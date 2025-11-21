@@ -1,18 +1,23 @@
 {
   "header": [
     {
-      "caption": "FAQ",
-      "url": "/faq/",
+      "caption": "Features",
+      "url": "/features/",
       "external": false
     },
     {
-      "caption": "Changelog",
-      "url": "/changelog/",
+      "caption": "Community",
+      "url": "/community/",
       "external": false
     },
     {
-      "caption": "Spruce CSS",
-      "url": "https://sprucecss.com",
+      "caption": "Documentation",
+      "url": "/docs/",
+      "external": false
+    },
+    {
+      "caption": "GitHub",
+      "url": "https://github.com/cputer/mind",
       "external": true
     }
   ],

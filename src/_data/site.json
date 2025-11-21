@@ -1,13 +1,13 @@
 {
-  "authorEmail": "hello@mindlang.dev",
-  "authorName": "MIND Language",
-  "copyright": "MIND Language Community",
   "name": "MIND Language",
-  "slogen": "Native language for intelligent systems",
-  "social": {
-    "twitter": "https://twitter.com/mindlang",
-    "github": "https://github.com/cputer/mind",
-    "discord": ""
+  "shortName": "MIND",
+  "url": "https://mindlang.dev",
+  "author": {
+    "name": "MIND Community",
+    "url": "https://mindlang.dev"
   },
-  "url": "https://mindlang.dev"
+  "description": "The native AI language for tensors, autodiff, and MLIR execution.",
+  "language": "en",
+  "direction": "ltr",
+  "themeColor": "#4F46E5"
 }
