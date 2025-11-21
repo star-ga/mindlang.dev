@@ -6,15 +6,19 @@ description: MIND is a tensor-native, Rust-inspired language and compiler that u
 
 <section class="hero">
   <div class="container hero-inner">
-    <div class="hero-copy">
-      <p class="eyebrow">MIND · MACHINE INTELLIGENCE NATIVE DESIGN</p>
+    <div class="hero-copy" style="text-align: center; margin: 0 auto;">
+      
+      <img src="/img/mind-logo-grid-dark.svg" alt="MIND Logo" style="height: 80px; margin-bottom: 1.5rem;" />
+
+      <p class="eyebrow">MACHINE INTELLIGENCE NATIVE DESIGN</p>
+      
       <h1>Intelligence, <span class="accent">compiled.</span></h1>
       <p class="hero-lede">
         MIND is a programming language and compiler stack built specifically for AI and numerical computing —
         tensor-native types, static shape checks, automatic differentiation, and MLIR-powered code generation, all in one toolchain.
       </p>
 
-      <div class="hero-actions">
+      <div class="hero-actions" style="justify-content: center;">
         <a href="{{ site.docsPath }}" class="btn btn--primary btn--lg">Read the language spec</a>
         <a href="{{ site.github }}" class="btn btn--ghost btn--lg">Browse the source</a>
       </div>
@@ -24,13 +28,13 @@ description: MIND is a tensor-native, Rust-inspired language and compiler that u
       </p>
     </div>
 
-    <div class="hero-panel">
+    <div class="hero-panel" style="margin-top: 3rem;">
       <div class="hero-card">
         <div class="hero-card-header">
           <span class="badge">MIND example</span>
           <span class="hero-card-title">Tensor-native main</span>
         </div>
-<pre><code class="code-block language-mind">fn main() {
+<pre><code>fn main() {
   // 2x2 input tensor
   let x: Tensor&lt;f32, 2, 2&gt; = [[1.0, 2.0], [3.0, 4.0]];
 
