@@ -22,10 +22,41 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .brand-title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
 .brand-separator { margin: 0 0.75rem; color: var(--color-border); font-weight: 300; font-size: 1.25rem; }
 .brand-tagline { font-size: 0.85rem; color: var(--color-muted); font-weight: 400; white-space: nowrap; }
+
+/* --- MOBILE MENU (STACKED) --- */
 @media (max-width: 900px) { .brand-separator, .brand-tagline { display: none; } }
 
+@media (max-width: 768px) {
+  .header-inner {
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Row 1: Logo (Left) and CTA (Right) */
+  .brand { margin-right: auto; }
+  .header-cta { margin-left: auto; }
+
+  /* Row 2: Navigation */
+  .nav {
+    order: 3; /* Push to bottom */
+    width: 100%;
+    overflow-x: auto; /* Scrollable horizontally */
+    padding-bottom: 0.25rem;
+    gap: 1.25rem;
+    border-top: 1px solid var(--border-color); /* Subtle separator */
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .nav::-webkit-scrollbar { display: none; }
+  .nav { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
 .nav { display: flex; gap: 1.5rem; align-items: center; }
-.nav-link { text-decoration: none; color: var(--color-muted); font-weight: 500; font-size: 0.9rem; transition: color 0.2s; }
+.nav-link { text-decoration: none; color: var(--color-muted); font-weight: 500; font-size: 0.9rem; transition: color 0.2s; white-space: nowrap; }
 .nav-link:hover { color: var(--color-accent); }
 .header-cta { display: flex; align-items: center; gap: 1rem; }
 .nav-social-link { display: flex; align-items: center; justify-content: center; color: #000000 !important; padding: 0.25rem; transition: color 0.2s, transform 0.2s; }
@@ -74,12 +105,11 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 
 /* LOGO & TEXT STYLING */
 .footer-logo {
-  height: 100px; /* Updated Size */
+  height: 100px;
   width: auto;
   margin-bottom: 1.5rem;
 }
 
-/* New container for single-line text */
 .footer-brand-text {
   display: flex;
   align-items: center;
