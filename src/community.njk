@@ -1,0 +1,103 @@
+---
+layout: layouts/marketing-base.njk
+title: MIND community
+description: Connect with MIND developers, report security issues, and help shape the future of the language.
+---
+
+<section class="section">
+  <div class="container">
+    <h1 class="page-title">Community</h1>
+    <p class="section-lede">
+      MIND is developed in the open. We welcome contributions, questions, and ideas from developers everywhere.
+    </p>
+
+    <div class="grid grid--two">
+      <div class="card card--outline">
+        <h2>GitHub</h2>
+        <p>
+          The complete MIND compiler and runtime, along with documentation and RFC process, lives on GitHub.
+        </p>
+        <a href="{{ site.github }}" class="button button--primary">View on GitHub</a>
+      </div>
+
+      <div class="card card--outline">
+        <h2>Discord</h2>
+        <p>
+          Join our Discord server to chat with other MIND developers, share ideas, and get help.
+        </p>
+        <a href="{{ site.discord }}" class="button button--primary">Join Discord</a>
+      </div>
+
+      <div class="card card--outline">
+        <h2>Discussions &amp; RFCs</h2>
+        <p>
+          Major proposals go through our <a href="{{ site.github }}/discussions">GitHub Discussions</a> and RFC process to ensure thoughtful design.
+        </p>
+      </div>
+
+      <div class="card card--outline">
+        <h2>Email</h2>
+        <p>
+          Questions about the project? Reach out to the team directly at <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>.
+        </p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <h2>Getting involved</h2>
+    <div class="grid grid--four">
+      <div class="step">
+        <span class="step__number">1</span>
+        <h3>Read the spec</h3>
+        <p>
+          Start with the <a href="/docs/">MIND specification</a> to understand the language design and motivation.
+        </p>
+      </div>
+      <div class="step">
+        <span class="step__number">2</span>
+        <h3>Try the compiler</h3>
+        <p>
+          Clone the <a href="{{ site.runtimeRepo }}">runtime repo</a>, build locally, and experiment with examples.
+        </p>
+      </div>
+      <div class="step">
+        <span class="step__number">3</span>
+        <h3>Report issues</h3>
+        <p>
+          Found a bug or have a feature idea? <a href="{{ site.github }}/issues">Open an issue</a> with clear details.
+        </p>
+      </div>
+      <div class="step">
+        <span class="step__number">4</span>
+        <h3>Submit a PR</h3>
+        <p>
+          Ready to contribute? Check our <a href="{{ site.github }}/blob/main/CONTRIBUTING.md">contribution guide</a> and submit a pull request.
+        </p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="grid grid--two">
+      <div>
+        <h2>Code of conduct</h2>
+        <p>
+          The MIND project is committed to providing a welcoming, inclusive, and harassment-free experience for all contributors and community members.
+        </p>
+        <p>
+          <a href="{{ site.github }}/blob/main/CODE_OF_CONDUCT.md">Read the full code of conduct →</a>
+        </p>
+      </div>
+      <div>
+        <h2>Security</h2>
+        <p>
+          If you discover a security vulnerability, please report it responsibly according to our security policy rather than opening a public issue.
+        </p>
+        <p>
+          <a href="{{ site.github }}/blob/main/SECURITY.md">View security policy →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

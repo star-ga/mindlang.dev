@@ -1,0 +1,79 @@
+---
+layout: layouts/marketing-base.njk
+title: MIND use cases
+description: Concrete scenarios where MIND's unified language and compiler deliver value, from edge inference to financial modeling.
+---
+
+<section class="section">
+  <div class="container">
+    <h1 class="page-title">Use cases</h1>
+    <p class="section-lede">
+      MIND shines wherever intelligent systems need to be fast, reliable, and maintainable. Here are a few representative scenarios.
+    </p>
+
+    <div class="grid grid--three">
+      <div class="card card--outline">
+        <h2>Edge &amp; embedded inference</h2>
+        <p>
+          Compile MIND models into compact binaries for cameras, sensors, and robotics platforms where Python and heavyweight runtimes are not viable.
+        </p>
+        <ul class="list">
+          <li>Always-on computer vision on low-power devices</li>
+          <li>Predictive maintenance for industrial sensors</li>
+          <li>Autonomous drones with quantized models</li>
+        </ul>
+      </div>
+
+      <div class="card card--outline">
+        <h2>Latency-sensitive services</h2>
+        <p>
+          Use MIND for ranking, recommendation, and fraud detection services that must respond in microseconds, not milliseconds.
+        </p>
+        <ul class="list">
+          <li>Rust-like performance with tensor-native ergonomics</li>
+          <li>Deterministic, reproducible inference paths</li>
+          <li>Easy horizontal scaling with stateless binaries</li>
+        </ul>
+      </div>
+
+      <div class="card card--outline">
+        <h2>Quant &amp; risk modeling</h2>
+        <p>
+          For trading and risk systems, MIND offers type-checked math, predictable performance, and clear deployment story.
+        </p>
+        <ul class="list">
+          <li>Static guarantees on tensor shapes in critical models</li>
+          <li>Bit-exact builds for auditability and compliance</li>
+          <li>Integration with existing C++/Rust codebases</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="grid grid--two">
+      <div>
+        <h2>From research notebooks to production</h2>
+        <p>
+          Teams can prototype in Python or notebooks, then migrate performance‑critical paths into MIND to get compiler‑grade performance without rewriting everything at once.
+        </p>
+        <ul class="list">
+          <li>Import/export via ONNX and custom frontends</li>
+          <li>Python FFI bridge for gradual adoption</li>
+          <li>Same MIND codebase for training and serving</li>
+        </ul>
+      </div>
+      <div>
+        <h2>AI platforms and internal tooling</h2>
+        <p>
+          Platform teams can standardize internal tooling around MIND's IR and runtimes, simplifying governance and hardware support.
+        </p>
+        <ul class="list">
+          <li>Shared compiler passes for performance and safety</li>
+          <li>Unified observability and profiling at the IR level</li>
+          <li>Extensible backends for in‑house accelerators</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
