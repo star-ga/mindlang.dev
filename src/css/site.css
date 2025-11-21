@@ -136,3 +136,9 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   border-radius: var(--radius-md);
   box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.2); /* Subtle purple glow */
 }
+
+/* --- ALIGNMENT FIX --- */
+.cta-graphic {
+  margin: 0 0 2.5rem 0 !important; /* Remove 'auto' to stop centering */
+  max-width: 100%; /* Allow it to span width if needed, or keep 600px if preferred */
+}
