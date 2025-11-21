@@ -115,3 +115,18 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   gap: 1rem;       /* Adds space between buttons */
   margin-top: 2rem;
 }
+
+/* --- ANNOUNCEMENT BAR --- */
+.announcement-bar {
+  background-color: #1e293b; /* Dark Slate */
+  color: #f8fafc;           /* White text */
+  font-size: 0.85rem;
+  padding: 0.6rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 200; /* Ensure it sits on top */
+}
+.announcement-bar strong {
+  color: var(--color-accent); /* Purple text for "Under Construction" */
+  font-weight: 700;
+}
