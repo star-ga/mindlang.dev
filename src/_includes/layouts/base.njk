@@ -24,11 +24,11 @@
       </a>
 
       <nav class="nav">
-        <a href="/" class="nav-link">Overview</a>
-        <a href="/features/" class="nav-link">Features</a>
-        <a href="/use-cases/" class="nav-link">Use cases</a>
-        <a href="/docs/" class="nav-link">Docs</a>
-        <a href="/community/" class="nav-link">Community</a>
+        <a href="/" class="nav-link {% if page.url == '/' %}nav-link--active{% endif %}">Overview</a>
+        <a href="/features/" class="nav-link {% if '/features/' in page.url %}nav-link--active{% endif %}">Features</a>
+        <a href="/use-cases/" class="nav-link {% if '/use-cases/' in page.url %}nav-link--active{% endif %}">Use cases</a>
+        <a href="/docs/" class="nav-link {% if '/docs/' in page.url %}nav-link--active{% endif %}">Docs</a>
+        <a href="/community/" class="nav-link {% if '/community/' in page.url %}nav-link--active{% endif %}">Community</a>
       </nav>
 
       <div class="header-cta">
@@ -48,13 +48,11 @@
     <div class="container footer-inner">
       <div class="footer-meta">
         <img src="/img/mind-logo-grid-grey.svg" alt="MIND Logo" class="footer-logo" />
-        
         <div class="footer-brand-text">
           <span class="footer-title">MIND</span>
           <span class="footer-separator">·</span>
           <span class="footer-tagline">Native Intelligence.</span>
         </div>
-        
         <p class="footer-copy">2025 © STARGA, Inc.</p>
       </div>
 
