@@ -22,6 +22,8 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .brand-title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
 .brand-separator { margin: 0 0.75rem; color: var(--color-border); font-weight: 300; font-size: 1.25rem; }
 .brand-tagline { font-size: 0.85rem; color: var(--color-muted); font-weight: 400; white-space: nowrap; }
+@media (max-width: 900px) { .brand-separator, .brand-tagline { display: none; } }
+
 .nav { display: flex; gap: 1.5rem; align-items: center; }
 .nav-link { text-decoration: none; color: var(--color-muted); font-weight: 500; font-size: 0.9rem; transition: color 0.2s; }
 .nav-link:hover { color: var(--color-accent); }
@@ -29,9 +31,6 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .nav-social-link { display: flex; align-items: center; justify-content: center; color: #000000 !important; padding: 0.25rem; transition: color 0.2s, transform 0.2s; }
 .nav-social-link:hover { color: var(--color-accent) !important; transform: scale(1.1); }
 .nav-social-link svg { display: block; width: 24px; height: 24px; }
-
-@media (max-width: 900px) { .brand-separator, .brand-tagline { display: none; } }
-/* Removed complex mobile menu media queries */
 
 /* --- HERO & CARDS --- */
 .hero-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); overflow: hidden; text-align: left; max-width: 650px; margin: 0 auto; }
@@ -73,16 +72,26 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; }
 .footer-meta { display: flex; flex-direction: column; align-items: flex-start; }
 
-/* FOOTER LOGO FIXES: Size and Color */
+/* LOGO & TEXT STYLING */
 .footer-logo {
-  height: 16px; /* Twice smaller (was 32px) */
+  height: 100px; /* Updated Size */
   width: auto;
-  margin-bottom: 1rem;
-  /* Forces the blue SVG to become dark grey */
-  filter: grayscale(100%) contrast(0%) brightness(30%);
-  opacity: 0.8;
+  margin-bottom: 1.5rem;
 }
 
-.footer-copy { color: var(--color-dark-grey); margin-top: 1rem; font-size: 0.85rem; }
+/* New container for single-line text */
+.footer-brand-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.footer-title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 1.1rem; }
+.footer-separator { font-weight: 400; color: var(--color-muted); }
+.footer-tagline { font-family: 'Inter', sans-serif; font-weight: 400; color: var(--color-muted); }
+
+.footer-copy { color: var(--color-dark-grey); margin-top: 0.5rem; font-size: 0.85rem; }
 .footer-links { display: flex; gap: 4rem; }
 .footer-column a { display: block; text-decoration: none; color: var(--color-muted); margin-bottom: 0.6rem; font-size: 0.9rem; }
