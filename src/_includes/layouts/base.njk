@@ -23,10 +23,6 @@
         <span class="brand-tagline">Machine Intelligence Native Design</span>
       </a>
 
-      <button class="mobile-toggle" aria-label="Toggle menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
-
       <nav class="nav">
         <a href="/" class="nav-link">Overview</a>
         <a href="/features/" class="nav-link">Features</a>
@@ -76,15 +72,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    const toggle = document.querySelector('.mobile-toggle');
-    const header = document.querySelector('.site-header');
-    if(toggle) {
-      toggle.addEventListener('click', () => {
-        header.classList.toggle('nav-open');
-      });
-    }
-  </script>
 </body>
 </html>

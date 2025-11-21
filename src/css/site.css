@@ -1,8 +1,8 @@
 :root {
   --color-bg: #ffffff;
   --color-text: #111827;
-  --color-muted: #64748b; /* Lighter grey for general text */
-  --color-dark-grey: #334155; /* Darker grey for copyright/arrows */
+  --color-muted: #64748b;
+  --color-dark-grey: #334155;
   --color-accent: #4f46e5;
   --border-color: #e2e8f0;
   --radius-md: 10px;
@@ -15,10 +15,9 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   position: sticky; top: 0; z-index: 100;
   background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color); padding: 0.8rem 0;
-  transition: all 0.3s ease;
 }
-.header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; position: relative; }
-.brand { display: flex; align-items: center; text-decoration: none; color: var(--color-text); z-index: 101; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.brand { display: flex; align-items: center; text-decoration: none; color: var(--color-text); }
 .brand-mark { height: 32px; width: 32px; margin-right: 0.75rem; }
 .brand-title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
 .brand-separator { margin: 0 0.75rem; color: var(--color-border); font-weight: 300; font-size: 1.25rem; }
@@ -26,27 +25,13 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .nav { display: flex; gap: 1.5rem; align-items: center; }
 .nav-link { text-decoration: none; color: var(--color-muted); font-weight: 500; font-size: 0.9rem; transition: color 0.2s; }
 .nav-link:hover { color: var(--color-accent); }
-.header-cta { display: flex; align-items: center; gap: 1rem; z-index: 101; }
+.header-cta { display: flex; align-items: center; gap: 1rem; }
 .nav-social-link { display: flex; align-items: center; justify-content: center; color: #000000 !important; padding: 0.25rem; transition: color 0.2s, transform 0.2s; }
 .nav-social-link:hover { color: var(--color-accent) !important; transform: scale(1.1); }
 .nav-social-link svg { display: block; width: 24px; height: 24px; }
-.mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--color-text); padding: 0.5rem; z-index: 102; }
 
-/* --- MOBILE MEDIA QUERY --- */
 @media (max-width: 900px) { .brand-separator, .brand-tagline { display: none; } }
-@media (max-width: 768px) {
-  .mobile-toggle { display: block; margin-left: auto; order: 2; }
-  .header-cta { margin-right: 1rem; order: 1; }
-  .nav {
-    position: absolute; top: 100%; left: 0; right: 0;
-    background: #fff; flex-direction: column; padding: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 10px 20px -10px rgba(0,0,0,0.1);
-    display: none; gap: 1rem; text-align: center;
-  }
-  .nav-link { font-size: 1.1rem; display: block; width: 100%; padding: 0.5rem 0; }
-  .site-header.nav-open .nav { display: flex; }
-}
+/* Removed complex mobile menu media queries */
 
 /* --- HERO & CARDS --- */
 .hero-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); overflow: hidden; text-align: left; max-width: 650px; margin: 0 auto; }
@@ -87,9 +72,17 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .site-footer { margin-top: 6rem; border-top: 1px solid var(--border-color); padding: 4rem 0; background: #f8fafc; }
 .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; }
 .footer-meta { display: flex; flex-direction: column; align-items: flex-start; }
-/* New Footer Logo Style */
-.footer-logo { height: 32px; width: auto; margin-bottom: 1rem; }
-/* Darker Copyright text */
+
+/* FOOTER LOGO FIXES: Size and Color */
+.footer-logo {
+  height: 16px; /* Twice smaller (was 32px) */
+  width: auto;
+  margin-bottom: 1rem;
+  /* Forces the blue SVG to become dark grey */
+  filter: grayscale(100%) contrast(0%) brightness(30%);
+  opacity: 0.8;
+}
+
 .footer-copy { color: var(--color-dark-grey); margin-top: 1rem; font-size: 0.85rem; }
 .footer-links { display: flex; gap: 4rem; }
 .footer-column a { display: block; text-decoration: none; color: var(--color-muted); margin-bottom: 0.6rem; font-size: 0.9rem; }
