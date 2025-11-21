@@ -2,29 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Cache clear v2 -->
-  <title>{{ title or "MIND Language" }}</title>
+  <title>{{ title }}</title>
   <link rel="stylesheet" href="/css/spruce.css">
-  <style>
-    /* Custom overrides for MIND branding */
-    :root { --primary: #4F46E5; --primary-dark: #4338ca; }
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    .navbar { padding: 1rem 0; border-bottom: 1px solid #eee; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
-  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container" style="display:flex; justify-content:space-between; align-items: center;">
-      <a href="/" style="font-weight:bold; font-size:1.2rem; text-decoration:none;">🧠 MIND</a>
-      <div style="display: flex; gap: 1rem; align-items: center;">
-        <a href="/features/" class="btn btn--sm btn--text">Features</a>
-        <a href="/community/" class="btn btn--sm btn--text">Community</a>
-        <a href="/docs/" class="btn btn--sm btn--text">Docs</a>
-        <a href="https://github.com/cputer/mind" class="btn btn--sm btn--primary">GitHub</a>
-      </div>
-    </div>
-  </nav>
   <main>
     {{ content | safe }}
   </main>
