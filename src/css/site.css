@@ -37,7 +37,7 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 /* --- RIGHT SIDE CTA (Alignment Fix) --- */
 .header-cta {
   display: flex;
-  align-items: center; /* <--- THIS FIXES THE CENTERING */
+  align-items: center;
   gap: 1rem;
 }
 
@@ -46,16 +46,16 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000000 !important; /* <--- FORCES BLACK */
+  color: #000000 !important;
   transition: color 0.2s, transform 0.2s;
   padding: 0.25rem;
 }
 .nav-social-link:hover {
-  color: var(--color-accent) !important; /* Blue on Hover */
+  color: var(--color-accent) !important;
   transform: scale(1.1);
 }
 .nav-social-link svg {
-  display: block; /* Removes invisible spacing */
+  display: block;
   width: 24px;
   height: 24px;
 }
