@@ -127,3 +127,13 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   margin-bottom: 1rem;
   stroke-width: 1.5;
 }
+
+/* --- CARD IMAGES --- */
+.card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+}
