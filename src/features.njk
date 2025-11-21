@@ -1,0 +1,106 @@
+---
+layout: layouts/marketing-base.njk
+title: MIND features
+description: Deep dive into the language and compiler features that make MIND a native environment for intelligent systems.
+---
+
+<section class="section">
+  <div class="container">
+    <h1 class="page-title">Features</h1>
+    <p class="section-lede">
+      MIND combines a tensor-native language, differentiable programming, and a modern compiler pipeline to give you a unified environment for AI development.
+    </p>
+
+    <div class="grid grid--three">
+      <div class="card card--outline">
+        <h2>Tensor-native type system</h2>
+        <p>
+          Tensors are first-class types, not just library objects. Define shapes and dtypes in signatures and let the compiler infer the rest.
+        </p>
+        <ul class="list">
+          <li>Compile-time validation of tensor dimensions</li>
+          <li>Shape inference across function boundaries</li>
+          <li>Safer refactors: incompatible changes fail at build time</li>
+        </ul>
+      </div>
+
+      <div class="card card--outline">
+        <h2>Built-in automatic differentiation</h2>
+        <p>
+          Mark functions as differentiable and let the compiler generate optimized gradient code at the IR level.
+        </p>
+        <ul class="list">
+          <li>Source-transformation AD in the compiler pipeline</li>
+          <li>Gradients as first-class functions</li>
+          <li>Optimizations applied to forward and backward passes</li>
+        </ul>
+      </div>
+
+      <div class="card card--outline">
+        <h2>Device semantics in the language</h2>
+        <p>
+          Express where computations should run and get compile-time checks that your program matches device capabilities.
+        </p>
+        <ul class="list">
+          <li>Device annotations for CPU, GPU, and future accelerators</li>
+          <li>Compile-time validation of unsupported ops on targets</li>
+          <li>Multi-target builds from a single source codebase</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="grid grid--two">
+      <div>
+        <h2>MLIR + LLVM compiler pipeline</h2>
+        <p>
+          MIND lowers into a dedicated MLIR dialect for tensor and graph optimizations, and then into LLVM IR for hardware-specific code generation.
+        </p>
+        <ul class="list">
+          <li>Operator fusion and layout optimization at the MLIR level</li>
+          <li>Reuse of LLVM's mature optimization passes</li>
+          <li>Support for x86, ARM, RISC‑V, WebAssembly, and more</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Deterministic builds &amp; safety</h2>
+        <p>
+          The compiler is written in Rust and produces deterministic, reproducible binaries. No dynamic interpreter, no hidden runtime magic.
+        </p>
+        <ul class="list">
+          <li>Rust-style memory safety and concurrency guarantees</li>
+          <li>Bit-for-bit reproducible builds given the same inputs</li>
+          <li>Lean runtime surface area for secure deployments</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="grid grid--two">
+      <div>
+        <h2>Open-core, extensible design</h2>
+        <p>
+          The core compiler and language are MIT-licensed. Enterprises can extend MIND with private backends, passes, and runtimes without forking the language.
+        </p>
+        <ul class="list">
+          <li>Open-source core for community innovation</li>
+          <li>Pluggable executors for custom hardware</li>
+          <li>FFI hooks for C/C++ and Python interoperability</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Designed for real-world teams</h2>
+        <p>
+          MIND is not just a research prototype; it is engineered for versioning, CI integration, and long-lived services.
+        </p>
+        <ul class="list">
+          <li>Friendly to Git-based workflows and code review</li>
+          <li>Static binaries for containerized deployment</li>
+          <li>Compiler diagnostics optimized for tensor-heavy code</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

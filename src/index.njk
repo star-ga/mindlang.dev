@@ -1,0 +1,153 @@
+---
+layout: layouts/marketing-base.njk
+title: MIND – Intelligence, Compiled.
+description: MIND is a tensor-native, Rust-inspired language and compiler that unifies modeling, compilation, and deployment of intelligent systems.
+---
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">MIND · MACHINE INTELLIGENCE NATIVE DESIGN</p>
+      <h1>Intelligence, <span class="accent">compiled.</span></h1>
+      <p class="hero-lede">
+        MIND is a programming language and compiler stack built specifically for AI and numerical computing —
+        tensor-native types, static shape checks, automatic differentiation, and MLIR-powered code generation, all in one toolchain.
+      </p>
+
+      <div class="hero-actions">
+        <a href="{{ site.docsPath }}" class="btn btn--primary btn--lg">Read the language spec</a>
+        <a href="{{ site.github }}" class="btn btn--ghost btn--lg">Browse the source</a>
+      </div>
+
+      <p class="hero-meta">
+        Open-core · Rust implementation · MLIR + LLVM pipeline · Deterministic builds
+      </p>
+    </div>
+
+    <div class="hero-panel">
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <span class="badge">MIND example</span>
+          <span class="hero-card-title">Tensor-native main</span>
+        </div>
+<pre><code class="code-block language-mind">fn main() {
+  // 2x2 input tensor
+  let x: Tensor&lt;f32, 2, 2&gt; = [[1.0, 2.0], [3.0, 4.0]];
+
+  // Parameter tensor with compile-time shape
+  let w: Tensor&lt;f32, 2, 2&gt; = randn();
+
+  // Autodiff-ready computation
+  let y = relu(x @ w);
+
+  print(y);
+}</code></pre>
+        <p class="hero-card-footnote">
+          Shapes and dtypes are known at compile time, so invalid tensor math never reaches production.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="section-title">Why MIND?</h2>
+    <p class="section-lede">
+      Today's AI stacks are fragmented: Python for research, C++/CUDA for performance, separate runtimes for cloud and edge.
+      MIND collapses that into a single language and compiler pipeline.
+    </p>
+
+    <div class="grid grid--three">
+      <div class="card">
+        <h3>One language from prototype to production</h3>
+        <p>
+          Author models, training loops, and serving code in the same language. No "Python version" and "C++ version" to keep in sync.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Tensor-native and statically checked</h3>
+        <p>
+          Shapes, dtypes, and device semantics live in the type system, catching whole classes of bugs at compile time instead of at runtime.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Compiler-grade performance</h3>
+        <p>
+          The compiler lowers through MLIR into LLVM, giving you highly optimized CPU and accelerator code without hand-written kernels.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">How the stack fits together</h2>
+    <div class="grid grid--two">
+      <div class="card card--outline">
+        <h3>Language &amp; type system</h3>
+        <p>
+          A Rust-inspired language with first-class tensors, deterministic memory management, and built-in automatic differentiation.
+        </p>
+        <ul class="list">
+          <li>Shape- and dtype-aware tensors</li>
+          <li>Differentiable functions with compiler-generated gradients</li>
+          <li>Device annotations for CPU, GPU, and future accelerators</li>
+        </ul>
+      </div>
+      <div class="card card--outline">
+        <h3>Compiler &amp; runtime</h3>
+        <p>
+          Source code is lowered into a custom MLIR dialect and then into LLVM IR, producing optimized binaries and modular runtimes for CPU and accelerators.
+        </p>
+        <ul class="list">
+          <li>MLIR-based IR for tensor and graph optimizations</li>
+          <li>LLVM for hardware-specific code generation</li>
+          <li>Lean runtime modules for AOT, JIT, and embedded targets</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="section-title">Who is MIND for?</h2>
+    <div class="grid grid--three">
+      <div class="card">
+        <h3>AI platform teams</h3>
+        <p>
+          Standardize on one language for research and production. Eliminate glue code between notebooks, services, and accelerators.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Applied ML engineers</h3>
+        <p>
+          Express models in high-level syntax with compiler-checked shapes and gradients. Spend time on modeling, not on fighting build systems.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Edge &amp; embedded builders</h3>
+        <p>
+          Compile to lean, deterministic binaries that fit into constrained environments where interpreters and heavy runtimes are not an option.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cta">
+  <div class="container cta-inner">
+    <div class="cta-copy">
+      <h2>Ready to explore the language?</h2>
+      <p>
+        Start with the language spec, then dive into the core implementation. MIND is open-core: the compiler and language are MIT-licensed and ready for experimentation.
+      </p>
+    </div>
+    <div class="cta-actions">
+      <a href="{{ site.docsPath }}" class="btn btn--primary btn--lg">Open the spec</a>
+      <a href="{{ site.github }}" class="btn btn--ghost btn--lg">Clone the repo</a>
+    </div>
+  </div>
+</section>
