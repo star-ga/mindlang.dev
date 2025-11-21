@@ -100,3 +100,10 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; }
 .footer-links { display: flex; gap: 4rem; }
 .footer-column a { display: block; text-decoration: none; color: var(--color-muted); margin-bottom: 0.6rem; font-size: 0.9rem; }
+
+/* --- FONT FIX --- */
+.brand-title {
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+}
