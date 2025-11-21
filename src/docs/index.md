@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: layouts/base.html
 title: Documentation
 description: Official specification and guides for MIND.
 ---
