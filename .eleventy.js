@@ -56,10 +56,9 @@ module.exports = config => {
 
   config.setLibrary('md', markdownLib);
 
-  // Pagefind search disabled - causing build issues
-  // config.on('eleventy.after', () => {
-  //   execSync(`npx pagefind --source dist --glob \"**/*.html\"`, { encoding: 'utf-8' })
-  // });
+  config.on('eleventy.after', () => {
+    execSync(`npx pagefind --source dist --glob \"**/*.html\"`, { encoding: 'utf-8' })
+  });
 
   return {
     markdownTemplateEngine: 'njk',
