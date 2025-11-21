@@ -1,0 +1,11 @@
+{
+  "name": "mindlang.dev",
+  "scripts": {
+    "build": "npx @11ty/eleventy --input=src --output=dist",
+    "serve": "npx @11ty/eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "sprucecss": "latest"
+  }
+}
