@@ -209,6 +209,34 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   border: 1px solid var(--border-color);
   box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
 }
+
+/* --- SLIDESHOW --- */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 66.66%; /* Aspect ratio placeholder (3:2) */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+  border: 1px solid var(--border-color);
+}
+
+.slideshow-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  object-fit: cover;
+}
+
+.slideshow-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
 .feature-row h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
