@@ -3,7 +3,7 @@
   --color-text: #111827;
   --color-muted: #64748b;
   --color-dark-grey: #334155;
-  --color-accent: #4f46e5;
+  --color-accent: #54d4f2;
   --border-color: #e2e8f0;
   --radius-md: 10px;
 }
@@ -26,12 +26,12 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 /* NAV */
 .nav { display: flex; gap: 1.5rem; align-items: center; }
 .nav-link { text-decoration: none; color: var(--color-muted); font-weight: 500; font-size: 0.9rem; transition: color 0.2s; white-space: nowrap; }
-.nav-link:hover { color: var(--color-accent); }
+.nav-link:hover { color: #0ea5e9; }
 .nav-link--active { color: var(--color-text); font-weight: 600; }
 
 .header-cta { display: flex; align-items: center; gap: 1rem; margin-left: auto; }
 .nav-social-link { display: flex; align-items: center; justify-content: center; color: #000000 !important; padding: 0.25rem; transition: color 0.2s, transform 0.2s; }
-.nav-social-link:hover { color: var(--color-accent) !important; transform: scale(1.1); }
+.nav-social-link:hover { color: #0ea5e9 !important; transform: scale(1.1); }
 .nav-social-link svg { display: block; width: 24px; height: 24px; }
 .mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--color-text); padding: 0.5rem; z-index: 102; }
 
@@ -66,8 +66,9 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
 .hero-lede { font-size: 1.25rem; color: var(--color-muted); max-width: 650px; margin: 0 auto 2.5rem; }
 .accent { color: var(--color-accent); }
-.btn { display: inline-flex; padding: 0.6rem 1.2rem; border-radius: 99px; font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+.btn { display: inline-flex; padding: 0.6rem 1.2rem; border-radius: 99px; font-weight: 600; text-decoration: none; font-size: 0.9rem; transition: background-color 0.2s; }
 .btn--primary { background: var(--color-accent); color: white; }
+.btn--primary:hover { background: #0ea5e9; }
 .btn--ghost { color: var(--color-text); border: 1px solid var(--border-color); }
 .cta-graphic { margin: 0 0 2.5rem 0 !important; max-width: 600px !important; width: 100%; display: block; }
 
@@ -153,7 +154,7 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, #0EA5E9, transparent);
+  background: linear-gradient(90deg, transparent, #54d4f2, transparent);
   opacity: 0.5;
 }
 .card--schematic h2, .card--schematic h3 {
@@ -180,7 +181,7 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   margin: 0 auto 1.5rem auto; /* Center horizontally */
   width: 100px;
   height: 100px;
-  color: #0EA5E9; /* Stack Blue */
+  color: #54d4f2; /* Stack Blue */
 }
 
 /* --- ZIG-ZAG FEATURE ROWS --- */
