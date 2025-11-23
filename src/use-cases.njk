@@ -1,79 +1,85 @@
 ---
 layout: layouts/base.njk
-title: MIND use cases
-description: Concrete scenarios where MIND's unified language and compiler deliver value, from edge inference to financial modeling.
+title: Use Cases
+description: Where Mind shines - from edge devices to high-frequency trading.
 ---
 
-<section class="section">
-  <div class="container">
-    <h1 class="page-title">Use cases</h1>
-    <p class="section-lede">
-      MIND shines wherever intelligent systems need to be fast, reliable, and maintainable. Here are a few representative scenarios.
-    </p>
+<div class="container section">
+  <div class="hero">
+    <h1>Built for <span class="accent">Performance</span> Critical Systems</h1>
+    <p class="hero-lede">Mind is designed for environments where every cycle counts and safety is non-negotiable.</p>
+  </div>
 
-    <div class="grid grid--three">
-      <div class="card card--outline">
-        <h2>Edge &amp; embedded inference</h2>
-        <p>
-          Compile MIND models into compact binaries for cameras, sensors, and robotics platforms where Python and heavyweight runtimes are not viable.
-        </p>
-        <ul class="list">
-          <li>Always-on computer vision on low-power devices</li>
-          <li>Predictive maintenance for industrial sensors</li>
-          <li>Autonomous drones with quantized models</li>
-        </ul>
-      </div>
-
-      <div class="card card--outline">
-        <h2>Latency-sensitive services</h2>
-        <p>
-          Use MIND for ranking, recommendation, and fraud detection services that must respond in microseconds, not milliseconds.
-        </p>
-        <ul class="list">
-          <li>Rust-like performance with tensor-native ergonomics</li>
-          <li>Deterministic, reproducible inference paths</li>
-          <li>Easy horizontal scaling with stateless binaries</li>
-        </ul>
-      </div>
-
-      <div class="card card--outline">
-        <h2>Quant &amp; risk modeling</h2>
-        <p>
-          For trading and risk systems, MIND offers type-checked math, predictable performance, and clear deployment story.
-        </p>
-        <ul class="list">
-          <li>Static guarantees on tensor shapes in critical models</li>
-          <li>Bit-exact builds for auditability and compliance</li>
-          <li>Integration with existing C++/Rust codebases</li>
-        </ul>
-      </div>
+  <div class="grid grid--three">
+    <!-- Card 1: Edge Computing -->
+    <div class="card card--schematic">
+      <img src="/img/features/cpu.svg" class="card-icon" alt="Edge Computing" />
+      <h3>Edge Computing</h3>
+      <p>Deploy complex logic to resource-constrained devices without sacrificing safety or performance.</p>
+      <ul class="list">
+        <li>Zero-cost abstractions</li>
+        <li>Minimal runtime footprint</li>
+        <li>Direct hardware access</li>
+      </ul>
     </div>
 
-    <hr class="divider" />
+    <!-- Card 2: Real-time Systems -->
+    <div class="card card--schematic">
+      <img src="/img/features/zap.svg" class="card-icon" alt="Real-time Systems" />
+      <h3>Real-time Systems</h3>
+      <p>Predictable execution times and strict memory guarantees for mission-critical control loops.</p>
+      <ul class="list">
+        <li>Deterministic memory management</li>
+        <li>No garbage collection pauses</li>
+        <li>Compile-time resource verification</li>
+      </ul>
+    </div>
 
-    <div class="grid grid--two">
-      <div>
-        <h2>From research notebooks to production</h2>
-        <p>
-          Teams can prototype in Python or notebooks, then migrate performance‑critical paths into MIND to get compiler‑grade performance without rewriting everything at once.
-        </p>
-        <ul class="list">
-          <li>Import/export via ONNX and custom frontends</li>
-          <li>Python FFI bridge for gradual adoption</li>
-          <li>Same MIND codebase for training and serving</li>
-        </ul>
-      </div>
-      <div>
-        <h2>AI platforms and internal tooling</h2>
-        <p>
-          Platform teams can standardize internal tooling around MIND's IR and runtimes, simplifying governance and hardware support.
-        </p>
-        <ul class="list">
-          <li>Shared compiler passes for performance and safety</li>
-          <li>Unified observability and profiling at the IR level</li>
-          <li>Extensible backends for in‑house accelerators</li>
-        </ul>
-      </div>
+    <!-- Card 3: Quantitative Finance -->
+    <div class="card card--schematic">
+      <img src="/img/features/bar-chart.svg" class="card-icon" alt="Quantitative Finance" />
+      <h3>Quantitative Finance</h3>
+      <p>Execute complex trading strategies with the lowest possible latency and highest reliability.</p>
+      <ul class="list">
+        <li>Microsecond-level latency</li>
+        <li>Safe concurrency models</li>
+        <li>Mathematical correctness proofs</li>
+      </ul>
     </div>
   </div>
-</section>
+
+  <hr class="divider">
+
+  <!-- Feature Row 1: Embedded Systems -->
+  <div class="feature-row">
+    <div class="feature-row-content">
+      <h2>Embedded Systems</h2>
+      <p>Mind brings modern language features to bare-metal development, making embedded programming safer and more productive.</p>
+      <ul>
+        <li><strong>Memory Safety without GC:</strong> Prevent buffer overflows and null pointer dereferences at compile time.</li>
+        <li><strong>Hardware Abstraction:</strong> Write reusable drivers with zero runtime overhead using Mind's powerful type system.</li>
+        <li><strong>Cross-Compilation:</strong> First-class support for ARM, RISC-V, and AVR architectures out of the box.</li>
+      </ul>
+    </div>
+    <div class="feature-row-image">
+      <img src="/img/features/schematic-1.svg" alt="Embedded Systems Schematic" />
+    </div>
+  </div>
+
+  <!-- Feature Row 2: Cloud Infrastructure -->
+  <div class="feature-row feature-row--reversed">
+    <div class="feature-row-content">
+      <h2>Cloud Infrastructure</h2>
+      <p>Build robust, scalable network services that can handle millions of concurrent connections with ease.</p>
+      <ul>
+        <li><strong>Async/Await:</strong> Native support for asynchronous I/O with a highly efficient work-stealing scheduler.</li>
+        <li><strong>Fearless Concurrency:</strong> The ownership model ensures thread safety without the need for complex locking mechanisms.</li>
+        <li><strong>Binary Portability:</strong> Compile once and deploy single static binaries to any Linux distribution or container.</li>
+      </ul>
+    </div>
+    <div class="feature-row-image">
+      <img src="/img/features/schematic-2.svg" alt="Cloud Infrastructure Schematic" />
+    </div>
+  </div>
+
+</div>

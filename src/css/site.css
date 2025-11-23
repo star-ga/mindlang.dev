@@ -182,3 +182,70 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   height: 100px;
   color: #0EA5E9; /* Stack Blue */
 }
+
+/* --- ZIG-ZAG FEATURE ROWS --- */
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+.feature-row:last-child {
+  margin-bottom: 0;
+}
+.feature-row--reversed {
+  flex-direction: row-reverse;
+}
+.feature-row-content {
+  flex: 1;
+}
+.feature-row-image {
+  flex: 1;
+}
+.feature-row-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+}
+.feature-row h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.feature-row p {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+.feature-row ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.feature-row li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-dark-grey);
+}
+.feature-row li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: bold;
+}
+.feature-row strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .feature-row, .feature-row--reversed {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: left;
+  }
+}
