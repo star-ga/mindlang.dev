@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+---
+<div class="container l-main">
+  <aside class="l-main__sidebar">
+    <div class="sidebar__body">
+      {% include "partials/docs-sidebar.njk" %}
+    </div>
+  </aside>
+
+  <main class="l-main__body">
+    <div class="post-content">
+      <!-- Breadcrumbs -->
+      <div style="display: flex; align-items: center; font-size: 0.875rem; color: var(--color-muted); margin-bottom: 2rem;">
+        <a href="/" style="color: inherit; text-decoration: none; display: flex; align-items: center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </a>
+        <span style="margin: 0 0.5rem;">/</span>
+        <span style="font-weight: 500; color: var(--color-text);">Documentation</span>
+      </div>
+
+      {{ content | safe }}
+    </div>
+  </main>
+</div>
