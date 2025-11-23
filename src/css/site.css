@@ -337,6 +337,12 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .transform-gpu { transform: translateZ(0); }
 .border { border-width: 1px; }
 .border-slate-200 { border-color: #e2e8f0; }
+.w-\[calc\(100\%\+2px\)\] { width: calc(100% + 2px); }
+.h-\[calc\(100\%\+2px\)\] { height: calc(100% + 2px); }
+.-m-px { margin: -1px; }
+.max-w-none { max-width: none; }
+.transition-opacity { transition-property: opacity; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+.duration-1000 { transition-duration: 1000ms; }
 
 @media (min-width: 640px) {
   .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
