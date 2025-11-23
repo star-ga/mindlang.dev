@@ -1,0 +1,12 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Core -->
+  <circle cx="32" cy="32" r="12" stroke="#38bdf8" stroke-width="1.5" fill="rgba(56, 189, 248, 0.2)"/>
+  <text x="26" y="34" fill="#38bdf8" font-family="monospace" font-size="4">CORE</text>
+  <!-- Extension Ring -->
+  <path d="M32 8 A24 24 0 0 1 56 32" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 4" opacity="0.6"/>
+  <path d="M56 32 A24 24 0 0 1 32 56" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 4" opacity="0.6"/>
+  <path d="M32 56 A24 24 0 0 1 8 32" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 4" opacity="0.6"/>
+  <path d="M8 32 A24 24 0 0 1 32 8" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 4" opacity="0.6"/>
+  <!-- Labels -->
+  <text x="22" y="60" fill="#38bdf8" font-family="monospace" font-size="4">EXTENSIONS</text>
+</svg>
