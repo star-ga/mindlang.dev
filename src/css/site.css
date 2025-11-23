@@ -134,27 +134,31 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 
 /* --- SCHEMATIC FEATURES --- */
 .card--schematic {
-  background: #0f172a; /* Slate 900 */
-  border: 1px solid #1e293b; /* Slate 800 */
-  color: #f8fafc; /* Slate 50 */
+  background-color: #F8FAFC; /* Light Grey */
+  border: 1px solid #E2E8F0;
+  color: #0F172A; /* Dark Text */
+  text-align: left; /* Default for body text */
+  padding: 2rem;
+  border-radius: 12px;
   position: relative;
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .card--schematic:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
-  border-color: #38bdf8;
+  box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.15);
+  border-color: #0EA5E9;
 }
 .card--schematic::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, #38bdf8, transparent);
-  opacity: 0.3;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #0EA5E9, transparent);
+  opacity: 0.5;
 }
 .card--schematic h2, .card--schematic h3 {
-  color: #38bdf8; /* Sky 400 to match icons */
+  text-align: center;
+  color: #0F172A;
   font-family: 'JetBrains Mono', monospace; /* Technical font */
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -162,17 +166,19 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   margin-bottom: 1rem;
 }
 .card--schematic p {
-  color: #94a3b8; /* Slate 400 */
+  color: #64748b; /* Slate 500 */
   font-size: 0.9rem;
 }
 .card--schematic .list {
-  color: #cbd5e1; /* Slate 300 */
-  border-top: 1px solid #1e293b;
+  color: #334155; /* Slate 700 */
+  border-top: 1px solid #e2e8f0;
   padding-top: 1rem;
   margin-top: 1rem;
 }
 .card--schematic .card-icon {
-  width: 64px; height: 64px;
-  margin-bottom: 1.25rem;
   display: block;
+  margin: 0 auto 1.5rem auto; /* Center horizontally */
+  width: 100px;
+  height: 100px;
+  color: #0EA5E9; /* Stack Blue */
 }
