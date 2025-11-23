@@ -214,33 +214,35 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .slideshow-container {
   position: relative;
   width: 100%;
-  height: 400px; /* Fixed height as requested */
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
-  border: 1px solid var(--border-color);
-  background-color: #f8fafc; /* bg-slate-50 */
+  height: 100%;          /* h-full */
+  min-height: 400px;     /* min-h-[400px] */
+  overflow: hidden;      /* overflow-hidden */
+  border-radius: 12px;   /* rounded-xl */
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); /* shadow-md */
+  border: 1px solid var(--border-color); /* border border-slate-200 */
+  background-color: #ffffff; /* bg-white */
 }
 
-.slideshow-container .slideshow-slide {
-  position: absolute;
-  top: 0;
+/* Use higher specificity to override .feature-row-image img */
+.feature-row-image .slideshow-container .slideshow-slide {
+  position: absolute;    /* absolute */
+  top: 0;                /* inset-0 */
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100%;           /* w-full */
+  height: 100%;          /* h-full */
+  object-fit: cover;     /* object-cover */
+  transition: opacity 1s ease-in-out; /* transition-opacity duration-1000 */
   opacity: 0;
-  transition: opacity 1s ease-in-out;
-  object-fit: cover;
   
-  /* Reset generic image styles that might interfere */
+  /* Reset generic styles */
   border: none;
   box-shadow: none;
   border-radius: 0;
   margin: 0;
 }
 
-.slideshow-container .slideshow-slide.active {
-  opacity: 1;
+.feature-row-image .slideshow-container .slideshow-slide.active {
+  opacity: 1;            /* opacity-100 */
   z-index: 1;
 }
 
