@@ -1,16 +1,18 @@
 {% for section in docs_navigation %}
-<div class="sidebar-section">
-  <h4 class="sidebar-section__title">{{ section.title }}</h4>
-  <nav class="sidebar-section__navigation">
-    <ul>
-      {% for item in section.items %}
-      <li>
-        <a href="{{ item.href }}" {% if page.url == item.href %}aria-current="page"{% endif %}>
-          {{ item.name }}
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-  </nav>
+<div style="margin-bottom: 2rem;">
+  <h5 style="margin-bottom: 0.75rem; font-weight: 700; color: #0f172a; letter-spacing: -0.025em; font-size: 1rem;">
+    {{ section.title }}
+  </h5>
+  <ul style="list-style: none; padding: 0; margin: 0; border-left: 1px solid #f1f5f9; margin-left: 0.25rem;">
+    {% for item in section.items %}
+    <li style="margin-left: -1px;">
+      <a href="{{ item.href }}" 
+         style="display: block; font-size: 0.875rem; padding: 0.375rem 1rem; border-left: 2px solid {% if page.url == item.href %}#4f46e5{% else %}transparent{% endif %}; color: {% if page.url == item.href %}#4338ca{% else %}#475569{% endif %}; font-weight: {% if page.url == item.href %}500{% else %}400{% endif %}; text-decoration: none; transition: color 0.15s;"
+         {% if page.url == item.href %}aria-current="page"{% endif %}>
+        {{ item.name }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
 </div>
 {% endfor %}

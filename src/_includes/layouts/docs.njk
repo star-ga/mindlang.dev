@@ -1,32 +1,37 @@
 ---
 layout: layouts/base.njk
 ---
-<div class="container l-main">
-  <aside class="l-main__sidebar">
-    <div class="sidebar__body">
+<div style="min-height: 100vh; background-color: white; color: #0f172a;">
+  <div style="display: flex; max-width: 90rem; margin: 0 auto;">
+    
+    <!-- Sidebar -->
+    <aside style="width: 16rem; flex-shrink: 0; border-right: 1px solid #e2e8f0; background-color: white; height: 100vh; position: sticky; top: 0; overflow-y: auto; padding: 2rem 1rem 2rem 1.5rem;">
       {% include "partials/docs-sidebar.njk" %}
-    </div>
-  </aside>
+    </aside>
 
-  <main class="l-main__body">
-    <div class="post-content">
+    <!-- Main Content -->
+    <main style="flex: 1; min-width: 0; padding: 2.5rem 2rem 2.5rem 3rem;">
+      
       <!-- Breadcrumbs -->
-      <nav style="display: flex; align-items: center; font-size: 0.875rem; color: var(--color-muted); margin-bottom: 2rem;" aria-label="Breadcrumb">
-        <a href="/" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 0.25rem;" class="hover:text-indigo-600">
+      <nav style="display: flex; align-items: center; font-size: 0.875rem; color: #64748b; margin-bottom: 2rem;" aria-label="Breadcrumb">
+        <a href="/" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 0.25rem;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
           <span>Home</span>
         </a>
         
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 0.5rem; color: var(--color-border);"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 0.5rem; color: #cbd5e1;"><polyline points="9 18 15 12 9 6"></polyline></svg>
         
-        <a href="/docs/" style="color: inherit; text-decoration: none;" class="hover:text-indigo-600">Documentation</a>
+        <a href="/docs/" style="color: inherit; text-decoration: none;">Documentation</a>
         
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 0.5rem; color: var(--color-border);"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 0.5rem; color: #cbd5e1;"><polyline points="9 18 15 12 9 6"></polyline></svg>
         
-        <span style="font-weight: 500; color: var(--color-heading);">{{ title }}</span>
+        <span style="font-weight: 500; color: #0f172a;">{{ title }}</span>
       </nav>
 
-      {{ content | safe }}
-    </div>
-  </main>
+      <!-- Page Content -->
+      <div class="prose" style="max-width: none;">
+        {{ content | safe }}
+      </div>
+    </main>
+  </div>
 </div>
