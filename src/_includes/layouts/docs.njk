@@ -13,19 +13,30 @@ layout: layouts/base.njk
     <main style="flex: 1; min-width: 0; padding: 2.5rem 2rem 2.5rem 3rem;">
       
       <!-- Breadcrumbs -->
-      <nav style="display: flex; align-items: center; font-size: 0.875rem; color: #64748b; margin-bottom: 2rem;" aria-label="Breadcrumb">
-        <a href="/" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 0.25rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-          <span>Home</span>
+      <nav style="display: flex; align-items: center; font-size: 0.875rem; font-weight: 500; margin-bottom: 2rem;" aria-label="Breadcrumb">
+        <!-- Home Link -->
+        <a href="/" style="color: #4f46e5; text-decoration: none; transition: color 0.15s;" onmouseover="this.style.color='#3730a3'; this.style.textDecoration='underline';" onmouseout="this.style.color='#4f46e5'; this.style.textDecoration='none';">
+          Home
         </a>
-        
+
+        <!-- Separator -->
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 0.5rem; color: #cbd5e1;"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        
-        <a href="/docs/" style="color: inherit; text-decoration: none;">Documentation</a>
-        
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 0.5rem; color: #cbd5e1;"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        
-        <span style="font-weight: 500; color: #0f172a;">{{ title }}</span>
+
+        <!-- Dynamic Segments -->
+        {% for crumb in helpers.getBreadcrumbs(page.url) %}
+          {% if crumb.isLast %}
+            <!-- Last Item: Grey Text -->
+            <span style="color: #64748b;">{{ crumb.title }}</span>
+          {% else %}
+            <!-- Middle Item: Blue Link -->
+            <a href="{{ crumb.href }}" style="color: #4f46e5; text-decoration: none; transition: color 0.15s;" onmouseover="this.style.color='#3730a3'; this.style.textDecoration='underline';" onmouseout="this.style.color='#4f46e5'; this.style.textDecoration='none';">
+              {{ crumb.title }}
+            </a>
+            
+            <!-- Separator -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 0.5rem; color: #cbd5e1;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          {% endif %}
+        {% endfor %}
       </nav>
 
       <!-- Page Content -->

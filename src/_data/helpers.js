@@ -20,4 +20,29 @@ module.exports = {
 
     return response;
   },
+
+  getBreadcrumbs(pageUrl) {
+    if (!pageUrl) return [];
+    const parts = pageUrl.split('/').filter(Boolean);
+    const breadcrumbs = [];
+    let currentPath = '';
+
+    parts.forEach((part, index) => {
+      currentPath += `/${part}`;
+      let title = part.replace(/-/g, ' ');
+      title = title.charAt(0).toUpperCase() + title.slice(1);
+      
+      if (part === 'docs') title = 'Documentation';
+      if (part === 'std') title = 'Standard Library';
+      if (part === 'spec') title = 'Language Spec';
+
+      breadcrumbs.push({
+        title: title,
+        href: currentPath + '/',
+        isLast: index === parts.length - 1
+      });
+    });
+
+    return breadcrumbs;
+  },
 };
