@@ -330,6 +330,7 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .h-full { height: 100%; }
 .object-cover { object-fit: cover; }
 .bg-white { background-color: #ffffff; }
+.bg-\[\#E6E9F2\] { background-color: #E6E9F2; }
 .isolate { isolation: isolate; }
 .absolute { position: absolute; }
 .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
