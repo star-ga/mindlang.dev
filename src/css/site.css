@@ -130,3 +130,8 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   color: var(--color-accent); /* Purple text for "Under Construction" */
   font-weight: 700;
 }
+
+/* --- FOOTER TEXT WRAP FIX --- */
+.footer-brand-text {
+  flex-wrap: wrap;
+}
