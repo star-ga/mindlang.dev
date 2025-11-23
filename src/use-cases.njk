@@ -64,10 +64,10 @@ description: Where Mind shines - from edge devices to high-frequency trading.
         </ul>
       </div>
       <div class="w-full md:w-1/2">
-        <div class="relative w-full h-[300px] md:h-[450px] rounded-xl overflow-hidden shadow-xl" id="embedded-slideshow-container">
-          <img src="/img/features/case_frame1.jpeg" class="slideshow-slide active block" alt="Embedded Systems Frame 1" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.03);" />
-          <img src="/img/features/case_frame2.jpeg" class="slideshow-slide block" alt="Embedded Systems Frame 2" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.03);" />
-          <img src="/img/features/case_frame3.jpeg" class="slideshow-slide block" alt="Embedded Systems Frame 3" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.03);" />
+        <div class="relative w-full h-[250px] md:h-[350px] rounded-xl overflow-hidden shadow-xl border border-slate-200" id="embedded-slideshow-container">
+          <img src="/img/features/case_frame1.jpeg" id="slide-0" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" style="opacity: 1;" />
+          <img src="/img/features/case_frame2.jpeg" id="slide-1" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" style="opacity: 0;" />
+          <img src="/img/features/case_frame3.jpeg" id="slide-2" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" style="opacity: 0;" />
         </div>
       </div>
     </div>
@@ -75,12 +75,8 @@ description: Where Mind shines - from edge devices to high-frequency trading.
     <!-- Feature Row 2: Cloud Infrastructure -->
     <div class="flex flex-col md:flex-row items-center gap-10 mb-24">
       <div class="w-full md:w-1/2">
-        <div class="relative max-w-full h-[300px] md:h-[450px] rounded-xl overflow-hidden shadow-xl bg-[#0F172A] transform-gpu">
-           <img 
-             src="/img/features/case_cloud.jpeg" 
-             alt="Cloud Concurrency" 
-             class="w-full h-full object-cover block"
-           >
+        <div class="relative w-full h-[250px] md:h-[350px] rounded-xl overflow-hidden shadow-xl border border-slate-200">
+           <img src="/img/features/case_cloud.jpeg" alt="Cloud Concurrency" class="w-full h-full object-cover block" />
         </div>
       </div>
       <div class="w-full md:w-1/2">
@@ -99,13 +95,13 @@ description: Where Mind shines - from edge devices to high-frequency trading.
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('#embedded-slideshow-container .slideshow-slide');
+    const slides = document.querySelectorAll('#embedded-slideshow-container img');
     if (slides.length > 0) {
       let currentSlide = 0;
       setInterval(() => {
-        slides[currentSlide].classList.remove('active');
+        slides[currentSlide].style.opacity = 0;
         currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
+        slides[currentSlide].style.opacity = 1;
       }, 3000);
     }
   });
