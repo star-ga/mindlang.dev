@@ -286,3 +286,18 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
     text-align: left;
   }
 }
+
+/* --- TAILWIND POLYFILLS FOR FOOTER --- */
+.font-bold { font-weight: 700; }
+.text-slate-900 { color: #0f172a; }
+.mb-4 { margin-bottom: 1rem; }
+.space-y-3 > * + * { margin-top: 0.75rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-slate-600 { color: #475569; }
+.hover\:text-indigo-600:hover { color: #4f46e5; }
+.transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+.mt-12 { margin-top: 3rem; }
+.pt-8 { padding-top: 2rem; }
+.border-t { border-top-width: 1px; border-style: solid; }
+.border-slate-200 { border-color: #e2e8f0; }
+.text-slate-500 { color: #64748b; }
