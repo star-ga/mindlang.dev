@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Getting Started",
+    "items": [
+      { "name": "Introduction", "href": "/docs/" },
+      { "name": "Installation", "href": "/docs/installation/" },
+      { "name": "Quick Start", "href": "/docs/quick-start/" }
+    ]
+  },
+  {
+    "title": "Language Spec",
+    "items": [
+      { "name": "Lexical Structure", "href": "/docs/spec/lexical/" },
+      { "name": "Types & Variables", "href": "/docs/spec/types/" },
+      { "name": "Functions", "href": "/docs/spec/functions/" }
+    ]
+  },
+  {
+    "title": "Standard Library",
+    "items": [
+      { "name": "Core", "href": "/docs/std/core/" },
+      { "name": "Tensor", "href": "/docs/std/tensor/" },
+      { "name": "Math", "href": "/docs/std/math/" }
+    ]
+  }
+]
