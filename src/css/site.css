@@ -299,3 +299,30 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .mt-12 { margin-top: 3rem; }
 .pt-8 { padding-top: 2rem; }
 .block { display: block; }
+
+/* --- MORE TAILWIND POLYFILLS --- */
+.max-w-7xl { max-width: 80rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.text-center { text-align: center; }
+.mb-16 { margin-bottom: 4rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.max-w-2xl { max-width: 42rem; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.gap-8 { gap: 2rem; }
+.mb-24 { margin-bottom: 6rem; }
+.space-y-24 > * + * { margin-top: 6rem; }
+
+@media (min-width: 640px) {
+  .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+}
