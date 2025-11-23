@@ -131,7 +131,3 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   font-weight: 700;
 }
 
-/* --- FOOTER TEXT WRAP FIX --- */
-.footer-brand-text {
-  flex-wrap: wrap;
-}
