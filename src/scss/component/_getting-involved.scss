@@ -1,25 +1,30 @@
-.getting-involved {
-  background-color: #f8fafc; // bg-slate-50
-  padding: 3rem 1.5rem;
-  border-radius: 0.5rem;
-  margin-block: 3rem;
+.getting-involved-section {
+  margin-bottom: 4rem; // mb-16
 
-  &__grid {
+  h2 {
+    font-size: 1.5rem; // text-2xl
+    font-weight: 700; // font-bold
+    color: #0f172a; // text-slate-900
+    margin-bottom: 2rem; // mb-8
+  }
+
+  .grid {
     display: grid;
-    gap: 2rem;
+    gap: 1.5rem; // gap-6
     grid-template-columns: 1fr;
 
-    @media (min-width: 64em) { // lg breakpoint
+    @media (min-width: 48em) { // md breakpoint
       grid-template-columns: repeat(4, 1fr);
     }
   }
 
-  &__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease;
+  a.block {
+    display: block;
+    text-align: center; // text-center
+    padding: 1.5rem; // p-6
+    background-color: #f8fafc; // bg-slate-50
+    border-radius: 0.5rem; // rounded-lg
+    transition: transform 200ms; // transition-transform duration-200
     text-decoration: none;
     color: inherit;
 
@@ -28,34 +33,31 @@
     }
   }
 
-  &__image {
+  .text-indigo-600 {
+    color: #4f46e5;
+    font-weight: 700; // font-bold
+    font-size: 0.875rem; // text-sm
+    margin-bottom: 0.5rem; // mb-2
+  }
+
+  img {
     width: 8rem; // w-32
     height: 8rem; // h-32
     object-fit: contain;
     margin-inline: auto; // mx-auto
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; // mb-4
   }
 
-  &__step-badge {
-    color: #4f46e5; // text-indigo-600
+  h3 {
     font-weight: 700; // font-bold
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
-    display: block;
-  }
-
-  &__title {
+    color: #0f172a; // text-slate-900
+    margin-bottom: 0.5rem; // mb-2
     font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #1e293b; // slate-800
   }
 
-  &__description {
-    font-size: 0.95rem;
-    color: #475569; // slate-600
+  p {
+    font-size: 0.875rem; // text-sm
+    color: #475569; // text-slate-600
     line-height: 1.5;
   }
 }

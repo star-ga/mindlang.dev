@@ -45,36 +45,39 @@ description: Connect with MIND developers, report security issues, and help shap
 
     <hr class="divider" />
 
-    <h2>Getting involved</h2>
-    <div class="getting-involved">
-      <div class="getting-involved__grid">
-        <a href="/docs/" class="getting-involved__card">
-          <span class="getting-involved__step-badge">Step 1</span>
-          <img src="/img/community/step_spec.jpeg" alt="Read the Spec" class="getting-involved__image">
-          <h3 class="getting-involved__title">Read the Spec</h3>
-          <p class="getting-involved__description">Start with the MIND specification to understand the language design.</p>
-        </a>
+    <div class="getting-involved-section mb-16">
+      <h2 class="text-2xl font-bold text-slate-900 mb-8">Getting involved</h2>
+      
+      <div class="grid gap-6 md:grid-cols-4">
         
-        <a href="{{ site.runtimeRepo }}" class="getting-involved__card">
-          <span class="getting-involved__step-badge">Step 2</span>
-          <img src="/img/community/step_compiler.jpeg" alt="Try the Compiler" class="getting-involved__image">
-          <h3 class="getting-involved__title">Try the Compiler</h3>
-          <p class="getting-involved__description">Clone the runtime repo, build locally, and experiment with examples.</p>
+        <a href="/docs" class="block group text-center p-6 bg-slate-50 rounded-lg hover:-translate-y-1 transition-transform duration-200">
+          <div class="text-indigo-600 font-bold text-sm mb-2">Step 1</div>
+          <img src="/img/community/step_spec.jpeg" alt="Read the Spec" class="w-32 h-32 object-contain mx-auto mb-4">
+          <h3 class="font-bold text-slate-900 mb-2">Read the Spec</h3>
+          <p class="text-sm text-slate-600">Start with the MIND specification to understand the language design.</p>
         </a>
 
-        <a href="{{ site.github }}/issues" class="getting-involved__card">
-          <span class="getting-involved__step-badge">Step 3</span>
-          <img src="/img/community/step_issues.jpeg" alt="Report Issues" class="getting-involved__image">
-          <h3 class="getting-involved__title">Report Issues</h3>
-          <p class="getting-involved__description">Found a bug? Open an issue with clear details.</p>
+        <a href="{{ site.runtimeRepo }}" target="_blank" class="block group text-center p-6 bg-slate-50 rounded-lg hover:-translate-y-1 transition-transform duration-200">
+          <div class="text-indigo-600 font-bold text-sm mb-2">Step 2</div>
+          <img src="/img/community/step_compiler.jpeg" alt="Try the Compiler" class="w-32 h-32 object-contain mx-auto mb-4">
+          <h3 class="font-bold text-slate-900 mb-2">Try the Compiler</h3>
+          <p class="text-sm text-slate-600">Clone the runtime repo, build locally, and experiment with examples.</p>
         </a>
 
-        <a href="{{ site.github }}/blob/main/CONTRIBUTING.md" class="getting-involved__card">
-          <span class="getting-involved__step-badge">Step 4</span>
-          <img src="/img/community/step_pr.jpeg" alt="Submit a PR" class="getting-involved__image">
-          <h3 class="getting-involved__title">Submit a PR</h3>
-          <p class="getting-involved__description">Ready to contribute? Check our contribution guide.</p>
+        <a href="{{ site.github }}/issues" target="_blank" class="block group text-center p-6 bg-slate-50 rounded-lg hover:-translate-y-1 transition-transform duration-200">
+          <div class="text-indigo-600 font-bold text-sm mb-2">Step 3</div>
+          <img src="/img/community/step_issues.jpeg" alt="Report Issues" class="w-32 h-32 object-contain mx-auto mb-4">
+          <h3 class="font-bold text-slate-900 mb-2">Report Issues</h3>
+          <p class="text-sm text-slate-600">Found a bug or have a feature idea? Open an issue with clear details.</p>
         </a>
+
+        <a href="{{ site.github }}/blob/main/CONTRIBUTING.md" target="_blank" class="block group text-center p-6 bg-slate-50 rounded-lg hover:-translate-y-1 transition-transform duration-200">
+          <div class="text-indigo-600 font-bold text-sm mb-2">Step 4</div>
+          <img src="/img/community/step_pr.jpeg" alt="Submit a PR" class="w-32 h-32 object-contain mx-auto mb-4">
+          <h3 class="font-bold text-slate-900 mb-2">Submit a PR</h3>
+          <p class="text-sm text-slate-600">Ready to contribute? Check our contribution guide and submit a pull request.</p>
+        </a>
+
       </div>
     </div>
 
