@@ -1,32 +1,16 @@
+{% for section in docs_navigation %}
 <div class="sidebar-section">
-  <h4 class="sidebar-section__title">Overview</h4>
+  <h4 class="sidebar-section__title">{{ section.title }}</h4>
   <nav class="sidebar-section__navigation">
     <ul>
-      <li><a href="/docs/" {% if page.url == '/docs/' %}aria-current="page"{% endif %}>Introduction</a></li>
-      <li><a href="/docs/getting-started/" {% if page.url == '/docs/getting-started/' %}aria-current="page"{% endif %}>Getting Started</a></li>
+      {% for item in section.items %}
+      <li>
+        <a href="{{ item.href }}" {% if page.url == item.href %}aria-current="page"{% endif %}>
+          {{ item.name }}
+        </a>
+      </li>
+      {% endfor %}
     </ul>
   </nav>
 </div>
-
-<div class="sidebar-section">
-  <h4 class="sidebar-section__title">Language Spec</h4>
-  <nav class="sidebar-section__navigation">
-    <ul>
-      <li><a href="/docs/spec/lexical/" {% if page.url == '/docs/spec/lexical/' %}aria-current="page"{% endif %}>Lexical Structure</a></li>
-      <li><a href="/docs/spec/types/" {% if page.url == '/docs/spec/types/' %}aria-current="page"{% endif %}>Types & Variables</a></li>
-      <li><a href="/docs/spec/functions/" {% if page.url == '/docs/spec/functions/' %}aria-current="page"{% endif %}>Functions</a></li>
-      <li><a href="/docs/spec/control-flow/" {% if page.url == '/docs/spec/control-flow/' %}aria-current="page"{% endif %}>Control Flow</a></li>
-    </ul>
-  </nav>
-</div>
-
-<div class="sidebar-section">
-  <h4 class="sidebar-section__title">Standard Library</h4>
-  <nav class="sidebar-section__navigation">
-    <ul>
-      <li><a href="/docs/std/core/" {% if page.url == '/docs/std/core/' %}aria-current="page"{% endif %}>Core</a></li>
-      <li><a href="/docs/std/tensor/" {% if page.url == '/docs/std/tensor/' %}aria-current="page"{% endif %}>Tensor</a></li>
-      <li><a href="/docs/std/math/" {% if page.url == '/docs/std/math/' %}aria-current="page"{% endif %}>Math</a></li>
-    </ul>
-  </nav>
-</div>
+{% endfor %}
