@@ -210,39 +210,40 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
 }
 
-/* --- SLIDESHOW --- */
-.slideshow-container {
-  position: relative;
+/* --- FEATURE FRAMES (Slideshow & Static) --- */
+.feature-frame {
   width: 100%;
-  height: 100%;          /* h-full */
-  min-height: 400px;     /* min-h-[400px] */
-  overflow: hidden;      /* overflow-hidden */
-  border-radius: 12px;   /* rounded-xl */
-  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); /* shadow-md */
-  border: 1px solid var(--border-color); /* border border-slate-200 */
-  background-color: #ffffff; /* bg-white */
+  height: 400px;
+  border-radius: 12px; /* rounded-xl */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+  border: 1px solid #e2e8f0; /* border-slate-200 */
+  overflow: hidden;
+  position: relative;
+  background-color: #ffffff;
+  isolation: isolate;
 }
 
-/* Use higher specificity to override .feature-row-image img */
-.feature-row-image .slideshow-container .slideshow-slide {
-  position: absolute;    /* absolute */
-  top: 0;                /* inset-0 */
-  left: 0;
-  width: 100%;           /* w-full */
-  height: 100%;          /* h-full */
-  object-fit: cover;     /* object-cover */
-  transition: opacity 1s ease-in-out; /* transition-opacity duration-1000 */
-  opacity: 0;
-  
-  /* Reset generic styles */
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
+/* Ensure images inside the frame fill it completely */
+.feature-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.feature-row-image .slideshow-container .slideshow-slide.active {
-  opacity: 1;            /* opacity-100 */
+/* Slideshow specific styles */
+.feature-frame .slideshow-slide {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.feature-frame .slideshow-slide.active {
+  opacity: 1;
   z-index: 1;
 }
 
