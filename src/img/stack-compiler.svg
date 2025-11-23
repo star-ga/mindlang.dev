@@ -3,7 +3,7 @@
   <rect x="30" y="80" width="70" height="40" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
   <text x="65" y="105" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#64748b">MIND</text>
   <path d="M100 100 H120" stroke="#cbd5e1" stroke-width="2" marker-end="url(#arrow)"/>
-  <rect x="120" y="70" width="70" height="60" rx="4" fill="#e0e7ff" stroke="#54d4f2" stroke-width="2"/>
+  <rect x="120" y="70" width="70" height="60" rx="4" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
   <text x="155" y="105" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#4338ca">MLIR</text>
   <path d="M190 100 H210" stroke="#cbd5e1" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="210" y="80" width="70" height="40" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
