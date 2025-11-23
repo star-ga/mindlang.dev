@@ -1,0 +1,9 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield -->
+  <path d="M32 8 L52 16 V32 C52 44 44 54 32 58 C20 54 12 44 12 32 V16 L32 8Z" stroke="#38bdf8" stroke-width="1.5" fill="rgba(56, 189, 248, 0.1)"/>
+  <!-- Padlock -->
+  <rect x="26" y="30" width="12" height="10" rx="2" stroke="#38bdf8" stroke-width="1.5"/>
+  <path d="M29 30 V26 C29 24 30 23 32 23 C34 23 35 24 35 26 V30" stroke="#38bdf8" stroke-width="1.5"/>
+  <!-- Checkmark -->
+  <path d="M44 44 L48 48 L56 40" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

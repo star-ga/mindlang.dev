@@ -12,8 +12,10 @@ description: Deep dive into the language and compiler features that make MIND a 
     </p>
 
     <div class="grid grid--three">
-      <div class="card card--outline">
-        <h2>Tensor-native type system</h2>
+      <!-- 1. Tensor-native types -->
+      <div class="card card--schematic">
+        <img src="/img/features/tensor-cube.svg" class="card-icon" alt="Tensor Cube Schematic" />
+        <h3>Tensor-native type system</h3>
         <p>
           Tensors are first-class types, not just library objects. Define shapes and dtypes in signatures and let the compiler infer the rest.
         </p>
@@ -24,8 +26,24 @@ description: Deep dive into the language and compiler features that make MIND a 
         </ul>
       </div>
 
-      <div class="card card--outline">
-        <h2>Built-in automatic differentiation</h2>
+      <!-- 2. MLIR + LLVM -->
+      <div class="card card--schematic">
+        <img src="/img/features/compiler-pipeline.svg" class="card-icon" alt="Compiler Pipeline Schematic" />
+        <h3>MLIR + LLVM compiler pipeline</h3>
+        <p>
+          MIND lowers into a dedicated MLIR dialect for tensor and graph optimizations, and then into LLVM IR for hardware-specific code generation.
+        </p>
+        <ul class="list">
+          <li>Operator fusion and layout optimization at the MLIR level</li>
+          <li>Reuse of LLVM's mature optimization passes</li>
+          <li>Support for x86, ARM, RISC‑V, WebAssembly, and more</li>
+        </ul>
+      </div>
+
+      <!-- 3. Built-in Autodiff -->
+      <div class="card card--schematic">
+        <img src="/img/features/autodiff-graph.svg" class="card-icon" alt="Autodiff Graph Schematic" />
+        <h3>Built-in automatic differentiation</h3>
         <p>
           Mark functions as differentiable and let the compiler generate optimized gradient code at the IR level.
         </p>
@@ -36,8 +54,10 @@ description: Deep dive into the language and compiler features that make MIND a 
         </ul>
       </div>
 
-      <div class="card card--outline">
-        <h2>Device semantics in the language</h2>
+      <!-- 4. Device semantics -->
+      <div class="card card--schematic">
+        <img src="/img/features/device-chip.svg" class="card-icon" alt="Device Chip Schematic" />
+        <h3>Device semantics in the language</h3>
         <p>
           Express where computations should run and get compile-time checks that your program matches device capabilities.
         </p>
@@ -47,26 +67,13 @@ description: Deep dive into the language and compiler features that make MIND a 
           <li>Multi-target builds from a single source codebase</li>
         </ul>
       </div>
-    </div>
 
-    <hr class="divider" />
-
-    <div class="grid grid--two">
-      <div>
-        <h2>MLIR + LLVM compiler pipeline</h2>
+      <!-- 5. Deterministic builds & safety -->
+      <div class="card card--schematic">
+        <img src="/img/features/security-shield.svg" class="card-icon" alt="Security Shield Schematic" />
+        <h3>Deterministic builds &amp; safety</h3>
         <p>
-          MIND lowers into a dedicated MLIR dialect for tensor and graph optimizations, and then into LLVM IR for hardware-specific code generation.
-        </p>
-        <ul class="list">
-          <li>Operator fusion and layout optimization at the MLIR level</li>
-          <li>Reuse of LLVM's mature optimization passes</li>
-          <li>Support for x86, ARM, RISC‑V, WebAssembly, and more</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Deterministic builds &amp; safety</h2>
-        <p>
-          The compiler is written in Rust and produces deterministic, reproducible binaries. No dynamic interpreter, no hidden runtime magic.
+          The compiler is written in Rust and produces deterministic, reproducible binaries. Fully auditable runtime execution.
         </p>
         <ul class="list">
           <li>Rust-style memory safety and concurrency guarantees</li>
@@ -74,13 +81,11 @@ description: Deep dive into the language and compiler features that make MIND a 
           <li>Lean runtime surface area for secure deployments</li>
         </ul>
       </div>
-    </div>
 
-    <hr class="divider" />
-
-    <div class="grid grid--two">
-      <div>
-        <h2>Open-core, extensible design</h2>
+      <!-- 6. Open-core -->
+      <div class="card card--schematic">
+        <img src="/img/features/open-core.svg" class="card-icon" alt="Open Core Schematic" />
+        <h3>Open-core, extensible design</h3>
         <p>
           The core compiler and language are MIT-licensed. Enterprises can extend MIND with private backends, passes, and runtimes without forking the language.
         </p>
@@ -88,17 +93,6 @@ description: Deep dive into the language and compiler features that make MIND a 
           <li>Open-source core for community innovation</li>
           <li>Pluggable executors for custom hardware</li>
           <li>FFI hooks for C/C++ and Python interoperability</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Designed for real-world teams</h2>
-        <p>
-          MIND is not just a research prototype; it is engineered for versioning, CI integration, and long-lived services.
-        </p>
-        <ul class="list">
-          <li>Friendly to Git-based workflows and code review</li>
-          <li>Static binaries for containerized deployment</li>
-          <li>Compiler diagnostics optimized for tensor-heavy code</li>
         </ul>
       </div>
     </div>
