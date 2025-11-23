@@ -43,6 +43,40 @@ layout: layouts/base.njk
       <div class="prose" style="max-width: none;">
         {{ content | safe }}
       </div>
+
+      <!-- Docs Pagination -->
+      {% set pagination = helpers.getDocsPagination(page.url, docs_navigation) %}
+      {% if pagination.prev or pagination.next %}
+      <div class="docs-pager">
+        <!-- Previous Link -->
+        {% if pagination.prev %}
+        <a href="{{ pagination.prev.href }}" class="docs-pager-link">
+          <div class="docs-pager-label">
+            <svg class="docs-pager-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Previous
+          </div>
+          <div class="docs-pager-title">{{ pagination.prev.title }}</div>
+        </a>
+        {% else %}
+        <div class="docs-pager-spacer"></div>
+        {% endif %}
+
+        <!-- Next Link -->
+        {% if pagination.next %}
+        <a href="{{ pagination.next.href }}" class="docs-pager-link docs-pager-link--next">
+          <div class="docs-pager-label">
+            Next
+            <svg class="docs-pager-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+          <div class="docs-pager-title">{{ pagination.next.title }}</div>
+        </a>
+        {% endif %}
+      </div>
+      {% endif %}
     </main>
   </div>
 </div>

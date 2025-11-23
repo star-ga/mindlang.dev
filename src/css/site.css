@@ -380,3 +380,86 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 @media (min-width: 1024px) {
   .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
 }
+
+/* --- DOCS PAGINATION --- */
+.docs-pager {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.docs-pager-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.docs-pager-link:hover {
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.docs-pager-label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.docs-pager-link:hover .docs-pager-label {
+  color: #4f46e5;
+}
+
+.docs-pager-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  transition: color 0.2s;
+}
+
+.docs-pager-link:hover .docs-pager-title {
+  color: #4338ca;
+}
+
+.docs-pager-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.docs-pager-spacer {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .docs-pager {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .docs-pager-link {
+    width: calc(50% - 0.75rem);
+  }
+  
+  .docs-pager-link--next {
+    align-items: flex-end;
+    text-align: right;
+  }
+  
+  .docs-pager-spacer {
+    display: block;
+    width: calc(50% - 0.75rem);
+  }
+}
