@@ -51,13 +51,15 @@ layout: layouts/base.njk
         <!-- Previous Link -->
         {% if pagination.prev %}
         <a href="{{ pagination.prev.href }}" class="docs-pager-link">
-          <div class="docs-pager-label">
+          <div class="docs-pager-icon-box">
             <svg class="docs-pager-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
-            Previous
           </div>
-          <div class="docs-pager-title">{{ pagination.prev.title }}</div>
+          <div class="docs-pager-content">
+            <div class="docs-pager-label">Previous</div>
+            <div class="docs-pager-title">{{ pagination.prev.title }}</div>
+          </div>
         </a>
         {% else %}
         <div class="docs-pager-spacer"></div>
@@ -66,13 +68,15 @@ layout: layouts/base.njk
         <!-- Next Link -->
         {% if pagination.next %}
         <a href="{{ pagination.next.href }}" class="docs-pager-link docs-pager-link--next">
-          <div class="docs-pager-label">
-            Next
+          <div class="docs-pager-icon-box">
             <svg class="docs-pager-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
           </div>
-          <div class="docs-pager-title">{{ pagination.next.title }}</div>
+          <div class="docs-pager-content">
+            <div class="docs-pager-label">Next</div>
+            <div class="docs-pager-title">{{ pagination.next.title }}</div>
+          </div>
         </a>
         {% endif %}
       </div>
