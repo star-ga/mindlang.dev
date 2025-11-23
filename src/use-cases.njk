@@ -62,7 +62,11 @@ description: Where Mind shines - from edge devices to high-frequency trading.
       </ul>
     </div>
     <div class="feature-row-image">
-      <img src="/img/features/schematic-1.svg" alt="Embedded Systems Schematic" />
+      <div class="slideshow-container" id="embedded-slideshow">
+        <img src="/img/features/case_frame1.jpeg" class="slideshow-slide active" alt="Embedded Systems Frame 1" />
+        <img src="/img/features/case_frame2.jpeg" class="slideshow-slide" alt="Embedded Systems Frame 2" />
+        <img src="/img/features/case_frame3.jpeg" class="slideshow-slide" alt="Embedded Systems Frame 3" />
+      </div>
     </div>
   </div>
 
@@ -78,8 +82,22 @@ description: Where Mind shines - from edge devices to high-frequency trading.
       </ul>
     </div>
     <div class="feature-row-image">
-      <img src="/img/features/schematic-2.svg" alt="Cloud Infrastructure Schematic" />
+      <img src="/img/features/case_cloud.jpeg" alt="Cloud Infrastructure" />
     </div>
   </div>
 
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('#embedded-slideshow .slideshow-slide');
+    if (slides.length > 0) {
+      let currentSlide = 0;
+      setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }, 3000);
+    }
+  });
+</script>
