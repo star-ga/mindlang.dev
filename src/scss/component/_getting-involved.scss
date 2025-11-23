@@ -1,0 +1,61 @@
+.getting-involved {
+  background-color: #f8fafc; // bg-slate-50
+  padding: 3rem 1.5rem;
+  border-radius: 0.5rem;
+  margin-block: 3rem;
+
+  &__grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 64em) { // lg breakpoint
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      transform: translateY(-0.25rem); // hover:-translate-y-1
+    }
+  }
+
+  &__image {
+    width: 8rem; // w-32
+    height: 8rem; // h-32
+    object-fit: contain;
+    margin-inline: auto; // mx-auto
+    margin-bottom: 1rem;
+  }
+
+  &__step-badge {
+    color: #4f46e5; // text-indigo-600
+    font-weight: 700; // font-bold
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1e293b; // slate-800
+  }
+
+  &__description {
+    font-size: 0.95rem;
+    color: #475569; // slate-600
+    line-height: 1.5;
+  }
+}
