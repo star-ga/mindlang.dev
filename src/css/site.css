@@ -175,6 +175,7 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .card--schematic p {
   color: #64748b; /* Slate 500 */
   font-size: 0.9rem;
+  min-height: 6rem;
 }
 .card--schematic .list {
   color: #334155; /* Slate 700 */
