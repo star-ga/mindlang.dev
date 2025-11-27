@@ -516,11 +516,19 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 
 
 .use-cases-container {
+  /* 1. Restore the Container Width (Fixes full-width issue) */
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* 2. Top Spacing (Matches Features page) */
+  padding-top: 120px; 
+  
+  /* 3. Mobile Spacing */
+  padding-left: 20px;
+  padding-right: 20px;
+  
+  /* 4. Box Sizing */
   box-sizing: border-box;
-  padding-top: 120px;
-  padding-bottom: 3rem;
 }
