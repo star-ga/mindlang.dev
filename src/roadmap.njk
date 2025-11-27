@@ -1,0 +1,47 @@
+---
+layout: layouts/base.njk
+title: Roadmap
+---
+<div class="section">
+  <div class="container">
+    <h1>Roadmap</h1>
+    <p>The MIND language is evolving rapidly. Below is the current status of key components in the 1.0 toolchain.</p>
+
+    <table style="width: 100%; margin-top: 2rem; border-collapse: collapse;">
+      <thead>
+        <tr style="text-align: left; border-bottom: 2px solid #eee;">
+          <th style="padding: 1rem 0;">Feature Area</th>
+          <th style="padding: 1rem 0;">Status</th>
+          <th style="padding: 1rem 0;">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 1rem 0;"><strong>Core Language</strong></td>
+          <td>✅ Beta</td>
+          <td>v1.0-draft spec implemented. Static shapes & dtypes.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 1rem 0;"><strong>Autodiff Engine</strong></td>
+          <td>🚧 Preview</td>
+          <td>Reverse-mode AD on SSA IR. Basic gradients working.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 1rem 0;"><strong>CPU Execution</strong></td>
+          <td>✅ Stable</td>
+          <td>LLVM-based JIT and AOT compilation for x86/ARM.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 1rem 0;"><strong>GPU / Accelerators</strong></td>
+          <td>📅 Planned</td>
+          <td>MLIR lowering to SPIR-V/NVVM is in design phase.</td>
+        </tr>
+        <tr>
+          <td style="padding: 1rem 0;"><strong>Package Manager</strong></td>
+          <td>📅 Planned</td>
+          <td>Native dependency resolution coming in 2026.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
