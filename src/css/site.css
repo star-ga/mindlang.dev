@@ -523,7 +523,7 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   margin-right: auto;
   
   /* 2. Top Spacing (Matches Features page) */
-  padding-top: 120px; 
+  padding-top: 80px; 
   
   /* 3. Mobile Spacing */
   padding-left: 20px;
