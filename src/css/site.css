@@ -533,3 +533,13 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   /* 4. Box Sizing */
   box-sizing: border-box;
 }
+
+/* --- FOOTER COPYRIGHT --- */
+.footer-copyright a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-copyright a:hover {
+  text-decoration: underline;
+}
