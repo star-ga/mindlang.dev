@@ -1,0 +1,53 @@
+<!--
+Copyright 2025 STARGA Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+---
+layout: layouts/base.njk
+title: MIND Ecosystem
+description: Overview of the open-core MIND ecosystem across compiler, spec, and runtime offerings.
+---
+
+<section class="section" style="padding:3rem 0;">
+  <div class="container" style="max-width:900px; margin:0 auto;">
+    <h1>Ecosystem</h1>
+    <p>
+      MIND is designed as an open-core ecosystem: the language and compiler are Apache 2.0,
+      while certain runtime components and services are offered commercially.
+    </p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; margin-top:2rem;">
+      <div>
+        <h2>Compiler &amp; CLI</h2>
+        <p><a href="https://github.com/cputer/mind"><code>cputer/mind</code></a></p>
+        <p>Rust implementation of the MIND language, tensor/autodiff engine, IR, MLIR export, and optional CPU / MLIR execution backends.</p>
+      </div>
+      <div>
+        <h2>Language spec</h2>
+        <p><a href="https://github.com/cputer/mind-spec"><code>cputer/mind-spec</code></a></p>
+        <p>Authoritative MIND specification, design documents, and RFCs. Mirrored into this site under <a href="/docs/">/docs</a>.</p>
+      </div>
+      <div>
+        <h2>Runtime extensions</h2>
+        <p><code>cputer/mind-runtime</code> (internal/private)</p>
+        <p>Proprietary runtime extensions and services that build on the Apache 2.0 Community Edition. Licensed under STARGA’s commercial terms.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:2rem;">
+      The intent is simple: you can read, modify, and ship the compiler and spec under Apache 2.0,
+      while opting into commercial runtime and cloud offerings when you need them.
+    </p>
+  </div>
+</section>

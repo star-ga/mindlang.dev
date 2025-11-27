@@ -13,136 +13,36 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 ---
 layout: layouts/base.njk
-title: MIND community
-description: Connect with MIND developers, report security issues, and help shape the future of the language.
+title: MIND Community
+description: How to follow development, propose RFCs, and connect with the MIND team.
 ---
 
-<section class="section">
-  <div class="container">
-    <h1 class="page-title">Community</h1>
-    <p class="section-lede">
-      MIND is developed in the open. We welcome contributions, questions, and ideas from developers everywhere.
+<section class="section" style="padding:3rem 0;">
+  <div class="container" style="max-width:900px; margin:0 auto;">
+    <h1>Community</h1>
+    <p>
+      MIND is still early, but the ecosystem is designed to be open, reviewable, and shaped by contributors.
+      There are a few ways to get involved right now.
     </p>
 
-    <div class="grid grid--two">
-      <div class="card card--outline">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #4f46e5;">
-          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-        </svg>
-        <h2>GitHub</h2>
-        <p>
-          The complete MIND compiler and runtime, along with documentation and RFC process, lives on GitHub.
-        </p>
-        <a href="{{ site.github }}" class="button button--primary">View on GitHub</a>
-      </div>
+    <h2>Discuss and report issues</h2>
+    <ul>
+      <li>Open compiler issues in <a href="https://github.com/cputer/mind/issues">cputer/mind · Issues</a>.</li>
+      <li>File spec / design issues in <a href="https://github.com/cputer/mind-spec/issues">cputer/mind-spec · Issues</a>.</li>
+    </ul>
 
-      <div class="card card--outline">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #4f46e5;">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-        </svg>
-        <h2>Discord</h2>
-        <p>
-          Join our Discord server to chat with other MIND developers, share ideas, and get help.
-        </p>
-        <a href="{{ site.discord }}" class="button button--primary">Join Discord</a>
-      </div>
+    <h2>Propose changes</h2>
+    <p>
+      Larger language or runtime changes should go through the RFC process, documented in
+      the <a href="https://github.com/cputer/mind-spec">mind-spec</a> repository.
+    </p>
 
-      <div class="card card--outline">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #4f46e5;">
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-        </svg>
-        <h2>Discussions &amp; RFCs</h2>
-        <p>
-          Major proposals go through our <a href="{{ site.github }}/discussions">GitHub Discussions</a> and RFC process to ensure thoughtful design.
-        </p>
-      </div>
-
-      <div class="card card--outline">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #4f46e5;">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-          <polyline points="22,6 12,13 2,6"></polyline>
-        </svg>
-        <h2>Email</h2>
-        <p>
-          Questions about the project? Reach out to the team directly at <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>.
-        </p>
-      </div>
-    </div>
-
-    <hr class="divider" />
-
-    <div class="mb-24">
-      <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">Getting Involved</h2>
-      
-      <div class="grid gap-6 md:grid-cols-4">
-        
-        <a href="/docs" class="group block p-8 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-600 hover:shadow-md transition-all duration-300">
-          <div class="text-7xl font-black text-blue-600 mb-4 opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-transform origin-left">
-            1
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Read the Spec</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Start with the MIND specification to understand the language design and motivation.
-          </p>
-        </a>
-
-        <a href="{{ site.runtimeRepo }}" target="_blank" class="group block p-8 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-600 hover:shadow-md transition-all duration-300">
-          <div class="text-7xl font-black text-blue-600 mb-4 opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-transform origin-left">
-            2
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Try the Compiler</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Clone the runtime repo, build locally, and experiment with examples.
-          </p>
-        </a>
-
-        <a href="{{ site.github }}/issues" target="_blank" class="group block p-8 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-600 hover:shadow-md transition-all duration-300">
-          <div class="text-7xl font-black text-blue-600 mb-4 opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-transform origin-left">
-            3
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Report Issues</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Found a bug or have a feature idea? Open an issue with clear details.
-          </p>
-        </a>
-
-        <a href="{{ site.github }}/pulls" target="_blank" class="group block p-8 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-600 hover:shadow-md transition-all duration-300">
-          <div class="text-7xl font-black text-blue-600 mb-4 opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-transform origin-left">
-            4
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Submit a PR</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Ready to contribute? Check our contribution guide and submit a PR.
-          </p>
-        </a>
-
-      </div>
-    </div>
-
-    <hr class="divider" />
-
-    <div class="grid grid--two">
-      <div>
-        <h2>Code of conduct</h2>
-        <p>
-          The MIND project is committed to providing a welcoming, inclusive, and harassment-free experience for all contributors and community members.
-        </p>
-        <p>
-          <a href="{{ site.github }}/blob/main/CODE_OF_CONDUCT.md">Read the full code of conduct →</a>
-        </p>
-      </div>
-      <div>
-        <h2>Security</h2>
-        <p>
-          If you discover a security vulnerability, please report it responsibly according to our security policy rather than opening a public issue.
-        </p>
-        <p>
-          <a href="{{ site.github }}/blob/main/SECURITY.md">View security policy →</a>
-        </p>
-      </div>
-    </div>
+    <h2>Real-time channels</h2>
+    <p>
+      A dedicated chat (e.g. Discord or similar) will be announced once the project reaches the next milestone.
+      Until then, GitHub remains the primary place for coordination.
+    </p>
   </div>
 </section>

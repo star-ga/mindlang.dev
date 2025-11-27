@@ -16,52 +16,30 @@ limitations under the License.
 
 # mindlang.dev
 
-The public website for **MIND**, the Machine Intelligence Native Design language. This site hosts the landing experience, documentation, community links, and resources for the MIND ecosystem.
+The marketing and documentation website for **MIND**, the Machine Intelligence Native Design language. The site is built with **Eleventy** and **SpruceCSS**, and mirrors the language specification from the [`mind-spec`](https://github.com/cputer/mind-spec) repository.
 
-## Getting started
+## Repositories
 
-1. Install dependencies:
+- [`cputer/mind`](https://github.com/cputer/mind): MIND compiler, CLI, and runtime backends (Apache 2.0, open-core).
+- [`cputer/mind-spec`](https://github.com/cputer/mind-spec): Authoritative language specification, design documents, and RFCs (Apache 2.0).
+- `cputer/mind-runtime`: Proprietary runtime extensions and services for commercial deployments.
 
-   ```bash
-   npm install
-   ```
+## Local development
 
-2. Start the development server with live reload:
-
-   ```bash
-   npm start
-   ```
-
-3. Build a production bundle:
-
-   ```bash
-   npm run build
-   ```
-
-The Eleventy configuration lives in [`.eleventy.js`](./.eleventy.js) and outputs to `dist/`.
-
-## License headers
-
-This repo includes a helper to keep Apache 2.0 headers consistent across templates, JS, and styles:
+Install dependencies and build the site locally:
 
 ```bash
-npm run fmt:headers
+npm install
+npm run build
+npm run serve
 ```
 
-The script is idempotent and will:
+- The Eleventy configuration lives in [`.eleventy.js`](./.eleventy.js) and outputs to `dist/`.
+- The `src/docs/` directory is a git submodule mirror of `mind-spec`; do not modify its contents directly.
 
-- Add headers to first-party .njk, .html, .md, .css, and .js files.
-- Migrate old MIT or project-specific headers to the standard Apache 2.0 header.
+## License & trademarks
 
-## License & Ecosystem
-
-- Code, configuration, and original content in this repository are licensed under Apache 2.0. See [LICENSE](./LICENSE).
-- Documentation and language specification content sourced from [cputer/mind-spec](https://github.com/cputer/mind-spec) are also Apache 2.0 licensed.
-- The core language implementation lives in [cputer/mind](https://github.com/cputer/mind) (Apache 2.0).
-- The production runtime for commercial deployments is maintained in [cputer/mind-runtime](https://github.com/cputer/mind-runtime) and is proprietary/closed-source.
-- Trademark and brand usage is governed by [TRADEMARKS.md](./TRADEMARKS.md) and [LICENSE-COMMERCIAL](./LICENSE-COMMERCIAL).
-
-## Community
-
-- Join the discussion and follow development at [cputer/mind](https://github.com/cputer/mind).
-- For commercial inquiries or trademark questions, reach out at **legal@star.ga**.
+- Code, configuration, and original content in this repository are licensed under **Apache 2.0**. See [LICENSE](./LICENSE).
+- The MIND language and compiler (Community Edition) are Apache 2.0; production runtime components are proprietary and governed by [LICENSE-COMMERCIAL](./LICENSE-COMMERCIAL).
+- “MIND” and “MIND Language” are trademarks of STARGA Inc. See [TRADEMARKS.md](./TRADEMARKS.md) for permitted descriptive use.
+- Commercial licensing and trademark inquiries: [legal@star.ga](mailto:legal@star.ga).
