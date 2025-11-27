@@ -67,15 +67,15 @@ description: Official specification and guides for MIND.
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/cputer/mind" target="_blank" class="text-indigo-600 hover:underline">cputer/mind</a></td>
+      <td><a href="https://github.com/cputer/mind" target="_blank" class="text-indigo-600 hover:underline"><code>mind</code></a></td>
       <td>Public compiler + CLI (front-end).</td>
     </tr>
     <tr>
-      <td><code>cputer/mind-runtime</code></td>
+      <td><code>mind-runtime</code></td>
       <td>Private runtime backend (MLIR, GPU, autodiff).</td>
     </tr>
     <tr>
-      <td><a href="https://github.com/cputer/mind-spec" target="_blank" class="text-indigo-600 hover:underline">cputer/mind-spec</a></td>
+      <td><a href="https://github.com/cputer/mind-spec" target="_blank" class="text-indigo-600 hover:underline"><code>mind-spec</code></a></td>
       <td>This specification and design docs.</td>
     </tr>
   </tbody>
