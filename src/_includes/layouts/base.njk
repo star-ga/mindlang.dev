@@ -1,3 +1,19 @@
+<!--
+Copyright 2025 STARGA Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,50 +66,15 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-meta">
-        <img src="/img/mind-logo-grid-grey.svg" alt="MIND Logo" class="footer-logo" />
-        <div class="footer-brand-text" style="display: block;">
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span class="footer-title">MIND</span>
-            <span class="footer-separator">·</span>
-            <span class="footer-tagline">Native Intelligence.</span>
-          </div>
-          <div style="font-size: 0.85rem; margin-top: 0.5rem; max-width: 400px; line-height: 1.4; color: var(--color-muted);">
-            Community Edition licensed under MIT. Enterprise extensions and hosted “MIND Cloud” offerings are available under commercial terms from STARGA Inc.
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <div class="footer-column">
-          <h4>Project</h4>
-          <a href="https://github.com/cputer/mind">Core language</a>
-          <a href="/docs/">Language spec</a>
-        </div>
-        <div class="footer-column">
-          <h4>Community</h4>
-          <a href="/community/">Community hub</a>
-          <a href="#">Discord</a>
-        </div>
-        <div>
-          <h3 class="font-bold text-slate-900 mb-4">Company</h3>
-          <ul class="space-y-3 text-sm">
-            <li>
-              <a href="mailto:info@star.ga" class="text-slate-600 hover:text-indigo-600 transition-colors">Contact</a>
-            </li>
-            <li>
-              <a href="https://star.ga" target="_blank" class="text-slate-600 hover:text-indigo-600 transition-colors">STARGA, Inc.</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <div class="container">
-      <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
-        <p>2025 © <a href="https://star.ga" target="_blank" class="hover:text-indigo-600 transition-colors">STARGA, Inc.</a></p>
-      </div>
+    <div class="container" style="padding: 1.5rem 0; font-size: 0.875rem; color: #6b7280;">
+      <p>
+        © {{ (new Date()).getFullYear() }} STARGA Inc. MIND is a trademark of STARGA Inc. Code and docs are licensed under Apache 2.0, unless otherwise noted.
+      </p>
+      <p>
+        See <a href="https://github.com/cputer/mindlang.dev/blob/main/LICENSE">LICENSE</a>,
+        <a href="https://github.com/cputer/mindlang.dev/blob/main/TRADEMARKS.md">TRADEMARKS</a>,
+        and <a href="https://github.com/cputer/mindlang.dev/blob/main/LICENSE-COMMERCIAL">LICENSE-COMMERCIAL</a>.
+      </p>
     </div>
   </footer>
 </body>
