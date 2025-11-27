@@ -1,0 +1,14 @@
+MIND Community & Commercial Terms
+================================
+
+Community Edition
+-----------------
+Code, templates, and original website content in this repository are provided under the Apache License 2.0 unless a file explicitly states otherwise. This includes Eleventy configuration, layout templates, site styles, documentation pages, and examples that originate from the mindlang.dev project.
+
+Enterprise / Commercial
+-----------------------
+Commercial support, hosted services, proprietary extensions, or premium runtimes for MIND are offered under separate terms. Access to closed-source components, commercial certifications, and production runtime licensing requires a commercial agreement with STARGA Inc.
+
+Brand and Trademark Notice
+--------------------------
+The MIND name, "MIND Language", the MIND logo, and related brand assets are trademarks of STARGA Inc. You may use the trademarks for descriptive references such as “built with the MIND language,” but you must obtain permission for uses that imply partnership, certification, or official endorsement, including naming a product or service after MIND. See TRADEMARKS.md for permitted and restricted uses. For commercial or trademark-related inquiries, contact legal@star.ga.
