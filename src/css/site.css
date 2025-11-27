@@ -507,3 +507,22 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
     width: calc(50% - 0.75rem);
   }
 }
+
+.use-cases-container {
+  /* 1. Ensure it fits on mobile without scrolling */
+  width: 100%; 
+  
+  /* 2. Match the Features page desktop width */
+  max-width: 1200px; 
+  
+  /* 3. Center it on the screen */
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* 4. Add "breathing room" on mobile so text doesn't hit the edges */
+  padding-left: 20px; 
+  padding-right: 20px;
+  
+  /* 5. Ensure padding doesn't push the width past 100% */
+  box-sizing: border-box; 
+}
