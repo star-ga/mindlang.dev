@@ -514,3 +514,13 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
   }
 }
 
+
+.use-cases-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 120px;
+  padding-bottom: 3rem;
+}
