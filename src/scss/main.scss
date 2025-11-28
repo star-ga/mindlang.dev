@@ -20,6 +20,10 @@ a {
 }
 
 // Global button styles
-.btn, button, a[class*="btn-"], a[class*="bg-"] {
-  border-radius: 0.5rem !important; /* Forces 8px/rounded-lg everywhere */
+button, 
+.btn, 
+a.btn, 
+a[class*="bg-indigo-"], 
+a[class*="bg-white"] {
+    border-radius: 0.5rem !important; /* 0.5rem = 8px = rounded-lg */
 }
