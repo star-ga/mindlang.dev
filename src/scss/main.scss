@@ -1,9 +1,14 @@
+
 @forward 'config';
 @forward 'layout';
 @forward 'section';
 @forward 'component';
-
 @use 'sprucecss/scss/spruce' as *;
+/* GLOBAL LINK FIX: Targets all anchor tags with high specificity */
+a, a:hover, a:visited, a:active, .prose a {
+  text-decoration: none !important; /* Kills the underline */
+  font-weight: 700 !important; /* Makes the text bold */
+}
 
 :root {
   --spruce-border-radius: 0.5rem;
