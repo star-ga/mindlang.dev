@@ -19,15 +19,11 @@
 }
 
 // Global link styles
-a {
-  text-decoration: none;
+a, a:hover, .prose a {
+    text-decoration: none !important;
 }
 
 // Global button styles
-button, 
-.btn, 
-a.btn, 
-a[class*="bg-indigo-"], 
-a[class*="bg-white"] {
-    border-radius: 0.5rem !important; /* 0.5rem = 8px = rounded-lg */
+button, .btn, a[class*="bg-"] {
+    border-radius: 0.5rem !important; /* Overrides rounded-full */
 }
