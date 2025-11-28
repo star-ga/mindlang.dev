@@ -4,6 +4,15 @@
 @forward 'section';
 @forward 'component';
 @use 'sprucecss/scss/spruce' as *;
+
+/* FINAL NUCLEAR LINK STYLING FIX: Targets all action links on the page */
+.card-link, 
+.card-component a, 
+.content-wrapper a {
+  text-decoration: none !important; /* Kills the underline for good */
+  font-weight: 900 !important; /* Forces the Extra Heavy/Black bolding */
+  color: var(--color-primary, #4f46e5) !important; /* Ensure consistent color */
+}
 /* GLOBAL LINK FIX: Targets all anchor tags with high specificity */
 a, a:hover, a:visited, a:active, .prose a {
   text-decoration: none !important; /* Kills the underline */
