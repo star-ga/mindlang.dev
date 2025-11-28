@@ -7,32 +7,66 @@ title: Ecosystem
     <h1>The Ecosystem</h1>
     <p class="section-lede">MIND is built on an open-core model. The language and compiler are fully open, while specialized runtimes power enterprise scale.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-      <div class="ecosystem-card card p-6 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col">
-        <img src="/img/ecosystem/mind-compiler.svg" alt="mind icon" class="w-12 h-12 mb-4" />
-        <div class="flex flex-row items-center gap-4 mb-2">
-          <h3 class="text-xl font-bold m-0 text-slate-900">mind</h3>
-          <span class="rounded-full bg-gray-900 text-white px-3 py-1 text-xs font-bold whitespace-nowrap">Apache 2.0</span>
-        </div>
-        <p class="text-slate-600">The official Rust implementation...</p>
-      </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-      <div class="ecosystem-card card p-6 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col">
-        <img src="/img/ecosystem/mind-spec.svg" alt="spec icon" class="w-12 h-12 mb-4" />
-        <div class="flex flex-row items-center gap-4 mb-2">
-          <h3 class="text-xl font-bold m-0 text-slate-900">mind-spec</h3>
-          <span class="rounded-full bg-gray-900 text-white px-3 py-1 text-xs font-bold whitespace-nowrap">Apache 2.0</span>
+        <div class="ecosystem-card bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <img src="/img/ecosystem/mind-compiler.svg" alt="mind icon" class="w-12 h-12 mb-6" />
+          
+          <div class="flex flex-row items-center gap-3 mb-3">
+            <h3 class="text-xl font-bold m-0 text-slate-900">mind</h3>
+            <span class="rounded-full bg-slate-900 text-white px-3 py-1 text-xs font-bold whitespace-nowrap">
+              Apache 2.0
+            </span>
+          </div>
+          
+          <p class="text-slate-600 leading-relaxed">
+            The official Rust implementation of the compiler. Includes the CLI, type checker, MIR/MLIR lowerings, and CPU executor.
+          </p>
+          
+          <a href="https://github.com/cputer/mind" class="inline-flex items-center mt-4 text-sm font-semibold text-indigo-600 hover:text-indigo-500">
+            View on GitHub &rarr;
+          </a>
         </div>
-        <p class="text-slate-600">The authoritative language specification...</p>
-      </div>
 
-      <div class="ecosystem-card card p-6 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col">
-        <img src="/img/ecosystem/mind-runtime.svg" alt="runtime icon" class="w-12 h-12 mb-4" />
-        <div class="flex flex-row items-center gap-4 mb-2">
-          <h3 class="text-xl font-bold m-0 text-slate-900">mind-runtime</h3>
-          <span class="rounded-full bg-orange-600 text-white px-3 py-1 text-xs font-bold whitespace-nowrap">Commercial</span>
+        <div class="ecosystem-card bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <img src="/img/ecosystem/mind-spec.svg" alt="spec icon" class="w-12 h-12 mb-6" />
+          
+          <div class="flex flex-row items-center gap-3 mb-3">
+            <h3 class="text-xl font-bold m-0 text-slate-900">mind-spec</h3>
+            <span class="rounded-full bg-slate-900 text-white px-3 py-1 text-xs font-bold whitespace-nowrap">
+              Apache 2.0
+            </span>
+          </div>
+          
+          <p class="text-slate-600 leading-relaxed">
+            The authoritative language specification, design documents, and RFCs. Changes to the language start here.
+          </p>
+          
+          <a href="https://github.com/cputer/mind-spec" class="inline-flex items-center mt-4 text-sm font-semibold text-indigo-600 hover:text-indigo-500">
+            View on GitHub &rarr;
+          </a>
         </div>
-        <p class="text-slate-600">High-performance runtime extensions...</p>
+
+        <div class="ecosystem-card bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <img src="/img/ecosystem/mind-runtime.svg" alt="runtime icon" class="w-12 h-12 mb-6" />
+          
+          <div class="flex flex-row items-center gap-3 mb-3">
+            <h3 class="text-xl font-bold m-0 text-slate-900">mind-runtime</h3>
+            <span class="rounded-full bg-orange-600 text-white px-3 py-1 text-xs font-bold whitespace-nowrap">
+              Commercial
+            </span>
+          </div>
+          
+          <p class="text-slate-600 leading-relaxed">
+            High-performance runtime extensions for massive distributed training and specific hardware accelerators. Managed by STARGA Inc.
+          </p>
+          
+          <span class="inline-flex items-center mt-4 text-sm font-semibold text-slate-400 cursor-not-allowed">
+            Contact Sales
+          </span>
+        </div>
+
       </div>
     </div>
   </div>
