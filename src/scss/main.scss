@@ -58,3 +58,20 @@ a.button--primary {
 a.button--primary > span {
   margin-left: 4px;
 }
+
+/* Stronger selector set: make sure ALL anchor elements used as buttons are not underlined
+   Covers variations like class names containing "button" or "btn", anchors with role="button",
+   and anchors inside button-like elements. Use !important to ensure override across compiled CSS. */
+a[role="button"],
+a[role="button"]:link,
+a[role="button"]:visited,
+a[class*="button"],
+a[class*="button"]:link,
+a[class*="button"]:visited,
+a[class*="btn"],
+a[class*="btn"]:link,
+a[class*="btn"]:visited,
+.button a,
+.btn a {
+  text-decoration: none !important;
+}
