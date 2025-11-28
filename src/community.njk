@@ -60,49 +60,43 @@ description: Connect with MIND developers, report security issues, and help shap
 
     <div class="mb-24">
       <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">Getting Involved</h2>
-      
       <div class="grid gap-6 md:grid-cols-4">
-        
-        <a href="/docs" class="group block p-8 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-600 hover:shadow-md transition-all duration-300">
-          <div class="text-7xl font-black text-blue-600 mb-4 opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-transform origin-left">
-            1
+        <!-- Card 1: Discover Ideas -->
+        <div class="card card--feature flex flex-col items-start p-8 h-full">
+          <div class="mb-4 text-blue-600">
+            <svg class="card-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Read the Spec</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Start with the MIND specification to understand the language design and motivation.
-          </p>
-        </a>
-
-        <a href="{{ site.runtimeRepo }}" target="_blank" class="group block p-8 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-600 hover:shadow-md transition-all duration-300">
-          <div class="text-7xl font-black text-blue-600 mb-4 opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-transform origin-left">
-            2
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Discover Ideas</h3>
+          <p class="text-slate-600 leading-relaxed mb-4">Explore our project roadmap and find issues that match your interests and skills. Browse through beginner-friendly tasks to get started.</p>
+          <a href="/roadmap" class="button button--primary mt-auto">Learn More</a>
+        </div>
+        <!-- Card 2: Join Community -->
+        <div class="card card--feature flex flex-col items-start p-8 h-full">
+          <div class="mb-4 text-blue-600">
+            <svg class="card-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Try the Compiler</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Clone the runtime repo, build locally, and experiment with examples.
-          </p>
-        </a>
-
-        <a href="{{ site.github }}/issues" target="_blank" class="group block p-8 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-600 hover:shadow-md transition-all duration-300">
-          <div class="text-7xl font-black text-blue-600 mb-4 opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-transform origin-left">
-            3
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Join Community</h3>
+          <p class="text-slate-600 leading-relaxed mb-4">Connect with our vibrant community of developers. Join our Discord, participate in discussions, and get to know the team.</p>
+          <a href="{{ site.discord }}" class="button button--primary mt-auto">Learn More</a>
+        </div>
+        <!-- Card 3: Contribute Code -->
+        <div class="card card--feature flex flex-col items-start p-8 h-full">
+          <div class="mb-4 text-blue-600">
+            <svg class="card-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5l4 4-14 14-4-4Z"/><path d="M14 7l3 3"/></svg>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Report Issues</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Found a bug or have a feature idea? Open an issue with clear details.
-          </p>
-        </a>
-
-        <a href="{{ site.github }}/pulls" target="_blank" class="group block p-8 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-600 hover:shadow-md transition-all duration-300">
-          <div class="text-7xl font-black text-blue-600 mb-4 opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-transform origin-left">
-            4
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Contribute Code</h3>
+          <p class="text-slate-600 leading-relaxed mb-4">Start contributing! Fork the repository, create your branch, make your changes, and submit a pull request for review.</p>
+          <a href="/docs/contributing" class="button button--primary mt-auto">Learn More</a>
+        </div>
+        <!-- Card 4: Make Impact -->
+        <div class="card card--feature flex flex-col items-start p-8 h-full">
+          <div class="mb-4 text-blue-600">
+            <svg class="card-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20l9-5-9-5-9 5 9 5z"/><path d="M12 12V4"/></svg>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Submit a PR</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Ready to contribute? Check our contribution guide and submit a PR.
-          </p>
-        </a>
-
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Make Impact</h3>
+          <p class="text-slate-600 leading-relaxed mb-4">See your contributions come to life! Your code will help thousands of users and make a real difference in the community.</p>
+          <a href="/showcase" class="button button--primary mt-auto">Learn More</a>
+        </div>
       </div>
     </div>
 
