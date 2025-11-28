@@ -39,3 +39,22 @@ a.button, a.button--primary, a[class*="button"], .button, .button--primary, .btn
   text-decoration: none !important;
   font-weight: 700 !important;
 }
+
+/* Specific visual styling for .button--primary anchors
+   Matches the inline style requested by the user: color #4f46e5, 600 weight,
+   0.875rem font-size, no-underline, inline-flex layout and center alignment. */
+.button--primary,
+a.button--primary {
+  color: #4f46e5 !important; /* indigo-600 */
+  font-weight: 600 !important;
+  font-size: 0.875rem; /* 14px */
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Small spacing for any trailing icon or arrow inside primary buttons */
+.button--primary > span,
+a.button--primary > span {
+  margin-left: 4px;
+}
