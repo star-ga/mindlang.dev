@@ -47,14 +47,15 @@ description: Connect with MIND developers, report security issues, and help shap
       </div>
 
       <div class="card card--outline">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #4f46e5;">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-          <polyline points="22,6 12,13 2,6"></polyline>
-        </svg>
-        <h2>Email</h2>
-        <p>
-          Questions about the project? Reach out to the team directly at <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>.
-        </p>
+        <div class="card-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="card-icon">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+        </div>
+        <h2 class="card-title">Email</h2>
+        <p>Questions about the project? Reach out to the team directly.</p>
+        <a href="mailto:info@star.ga" class="card-link">Email US →</a>
       </div>
 
       <div class="card card--outline">
