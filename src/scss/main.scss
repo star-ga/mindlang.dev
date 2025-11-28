@@ -7,7 +7,7 @@
 /* GLOBAL LINK FIX: Targets all anchor tags with high specificity */
 a, a:hover, a:visited, a:active, .prose a {
   text-decoration: none !important; /* Kills the underline */
-  font-weight: 700 !important; /* Makes the text bold */
+  font-weight: 900 !important; /* Makes the text Extra Heavy/Black */
 }
 
 :root {
@@ -36,13 +36,13 @@ button, .btn, a[class*="bg-"] {
 /* GLOBAL LINK FIX: Bold and No Underline */
 a, a:hover, a:visited, a:active, .prose a {
   text-decoration: none !important;
-  font-weight: 700 !important;
+  font-weight: 900 !important;
 }
 
 /* Strongly enforce button-like anchors to be bold and no-underline */
 a.button, a.button--primary, a[class*="button"], .button, .button--primary, .btn {
   text-decoration: none !important;
-  font-weight: 700 !important;
+  font-weight: 900 !important;
 }
 
 /* Specific visual styling for .button--primary anchors
