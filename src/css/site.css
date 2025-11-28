@@ -91,6 +91,14 @@ body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--colo
 .footer-links { display: flex; gap: 4rem; }
 .footer-column a { display: block; text-decoration: none; color: var(--color-muted); margin-bottom: 0.6rem; font-size: 0.9rem; }
 
+/* Ensure all anchor elements used as buttons are not underlined */
+a[role="button"],
+a[class*="button"],
+a[class*="btn"],
+a.button, a.button--primary, a[class*="button"]:link, a[class*="button"]:visited, a[class*="btn"]:link, a[class*="btn"]:visited {
+  text-decoration: none !important;
+}
+
 /* --- MOBILE MEDIA QUERIES (PLACED AT BOTTOM FOR PRECEDENCE) --- */
 @media (max-width: 900px) {
   .brand-separator, .brand-tagline { display: none; }
