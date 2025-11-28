@@ -58,47 +58,63 @@ description: Connect with MIND developers, report security issues, and help shap
 
     <hr class="divider" />
 
-    <div class="mb-24">
-      <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">Getting Involved</h2>
-      <div class="grid gap-6 md:grid-cols-4">
-        <!-- Card 1: Discover Ideas -->
-        <div class="card card--feature flex flex-col items-start p-8 h-full">
-          <div class="mb-4 text-blue-600">
-            <svg class="card-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Discover Ideas</h3>
-          <p class="text-slate-600 leading-relaxed mb-4">Explore our project roadmap and find issues that match your interests and skills. Browse through beginner-friendly tasks to get started.</p>
-          <a href="/roadmap" class="button button--primary mt-auto">Learn More</a>
+    <h2 id="getting-involved">Getting Involved</h2>
+    <div class="getting-involved-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; margin-bottom: 4rem;">
+
+      <div class="feature-card" style="padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #fff; display: flex; flex-direction: column; align-items: flex-start;">
+        <div class="icon" style="color: #4f46e5; margin-bottom: 1rem; background: #eef2ff; padding: 0.75rem; border-radius: 0.5rem;">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
         </div>
-        <!-- Card 2: Join Community -->
-        <div class="card card--feature flex flex-col items-start p-8 h-full">
-          <div class="mb-4 text-blue-600">
-            <svg class="card-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Join Community</h3>
-          <p class="text-slate-600 leading-relaxed mb-4">Connect with our vibrant community of developers. Join our Discord, participate in discussions, and get to know the team.</p>
-          <a href="{{ site.discord }}" class="button button--primary mt-auto">Learn More</a>
-        </div>
-        <!-- Card 3: Contribute Code -->
-        <div class="card card--feature flex flex-col items-start p-8 h-full">
-          <div class="mb-4 text-blue-600">
-            <svg class="card-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5l4 4-14 14-4-4Z"/><path d="M14 7l3 3"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Contribute Code</h3>
-          <p class="text-slate-600 leading-relaxed mb-4">Start contributing! Fork the repository, create your branch, make your changes, and submit a pull request for review.</p>
-          <a href="/docs/contributing" class="button button--primary mt-auto">Learn More</a>
-        </div>
-        <!-- Card 4: Make Impact -->
-        <div class="card card--feature flex flex-col items-start p-8 h-full">
-          <div class="mb-4 text-blue-600">
-            <svg class="card-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20l9-5-9-5-9 5 9 5z"/><path d="M12 12V4"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Make Impact</h3>
-          <p class="text-slate-600 leading-relaxed mb-4">See your contributions come to life! Your code will help thousands of users and make a real difference in the community.</p>
-          <a href="/showcase" class="button button--primary mt-auto">Learn More</a>
-        </div>
+        <h3 style="font-size: 1.125rem; font-weight: 600; margin: 0 0 0.5rem 0; color: #0f172a;">Discover Ideas</h3>
+        <p style="font-size: 0.875rem; color: #64748b; margin: 0 0 1.5rem 0; line-height: 1.5; flex-grow: 1;">Explore our project roadmap and find issues that match your interests.</p>
+        <a href="/roadmap" style="color: #4f46e5; font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center;">
+          View Roadmap <span style="margin-left: 4px;">&rarr;</span>
+        </a>
       </div>
+
+      <div class="feature-card" style="padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #fff; display: flex; flex-direction: column; align-items: flex-start;">
+        <div class="icon" style="color: #4f46e5; margin-bottom: 1rem; background: #eef2ff; padding: 0.75rem; border-radius: 0.5rem;">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 style="font-size: 1.125rem; font-weight: 600; margin: 0 0 0.5rem 0; color: #0f172a;">Join Community</h3>
+        <p style="font-size: 0.875rem; color: #64748b; margin: 0 0 1.5rem 0; line-height: 1.5; flex-grow: 1;">Connect with developers on Discord and participate in discussions.</p>
+        <a href="/discord" style="color: #4f46e5; font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center;">
+          Join Discord <span style="margin-left: 4px;">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="feature-card" style="padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #fff; display: flex; flex-direction: column; align-items: flex-start;">
+        <div class="icon" style="color: #4f46e5; margin-bottom: 1rem; background: #eef2ff; padding: 0.75rem; border-radius: 0.5rem;">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="6" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+        </div>
+        <h3 style="font-size: 1.125rem; font-weight: 600; margin: 0 0 0.5rem 0; color: #0f172a;">Contribute Code</h3>
+        <p style="font-size: 0.875rem; color: #64748b; margin: 0 0 1.5rem 0; line-height: 1.5; flex-grow: 1;">Fork the repo, create a branch, and submit a PR for review.</p>
+        <a href="/docs/contributing" style="color: #4f46e5; font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center;">
+          Read Guide <span style="margin-left: 4px;">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="feature-card" style="padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #fff; display: flex; flex-direction: column; align-items: flex-start;">
+        <div class="icon" style="color: #4f46e5; margin-bottom: 1rem; background: #eef2ff; padding: 0.75rem; border-radius: 0.5rem;">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 style="font-size: 1.125rem; font-weight: 600; margin: 0 0 0.5rem 0; color: #0f172a;">Make Impact</h3>
+        <p style="font-size: 0.875rem; color: #64748b; margin: 0 0 1.5rem 0; line-height: 1.5; flex-grow: 1;">See your code help thousands of users and make a real difference.</p>
+        <a href="/showcase" style="color: #4f46e5; font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center;">
+          View Showcase <span style="margin-left: 4px;">&rarr;</span>
+        </a>
+      </div>
+
     </div>
+
+    <style>
+    @media (max-width: 1024px) {
+      .getting-involved-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 640px) {
+      .getting-involved-grid { grid-template-columns: 1fr !important; }
+    }
+    </style>
 
     <hr class="divider" />
 
