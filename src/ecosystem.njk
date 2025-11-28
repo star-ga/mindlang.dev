@@ -8,34 +8,74 @@ title: Ecosystem
     <p class="section-lede">MIND is built on an open-core model. The language and compiler are fully open, while specialized runtimes power enterprise scale.</p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-      <div>
-        <svg viewBox="0 0 24 24" class="h-12 w-12" xmlns="http://www.w3.org/2000/svg">
-          <image href="/img/mind-logo-grid-dark.svg" height="24" width="24" />
-        </svg>
-        <h3>mind</h3>
-        <p><strong>License: Apache 2.0</strong></p>
-        <p>The official Rust implementation of the compiler. Includes the CLI, type checker, MIR/MLIR lowerings, and CPU executor.</p>
-        <a href="https://github.com/cputer/mind">View on GitHub &rarr;</a>
+      <div class="card p-6 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-blue-50">
+            <!-- Blue Core/Chip Icon -->
+            <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5" fill="#2563eb" fill-opacity="0.15"/>
+              <circle cx="12" cy="12" r="3" fill="#2563eb"/>
+              <g stroke="#2563eb">
+                <line x1="12" y1="2" x2="12" y2="5"/>
+                <line x1="12" y1="19" x2="12" y2="22"/>
+                <line x1="2" y1="12" x2="5" y2="12"/>
+                <line x1="19" y1="12" x2="22" y2="12"/>
+                <line x1="5.64" y1="5.64" x2="7.76" y2="7.76"/>
+                <line x1="16.24" y1="16.24" x2="18.36" y2="18.36"/>
+                <line x1="5.64" y1="18.36" x2="7.76" y2="16.24"/>
+                <line x1="16.24" y1="7.76" x2="18.36" y2="5.64"/>
+              </g>
+            </svg>
+          </span>
+          <div class="card-header flex items-center gap-3">
+            <h3 class="text-xl font-bold">mind</h3>
+            <span class="badge bg-gray-900 text-white rounded-full px-3 py-1 text-xs">Apache 2.0</span>
+          </div>
+        </div>
+        <p class="mb-2">The official Rust implementation of the compiler. Includes the CLI, type checker, MIR/MLIR lowerings, and CPU executor.</p>
+        <a href="https://github.com/cputer/mind" class="text-blue-700 font-semibold hover:underline">View on GitHub &rarr;</a>
       </div>
 
-      <div>
-        <svg viewBox="0 0 24 24" class="h-12 w-12 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-        </svg>
-        <h3>mind-spec</h3>
-        <p><strong>License: Apache 2.0</strong></p>
-        <p>The authoritative language specification, design documents, and RFCs. Changes to the language start here.</p>
-        <a href="https://github.com/cputer/mind-spec">View on GitHub &rarr;</a>
+      <div class="card p-6 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-green-50">
+            <!-- Green Document Icon -->
+            <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="3" width="16" height="18" rx="2" fill="#16a34a" fill-opacity="0.12"/>
+              <rect x="4" y="3" width="16" height="18" rx="2"/>
+              <line x1="8" y1="7" x2="16" y2="7"/>
+              <line x1="8" y1="11" x2="16" y2="11"/>
+              <line x1="8" y1="15" x2="14" y2="15"/>
+            </svg>
+          </span>
+          <div class="card-header flex items-center gap-3">
+            <h3 class="text-xl font-bold">mind-spec</h3>
+            <span class="badge bg-gray-900 text-white rounded-full px-3 py-1 text-xs">Apache 2.0</span>
+          </div>
+        </div>
+        <p class="mb-2">The authoritative language specification, design documents, and RFCs. Changes to the language start here.</p>
+        <a href="https://github.com/cputer/mind-spec" class="text-blue-700 font-semibold hover:underline">View on GitHub &rarr;</a>
       </div>
 
-      <div>
-        <svg viewBox="0 0 24 24" class="h-12 w-12 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z" />
-        </svg>
-        <h3>mind-runtime</h3>
-        <p><strong>License: Commercial</strong></p>
-        <p>High-performance runtime extensions for massive distributed training and specific hardware accelerators. Managed by STARGA Inc.</p>
+      <div class="card p-6 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-orange-50">
+            <!-- Orange Processor Icon -->
+            <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="5" width="14" height="14" rx="3" fill="#ea580c" fill-opacity="0.13"/>
+              <rect x="5" y="5" width="14" height="14" rx="3"/>
+              <rect x="9" y="9" width="6" height="6" rx="1" fill="#ea580c"/>
+              <path d="M9 2v2"/><path d="M15 2v2"/><path d="M9 20v2"/><path d="M15 20v2"/>
+              <path d="M2 9h2"/><path d="M2 15h2"/><path d="M20 9h2"/><path d="M20 15h2"/>
+              <path d="M17.5 6.5l1.5-1.5"/><path d="M6.5 6.5L5 5"/><path d="M17.5 17.5l1.5 1.5"/><path d="M6.5 17.5L5 19"/>
+            </svg>
+          </span>
+          <div class="card-header flex items-center gap-3">
+            <h3 class="text-xl font-bold">mind-runtime</h3>
+            <span class="badge bg-orange-600 text-white rounded-full px-3 py-1 text-xs">Commercial</span>
+          </div>
+        </div>
+        <p class="mb-2">High-performance runtime extensions for massive distributed training and specific hardware accelerators. Managed by STARGA Inc.</p>
       </div>
     </div>
   </div>
