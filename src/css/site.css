@@ -1,3 +1,11 @@
+/* --- CARD DETAILS LINK STYLING (per user instructions) --- */
+.card-details a, .card-details a:hover {
+  text-decoration: none !important;
+}
+.card-details a {
+  display: block !important;
+  margin-top: 0.5rem !important;
+}
 :root {
   --color-bg: #ffffff;
   --color-text: #111827;
