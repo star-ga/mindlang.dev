@@ -1,0 +1,6 @@
+flowchart TD
+    U[URL/PDF/GitHub] --> P(Parser/Extractor)
+    P --> S[Semantic Chunker]
+    S --> D[Deduplicator]
+    D --> M[Deterministic Context Merge]
+    M --> O[Orchestration Flow]
