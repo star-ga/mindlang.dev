@@ -10,18 +10,20 @@ layout: layouts/docs.njk
 
 ### Prerequisites
 * Linux (x86_64) or macOS (Apple Silicon/Intel)
-* GLIBC 2.27+
+* Rust toolchain (stable), <code>cmake</code>, and a modern C/C++ toolchain
 
-### One-Line Install
-The easiest way to install MIND is via our official installer script:
+### Build from source
+The compiler and CLI live in the public <code>cputer/mind</code> repository.
 
 <div style="background-color: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 0.375rem; font-family: monospace; font-size: 0.875rem; margin-bottom: 1.5rem;">
-  curl --proto '=https' --tlsv1.2 -sSf https://get.mindlang.dev | sh
+  git clone https://github.com/cputer/mind.git
+  cd mind
+  cargo build --bin mindc
 </div>
 
-### Verifying Installation
-Restart your terminal and run:
+### Verifying the build
+Run the compiled binary to confirm it links correctly:
 
 <div style="background-color: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 0.375rem; font-family: monospace; font-size: 0.875rem;">
-  mind --version
+  cargo run --bin mindc -- --help
 </div>
