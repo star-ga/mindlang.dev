@@ -18,9 +18,10 @@ description: Stability guarantees for the MIND IR, autodiff, shapes, and experim
 
 ## Conditionally Stable
 - **MLIR lowering (feature-gated):** Available behind compiler feature flags; interfaces may change as the lowering pipeline matures.
+- **Core v1 GPU profile (contract):** Device kinds / backend targets, backend-selection error model (e.g. GPU unavailable), and the `GPUBackend` trait surface are defined and stable when GPU features are enabled. The profile contract is compatible with Core v1 programs even though specific GPU backend implementations are not finalized.
 
 ## Experimental
-- **GPU backend:** Accelerated codegen remains in design and is subject to rapid iteration.
+- **Concrete GPU backends:** Accelerated GPU/accelerator implementations (CUDA/ROCm/etc.) are upcoming and may change before release.
 - **Package manager:** Dependency resolution and registry workflows are not finalized.
 - **Future ops / extensions:** New operators and language extensions will ship behind experimental flags until promoted.
 
