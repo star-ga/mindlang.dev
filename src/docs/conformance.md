@@ -23,10 +23,14 @@ description: Core v1 conformance profiles for CPU and GPU implementations, plus 
 
 ## Running the conformance suite
 - From the <code>cputer/mind</code> repo, run the Rust test harness:
-  <pre><code>cargo test -p mind-compiler --test conformance</code></pre>
+  <pre style="background-color: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 0.375rem; font-family: monospace; font-size: 0.875rem; margin-bottom: 1.5rem;">
+cargo test -p mind-compiler --test conformance
+  </pre>
 - From any environment with <code>mindc</code> installed, run:
-  <pre><code>mindc conformance --profile cpu
-mindc conformance --profile gpu</code></pre>
+  <pre style="background-color: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 0.375rem; font-family: monospace; font-size: 0.875rem; margin-bottom: 1.5rem;">
+mindc conformance --profile cpu
+mindc conformance --profile gpu
+  </pre>
 - The suite executes both IR-level and runtime-level assertions for the selected profile.
 
 ## For other implementations
