@@ -4,7 +4,8 @@
     "items": [
       { "name": "Introduction", "href": "/docs/" },
       { "name": "Installation", "href": "/docs/installation/" },
-      { "name": "Quick Start", "href": "/docs/quick-start/" }
+      { "name": "Quick Start", "href": "/docs/quick-start/" },
+      { "name": "Stability & Versioning", "href": "/docs/stability/" }
     ]
   },
   {
