@@ -5,6 +5,8 @@
       { "name": "Introduction", "href": "/docs/" },
       { "name": "Installation", "href": "/docs/installation/" },
       { "name": "Quick Start", "href": "/docs/quick-start/" },
+      { "name": "Using Core v1 Today", "href": "/docs/using-core-v1/" },
+      { "name": "Cookbook", "href": "/docs/cookbook/" },
       { "name": "Conformance", "href": "/docs/conformance/" },
       { "name": "Stability & Versioning", "href": "/docs/stability/" }
     ]
