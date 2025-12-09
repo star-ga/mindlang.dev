@@ -1,5 +1,4 @@
-mindlang.dev
-============
+# mindlang.dev
 
 This repository hosts **mindlang.dev**, the public documentation site for the
 MIND language, compiler, and **Core v1** specification.
@@ -14,10 +13,10 @@ The site aggregates:
 Related repositories
 --------------------
 
-- **Compiler & runtime**:  
+- **Compiler & runtime**:
   <https://github.com/cputer/mind>
 
-- **Core v1 specification**:  
+- **Core v1 specification**:
   <https://github.com/cputer/mind-spec>
 
 These repos define the public behaviour of the compiler and Core IR; this site
@@ -30,10 +29,12 @@ The content is organised into several sections:
 
 - **Getting Started** – entry points for new users and links to key docs.
 - **Core v1** – surface language, IR, autodiff, shapes, runtime and MLIR
-  lowering chapters aligned with the Phase-2 public implementation.
+  lowering chapters aligned with the current public implementation
+  (corresponding to “Phase-2” as described in the project roadmap in
+  `cputer/mind`).
 - **Stability & Versioning** – a description of which parts of the stack are
   considered stable, conditionally stable, or experimental, with links back to
-  `cputer/mind`’s versioning and error-model docs.
+  the versioning and error-model docs in `cputer/mind`.
 - **Roadmap** – a high-level view of completed work (Core v1, CPU execution)
   and upcoming items (GPU / accelerator backends, package tooling, etc.).
 
@@ -68,4 +69,3 @@ License
 
 This repository inherits its license from the main MIND project. See the
 `LICENSE` file at the root of the repository for details.
-
