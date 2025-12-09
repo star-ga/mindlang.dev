@@ -5,6 +5,7 @@
       { "name": "Introduction", "href": "/docs/" },
       { "name": "Installation", "href": "/docs/installation/" },
       { "name": "Quick Start", "href": "/docs/quick-start/" },
+      { "name": "Conformance", "href": "/docs/conformance/" },
       { "name": "Stability & Versioning", "href": "/docs/stability/" }
     ]
   },
