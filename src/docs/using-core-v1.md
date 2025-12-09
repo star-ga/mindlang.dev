@@ -62,7 +62,7 @@ runtime run simple.ir --input x=[1,2,3,4]
 Expected output:
 
 ```
-[2,4,6,8]
+[[2,4],[6,8]]
 ```
 
 This demonstrates the Core v1 **deterministic CPU execution model**.
@@ -71,7 +71,7 @@ This demonstrates the Core v1 **deterministic CPU execution model**.
 
 ## 4. Using autodiff
 
-Extend the program:
+Extend the same `simple.mind` file:
 
 ```
 fn main(x: tensor<f32>[2]) -> tensor<f32>[1] {
@@ -83,7 +83,7 @@ fn main(x: tensor<f32>[2]) -> tensor<f32>[1] {
 Generate gradient IR:
 
 <pre style="background:#0f172a;color:#f8fafc;padding:1rem;border-radius:6px;">
-mindc main.mind --grad --func main -o grad.ir
+mindc simple.mind --grad --func main -o grad.ir
 </pre>
 
 This produces a fully canonical reverse-mode derivative according to Core v1 autodiff semantics.
