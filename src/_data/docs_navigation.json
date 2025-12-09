@@ -8,6 +8,7 @@
       { "name": "Using Core v1 Today", "href": "/docs/using-core-v1/" },
       { "name": "Cookbook", "href": "/docs/cookbook/" },
       { "name": "Conformance", "href": "/docs/conformance/" },
+      { "name": "Shapes & Broadcasting", "href": "/docs/shapes/" },
       { "name": "Stability & Versioning", "href": "/docs/stability/" }
     ]
   },
