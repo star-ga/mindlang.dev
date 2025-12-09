@@ -53,6 +53,8 @@ Expected gradient: `2 * x`.
 
 ## Recipe 3 — MLIR lowering for CPU
 
+_This example reuses the `scale.mind` file defined in [Recipe 1](#recipe-1--simple-arithmetic-cpu)._ 
+
 <pre style="background:#0f172a;color:#f8fafc;padding:1rem;border-radius:6px;">
 mindc scale.mind --mlir -o scale.mlir
 </pre>
@@ -94,7 +96,7 @@ let inp = rt.allocate(&tensor_desc_f32(&[2]))?;
 rt.write_tensor(inp, &[1.0, 3.0])?;
 
 let out = rt.allocate(&tensor_desc_f32(&[1]))?;
-MindRuntime::run_op(&rt, "sum", &[inp], &[out])?;
+rt.run_op("sum", &[inp], &[out])?;
 
 let result = rt.read_tensor(out)?;
 ```
