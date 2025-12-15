@@ -478,6 +478,247 @@ title: Enterprise Adoption Flow
         fill: rgba(0, 0, 0, 0.5);
         pointer-events: none;
     }
+
+    .flow-scroll-hint {
+        display: none;
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        z-index: 100;
+        pointer-events: none;
+        animation: flowScrollHintFade 3s ease-out forwards;
+    }
+
+    @keyframes flowScrollHintFade {
+        0%, 70% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+        .flow-header {
+            padding: 16px 20px;
+        }
+
+        .flow-header-top {
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .flow-title {
+            font-size: 22px;
+            width: 100%;
+        }
+
+        .flow-subtitle {
+            font-size: 12px;
+        }
+
+        .flow-context-note {
+            font-size: 11px;
+        }
+
+        .flow-stats {
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .flow-stat::after {
+            right: -10px;
+            height: 20px;
+        }
+
+        .flow-stat-value {
+            font-size: 20px;
+        }
+
+        .flow-stat-label {
+            font-size: 9px;
+        }
+
+        .flow-viewport {
+            height: calc(100vh - 350px);
+            min-height: 450px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            cursor: default;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .flow-viewport.grabbing {
+            cursor: default;
+        }
+
+        .flow-canvas {
+            transform: none !important;
+            position: relative;
+            min-width: 1400px;
+            height: 950px;
+        }
+
+        .flow-scroll-hint {
+            display: block;
+        }
+
+        .flow-node {
+            padding: 14px 16px;
+        }
+
+        .flow-node[data-node="entry"] {
+            left: 40px !important;
+            top: 300px !important;
+            width: 220px !important;
+        }
+
+        .flow-node[data-node="standard"] {
+            left: 360px !important;
+            top: 140px !important;
+            width: 240px !important;
+        }
+
+        .flow-node[data-node="custom"] {
+            left: 360px !important;
+            top: 320px !important;
+            width: 240px !important;
+        }
+
+        .flow-node[data-node="managed"] {
+            left: 360px !important;
+            top: 500px !important;
+            width: 240px !important;
+        }
+
+        .flow-node[data-node="stall"] {
+            left: 360px !important;
+            top: 700px !important;
+            width: 200px !important;
+        }
+
+        .flow-node[data-node="governed"] {
+            left: 720px !important;
+            top: 280px !important;
+            width: 260px !important;
+        }
+
+        .flow-node[data-node="success"] {
+            left: 1100px !important;
+            top: 280px !important;
+            width: 260px !important;
+        }
+
+        .flow-node-title {
+            font-size: 14px;
+        }
+
+        .flow-node-desc {
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+
+        .flow-node-data {
+            gap: 12px;
+            padding-top: 8px;
+            font-size: 10px;
+        }
+
+        .flow-controls {
+            bottom: 16px;
+            right: 16px;
+            display: none;
+        }
+
+        .flow-legend {
+            position: static;
+            margin: 16px;
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+
+        .flow-legend-title {
+            font-size: 8px;
+            margin-bottom: 8px;
+        }
+
+        .flow-leg-item {
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+
+        .flow-swatch {
+            width: 20px;
+            height: 12px;
+        }
+
+        .flow-leg-name {
+            font-size: 11px;
+        }
+
+        .flow-leg-val {
+            font-size: 10px;
+        }
+
+        .flow-modal-content {
+            padding: 24px;
+            width: 95%;
+            max-height: 85vh;
+        }
+
+        .flow-modal-title {
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        .flow-modal-metrics {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .flow-modal-metric {
+            padding: 10px 6px;
+        }
+
+        .flow-modal-metric-value {
+            font-size: 16px;
+        }
+
+        .flow-modal-metric-label {
+            font-size: 8px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .flow-header {
+            padding: 12px 16px;
+        }
+
+        .flow-title {
+            font-size: 18px;
+        }
+
+        .flow-stats {
+            gap: 16px;
+        }
+
+        .flow-stat-value {
+            font-size: 18px;
+        }
+
+        .flow-viewport {
+            min-height: 400px;
+        }
+
+        .flow-legend {
+            margin: 12px;
+            padding: 10px 12px;
+        }
+    }
 </style>
 
 <div class="flow-header">
@@ -503,6 +744,7 @@ title: Enterprise Adoption Flow
 </div>
 
 <div class="flow-viewport" id="flow-vp">
+    <div class="flow-scroll-hint" id="flow-scroll-hint">← Swipe to explore →</div>
     <div class="flow-canvas" id="flow-canvas">
         <svg id="flow-svg"></svg>
         
@@ -718,7 +960,12 @@ title: Enterprise Adoption Flow
 
     svg.innerHTML = svgContent;
 
-    // Pan/zoom
+    // Check if mobile
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    // Pan/zoom (desktop only)
     let scale = 0.7;
     let tx = 50;
     let ty = 30;
@@ -730,11 +977,13 @@ title: Enterprise Adoption Flow
     const zoomEl = document.getElementById('flow-z');
 
     function update() {
+        if (isMobile()) return;
         canvas.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
         zoomEl.textContent = `${Math.round(scale * 100)}%`;
     }
 
     vp.addEventListener('wheel', (e) => {
+        if (isMobile()) return;
         e.preventDefault();
         const rect = vp.getBoundingClientRect();
         const mx = e.clientX - rect.left;
@@ -750,6 +999,7 @@ title: Enterprise Adoption Flow
     });
 
     vp.addEventListener('mousedown', (e) => {
+        if (isMobile()) return;
         if (e.target.closest('.flow-node')) return;
         dragging = true;
         startX = e.clientX - tx;
@@ -758,6 +1008,7 @@ title: Enterprise Adoption Flow
     });
 
     document.addEventListener('mousemove', (e) => {
+        if (isMobile()) return;
         if (!dragging) return;
         tx = e.clientX - startX;
         ty = e.clientY - startY;
@@ -770,6 +1021,7 @@ title: Enterprise Adoption Flow
     });
 
     function zoom(delta) {
+        if (isMobile()) return;
         const cx = vp.clientWidth / 2;
         const cy = vp.clientHeight / 2;
         const px = (cx - tx) / scale;
@@ -782,6 +1034,7 @@ title: Enterprise Adoption Flow
     }
 
     function reset() {
+        if (isMobile()) return;
         scale = 0.7;
         tx = 50;
         ty = 30;
@@ -792,7 +1045,17 @@ title: Enterprise Adoption Flow
     document.getElementById('flow-zoom-out').addEventListener('click', () => zoom(-0.15));
     document.getElementById('flow-reset').addEventListener('click', reset);
 
-    update();
+    // Initialize based on screen size
+    if (!isMobile()) {
+        update();
+    }
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+        if (!isMobile()) {
+            update();
+        }
+    });
 
     // Modal data
     const modalData = {
