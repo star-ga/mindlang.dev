@@ -570,48 +570,6 @@ title: Enterprise Adoption Flow
             padding: 14px 16px;
         }
 
-        .flow-node[data-node="entry"] {
-            left: 40px !important;
-            top: 300px !important;
-            width: 220px !important;
-        }
-
-        .flow-node[data-node="standard"] {
-            left: 360px !important;
-            top: 140px !important;
-            width: 240px !important;
-        }
-
-        .flow-node[data-node="custom"] {
-            left: 360px !important;
-            top: 320px !important;
-            width: 240px !important;
-        }
-
-        .flow-node[data-node="managed"] {
-            left: 360px !important;
-            top: 500px !important;
-            width: 240px !important;
-        }
-
-        .flow-node[data-node="stall"] {
-            left: 360px !important;
-            top: 700px !important;
-            width: 200px !important;
-        }
-
-        .flow-node[data-node="governed"] {
-            left: 720px !important;
-            top: 280px !important;
-            width: 260px !important;
-        }
-
-        .flow-node[data-node="success"] {
-            left: 1100px !important;
-            top: 280px !important;
-            width: 260px !important;
-        }
-
         .flow-node-title {
             font-size: 14px;
         }
@@ -1045,9 +1003,9 @@ title: Enterprise Adoption Flow
     document.getElementById('flow-reset').addEventListener('click', reset);
 
     // Mobile pinch-to-zoom and pan
-    let mobileScale = 0.45;
-    let mobileTx = 20;
-    let mobileTy = 20;
+    let mobileScale = 0.35;
+    let mobileTx = 10;
+    let mobileTy = -20;
     let lastTouchDist = 0;
     let lastTouchCenter = { x: 0, y: 0 };
     let isTouching = false;
