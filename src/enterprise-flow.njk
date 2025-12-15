@@ -544,10 +544,11 @@ title: Enterprise Adoption Flow
         }
 
         .flow-viewport {
-            height: calc(100vh - 350px);
-            min-height: 450px;
+            height: auto;
+            min-height: 580px;
+            max-height: none;
             overflow-x: auto;
-            overflow-y: hidden;
+            overflow-y: visible;
             cursor: default;
             -webkit-overflow-scrolling: touch;
         }
@@ -560,7 +561,7 @@ title: Enterprise Adoption Flow
             transform: none !important;
             position: relative;
             min-width: 1400px;
-            height: 950px;
+            height: 580px;
         }
 
         .flow-scroll-hint {
@@ -568,49 +569,49 @@ title: Enterprise Adoption Flow
         }
 
         .flow-node {
-            padding: 14px 16px;
+            padding: 12px 14px;
         }
 
         .flow-node[data-node="entry"] {
-            left: 40px !important;
-            top: 300px !important;
-            width: 220px !important;
-        }
-
-        .flow-node[data-node="standard"] {
-            left: 360px !important;
-            top: 140px !important;
-            width: 240px !important;
-        }
-
-        .flow-node[data-node="custom"] {
-            left: 360px !important;
-            top: 320px !important;
-            width: 240px !important;
-        }
-
-        .flow-node[data-node="managed"] {
-            left: 360px !important;
-            top: 500px !important;
-            width: 240px !important;
-        }
-
-        .flow-node[data-node="stall"] {
-            left: 360px !important;
-            top: 700px !important;
+            left: 30px !important;
+            top: 200px !important;
             width: 200px !important;
         }
 
+        .flow-node[data-node="standard"] {
+            left: 320px !important;
+            top: 60px !important;
+            width: 220px !important;
+        }
+
+        .flow-node[data-node="custom"] {
+            left: 320px !important;
+            top: 190px !important;
+            width: 220px !important;
+        }
+
+        .flow-node[data-node="managed"] {
+            left: 320px !important;
+            top: 320px !important;
+            width: 220px !important;
+        }
+
+        .flow-node[data-node="stall"] {
+            left: 320px !important;
+            top: 455px !important;
+            width: 180px !important;
+        }
+
         .flow-node[data-node="governed"] {
-            left: 720px !important;
-            top: 280px !important;
-            width: 260px !important;
+            left: 640px !important;
+            top: 180px !important;
+            width: 240px !important;
         }
 
         .flow-node[data-node="success"] {
-            left: 1100px !important;
-            top: 280px !important;
-            width: 260px !important;
+            left: 980px !important;
+            top: 180px !important;
+            width: 240px !important;
         }
 
         .flow-node-title {
@@ -636,19 +637,26 @@ title: Enterprise Adoption Flow
 
         .flow-legend {
             position: static;
-            margin: 16px;
-            border-radius: 8px;
-            padding: 12px 16px;
+            margin: 0;
+            border-radius: 0;
+            padding: 16px 20px;
+            background: #f8f8f8;
+            border-top: 1px solid #eee;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
         }
 
         .flow-legend-title {
-            font-size: 8px;
-            margin-bottom: 8px;
+            font-size: 9px;
+            margin-bottom: 0;
+            margin-right: 8px;
         }
 
         .flow-leg-item {
-            gap: 8px;
-            margin-bottom: 5px;
+            gap: 6px;
+            margin-bottom: 0;
         }
 
         .flow-swatch {
