@@ -72,11 +72,9 @@ title: Roadmap
     </div>
 
     <p style="margin: -0.75rem 0 1.5rem; color: #94a3b8; font-size: 0.9rem;">
-      See <a href="/docs/shapes/" style="color: #4f46e5; text-decoration: underline;">Shapes &amp; Broadcasting</a> for practical shape rules and the reference engine.
-      See <a href="/docs/spec/" style="color: #4f46e5; text-decoration: underline;">Core v1 spec</a>, <a href="/docs/conformance/" style="color: #4f46e5; text-decoration: underline;">Conformance</a>, and
-      <a href="/docs/stability/" style="color: #4f46e5; text-decoration: underline;">Stability &amp; Versioning</a> for official guarantees.
-      For practical usage examples, visit <a href="/docs/using-core-v1/" style="color: #4f46e5; text-decoration: underline;">Using Core v1 Today</a>
-      and the <a href="/docs/cookbook/" style="color: #4f46e5; text-decoration: underline;">Cookbook</a>.
+      See <a href="/docs/shapes/" style="color: #4f46e5; text-decoration: underline;">Shapes &amp; Broadcasting</a> for practical shape rules and the reference engine.<br />
+      See <a href="/docs/spec/" style="color: #4f46e5; text-decoration: underline;">Core v1 Spec</a>, <a href="/docs/conformance/" style="color: #4f46e5; text-decoration: underline;">Conformance</a>, and <a href="/docs/stability/" style="color: #4f46e5; text-decoration: underline;">Stability &amp; Versioning</a> for official guarantees.<br />
+      For practical usage examples, visit <a href="/docs/using-core-v1/" style="color: #4f46e5; text-decoration: underline;">Using Core v1 Today</a> and the <a href="/docs/cookbook/" style="color: #4f46e5; text-decoration: underline;">Cookbook</a>.
     </p>
 
       <div class="roadmap-card" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; display: grid; grid-template-columns: auto 1fr 1.5fr; gap: 2rem; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
@@ -118,19 +116,19 @@ title: Roadmap
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #64748b; margin-bottom: 0.5rem;">
-              <span>Contract</span><span style="color: #0f172a; font-weight: 600;">100%</span>
+              <span>Progress</span><span style="color: #0f172a; font-weight: 600;">45%</span>
             </div>
             <div style="height: 6px; background: #f1f5f9; border-radius: 3px; overflow: hidden;">
-              <div style="width: 100%; height: 100%; background: #4f46e5;"></div>
+              <div style="width: 45%; height: 100%; background: #4f46e5;"></div>
             </div>
-            <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #64748b; line-height: 1.4;">Contract includes device kinds / backend targets, backend-selection errors, and the public GPU backend trait surface.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #64748b; line-height: 1.4;">Foundational shape/type validation and lowering scaffolding for GPU and accelerator backends.</p>
           </div>
           <div>
             <div style="display: flex; align-items: center; gap: 0.5rem; color: #64748b; font-size: 0.875rem; margin-bottom: 0.5rem;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <span style="color: #0f172a; font-weight: 600;">Backend implementations: upcoming</span>
+              <span style="color: #0f172a; font-weight: 600;">Lowering integrations underway</span>
             </div>
-            <p style="font-size: 0.875rem; color: #64748b; line-height: 1.4;">Concrete GPU backends (CUDA/ROCm/etc.) will ship after the Core v1 GPU profile; not required for Core v1 conformance.</p>
+            <p style="font-size: 0.875rem; color: #64748b; line-height: 1.4;">Next milestones target MLIR → SPIR-V / NVVM lowering and backend integrations.</p>
           </div>
         </div>
       </div>
@@ -146,12 +144,12 @@ title: Roadmap
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #64748b; margin-bottom: 0.5rem;">
-              <span>Progress</span><span style="color: #0f172a; font-weight: 600;">10%</span>
+              <span>Progress</span><span style="color: #0f172a; font-weight: 600;">15%</span>
             </div>
             <div style="height: 6px; background: #f1f5f9; border-radius: 3px; overflow: hidden;">
-              <div style="width: 10%; height: 100%; background: #4f46e5;"></div>
+              <div style="width: 15%; height: 100%; background: #4f46e5;"></div>
             </div>
-            <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #64748b; line-height: 1.4;">Native dependency resolution coming in 2026.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #64748b; line-height: 1.4;">Early groundwork for module and dependency resolution with ecosystem foundations underway.</p>
           </div>
           <div>
             <div style="display: flex; align-items: center; gap: 0.5rem; color: #64748b; font-size: 0.875rem; margin-bottom: 0.5rem;">
@@ -159,6 +157,90 @@ title: Roadmap
               <span style="color: #0f172a; font-weight: 600;">2026</span>
             </div>
             <p style="font-size: 0.875rem; color: #64748b; line-height: 1.4;">Comprehensive package management and dependency resolution.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-card" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; display: grid; grid-template-columns: auto 1fr 1.5fr; gap: 2rem; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+        <div class="card-icon" style="background: #ecfdf5; padding: 1rem; border-radius: 12px; color: #10b981;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-size: 1.5rem; font-weight: 700; color: #0f172a;">Testing &amp; Conformance</h3>
+          <span style="display: inline-block; background: #ecfdf5; color: #047857; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Emerging</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem;">
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #64748b; margin-bottom: 0.5rem;">
+              <span>Progress</span><span style="color: #0f172a; font-weight: 600;">65%</span>
+            </div>
+            <div style="height: 6px; background: #f1f5f9; border-radius: 3px; overflow: hidden;">
+              <div style="width: 65%; height: 100%; background: #10b981;"></div>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #64748b; line-height: 1.4;">Unit tests and conformance coverage span tensor ops, shapes, broadcasting, and autodiff.</p>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: #64748b; font-size: 0.875rem; margin-bottom: 0.5rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span style="color: #0f172a; font-weight: 600;">Expanding suites</span>
+            </div>
+            <p style="font-size: 0.875rem; color: #64748b; line-height: 1.4;">Formal conformance alignment continues as new operators and lowering paths land.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-card" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; display: grid; grid-template-columns: auto 1fr 1.5fr; gap: 2rem; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+        <div class="card-icon" style="background: #eef2ff; padding: 1rem; border-radius: 12px; color: #4f46e5;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-size: 1.5rem; font-weight: 700; color: #0f172a;">Documentation Alignment</h3>
+          <span style="display: inline-block; background: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Advancing</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem;">
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #64748b; margin-bottom: 0.5rem;">
+              <span>Progress</span><span style="color: #0f172a; font-weight: 600;">80%</span>
+            </div>
+            <div style="height: 6px; background: #f1f5f9; border-radius: 3px; overflow: hidden;">
+              <div style="width: 80%; height: 100%; background: #4f46e5;"></div>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #64748b; line-height: 1.4;">Specs and guides reflect shapes, types, IR pipeline updates, and new examples.</p>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: #64748b; font-size: 0.875rem; margin-bottom: 0.5rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span style="color: #0f172a; font-weight: 600;">Ongoing updates</span>
+            </div>
+            <p style="font-size: 0.875rem; color: #64748b; line-height: 1.4;">Documentation keeps pace with implementation changes for Core v1 readiness.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-card" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; display: grid; grid-template-columns: auto 1fr 1.5fr; gap: 2rem; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+        <div class="card-icon" style="background: #fef3c7; padding: 1rem; border-radius: 12px; color: #d97706;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l4 4-4 4-4-4 4-4z"></path><path d="M12 14l4 4-4 4-4-4 4-4z"></path><path d="M2 12l4-4 4 4-4 4-4-4z"></path><path d="M14 12l4-4 4 4-4 4-4-4z"></path></svg>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-size: 1.5rem; font-weight: 700; color: #0f172a;">Language Toolchain &amp; Lowering</h3>
+          <span style="display: inline-block; background: #fef3c7; color: #92400e; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Working</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem;">
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #64748b; margin-bottom: 0.5rem;">
+              <span>Progress</span><span style="color: #0f172a; font-weight: 600;">75%</span>
+            </div>
+            <div style="height: 6px; background: #f1f5f9; border-radius: 3px; overflow: hidden;">
+              <div style="width: 75%; height: 100%; background: #d97706;"></div>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #64748b; line-height: 1.4;">Language-to-IR lowering is complete for major constructs with backend pipelines in progress.</p>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: #64748b; font-size: 0.875rem; margin-bottom: 0.5rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span style="color: #0f172a; font-weight: 600;">Backend integrations remaining</span>
+            </div>
+            <p style="font-size: 0.875rem; color: #64748b; line-height: 1.4;">Compiler workflow extends toward GPU/accelerator paths and runtime coupling.</p>
           </div>
         </div>
       </div>
