@@ -1,0 +1,696 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+.flow-header {
+    background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+    border-bottom: 1px solid #f0f0f0;
+    padding: 24px 40px;
+}
+
+.flow-header-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 6px;
+}
+
+.flow-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: #059669;
+    background: rgba(5, 150, 105, 0.08);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(5, 150, 105, 0.15);
+    letter-spacing: 0.5px;
+}
+
+.flow-title {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -1.2px;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.flow-subtitle {
+    font-size: 13px;
+    color: #7a7a7a;
+    font-weight: 500;
+}
+
+.flow-context-note {
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+    margin-top: 8px;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+.flow-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 18px;
+}
+
+.flow-stat {
+    position: relative;
+}
+
+.flow-stat::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 28px;
+    background: #e8e8e8;
+}
+
+.flow-stat:last-child::after {
+    display: none;
+}
+
+.flow-stat-value {
+    font-size: 26px;
+    font-weight: 900;
+    color: #1a1a1a;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.flow-stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    color: #aaa;
+}
+
+.flow-viewport {
+    height: calc(100vh - 290px);
+    min-height: 600px;
+    cursor: grab;
+    overflow: hidden;
+    background: #fcfcfc;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(5, 150, 105, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(5, 150, 105, 0.015) 0%, transparent 50%);
+    position: relative;
+}
+
+.flow-viewport.grabbing {
+    cursor: grabbing;
+}
+
+.flow-canvas {
+    width: 2600px;
+    height: 1100px;
+    position: absolute;
+    transform-origin: 0 0;
+}
+
+.flow-canvas svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.flow-path {
+    opacity: 0.22;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flow-path:hover {
+    opacity: 0.38;
+    filter: brightness(1.1);
+}
+
+.flow-node {
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    padding: 18px 22px;
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    border-left: 4px solid;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.flow-node:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.1),
+        0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.flow-node.primary {
+    border-left-color: #059669;
+}
+
+.flow-node.alternative {
+    border-left-color: #d97706;
+}
+
+.flow-node.enhanced {
+    border-left-color: #7c3aed;
+}
+
+.flow-node.exit {
+    border-left-color: #dc2626;
+    background: rgba(220, 38, 38, 0.06);
+    border: 1px solid rgba(220, 38, 38, 0.15);
+    box-shadow: 0 2px 10px rgba(220, 38, 38, 0.08);
+}
+
+.flow-node.core {
+    border-left-color: #059669;
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.03) 0%, white 100%);
+}
+
+.flow-node.success {
+    border-left-color: #059669;
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.05) 0%, white 100%);
+}
+
+.flow-node-label {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    color: #b0b0b0;
+    margin-bottom: 5px;
+}
+
+.flow-node-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+    letter-spacing: -0.4px;
+}
+
+.flow-node-desc {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.flow-node-data {
+    display: flex;
+    gap: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #f3f3f3;
+    font-size: 11px;
+    font-weight: 700;
+    color: #555;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.flow-node.exit .flow-node-data {
+    color: #dc2626;
+}
+
+.flow-controls {
+    position: fixed;
+    bottom: 36px;
+    right: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1000;
+}
+
+.flow-btn {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.flow-btn:hover {
+    background: #fff;
+    transform: scale(1.04);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.flow-zoom-num {
+    width: 50px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: #666;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.flow-legend {
+    position: fixed;
+    bottom: 36px;
+    left: 36px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.flow-legend-title {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+.flow-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 7px;
+}
+
+.flow-leg-item:last-child {
+    margin-bottom: 0;
+}
+
+.flow-swatch {
+    width: 26px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.flow-leg-name {
+    flex: 1;
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+}
+
+.flow-leg-val {
+    font-size: 11px;
+    font-weight: 700;
+    color: #999;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.flow-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+}
+
+.flow-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: flowFadeIn 0.2s ease-out;
+}
+
+@keyframes flowFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.flow-modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 560px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: flowModalAppear 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes flowModalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.flow-modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-color, #059669);
+    border-radius: 16px 16px 0 0;
+}
+
+.flow-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.flow-modal-close:hover {
+    background: #eee;
+    color: #333;
+}
+
+.flow-modal-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: #aaa;
+    margin-bottom: 8px;
+}
+
+.flow-modal-title {
+    font-size: 28px;
+    font-weight: 900;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+    letter-spacing: -0.8px;
+}
+
+.flow-modal-section {
+    margin-bottom: 22px;
+}
+
+.flow-modal-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.flow-modal-section-content {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.flow-modal-section-content ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.flow-modal-section-content li {
+    margin-bottom: 6px;
+}
+
+.flow-modal-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.flow-modal-metric {
+    text-align: center;
+    padding: 14px 10px;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+.flow-modal-metric-value {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1a1a1a;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 4px;
+}
+
+.flow-modal-metric-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #aaa;
+}
+
+.flow-path-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    fill: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.flow-scroll-hint {
+    display: none;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 100;
+    pointer-events: none;
+    animation: flowScrollHintFade 3s ease-out forwards;
+}
+
+@keyframes flowScrollHintFade {
+
+    0%,
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .flow-header {
+        padding: 16px 20px;
+    }
+
+    .flow-header-top {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .flow-title {
+        font-size: 22px;
+        width: 100%;
+    }
+
+    .flow-subtitle {
+        font-size: 12px;
+    }
+
+    .flow-context-note {
+        font-size: 11px;
+    }
+
+    .flow-stats {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .flow-stat::after {
+        right: -10px;
+        height: 20px;
+    }
+
+    .flow-stat-value {
+        font-size: 20px;
+    }
+
+    .flow-stat-label {
+        font-size: 9px;
+    }
+
+    .flow-viewport {
+        height: calc(100vh - 280px);
+        min-height: 550px;
+        overflow: hidden;
+        cursor: default;
+        touch-action: none;
+    }
+
+    .flow-viewport.grabbing {
+        cursor: default;
+    }
+
+    .flow-canvas {
+        position: absolute;
+        min-width: 1400px;
+        height: 950px;
+        transform-origin: 0 0;
+    }
+
+    .flow-scroll-hint {
+        display: block;
+    }
+
+    .flow-node {
+        padding: 14px 16px;
+    }
+
+    .flow-node-title {
+        font-size: 14px;
+    }
+
+    .flow-node-desc {
+        font-size: 11px;
+        margin-bottom: 8px;
+    }
+
+    .flow-node-data {
+        gap: 12px;
+        padding-top: 8px;
+        font-size: 10px;
+    }
+
+    .flow-controls {
+        bottom: 16px;
+        right: 16px;
+        display: none;
+    }
+
+    .flow-legend {
+        position: static;
+        margin: 16px;
+        border-radius: 8px;
+        padding: 12px 16px;
+    }
+
+    .flow-legend-title {
+        font-size: 8px;
+        margin-bottom: 8px;
+    }
+
+    .flow-leg-item {
+        gap: 8px;
+        margin-bottom: 5px;
+    }
+
+    .flow-swatch {
+        width: 20px;
+        height: 12px;
+    }
+
+    .flow-leg-name {
+        font-size: 11px;
+    }
+
+    .flow-leg-val {
+        font-size: 10px;
+    }
+
+    .flow-modal-content {
+        padding: 24px;
+        width: 95%;
+        max-height: 85vh;
+    }
+
+    .flow-modal-title {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .flow-modal-metrics {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .flow-modal-metric {
+        padding: 10px 6px;
+    }
+
+    .flow-modal-metric-value {
+        font-size: 16px;
+    }
+
+    .flow-modal-metric-label {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flow-header {
+        padding: 12px 16px;
+    }
+
+    .flow-title {
+        font-size: 18px;
+    }
+
+    .flow-stats {
+        gap: 16px;
+    }
+
+    .flow-stat-value {
+        font-size: 18px;
+    }
+
+    .flow-viewport {
+        min-height: 400px;
+    }
+
+    .flow-legend {
+        margin: 12px;
+        padding: 10px 12px;
+    }
+}
