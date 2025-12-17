@@ -1,0 +1,74 @@
+name: Sync Mind Spec Docs
+
+on:
+  # Run every 6 hours
+  schedule:
+    - cron: '0 */6 * * *'
+  
+  # Manual trigger from GitHub UI
+  workflow_dispatch:
+  
+  # Webhook trigger - can be called from mind-spec repo
+  repository_dispatch:
+    types: [spec-updated]
+
+jobs:
+  sync-spec:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout mindlang.dev v2
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clone mind-spec repository
+        run: |
+          git clone --depth 1 https://github.com/cputer/mind-spec.git temp-spec
+          
+      - name: Sync spec documentation
+        run: |
+          # Remove old spec content
+          rm -rf src/content/spec
+          
+          # Create spec directory
+          mkdir -p src/content/spec
+          
+          # Copy spec docs (adjust path based on mind-spec structure)
+          if [ -d "temp-spec/docs" ]; then
+            cp -r temp-spec/docs/* src/content/spec/
+          elif [ -d "temp-spec/spec" ]; then
+            cp -r temp-spec/spec/* src/content/spec/
+          else
+            # Copy markdown files from root if no docs folder
+            find temp-spec -maxdepth 1 -name "*.md" -exec cp {} src/content/spec/ \;
+          fi
+          
+          # Clean up
+          rm -rf temp-spec
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add .
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: sync mind-spec docs [automated]"
+          git push
+
+      - name: Summary
+        run: |
+          if [ "${{ steps.changes.outputs.has_changes }}" == "true" ]; then
+            echo "✅ Spec documentation synced successfully!"
+          else
+            echo "ℹ️ No changes detected in spec documentation."
+          fi
