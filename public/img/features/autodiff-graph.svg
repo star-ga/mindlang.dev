@@ -1,0 +1,12 @@
+<svg width="100" height="100" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Axes -->
+  <path d="M8 56 L56 56" stroke="#4f46e5" stroke-width="1" opacity="0.5"/>
+  <path d="M8 56 L8 8" stroke="#4f46e5" stroke-width="1" opacity="0.5"/>
+  <!-- Curve -->
+  <path d="M8 48 C24 48, 24 16, 56 16" stroke="#4f46e5" stroke-width="2" fill="none"/>
+  <!-- Tangent Point -->
+  <circle cx="32" cy="32" r="3" fill="#4f46e5"/>
+  <!-- Tangent Line -->
+  <path d="M16 48 L48 16" stroke="#4f46e5" stroke-width="1" stroke-dasharray="3 3" opacity="0.8"/>
+  <text x="40" y="12" fill="#4f46e5" font-family="monospace" font-size="8">f'(x)</text>
+</svg>
