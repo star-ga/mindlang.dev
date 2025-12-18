@@ -34,7 +34,7 @@ export default function EcosystemPage() {
                     {/* MIND Compiler */}
                     <div className="card flex flex-col items-center text-center h-full hover:shadow-lg transition-shadow border border-card-border p-6 rounded-xl !bg-footer-bg">
                         <div className="w-[100px] h-[100px] mb-6 text-primary flex items-center justify-center">
-                            <img src="/img/ecosystem/mind-compiler.svg" alt="Mind Compiler" className="w-full h-full" />
+                            <img src="/img/ecosystem/mind-compiler.svg" alt="Mind Compiler" className="w-full h-full" loading="lazy" />
                         </div>
 
                         <div className="flex items-center justify-center gap-2 mb-6 w-full">
@@ -75,7 +75,7 @@ export default function EcosystemPage() {
                     {/* MIND Spec */}
                     <div className="card flex flex-col items-center text-center h-full hover:shadow-lg transition-shadow border border-card-border p-6 rounded-xl !bg-footer-bg">
                         <div className="w-[100px] h-[100px] mb-6 text-indigo-500 flex items-center justify-center">
-                            <img src="/img/ecosystem/mind-spec.svg" alt="Mind Spec" className="w-full h-full" />
+                            <img src="/img/ecosystem/mind-spec.svg" alt="Mind Spec" className="w-full h-full" loading="lazy" />
                         </div>
 
                         <div className="flex items-center justify-center gap-2 mb-4 w-full">
@@ -116,7 +116,7 @@ export default function EcosystemPage() {
                     {/* MIND Runtime */}
                     <div className="card flex flex-col items-center text-center h-full hover:shadow-lg transition-shadow border border-card-border p-6 rounded-xl !bg-footer-bg">
                         <div className="w-[100px] h-[100px] mb-6 text-orange-500 flex items-center justify-center">
-                            <img src="/img/ecosystem/mind-runtime.svg" alt="Mind Runtime" className="w-full h-full" />
+                            <img src="/img/ecosystem/mind-runtime.svg" alt="Mind Runtime" className="w-full h-full" loading="lazy" />
                         </div>
 
                         <div className="flex items-center justify-center gap-2 mb-4 w-full">

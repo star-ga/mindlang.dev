@@ -28,7 +28,7 @@ export default function FeaturesPage() {
                     <div className="grid grid--three">
                         {/* Tensor-native types */}
                         <div className="card card--outline flex flex-col items-center text-center" style={{ backgroundColor: "var(--footer-background)" }}>
-                            <img src="/img/features/tensor-cube.svg" className="card-icon mx-auto !w-20 !h-20" alt="Tensor Cube Schematic" />
+                            <img src="/img/features/tensor-cube.svg" className="card-icon mx-auto !w-20 !h-20" alt="Tensor Cube Schematic" loading="lazy" />
                             <h3 className="min-h-[2rem] flex items-center justify-center text-xs tracking-tight">Tensor-native type system</h3>
                             <p className="min-h-[8rem] flex items-center text-left w-full">
                                 Tensors are first-class types, not just library objects. Define shapes and dtypes in signatures and let the compiler infer the rest.
@@ -43,7 +43,7 @@ export default function FeaturesPage() {
 
                         {/* MLIR + LLVM */}
                         <div className="card card--outline flex flex-col items-center text-center" style={{ backgroundColor: "var(--footer-background)" }}>
-                            <img src="/img/features/compiler-pipeline.svg" className="card-icon mx-auto !w-20 !h-20" alt="Compiler Pipeline Schematic" />
+                            <img src="/img/features/compiler-pipeline.svg" className="card-icon mx-auto !w-20 !h-20" alt="Compiler Pipeline Schematic" loading="lazy" />
                             <h3 className="min-h-[2rem] flex items-center justify-center text-xs tracking-tight">MLIR + LLVM compiler pipeline</h3>
                             <p className="min-h-[8rem] flex items-center text-left w-full">
                                 MIND lowers to a custom MLIR dialect for graph ops, then to LLVM IR for hardware-specific generation.
@@ -58,7 +58,7 @@ export default function FeaturesPage() {
 
                         {/* Built-in Autodiff */}
                         <div className="card card--outline flex flex-col items-center text-center" style={{ backgroundColor: "var(--footer-background)" }}>
-                            <img src="/img/features/autodiff-graph.svg" className="card-icon mx-auto !w-20 !h-20" alt="Autodiff Graph Schematic" />
+                            <img src="/img/features/autodiff-graph.svg" className="card-icon mx-auto !w-20 !h-20" alt="Autodiff Graph Schematic" loading="lazy" />
                             <h3 className="min-h-[2rem] flex items-center justify-center text-xs tracking-tight">Built-in automatic differentiation</h3>
                             <p className="min-h-[8rem] flex items-center text-left w-full">
                                 Mark functions as differentiable and let the compiler generate optimized gradient code at the IR level.
@@ -73,7 +73,7 @@ export default function FeaturesPage() {
 
                         {/* Device semantics */}
                         <div className="card card--outline flex flex-col items-center text-center" style={{ backgroundColor: "var(--footer-background)" }}>
-                            <img src="/img/features/device-chip.svg" className="card-icon mx-auto !w-20 !h-20" alt="Device Chip Schematic" />
+                            <img src="/img/features/device-chip.svg" className="card-icon mx-auto !w-20 !h-20" alt="Device Chip Schematic" loading="lazy" />
                             <h3 className="min-h-[2rem] flex items-center justify-center text-xs tracking-tight">Device semantics in the language</h3>
                             <p className="min-h-[8rem] flex items-center text-left w-full">
                                 Express where computations should run and get compile-time checks that your program matches device capabilities.
@@ -88,7 +88,7 @@ export default function FeaturesPage() {
 
                         {/* Deterministic builds & safety */}
                         <div className="card card--outline flex flex-col items-center text-center" style={{ backgroundColor: "var(--footer-background)" }}>
-                            <img src="/img/features/security-shield.svg" className="card-icon mx-auto !w-20 !h-20" alt="Security Shield Schematic" />
+                            <img src="/img/features/security-shield.svg" className="card-icon mx-auto !w-20 !h-20" alt="Security Shield Schematic" loading="lazy" />
                             <h3 className="min-h-[2rem] flex items-center justify-center text-xs tracking-tight">Deterministic builds & safety</h3>
                             <p className="min-h-[8rem] flex items-center text-left w-full">
                                 The compiler is written in Rust and produces deterministic, reproducible binaries. Fully auditable runtime execution.
@@ -103,7 +103,7 @@ export default function FeaturesPage() {
 
                         {/* Open-core */}
                         <div className="card card--outline flex flex-col items-center text-center" style={{ backgroundColor: "var(--footer-background)" }}>
-                            <img src="/img/features/open-core.svg" className="card-icon mx-auto !w-20 !h-20" alt="Open Core Schematic" />
+                            <img src="/img/features/open-core.svg" className="card-icon mx-auto !w-20 !h-20" alt="Open Core Schematic" loading="lazy" />
                             <h3 className="min-h-[2rem] flex items-center justify-center text-xs tracking-tight">Open-core, extensible design</h3>
                             <p className="min-h-[8rem] flex items-center text-left w-full">
                                 The core compiler is MIT-licensed. Add private backends and runtimes without forking the language.

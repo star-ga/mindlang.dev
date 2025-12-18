@@ -112,6 +112,7 @@ export default function CommunityPage() {
                             src="/img/community/code_of_conduct.jpeg"
                             alt="Code of Conduct"
                             className="w-full h-64 object-cover"
+                            loading="lazy"
                         />
                         <div className="p-6">
                             <h3>Code of conduct</h3>
@@ -135,6 +136,7 @@ export default function CommunityPage() {
                             src="/img/community/security.jpeg"
                             alt="Security"
                             className="w-full h-64 object-cover"
+                            loading="lazy"
                         />
                         <div className="p-6">
                             <h3>Security</h3>

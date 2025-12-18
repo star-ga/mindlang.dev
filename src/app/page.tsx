@@ -124,7 +124,7 @@ export default function HomePage() {
           <div className="grid grid--two">
             <div className="card card--outline">
               <div className="w-full h-64 flex items-center justify-center mb-6">
-                <img src="/img/stack-language.svg" className="max-h-full max-w-full object-contain" alt="Language and type system diagram" />
+                <img src="/img/stack-language.svg" className="max-h-full max-w-full object-contain" alt="Language and type system diagram" loading="lazy" />
               </div>
               <h3>Language & type system</h3>
               <p className="flex-1">A Rust-inspired language with first-class tensors, deterministic memory management, and built-in automatic differentiation.</p>
@@ -137,7 +137,7 @@ export default function HomePage() {
 
             <div className="card card--outline">
               <div className="w-full h-64 flex items-center justify-center mb-6">
-                <img src="/img/stack-compiler.svg" className="max-h-full max-w-full object-contain" alt="Compiler and runtime diagram" />
+                <img src="/img/stack-compiler.svg" className="max-h-full max-w-full object-contain" alt="Compiler and runtime diagram" loading="lazy" />
               </div>
               <h3>Compiler & runtime</h3>
               <p className="flex-1">Source code is lowered into a custom MLIR dialect and then into LLVM IR, producing optimized binaries and modular runtimes for CPU and accelerators.</p>
@@ -183,7 +183,7 @@ export default function HomePage() {
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to explore the language?</h2>
 
-          <img src="/img/cta-graphic.svg" className="cta-graphic mx-auto max-w-5xl" alt="MIND Architecture" />
+          <img src="/img/cta-graphic.svg" className="cta-graphic mx-auto max-w-5xl" alt="MIND Architecture" loading="lazy" />
 
           <p className="max-w-2xl mx-auto text-muted mb-8">
             Start with the language spec, then dive into the core implementation. MIND is open-core: the compiler and language are MIT-licensed and ready for experimentation.
