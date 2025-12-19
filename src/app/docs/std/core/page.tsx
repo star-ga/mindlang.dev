@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "Standard Library: Core",
@@ -13,30 +13,7 @@ export default function StdCorePage() {
     return (
         <div className="container !pt-12 !pb-16">
             <div className="flex gap-12">
-                {/* Sidebar */}
-                <aside className="hidden lg:block w-64 shrink-0">
-                    <nav className="sticky top-24">
-                        {docsNavigation.map((section) => (
-                            <div key={section.title} className="mb-6">
-                                <h3 className="font-heading font-bold text-sm text-foreground mb-2">
-                                    {section.title}
-                                </h3>
-                                <ul className="space-y-1">
-                                    {section.items.map((item) => (
-                                        <li key={item.href}>
-                                            <Link
-                                                href={item.href}
-                                                className={`text-sm font-medium transition-colors block py-1 ${item.href === "/docs/std/core" ? "!text-primary font-bold" : "!text-slate-600 hover:!text-primary"}`}
-                                            >
-                                                {item.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </nav>
-                </aside>
+                <DocsSidebar currentPath="/docs/std/core" />
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
@@ -66,6 +43,11 @@ fn divide(a: f32, b: f32) -> Result<f32, String> {
     Ok(a / b)
 }`}</CodeBlock>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "Errors", href: "/docs/errors" }}
+                        next={{ label: "Tensor", href: "/docs/std/tensor" }}
+                    />
                 </main>
             </div>
         </div>

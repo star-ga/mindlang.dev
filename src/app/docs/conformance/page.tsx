@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "Conformance",
@@ -13,30 +13,7 @@ export default function ConformancePage() {
     return (
         <div className="container !pt-12 !pb-16">
             <div className="flex gap-12">
-                {/* Sidebar */}
-                <aside className="hidden lg:block w-64 shrink-0">
-                    <nav className="sticky top-24">
-                        {docsNavigation.map((section) => (
-                            <div key={section.title} className="mb-6">
-                                <h3 className="font-heading font-bold text-sm text-foreground mb-2">
-                                    {section.title}
-                                </h3>
-                                <ul className="space-y-1">
-                                    {section.items.map((item) => (
-                                        <li key={item.href}>
-                                            <Link
-                                                href={item.href}
-                                                className={`text-sm font-medium transition-colors block py-1 ${item.href === "/docs/conformance" ? "!text-primary font-bold" : "!text-slate-600 hover:!text-primary"}`}
-                                            >
-                                                {item.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </nav>
-                </aside>
+                <DocsSidebar currentPath="/docs/conformance" />
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
@@ -75,6 +52,11 @@ mindc conformance --profile gpu`}</CodeBlock>
                             Opening issues or PRs against <a href="https://github.com/cputer/mind-spec" target="_blank" rel="noopener" className="text-primary hover:underline">mind-spec</a> is the best way to clarify expectations.
                         </p>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "FFI", href: "/docs/ffi" }}
+                        next={{ label: "Stability", href: "/docs/stability" }}
+                    />
                 </main>
             </div>
         </div>
