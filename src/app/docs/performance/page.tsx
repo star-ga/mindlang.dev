@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -133,6 +133,8 @@ mindc run model.mind --profile=time`}</CodeBlock>
                         prev={{ label: "Security", href: "/docs/security" }}
                         next={{ label: "Future Extensions", href: "/docs/future" }}
                     />
+
+                    <MobileDocsSidebar currentPath="/docs/performance" />
                 </main>
             </div>
         </div>

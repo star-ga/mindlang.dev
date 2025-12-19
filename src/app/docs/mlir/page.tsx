@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -113,6 +113,8 @@ mindc --emit=asm model.mind`}</CodeBlock>
                         prev={{ label: "IR", href: "/docs/ir" }}
                         next={{ label: "Runtime", href: "/docs/runtime" }}
                     />
+
+                    <MobileDocsSidebar currentPath="/docs/mlir" />
                 </main>
             </div>
         </div>
