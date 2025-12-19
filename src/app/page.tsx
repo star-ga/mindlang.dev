@@ -5,7 +5,9 @@ import { siteConfig } from "@/data/site";
 import { CodeWindow } from "@/components/ui/CodeWindow";
 
 export const metadata: Metadata = {
-  title: "MIND - Intelligence, Compiled",
+  title: {
+    absolute: "MIND - Intelligence, Compiled",
+  },
   description: "MIND is a programming language and compiler stack built for AI and numerical computing — tensor-native types, static shape checks, automatic differentiation, and MLIR-powered code generation.",
 };
 
