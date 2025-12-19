@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { Terminal, Grid3X3, Zap, Server, Code, Cpu } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { CodeWindow } from "@/components/ui/CodeWindow";
+
+export const metadata: Metadata = {
+  title: "MIND - Intelligence, Compiled",
+  description: "MIND is a programming language and compiler stack built for AI and numerical computing — tensor-native types, static shape checks, automatic differentiation, and MLIR-powered code generation.",
+};
 
 const exampleCode = `fn main() {
   // 2x2 input tensor
