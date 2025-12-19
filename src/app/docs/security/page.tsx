@@ -3,6 +3,7 @@ import Link from "next/link";
 import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "Security",
@@ -110,6 +111,11 @@ fn untrusted_inference(input: Tensor<f32, N, M>) -> Tensor<f32, N, K> {
                             </a>.
                         </p>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "Stability & Versioning", href: "/docs/stability" }}
+                        next={{ label: "Performance", href: "/docs/performance" }}
+                    />
                 </main>
             </div>
         </div>

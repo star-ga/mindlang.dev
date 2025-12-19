@@ -3,6 +3,7 @@ import Link from "next/link";
 import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "Performance",
@@ -151,6 +152,11 @@ mindc run model.mind --profile=time`}</CodeBlock>
                             </a>.
                         </p>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "Security", href: "/docs/security" }}
+                        next={{ label: "Future Extensions", href: "/docs/future" }}
+                    />
                 </main>
             </div>
         </div>

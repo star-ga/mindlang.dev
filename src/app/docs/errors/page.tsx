@@ -3,6 +3,7 @@ import Link from "next/link";
 import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "Error Handling",
@@ -160,6 +161,11 @@ fn main() {
                             </a>.
                         </p>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "Autodiff", href: "/docs/autodiff" }}
+                        next={{ label: "Core", href: "/docs/std/core" }}
+                    />
                 </main>
             </div>
         </div>
