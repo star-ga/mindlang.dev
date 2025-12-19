@@ -143,12 +143,12 @@ export default function RoadmapPage() {
                     icon={<CheckCircle className="w-8 h-8 text-emerald-500" />}
                     iconBg="bg-emerald-50"
                     title="Testing & Conformance"
-                    status="Emerging"
-                    statusColor="bg-emerald-50 text-emerald-700"
-                    progress={65}
+                    status="Maturing"
+                    statusColor="bg-emerald-100 text-emerald-700"
+                    progress={85}
                     progressColor="bg-emerald-500"
-                    milestone="Expanding suites"
-                    description="Unit tests and conformance coverage span tensor ops, shapes, broadcasting, and autodiff."
+                    milestone="Suites stabilizing"
+                    description="Comprehensive test coverage across compiler, runtime, and spec repos. Conformance suites validated."
                     milestoneDescription="Formal conformance alignment continues as new operators and lowering paths land."
                 />
 
@@ -157,12 +157,12 @@ export default function RoadmapPage() {
                     icon={<BookOpen className="w-8 h-8 text-primary" />}
                     iconBg="bg-blue-50"
                     title="Documentation Alignment"
-                    status="Advancing"
-                    statusColor="bg-slate-100 text-slate-600"
-                    progress={80}
+                    status="Near Complete"
+                    statusColor="bg-emerald-100 text-emerald-700"
+                    progress={95}
                     progressColor="bg-primary"
-                    milestone="Ongoing updates"
-                    description="Specs and guides reflect shapes, types, IR pipeline updates, and new examples."
+                    milestone="Audit complete"
+                    description="Full audit of all repos completed. Specs, guides, and API docs synchronized across compiler, runtime, and spec repositories."
                     milestoneDescription="Documentation keeps pace with implementation changes for Core v1 readiness."
                 />
 
@@ -171,12 +171,12 @@ export default function RoadmapPage() {
                     icon={<Wrench className="w-8 h-8 text-amber-600" />}
                     iconBg="bg-amber-50"
                     title="Language Toolchain & Lowering"
-                    status="Working"
+                    status="Advancing"
                     statusColor="bg-amber-100 text-amber-800"
-                    progress={75}
+                    progress={85}
                     progressColor="bg-amber-600"
-                    description="Language-to-IR lowering is complete for major constructs with backend pipelines in progress."
-                    milestone="Backend integrations remaining"
+                    description="Language-to-IR lowering complete. Compiler, runtime, and spec repos audited and aligned."
+                    milestone="Backend integrations progressing"
                     milestoneDescription="Compiler workflow extends toward GPU/accelerator paths and runtime coupling."
                 />
 
