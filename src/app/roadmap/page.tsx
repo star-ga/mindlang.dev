@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Zap, Cpu, Server, Package, CheckCircle, BookOpen, Wrench, ArrowRight, Terminal } from "lucide-react";
+import { Zap, Cpu, Server, Package, CheckCircle, BookOpen, Wrench, ArrowRight, Terminal, Brain } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
 
@@ -117,6 +117,25 @@ export default function RoadmapPage() {
                     milestone="2026"
                     description="Early groundwork for module and dependency resolution with ecosystem foundations underway."
                     milestoneDescription="Comprehensive package management and dependency resolution."
+                />
+
+                {/* BCI / Neuroscience - Phase 13 */}
+                <RoadmapCard
+                    icon={<Brain className="w-8 h-8 text-pink-600" />}
+                    iconBg="bg-pink-50"
+                    title="BCI & Neuroscience"
+                    status="Phase 13"
+                    statusColor="bg-pink-100 text-pink-700"
+                    progress={5}
+                    progressColor="bg-pink-500"
+                    milestone="2026"
+                    description="Ultra-low latency runtime paths, streaming tensor support, and signal processing primitives for brain-computer interface and neuroscience applications."
+                    subDescription={
+                        <>
+                            Targeting {"<"}1ms inference latency, pre-allocated memory pools, and deterministic timing guarantees for medical device certification.
+                        </>
+                    }
+                    milestoneDescription="Runtime optimizations Q2 2026, signal processing stdlib Q2 2026, language extensions Q3 2026."
                 />
 
                 {/* Testing & Conformance */}

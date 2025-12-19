@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import { Share2, Timer, TrendingUp } from "lucide-react";
+import { Share2, Timer, TrendingUp, HeartPulse } from "lucide-react";
 import { Slideshow } from "./Slideshow";
 
 export const metadata: Metadata = {
     title: "Use Cases",
-    description: "Where Mind shines - from edge devices to high-frequency trading.",
+    description: "Where MIND shines - from edge devices and healthcare to real-time systems and quantitative finance.",
 };
 
 export default function UseCasesPage() {
@@ -94,6 +94,28 @@ export default function UseCasesPage() {
                             </li>
                             <li>
                                 Mathematical correctness proofs
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Card 4: Healthcare & BCI */}
+                    <div className="card flex flex-col items-center text-center p-8 border border-card-border rounded-xl shadow-sm hover:shadow-md transition-all" style={{ backgroundColor: "var(--footer-background)" }}>
+                        <div className="w-16 h-16 mb-6 text-pink-600 flex items-center justify-center bg-pink-50 rounded-full">
+                            <HeartPulse size={32} />
+                        </div>
+                        <h3 className="text-xl font-bold mb-4 font-heading min-h-[3.5rem] flex items-center justify-center">Healthcare & BCI</h3>
+                        <p className="text-muted leading-relaxed mb-6 min-h-[4.5rem]">
+                            Build certified AI systems for medical devices and brain-computer interfaces with deterministic execution.
+                        </p>
+                        <ul className="list w-full space-y-2 text-sm text-foreground text-left">
+                            <li>
+                                Sub-millisecond neural decoding
+                            </li>
+                            <li>
+                                FDA-ready audit trails
+                            </li>
+                            <li>
+                                Deterministic timing guarantees
                             </li>
                         </ul>
                     </div>

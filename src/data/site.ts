@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "MIND",
   fullName: "MIND – Machine Intelligence Native Design",
   tagline: "The native language for intelligent systems",
-  description: "MIND is a Rust-based, tensor-native programming language and compiler stack.",
+  description: "MIND is a Rust-based, tensor-native programming language and compiler stack for deterministic AI. Build certified ML systems for healthcare, BCI, autonomous vehicles, and real-time applications.",
   url: "https://mindlang.dev",
   github: "https://github.com/cputer/mind",
   runtimeRepo: "https://github.com/cputer/mind-runtime",
