@@ -19,12 +19,12 @@ export function CodeBlock({ children, className = "" }: CodeBlockProps) {
 
     return (
         <div className={`relative rounded-lg overflow-hidden ${className}`}>
-            <pre className="bg-slate-900 text-slate-50 p-4 pr-16 rounded-lg text-sm font-mono overflow-x-auto">
+            <pre className="bg-slate-900 text-slate-50 p-4 pr-16 text-sm font-mono overflow-x-auto">
                 {children}
             </pre>
             <button
                 onClick={handleCopy}
-                className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium bg-slate-700/80 hover:bg-slate-600 transition-colors text-slate-300 hover:text-white"
+                className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium bg-slate-700 hover:bg-slate-600 transition-colors text-slate-300 hover:text-white backdrop-blur-sm"
                 aria-label="Copy code"
             >
                 {copied ? (
