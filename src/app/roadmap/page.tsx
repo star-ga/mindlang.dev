@@ -143,13 +143,13 @@ export default function RoadmapPage() {
                     icon={<CheckCircle className="w-8 h-8 text-emerald-500" />}
                     iconBg="bg-emerald-50"
                     title="Testing & Conformance"
-                    status="Complete"
+                    status="Maturing"
                     statusColor="bg-emerald-100 text-emerald-700"
-                    progress={100}
+                    progress={90}
                     progressColor="bg-emerald-500"
-                    milestone="Audit complete"
-                    description="Full test coverage across compiler, runtime, and spec repos. All conformance suites passing."
-                    milestoneDescription="All repos audited and validated. Conformance alignment complete."
+                    milestone="Strong coverage"
+                    description="Compiler: 69 test files, 152+ tests. Runtime: 17 conformance tests. Spec: complete test corpus."
+                    milestoneDescription="All repos audited. Runtime test depth could be expanded."
                 />
 
                 {/* Documentation Alignment */}
@@ -157,27 +157,27 @@ export default function RoadmapPage() {
                     icon={<BookOpen className="w-8 h-8 text-emerald-500" />}
                     iconBg="bg-emerald-50"
                     title="Documentation Alignment"
-                    status="Complete"
+                    status="Near Complete"
                     statusColor="bg-emerald-100 text-emerald-700"
-                    progress={100}
+                    progress={95}
                     progressColor="bg-emerald-500"
-                    milestone="Fully synchronized"
-                    description="All repos audited and documentation synchronized. Specs, guides, and API docs complete across compiler, runtime, and spec repositories."
-                    milestoneDescription="Documentation fully aligned with Core v1 implementation."
+                    milestone="Synchronized"
+                    description="Compiler: 22 docs. Runtime: 12 docs (GPU docs need expansion). Spec: 4,277 lines, 14 chapters complete."
+                    milestoneDescription="All repos audited. Minor gaps in runtime GPU documentation."
                 />
 
                 {/* Language Toolchain */}
                 <RoadmapCard
-                    icon={<Wrench className="w-8 h-8 text-emerald-500" />}
-                    iconBg="bg-emerald-50"
+                    icon={<Wrench className="w-8 h-8 text-amber-600" />}
+                    iconBg="bg-amber-50"
                     title="Language Toolchain & Lowering"
-                    status="Complete"
-                    statusColor="bg-emerald-100 text-emerald-700"
-                    progress={100}
-                    progressColor="bg-emerald-500"
-                    description="Language-to-IR lowering complete. Compiler, runtime, and spec repos fully audited and aligned."
-                    milestone="Core pipeline complete"
-                    milestoneDescription="Full compiler workflow operational. GPU/accelerator extensions in progress."
+                    status="Strong"
+                    statusColor="bg-amber-100 text-amber-800"
+                    progress={90}
+                    progressColor="bg-amber-600"
+                    description="Compiler: 92% (19 modules, IR/MLIR complete). Runtime: 82% (CPU stable, MLIR/LLVM planned). Spec: 95%."
+                    milestone="Core pipeline operational"
+                    milestoneDescription="All repos audited. Runtime MLIR/LLVM integration in progress."
                 />
 
                 {/* CTA Section */}
