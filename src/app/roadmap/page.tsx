@@ -52,16 +52,16 @@ export default function RoadmapPage() {
 
                 {/* Autodiff Engine */}
                 <RoadmapCard
-                    icon={<Cpu className="w-8 h-8 text-primary" />}
-                    iconBg="bg-blue-50"
+                    icon={<Cpu className="w-8 h-8 text-emerald-500" />}
+                    iconBg="bg-emerald-50"
                     title="Autodiff Engine"
-                    status="Preview"
-                    statusColor="bg-slate-100 text-slate-600"
-                    progress={90}
-                    progressColor="bg-primary"
-                    milestone="Q2 2026"
-                    description="Reverse-mode AD for 17 ops including Add, Sub, Mul, Div, MatMul, Dot, Transpose, Sum, Mean, Reshape, Relu. Conv2d gradient not yet implemented."
-                    milestoneDescription="Core arithmetic and linear algebra gradients complete. Conv2d planned."
+                    status="Complete"
+                    statusColor="bg-emerald-100 text-emerald-700"
+                    progress={100}
+                    progressColor="bg-emerald-500"
+                    milestone="Released"
+                    description="Reverse-mode AD for all Core v1 ops: Add, Sub, Mul, Div, MatMul, Dot, Transpose, Sum, Mean, Reshape, Relu, Conv2d, and indexing/slicing operations."
+                    milestoneDescription="Full gradient support for Core v1 operations including Conv2d."
                 />
 
                 {/* Info Text */}
@@ -96,13 +96,13 @@ export default function RoadmapPage() {
                     icon={<Server className="w-8 h-8 text-primary" />}
                     iconBg="bg-blue-50"
                     title="GPU / Accelerators"
-                    status="Early Preview"
+                    status="Mock Backend"
                     statusColor="bg-violet-100 text-violet-700"
                     progress={17}
                     progressColor="bg-primary"
-                    milestone="Mock backend only"
-                    description="GPU mock backend with 3 ops (add, copy, fill). 15 operations CPU-only. Targeting CUDA 12, ROCm planned."
-                    milestoneDescription="Production CUDA/ROCm backends in development. Full Core v1 GPU profile planned."
+                    milestone="Conformance ready"
+                    description="Mock GPU backend supports full Core v1 op surface (19 ops) via CPU delegation, enforcing GPU constraints (f32-only, alignment). Native CUDA/Metal kernels planned."
+                    milestoneDescription="Production CUDA 12 and ROCm backends in development for native GPU execution."
                 />
 
                 {/* Package Manager */}
