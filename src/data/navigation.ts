@@ -17,9 +17,6 @@ export const docsNavigation = [
             { name: "Quick Start", href: "/docs/quick-start" },
             { name: "Using Core v1 Today", href: "/docs/using-core-v1" },
             { name: "Cookbook", href: "/docs/cookbook" },
-            { name: "Conformance", href: "/docs/conformance" },
-            { name: "Shapes & Broadcasting", href: "/docs/shapes" },
-            { name: "Stability & Versioning", href: "/docs/stability" },
         ],
     },
 
@@ -29,6 +26,18 @@ export const docsNavigation = [
             { name: "Core", href: "/docs/std/core" },
             { name: "Tensor", href: "/docs/std/tensor" },
             { name: "Math", href: "/docs/std/math" },
+        ],
+    },
+
+    {
+        title: "Reference",
+        items: [
+            { name: "Shapes & Broadcasting", href: "/docs/shapes" },
+            { name: "Conformance", href: "/docs/conformance" },
+            { name: "Stability & Versioning", href: "/docs/stability" },
+            { name: "Security", href: "/docs/security" },
+            { name: "Performance", href: "/docs/performance" },
+            { name: "FFI & Bindings", href: "/docs/ffi" },
         ],
     },
 ];
