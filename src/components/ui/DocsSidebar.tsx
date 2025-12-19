@@ -51,7 +51,7 @@ export function MobileDocsSidebar({ currentPath }: DocsSidebarProps) {
     return (
         <aside className="lg:hidden mt-12 pt-8 border-t">
             <h3 className="font-heading font-bold text-lg text-foreground mb-4">Documentation</h3>
-            <nav aria-label="Documentation">
+            <nav aria-label="Documentation sections">
                 <DocsNavList currentPath={currentPath} sectionHeadingLevel="h4" />
             </nav>
         </aside>
