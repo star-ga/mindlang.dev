@@ -3,6 +3,7 @@ import Link from "next/link";
 import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "Automatic Differentiation",
@@ -165,6 +166,11 @@ fn transformer_block(x: Tensor<f32, B, S, D>) -> Tensor<f32, B, S, D> {
                             </a>.
                         </p>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "Shapes & Broadcasting", href: "/docs/shapes" }}
+                        next={{ label: "Errors", href: "/docs/errors" }}
+                    />
                 </main>
             </div>
         </div>

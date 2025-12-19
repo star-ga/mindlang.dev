@@ -3,6 +3,7 @@ import Link from "next/link";
 import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "FFI & Bindings",
@@ -154,6 +155,11 @@ fn predict(input: Tensor<f32, N, 784>) -> Tensor<f32, N, 10> {
                             </a>.
                         </p>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "Runtime", href: "/docs/runtime" }}
+                        next={{ label: "Conformance", href: "/docs/conformance" }}
+                    />
                 </main>
             </div>
         </div>
