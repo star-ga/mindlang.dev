@@ -135,7 +135,7 @@ export default function RoadmapPage() {
                             Targeting {"<"}1ms inference latency, pre-allocated memory pools, and deterministic timing guarantees for medical device certification.
                         </>
                     }
-                    milestoneDescription="Runtime optimizations Q2 2026, signal processing stdlib Q2 2026, language extensions Q3 2026."
+                    milestoneDescription="Initial research and design phase. Runtime optimizations, signal processing stdlib, and language extensions planned for late 2026."
                 />
 
                 {/* Testing & Conformance */}
