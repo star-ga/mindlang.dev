@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -136,6 +136,8 @@ export default function FuturePage() {
                     <PageNavigation
                         prev={{ label: "Performance", href: "/docs/performance" }}
                     />
+
+                    <MobileDocsSidebar currentPath="/docs/future" />
                 </main>
             </div>
         </div>

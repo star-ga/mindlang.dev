@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -136,6 +136,8 @@ fn predict(input: Tensor<f32, N, 784>) -> Tensor<f32, N, 10> {
                         prev={{ label: "Runtime", href: "/docs/runtime" }}
                         next={{ label: "Conformance", href: "/docs/conformance" }}
                     />
+
+                    <MobileDocsSidebar currentPath="/docs/ffi" />
                 </main>
             </div>
         </div>

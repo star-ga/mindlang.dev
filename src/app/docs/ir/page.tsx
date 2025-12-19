@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -127,6 +127,8 @@ Machine Code`}</CodeBlock>
                         prev={{ label: "Math", href: "/docs/std/math" }}
                         next={{ label: "MLIR Lowering", href: "/docs/mlir" }}
                     />
+
+                    <MobileDocsSidebar currentPath="/docs/ir" />
                 </main>
             </div>
         </div>

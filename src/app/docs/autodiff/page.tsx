@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -147,6 +147,8 @@ fn transformer_block(x: Tensor<f32, B, S, D>) -> Tensor<f32, B, S, D> {
                         prev={{ label: "Shapes & Broadcasting", href: "/docs/shapes" }}
                         next={{ label: "Errors", href: "/docs/errors" }}
                     />
+
+                    <MobileDocsSidebar currentPath="/docs/autodiff" />
                 </main>
             </div>
         </div>
