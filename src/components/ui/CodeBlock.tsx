@@ -24,7 +24,7 @@ export function CodeBlock({ children, className = "" }: CodeBlockProps) {
             </pre>
             <button
                 onClick={handleCopy}
-                className="absolute top-2 right-2 flex items-center justify-center w-8 h-8 rounded bg-slate-700/80 hover:bg-slate-600 transition-colors text-slate-300 opacity-0 group-hover:opacity-100"
+                className="absolute top-2 right-2 flex items-center justify-center w-8 h-8 rounded bg-slate-700/80 hover:bg-slate-600 transition-colors text-slate-300"
                 aria-label="Copy code"
             >
                 {copied ? (
