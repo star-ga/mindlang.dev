@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "Future Extensions",
@@ -154,6 +155,10 @@ export default function FuturePage() {
                             and the <Link href="/roadmap" className="text-primary hover:underline">Roadmap</Link> for timeline information.
                         </p>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "Performance", href: "/docs/performance" }}
+                    />
                 </main>
             </div>
         </div>

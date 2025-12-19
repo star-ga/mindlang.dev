@@ -3,6 +3,7 @@ import Link from "next/link";
 import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "Runtime",
@@ -150,6 +151,11 @@ for op in profile.operations {
                             </a>.
                         </p>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "MLIR Lowering", href: "/docs/mlir" }}
+                        next={{ label: "FFI & Bindings", href: "/docs/ffi" }}
+                    />
                 </main>
             </div>
         </div>

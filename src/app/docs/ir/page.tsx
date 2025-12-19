@@ -3,6 +3,7 @@ import Link from "next/link";
 import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "Intermediate Representation",
@@ -145,6 +146,11 @@ Machine Code`}</CodeBlock>
                             </a>.
                         </p>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "Math", href: "/docs/std/math" }}
+                        next={{ label: "MLIR Lowering", href: "/docs/mlir" }}
+                    />
                 </main>
             </div>
         </div>
