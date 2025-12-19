@@ -21,6 +21,16 @@ export const docsNavigation = [
     },
 
     {
+        title: "Language Guide",
+        items: [
+            { name: "Language", href: "/docs/language" },
+            { name: "Shapes & Broadcasting", href: "/docs/shapes" },
+            { name: "Autodiff", href: "/docs/autodiff" },
+            { name: "Errors", href: "/docs/errors" },
+        ],
+    },
+
+    {
         title: "Standard Library",
         items: [
             { name: "Core", href: "/docs/std/core" },
@@ -30,14 +40,23 @@ export const docsNavigation = [
     },
 
     {
+        title: "Compiler & Runtime",
+        items: [
+            { name: "IR", href: "/docs/ir" },
+            { name: "MLIR Lowering", href: "/docs/mlir" },
+            { name: "Runtime", href: "/docs/runtime" },
+            { name: "FFI & Bindings", href: "/docs/ffi" },
+        ],
+    },
+
+    {
         title: "Reference",
         items: [
-            { name: "Shapes & Broadcasting", href: "/docs/shapes" },
             { name: "Conformance", href: "/docs/conformance" },
             { name: "Stability & Versioning", href: "/docs/stability" },
             { name: "Security", href: "/docs/security" },
             { name: "Performance", href: "/docs/performance" },
-            { name: "FFI & Bindings", href: "/docs/ffi" },
+            { name: "Future Extensions", href: "/docs/future" },
         ],
     },
 ];
