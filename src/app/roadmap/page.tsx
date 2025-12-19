@@ -57,11 +57,11 @@ export default function RoadmapPage() {
                     title="Autodiff Engine"
                     status="Preview"
                     statusColor="bg-slate-100 text-slate-600"
-                    progress={100}
+                    progress={85}
                     progressColor="bg-primary"
                     milestone="Q2 2026"
-                    description="Reverse-mode AD on SSA IR with deterministic gradient IR, canonicalization, and tests for core arithmetic, matmul, conv2d, broadcasting, and reductions."
-                    milestoneDescription="Automatic differentiation engine for machine learning workloads."
+                    description="Reverse-mode AD for Add, Sub, Mul, MatMul, Dot, Transpose, Sum, Mean, Reshape. Div and Conv2d gradients not yet supported."
+                    milestoneDescription="Core arithmetic and linear algebra gradients complete. Div/Conv2d planned."
                 />
 
                 {/* Info Text */}
@@ -96,13 +96,13 @@ export default function RoadmapPage() {
                     icon={<Server className="w-8 h-8 text-primary" />}
                     iconBg="bg-blue-50"
                     title="GPU / Accelerators"
-                    status="Core v1 GPU profile"
+                    status="Early Preview"
                     statusColor="bg-violet-100 text-violet-700"
-                    progress={45}
+                    progress={17}
                     progressColor="bg-primary"
-                    milestone="Lowering integrations underway"
-                    description="Foundational shape/type validation and lowering scaffolding for GPU and accelerator backends."
-                    milestoneDescription="Next milestones target MLIR → SPIR-V / NVVM lowering and backend integrations."
+                    milestone="Mock backend only"
+                    description="GPU mock backend with 3 ops (add, copy, fill). 15 operations CPU-only. Targeting CUDA 12, ROCm planned."
+                    milestoneDescription="Production CUDA/ROCm backends in development. Full Core v1 GPU profile planned."
                 />
 
                 {/* Package Manager */}
@@ -143,13 +143,13 @@ export default function RoadmapPage() {
                     icon={<CheckCircle className="w-8 h-8 text-emerald-500" />}
                     iconBg="bg-emerald-50"
                     title="Testing & Conformance"
-                    status="Near Complete"
+                    status="Spec Aligned"
                     statusColor="bg-emerald-100 text-emerald-700"
-                    progress={92}
+                    progress={95}
                     progressColor="bg-emerald-500"
-                    milestone="Strong coverage"
-                    description="Compiler: 100% (69 files, 154 tests). Runtime: 75% (5 files, 18 tests). Spec: 100% (8 conformance tests)."
-                    milestoneDescription="Runtime test depth could be expanded."
+                    milestone="Aligned"
+                    description="Spec aligned with implementations. 16 IR instructions, 10 E-codes, 1e-5 numerical tolerance. Negative axes supported, slices clamped."
+                    milestoneDescription="Compiler/runtime implementations match spec. Runtime tests could expand."
                 />
 
                 {/* Documentation Alignment */}
@@ -157,13 +157,13 @@ export default function RoadmapPage() {
                     icon={<BookOpen className="w-8 h-8 text-emerald-500" />}
                     iconBg="bg-emerald-50"
                     title="Documentation Alignment"
-                    status="Near Complete"
+                    status="Spec Aligned"
                     statusColor="bg-emerald-100 text-emerald-700"
-                    progress={97}
+                    progress={98}
                     progressColor="bg-emerald-500"
                     milestone="Synchronized"
-                    description="Compiler: 100% (25 docs). Runtime: 90% (12 docs). Spec: 100% (14 chapters, 4,277 lines)."
-                    milestoneDescription="Runtime missing CHANGELOG and some metadata."
+                    description="Spec updated: ir.md, autodiff.md, ffi.md, runtime.md, types.md, errors.md aligned with implementations."
+                    milestoneDescription="Compiler has CHANGELOG.md. All repos documentation synchronized."
                 />
 
                 {/* Language Toolchain */}
@@ -171,13 +171,13 @@ export default function RoadmapPage() {
                     icon={<Wrench className="w-8 h-8 text-emerald-500" />}
                     iconBg="bg-emerald-50"
                     title="Language Toolchain & Lowering"
-                    status="Near Complete"
+                    status="Operational"
                     statusColor="bg-emerald-100 text-emerald-700"
                     progress={95}
                     progressColor="bg-emerald-500"
-                    description="Compiler: 100% (19 modules). Runtime: 86% (CPU stable, 10 modules). Spec: 100% (3 EBNF grammars)."
+                    description="5 MLIR dialects (arith, tensor, linalg, func, scf). LLVM 14+ compatible. 7 FFI functions, 3 enums, 2 opaque types."
                     milestone="Core pipeline operational"
-                    milestoneDescription="Runtime MLIR/LLVM integration in progress."
+                    milestoneDescription="Full compiler workflow. GPU/accelerator extensions in progress."
                 />
 
                 {/* CTA Section */}
