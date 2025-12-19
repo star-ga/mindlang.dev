@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -142,6 +142,8 @@ fn main() {
                         prev={{ label: "Autodiff", href: "/docs/autodiff" }}
                         next={{ label: "Core", href: "/docs/std/core" }}
                     />
+
+                    <MobileDocsSidebar currentPath="/docs/errors" />
                 </main>
             </div>
         </div>

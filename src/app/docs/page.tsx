@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { Box, ShieldCheck, Zap, Cpu, BookOpen, MessageCircle, Github, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -134,6 +134,8 @@ export default function DocsPage() {
                             </a>
                         </div>
                     </div>
+
+                    <MobileDocsSidebar currentPath="/docs" />
                 </main>
             </div>
         </div>

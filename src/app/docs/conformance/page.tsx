@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -57,6 +57,8 @@ mindc conformance --profile gpu`}</CodeBlock>
                         prev={{ label: "FFI", href: "/docs/ffi" }}
                         next={{ label: "Stability", href: "/docs/stability" }}
                     />
+
+                    <MobileDocsSidebar currentPath="/docs/conformance" />
                 </main>
             </div>
         </div>

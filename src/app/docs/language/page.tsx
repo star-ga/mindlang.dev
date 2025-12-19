@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -115,6 +115,8 @@ fn sum_first_n(x: Tensor<f32, 100>, n: i32) -> f32 {
                         prev={{ label: "Cookbook", href: "/docs/cookbook" }}
                         next={{ label: "Shapes & Broadcasting", href: "/docs/shapes" }}
                     />
+
+                    <MobileDocsSidebar currentPath="/docs/language" />
                 </main>
             </div>
         </div>
