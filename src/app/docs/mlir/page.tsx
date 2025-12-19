@@ -1,8 +1,7 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -14,30 +13,7 @@ export default function MLIRPage() {
     return (
         <div className="container !pt-12 !pb-16">
             <div className="flex gap-12">
-                {/* Sidebar */}
-                <aside className="hidden lg:block w-64 shrink-0">
-                    <nav className="sticky top-24">
-                        {docsNavigation.map((section) => (
-                            <div key={section.title} className="mb-6">
-                                <h3 className="font-heading font-bold text-sm text-foreground mb-2">
-                                    {section.title}
-                                </h3>
-                                <ul className="space-y-1">
-                                    {section.items.map((item) => (
-                                        <li key={item.href}>
-                                            <Link
-                                                href={item.href}
-                                                className={`text-sm font-medium transition-colors block py-1 ${item.href === "/docs/mlir" ? "!text-primary font-bold" : "!text-slate-600 hover:!text-primary"}`}
-                                            >
-                                                {item.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </nav>
-                </aside>
+                <DocsSidebar currentPath="/docs/mlir" />
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
@@ -103,8 +79,9 @@ PTX / SPIR-V`}</CodeBlock>
                         <CodeBlock className="mb-4">{`%0 = mind.relu %input : tensor<1024xf32>
 %1 = mind.mul %0, %scale : tensor<1024xf32>
 %2 = mind.add %1, %bias : tensor<1024xf32>`}</CodeBlock>
-                        <p className="text-muted mb-4">After fusion:</p>
-                        <CodeBlock className="mb-8">{`%0 = mind.fused_relu_scale_bias %input, %scale, %bias : tensor<1024xf32>
+                        <p className="text-muted mb-4">After fusion (conceptual example — actual fused operations may vary):</p>
+                        <CodeBlock className="mb-8">{`// Hypothetical fused operation for illustration
+%0 = mind.fused_relu_scale_bias %input, %scale, %bias : tensor<1024xf32>
 // Single memory pass instead of three`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Inspecting IR</h2>
