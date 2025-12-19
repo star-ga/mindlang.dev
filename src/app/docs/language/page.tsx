@@ -3,6 +3,7 @@ import Link from "next/link";
 import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "Language",
@@ -133,6 +134,11 @@ fn sum_first_n(x: Tensor<f32, 100>, n: i32) -> f32 {
                             </a>.
                         </p>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "Cookbook", href: "/docs/cookbook" }}
+                        next={{ label: "Shapes & Broadcasting", href: "/docs/shapes" }}
+                    />
                 </main>
             </div>
         </div>

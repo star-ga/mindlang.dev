@@ -3,6 +3,7 @@ import Link from "next/link";
 import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "MLIR Lowering",
@@ -130,6 +131,11 @@ mindc --emit=asm model.mind`}</CodeBlock>
                             </a>.
                         </p>
                     </div>
+
+                    <PageNavigation
+                        prev={{ label: "IR", href: "/docs/ir" }}
+                        next={{ label: "Runtime", href: "/docs/runtime" }}
+                    />
                 </main>
             </div>
         </div>
