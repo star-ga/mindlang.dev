@@ -143,41 +143,41 @@ export default function RoadmapPage() {
                     icon={<CheckCircle className="w-8 h-8 text-emerald-500" />}
                     iconBg="bg-emerald-50"
                     title="Testing & Conformance"
-                    status="Maturing"
+                    status="Complete"
                     statusColor="bg-emerald-100 text-emerald-700"
-                    progress={85}
+                    progress={100}
                     progressColor="bg-emerald-500"
-                    milestone="Suites stabilizing"
-                    description="Comprehensive test coverage across compiler, runtime, and spec repos. Conformance suites validated."
-                    milestoneDescription="Formal conformance alignment continues as new operators and lowering paths land."
+                    milestone="Audit complete"
+                    description="Full test coverage across compiler, runtime, and spec repos. All conformance suites passing."
+                    milestoneDescription="All repos audited and validated. Conformance alignment complete."
                 />
 
                 {/* Documentation Alignment */}
                 <RoadmapCard
-                    icon={<BookOpen className="w-8 h-8 text-primary" />}
-                    iconBg="bg-blue-50"
+                    icon={<BookOpen className="w-8 h-8 text-emerald-500" />}
+                    iconBg="bg-emerald-50"
                     title="Documentation Alignment"
-                    status="Near Complete"
+                    status="Complete"
                     statusColor="bg-emerald-100 text-emerald-700"
-                    progress={95}
-                    progressColor="bg-primary"
-                    milestone="Audit complete"
-                    description="Full audit of all repos completed. Specs, guides, and API docs synchronized across compiler, runtime, and spec repositories."
-                    milestoneDescription="Documentation keeps pace with implementation changes for Core v1 readiness."
+                    progress={100}
+                    progressColor="bg-emerald-500"
+                    milestone="Fully synchronized"
+                    description="All repos audited and documentation synchronized. Specs, guides, and API docs complete across compiler, runtime, and spec repositories."
+                    milestoneDescription="Documentation fully aligned with Core v1 implementation."
                 />
 
                 {/* Language Toolchain */}
                 <RoadmapCard
-                    icon={<Wrench className="w-8 h-8 text-amber-600" />}
-                    iconBg="bg-amber-50"
+                    icon={<Wrench className="w-8 h-8 text-emerald-500" />}
+                    iconBg="bg-emerald-50"
                     title="Language Toolchain & Lowering"
-                    status="Advancing"
-                    statusColor="bg-amber-100 text-amber-800"
-                    progress={85}
-                    progressColor="bg-amber-600"
-                    description="Language-to-IR lowering complete. Compiler, runtime, and spec repos audited and aligned."
-                    milestone="Backend integrations progressing"
-                    milestoneDescription="Compiler workflow extends toward GPU/accelerator paths and runtime coupling."
+                    status="Complete"
+                    statusColor="bg-emerald-100 text-emerald-700"
+                    progress={100}
+                    progressColor="bg-emerald-500"
+                    description="Language-to-IR lowering complete. Compiler, runtime, and spec repos fully audited and aligned."
+                    milestone="Core pipeline complete"
+                    milestoneDescription="Full compiler workflow operational. GPU/accelerator extensions in progress."
                 />
 
                 {/* CTA Section */}
