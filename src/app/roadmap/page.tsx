@@ -57,11 +57,11 @@ export default function RoadmapPage() {
                     title="Autodiff Engine"
                     status="Preview"
                     statusColor="bg-slate-100 text-slate-600"
-                    progress={85}
+                    progress={90}
                     progressColor="bg-primary"
                     milestone="Q2 2026"
-                    description="Reverse-mode AD for Add, Sub, Mul, MatMul, Dot, Transpose, Sum, Mean, Reshape. Div and Conv2d gradients not yet supported."
-                    milestoneDescription="Core arithmetic and linear algebra gradients complete. Div/Conv2d planned."
+                    description="Reverse-mode AD for 17 ops including Add, Sub, Mul, Div, MatMul, Dot, Transpose, Sum, Mean, Reshape, Relu. Conv2d gradient not yet implemented."
+                    milestoneDescription="Core arithmetic and linear algebra gradients complete. Conv2d planned."
                 />
 
                 {/* Info Text */}
@@ -145,11 +145,11 @@ export default function RoadmapPage() {
                     title="Testing & Conformance"
                     status="Spec Aligned"
                     statusColor="bg-emerald-100 text-emerald-700"
-                    progress={95}
+                    progress={100}
                     progressColor="bg-emerald-500"
-                    milestone="Aligned"
-                    description="Spec aligned with implementations. 16 IR instructions, 10 E-codes, 1e-5 numerical tolerance. Negative axes supported, slices clamped."
-                    milestoneDescription="Compiler/runtime implementations match spec. Runtime tests could expand."
+                    milestone="Complete"
+                    description="Spec aligned with implementations. 20 IR instructions, 47 E-codes, 1e-5 numerical tolerance. 154 compiler tests, 37 runtime tests, all passing."
+                    milestoneDescription="Compiler and runtime implementations fully match spec. Conformance test suite complete."
                 />
 
                 {/* Documentation Alignment */}
@@ -157,13 +157,13 @@ export default function RoadmapPage() {
                     icon={<BookOpen className="w-8 h-8 text-emerald-500" />}
                     iconBg="bg-emerald-50"
                     title="Documentation Alignment"
-                    status="Spec Aligned"
+                    status="Complete"
                     statusColor="bg-emerald-100 text-emerald-700"
-                    progress={98}
+                    progress={100}
                     progressColor="bg-emerald-500"
                     milestone="Synchronized"
-                    description="Spec updated: ir.md, autodiff.md, ffi.md, runtime.md, types.md, errors.md aligned with implementations."
-                    milestoneDescription="Compiler has CHANGELOG.md. All repos documentation synchronized."
+                    description="All spec files aligned: ir.md, autodiff.md, ffi.md, runtime.md, types.md, errors.md. CHANGELOG.md present in all repos."
+                    milestoneDescription="Specification-grade documentation across compiler, runtime, and spec repos."
                 />
 
                 {/* Language Toolchain */}
@@ -175,7 +175,7 @@ export default function RoadmapPage() {
                     statusColor="bg-emerald-100 text-emerald-700"
                     progress={95}
                     progressColor="bg-emerald-500"
-                    description="5 MLIR dialects (arith, tensor, linalg, func, scf). LLVM 14+ compatible. 7 FFI functions, 3 enums, 2 opaque types."
+                    description="5 MLIR dialects (arith, tensor, linalg, func, scf). Tested with LLVM 18. 7 FFI functions, 3 enums, 2 opaque types."
                     milestone="Core pipeline operational"
                     milestoneDescription="Full compiler workflow. GPU/accelerator extensions in progress."
                 />
