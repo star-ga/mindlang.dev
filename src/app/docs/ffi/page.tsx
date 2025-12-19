@@ -102,7 +102,7 @@ fn main() -> Result<(), mind_runtime::Error> {
     Ok(())
 }`}</CodeBlock>
                         <p className="text-muted mb-8">
-                            Add to Cargo.toml: <code>mind-runtime = &quot;0.1&quot;</code>
+                            Add to Cargo.toml: <code>mind-runtime = {'"'}0.1{'"'}</code>
                         </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">ABI Stability</h2>
