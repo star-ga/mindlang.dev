@@ -75,7 +75,7 @@ export default function PerformancePage() {
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4"><code>--release --fast-math</code></td>
-                                        <td className="py-2 pr-4">Maximum performance, relaxed FP</td>
+                                        <td className="py-2 pr-4">Maximum performance, relaxed floating-point</td>
                                         <td className="py-2">No</td>
                                     </tr>
                                 </tbody>
