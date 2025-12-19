@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -67,6 +67,8 @@ assert_eq!(out, vec![2, 3]);`}</CodeBlock>
                         prev={{ label: "Language", href: "/docs/language" }}
                         next={{ label: "Autodiff", href: "/docs/autodiff" }}
                     />
+
+                    <MobileDocsSidebar currentPath="/docs/shapes" />
                 </main>
             </div>
         </div>

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import { docsNavigation } from "@/data/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
     title: "Quick Start",
@@ -13,30 +13,7 @@ export default function QuickStartPage() {
     return (
         <div className="container !pt-12 !pb-16">
             <div className="flex gap-12">
-                {/* Sidebar */}
-                <aside className="hidden lg:block w-64 shrink-0">
-                    <nav className="sticky top-24">
-                        {docsNavigation.map((section) => (
-                            <div key={section.title} className="mb-6">
-                                <h3 className="font-heading font-bold text-sm text-foreground mb-2">
-                                    {section.title}
-                                </h3>
-                                <ul className="space-y-1">
-                                    {section.items.map((item) => (
-                                        <li key={item.href}>
-                                            <Link
-                                                href={item.href}
-                                                className={`text-sm font-medium transition-colors block py-1 ${item.href === "/docs/quick-start" ? "!text-primary font-bold" : "!text-slate-600 hover:!text-primary"}`}
-                                            >
-                                                {item.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </nav>
-                </aside>
+                <DocsSidebar currentPath="/docs/quick-start" />
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
@@ -72,6 +49,12 @@ cargo run --bin mindc -- examples/hello_tensor.mind --func main --autodiff --emi
 # MLIR lowering (feature-gated)
 cargo run --features "mlir-lowering autodiff" --bin mindc -- examples/hello_tensor.mind --func main --autodiff --emit-mlir`}</CodeBlock>
                     </div>
+
+                    <PageNavigation
+                        next={{ label: "Installation", href: "/docs/installation" }}
+                    />
+
+                    <MobileDocsSidebar currentPath="/docs/quick-start" />
                 </main>
             </div>
         </div>

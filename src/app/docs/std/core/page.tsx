@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -48,6 +48,8 @@ fn divide(a: f32, b: f32) -> Result<f32, String> {
                         prev={{ label: "Errors", href: "/docs/errors" }}
                         next={{ label: "Tensor", href: "/docs/std/tensor" }}
                     />
+
+                    <MobileDocsSidebar currentPath="/docs/std/core" />
                 </main>
             </div>
         </div>

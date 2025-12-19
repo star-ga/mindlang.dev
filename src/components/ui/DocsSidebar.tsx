@@ -32,3 +32,32 @@ export function DocsSidebar({ currentPath }: DocsSidebarProps) {
         </aside>
     );
 }
+
+export function MobileDocsSidebar({ currentPath }: DocsSidebarProps) {
+    return (
+        <aside className="lg:hidden mt-12 pt-8 border-t">
+            <h3 className="font-heading font-bold text-lg text-foreground mb-4">Documentation</h3>
+            <nav>
+                {docsNavigation.map((section) => (
+                    <div key={section.title} className="mb-6">
+                        <h4 className="font-heading font-bold text-sm text-foreground mb-2">
+                            {section.title}
+                        </h4>
+                        <ul className="space-y-1">
+                            {section.items.map((item) => (
+                                <li key={item.href}>
+                                    <Link
+                                        href={item.href}
+                                        className={`text-sm font-medium transition-colors block py-1 ${item.href === currentPath ? "!text-primary font-bold" : "!text-slate-600 hover:!text-primary"}`}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </nav>
+        </aside>
+    );
+}
