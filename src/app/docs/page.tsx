@@ -3,6 +3,7 @@ import Link from "next/link";
 import { siteConfig } from "@/data/site";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { PageNavigation } from "@/components/ui/PageNavigation";
 import { Box, ShieldCheck, Zap, Cpu, BookOpen, MessageCircle, Github, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -134,6 +135,10 @@ export default function DocsPage() {
                             </a>
                         </div>
                     </div>
+
+                    <PageNavigation
+                        next={{ label: "Quick Start", href: "/docs/quick-start" }}
+                    />
 
                     <MobileDocsSidebar currentPath="/docs" />
                 </main>
