@@ -33,10 +33,17 @@ export default function ConformancePage() {
                         </ul>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Core v1 GPU profile</h2>
-                        <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
+                        <ul className="list-disc pl-6 space-y-2 text-muted mb-4">
                             <li>Optional profile for implementations that expose GPU or accelerator devices.</li>
-                            <li>Defines the device kinds/backends contract, backend-selection error model, and the public <code>GPUBackend</code> surface.</li>
-                            <li>Profile guarantees cover capability reporting and deterministic fallback/error semantics.</li>
+                            <li>Supports full Core v1 op surface (19 operations) with GPU-specific constraints.</li>
+                            <li>Reference implementation: <code>MockGpuBackend</code> executes via CPU delegation for conformance testing.</li>
+                        </ul>
+                        <p className="text-muted mb-2 font-medium">GPU tensor constraints:</p>
+                        <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
+                            <li><code>DeviceKind::Gpu</code> device targeting</li>
+                            <li><code>dtype: f32</code> only (f64 not supported on GPU profile)</li>
+                            <li><code>numel % 4 == 0</code> alignment requirement</li>
+                            <li><code>fill</code> reads value from <code>inputs[0].data[0]</code> (first element)</li>
                         </ul>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Running the conformance suite</h2>
