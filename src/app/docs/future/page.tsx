@@ -93,13 +93,13 @@ export default function FuturePage() {
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">NVIDIA GPU</td>
-                                        <td className="py-2 pr-4 text-amber-600">In Progress</td>
-                                        <td className="py-2">CUDA via NVVM</td>
+                                        <td className="py-2 pr-4 text-amber-600">Mock Ready</td>
+                                        <td className="py-2">MockGpuBackend (CPU delegation); native CUDA 12 planned</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">AMD GPU</td>
-                                        <td className="py-2 pr-4 text-slate-500">Planned</td>
-                                        <td className="py-2">ROCm/HIP support</td>
+                                        <td className="py-2 pr-4 text-amber-600">Mock Ready</td>
+                                        <td className="py-2">MockGpuBackend (CPU delegation); native ROCm planned</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">WebGPU</td>
@@ -108,8 +108,8 @@ export default function FuturePage() {
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">Apple Silicon</td>
-                                        <td className="py-2 pr-4 text-slate-500">Planned</td>
-                                        <td className="py-2">Metal Performance Shaders</td>
+                                        <td className="py-2 pr-4 text-amber-600">Mock Ready</td>
+                                        <td className="py-2">MockGpuBackend (CPU delegation); native Metal planned</td>
                                     </tr>
                                 </tbody>
                             </table>
