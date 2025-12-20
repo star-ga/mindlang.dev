@@ -101,8 +101,8 @@ export default function RoadmapPage() {
                     progress={17}
                     progressColor="bg-primary"
                     milestone="Conformance ready"
-                    description="Mock GPU backend supports full Core v1 op surface (19 ops) via CPU delegation, enforcing GPU constraints (f32-only, alignment). Native CUDA/Metal kernels planned."
-                    milestoneDescription="Production CUDA 12 and ROCm backends in development for native GPU execution."
+                    description="Mock GPU backend supports full Core v1 op surface (19 ops) via CPU delegation, enforcing GPU constraints (f32-only, alignment). Native CUDA, ROCm, and Metal kernels planned."
+                    milestoneDescription="Production CUDA 12, ROCm, and Metal backends in development for native GPU execution."
                 />
 
                 {/* Package Manager */}
@@ -143,7 +143,7 @@ export default function RoadmapPage() {
                     icon={<CheckCircle className="w-8 h-8 text-emerald-500" />}
                     iconBg="bg-emerald-50"
                     title="Testing & Conformance"
-                    status="Spec Aligned"
+                    status="Complete"
                     statusColor="bg-emerald-100 text-emerald-700"
                     progress={100}
                     progressColor="bg-emerald-500"
