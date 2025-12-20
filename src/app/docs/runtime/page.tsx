@@ -26,7 +26,7 @@ export default function RuntimePage() {
                         </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Architecture</h2>
-                        <CodeBlock className="mb-8">{`┌─────────────────────────────────────┐
+                        <CodeBlock className="mb-4">{`┌─────────────────────────────────────┐
 │           Application               │
 ├─────────────────────────────────────┤
 │         Runtime API (C/Rust)        │
@@ -34,8 +34,11 @@ export default function RuntimePage() {
 │    Executor    │   Memory Manager   │
 ├────────────────┼────────────────────┤
 │   CPU Backend  │   GPU Backend      │
-│   (OpenBLAS)   │   (CUDA/Vulkan)    │
+│   (Stable)     │   (Mock/Planned)   │
 └────────────────┴────────────────────┘`}</CodeBlock>
+                        <p className="text-sm text-muted mb-8">
+                            <strong>GPU Backend:</strong> MockGpuBackend supports full Core v1 op surface (19 ops) via CPU delegation for conformance testing. Native CUDA 12, ROCm, and Metal backends are planned.
+                        </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Execution Modes</h2>
                         <div className="overflow-x-auto mb-8">
