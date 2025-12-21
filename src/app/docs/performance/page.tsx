@@ -155,7 +155,7 @@ export default function PerformancePage() {
                                 <li>MIND achieves <strong>12,000× to 339,000× faster</strong> compilation</li>
                             </ul>
                             <p className="text-xs text-muted mt-3">
-                                Same-machine benchmark: AlmaLinux 9.7, LLVM 20, Mojo 0.25.7.0 |
+                                Same-machine benchmark: AlmaLinux 9.7, LLVM 20, Mojo 0.25.7 |
                                 <a href="https://github.com/cputer/mind/tree/main/benchmarks/mojo" target="_blank" rel="noopener" className="text-primary hover:underline ml-1">
                                     View benchmark source
                                 </a>
