@@ -103,6 +103,65 @@ export default function PerformancePage() {
                             </table>
                         </div>
 
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Compilation Speed: MIND vs Mojo</h2>
+                        <p className="text-muted mb-4">
+                            MIND&apos;s compilation speed is designed for rapid iteration during development.
+                            Unlike traditional ML compilers that scale compilation time with model complexity,
+                            MIND compiles in microseconds regardless of model size.
+                        </p>
+                        <div className="overflow-x-auto mb-6">
+                            <table className="min-w-full text-sm">
+                                <thead>
+                                    <tr className="border-b">
+                                        <th className="text-left py-2 pr-4 font-bold">Benchmark</th>
+                                        <th className="text-left py-2 pr-4 font-bold">MIND</th>
+                                        <th className="text-left py-2 pr-4 font-bold">Mojo 0.25.7</th>
+                                        <th className="text-left py-2 font-bold">MIND Speedup</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-muted">
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Scalar Math</td>
+                                        <td className="py-2 pr-4">22 µs</td>
+                                        <td className="py-2 pr-4">441 ms</td>
+                                        <td className="py-2 font-semibold text-green-600">20,041×</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Small MatMul (10×20 × 20×30)</td>
+                                        <td className="py-2 pr-4">41 µs</td>
+                                        <td className="py-2 pr-4">498 ms</td>
+                                        <td className="py-2 font-semibold text-green-600">12,126×</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Medium MatMul (128×256 × 256×512)</td>
+                                        <td className="py-2 pr-4">41 µs</td>
+                                        <td className="py-2 pr-4">1.34 s</td>
+                                        <td className="py-2 font-semibold text-green-600">32,925×</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Large MatMul (512×1024 × 1024×512)</td>
+                                        <td className="py-2 pr-4">41 µs</td>
+                                        <td className="py-2 pr-4">13.8 s</td>
+                                        <td className="py-2 font-semibold text-green-600">339,426×</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="bg-card border border-border rounded-lg p-4 mb-8">
+                            <h4 className="font-semibold mb-2">Key Observations</h4>
+                            <ul className="list-disc pl-6 space-y-1 text-muted text-sm">
+                                <li>MIND compiles in <strong>microseconds</strong> regardless of model complexity</li>
+                                <li>Mojo compilation time scales with computation size (seconds for larger models)</li>
+                                <li>MIND achieves <strong>12,000× to 339,000× faster</strong> compilation</li>
+                            </ul>
+                            <p className="text-xs text-muted mt-3">
+                                Same-machine benchmark: AlmaLinux 9.7, LLVM 20, Mojo 0.25.7.0 |
+                                <a href="https://github.com/cputer/mind/tree/main/benchmarks/mojo" target="_blank" rel="noopener" className="text-primary hover:underline ml-1">
+                                    View benchmark source
+                                </a>
+                            </p>
+                        </div>
+
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Profiling</h2>
                         <p className="text-muted mb-4">
                             Built-in profiling support for performance analysis:
