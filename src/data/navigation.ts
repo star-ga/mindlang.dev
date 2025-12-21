@@ -50,6 +50,14 @@ export const docsNavigation = [
     },
 
     {
+        title: "Full-Stack AI",
+        items: [
+            { name: "Distributed Execution", href: "/docs/distributed" },
+            { name: "Deployment", href: "/docs/deployment" },
+        ],
+    },
+
+    {
         title: "Reference",
         items: [
             { name: "Conformance", href: "/docs/conformance" },

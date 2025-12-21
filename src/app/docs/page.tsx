@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
-import { Box, ShieldCheck, Zap, Cpu, BookOpen, MessageCircle, Github, FileText } from "lucide-react";
+import { Box, ShieldCheck, Zap, Cpu, BookOpen, MessageCircle, Github, FileText, Cloud, Rocket } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "Documentation",
@@ -92,6 +92,27 @@ export default function DocsPage() {
                                     The compiler leverages MLIR for high-level tensor optimizations and LLVM for highly efficient machine code generation.
                                 </p>
                             </div>
+                        </div>
+
+                        <h2 className="text-2xl font-bold font-heading mt-16 mb-8">Full-Stack AI</h2>
+                        <p className="text-muted mb-6">
+                            MIND is evolving into a complete platform for building, deploying, and scaling AI systems.
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                            <Link href="/docs/distributed" className="p-6 rounded-xl border border-card-border hover:border-primary transition-colors group">
+                                <Cloud className="w-8 h-8 text-indigo-600 mb-4" />
+                                <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Distributed Execution</h3>
+                                <p className="text-sm text-muted">
+                                    Scale models across clusters with data parallelism, model parallelism, and automatic gradient synchronization.
+                                </p>
+                            </Link>
+                            <Link href="/docs/deployment" className="p-6 rounded-xl border border-card-border hover:border-primary transition-colors group">
+                                <Rocket className="w-8 h-8 text-orange-600 mb-4" />
+                                <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Deployment</h3>
+                                <p className="text-sm text-muted">
+                                    Deploy to cloud, edge, or on-premise with one command. Built-in serving, auto-scaling, and monitoring.
+                                </p>
+                            </Link>
                         </div>
 
                         <div className="p-8 rounded-2xl bg-slate-900 text-white mb-16 relative overflow-hidden">
