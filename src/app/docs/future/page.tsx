@@ -135,6 +135,7 @@ export default function FuturePage() {
 
                     <PageNavigation
                         prev={{ label: "Performance", href: "/docs/performance" }}
+                        next={{ label: "Contributing", href: "/docs/contributing" }}
                     />
 
                     <MobileDocsSidebar currentPath="/docs/future" />
