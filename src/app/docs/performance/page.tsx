@@ -122,27 +122,27 @@ export default function PerformancePage() {
                                 <tbody className="text-muted">
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">Scalar Math</td>
-                                        <td className="py-2 pr-4">18 µs</td>
+                                        <td className="py-2 pr-4">22 µs</td>
                                         <td className="py-2 pr-4">441 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">24,641×</td>
+                                        <td className="py-2 font-semibold text-green-600">20,041×</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">Small MatMul (10×20 × 20×30)</td>
-                                        <td className="py-2 pr-4">29 µs</td>
+                                        <td className="py-2 pr-4">41 µs</td>
                                         <td className="py-2 pr-4">498 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">17,120×</td>
+                                        <td className="py-2 font-semibold text-green-600">12,126×</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">Medium MatMul (128×256 × 256×512)</td>
-                                        <td className="py-2 pr-4">29 µs</td>
+                                        <td className="py-2 pr-4">41 µs</td>
                                         <td className="py-2 pr-4">1.34 s</td>
-                                        <td className="py-2 font-semibold text-green-600">45,492×</td>
+                                        <td className="py-2 font-semibold text-green-600">32,925×</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">Large MatMul (512×1024 × 1024×512)</td>
-                                        <td className="py-2 pr-4">30 µs</td>
+                                        <td className="py-2 pr-4">41 µs</td>
                                         <td className="py-2 pr-4">13.8 s</td>
-                                        <td className="py-2 font-semibold text-green-600">458,302×</td>
+                                        <td className="py-2 font-semibold text-green-600">339,426×</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -152,10 +152,10 @@ export default function PerformancePage() {
                             <ul className="list-disc pl-6 space-y-1 text-muted text-sm">
                                 <li>MIND compiles in <strong>microseconds</strong> regardless of model complexity</li>
                                 <li>Mojo compilation time scales with computation size (seconds for larger models)</li>
-                                <li>MIND achieves <strong>17,000× to 458,000× faster</strong> compilation</li>
+                                <li>MIND achieves <strong>12,000× to 339,000× faster</strong> compilation</li>
                             </ul>
                             <p className="text-xs text-muted mt-3">
-                                Test environment: AlmaLinux 9.7, Mojo 0.25.7.0 |
+                                Same-machine benchmark: AlmaLinux 9.7, LLVM 20, Mojo 0.25.7.0 |
                                 <a href="https://github.com/cputer/mind/tree/main/benchmarks/mojo" target="_blank" rel="noopener" className="text-primary hover:underline ml-1">
                                     View benchmark source
                                 </a>
