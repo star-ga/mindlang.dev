@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Zap, Cpu, Server, Package, CheckCircle, BookOpen, Wrench, ArrowRight, Terminal, Brain } from "lucide-react";
+import { Zap, Cpu, Server, Package, CheckCircle, BookOpen, Wrench, ArrowRight, Terminal, Brain, Cloud, Layers, Rocket } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
 
@@ -77,6 +77,34 @@ export default function RoadmapPage() {
                     </p>
                 </div>
 
+                {/* Full-Stack AI Vision Section */}
+                <div className="!bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-primary/20 rounded-xl p-8 mb-6">
+                    <div className="flex items-center gap-3 mb-4">
+                        <Layers className="w-8 h-8 text-primary" />
+                        <h2 className="text-2xl font-bold text-foreground m-0">Full-Stack AI Vision</h2>
+                    </div>
+                    <p className="text-muted mb-6">
+                        MIND is evolving beyond a tensor language into a complete full-stack platform for AI development. Our vision encompasses the entire AI lifecycle from model development to production deployment.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Cloud className="w-6 h-6 text-primary mb-2" />
+                            <h4 className="font-bold text-sm mb-1">Distributed Execution</h4>
+                            <p className="text-xs text-muted">Scale models across clusters with automatic sharding and gradient synchronization.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Rocket className="w-6 h-6 text-primary mb-2" />
+                            <h4 className="font-bold text-sm mb-1">Production Deployment</h4>
+                            <p className="text-xs text-muted">One-command deployment to cloud, edge, or on-premise with built-in serving infrastructure.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Server className="w-6 h-6 text-primary mb-2" />
+                            <h4 className="font-bold text-sm mb-1">End-to-End Integration</h4>
+                            <p className="text-xs text-muted">Seamless data pipelines, model versioning, and monitoring from a unified platform.</p>
+                        </div>
+                    </div>
+                </div>
+
                 {/* CPU Execution */}
                 <RoadmapCard
                     icon={<Terminal className="w-8 h-8 text-emerald-500" />}
@@ -117,6 +145,44 @@ export default function RoadmapPage() {
                     milestone="2026"
                     description="Early groundwork for module and dependency resolution with ecosystem foundations underway."
                     milestoneDescription="Comprehensive package management and dependency resolution."
+                />
+
+                {/* Distributed Execution */}
+                <RoadmapCard
+                    icon={<Cloud className="w-8 h-8 text-indigo-600" />}
+                    iconBg="bg-indigo-50"
+                    title="Distributed Execution"
+                    status="Phase 14"
+                    statusColor="bg-indigo-100 text-indigo-700"
+                    progress={25}
+                    progressColor="bg-indigo-500"
+                    milestone="2026"
+                    description="Multi-node training and inference with automatic model sharding, data parallelism, and collective communication (NCCL, Gloo)."
+                    subDescription={
+                        <>
+                            See <Link href="/docs/distributed" className="text-primary underline">Distributed Execution Guide</Link> for early access documentation.
+                        </>
+                    }
+                    milestoneDescription="Full-stack distributed training with pipeline parallelism and elastic scaling."
+                />
+
+                {/* Deployment & Serving */}
+                <RoadmapCard
+                    icon={<Rocket className="w-8 h-8 text-orange-600" />}
+                    iconBg="bg-orange-50"
+                    title="Deployment & Serving"
+                    status="Phase 15"
+                    statusColor="bg-orange-100 text-orange-700"
+                    progress={20}
+                    progressColor="bg-orange-500"
+                    milestone="2026"
+                    description="Production-ready model serving with containerized deployment, auto-scaling, A/B testing, and model versioning."
+                    subDescription={
+                        <>
+                            See <Link href="/docs/deployment" className="text-primary underline">Deployment Guide</Link> for deployment options and best practices.
+                        </>
+                    }
+                    milestoneDescription="One-command deployment to cloud, edge, and on-premise environments."
                 />
 
                 {/* BCI / Neuroscience - Phase 13 */}
