@@ -39,13 +39,26 @@ export default function FuturePage() {
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Distributed Training</h2>
                         <p className="text-muted mb-4">
-                            Multi-node training support for large models:
+                            Multi-node training support for large models (see <Link href="/docs/distributed" className="text-primary hover:underline">Distributed Execution Guide</Link>):
                         </p>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
                             <li>Data parallelism with automatic gradient synchronization</li>
                             <li>Model parallelism for models exceeding single-device memory</li>
                             <li>Pipeline parallelism for improved throughput</li>
                             <li>Integration with collective communication libraries (NCCL, Gloo)</li>
+                            <li>Elastic training with fault tolerance and automatic recovery</li>
+                        </ul>
+
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Production Deployment</h2>
+                        <p className="text-muted mb-4">
+                            Full-stack deployment infrastructure (see <Link href="/docs/deployment" className="text-primary hover:underline">Deployment Guide</Link>):
+                        </p>
+                        <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
+                            <li>One-command deployment to cloud, edge, and on-premise</li>
+                            <li>Containerized serving with auto-scaling</li>
+                            <li>A/B testing and canary deployments</li>
+                            <li>Model versioning and rollback</li>
+                            <li>Built-in monitoring with OpenTelemetry integration</li>
                         </ul>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Sparse Tensors</h2>
