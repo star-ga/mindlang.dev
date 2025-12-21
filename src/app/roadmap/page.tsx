@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Zap, Cpu, Server, Package, CheckCircle, BookOpen, Wrench, ArrowRight, Terminal, Brain, Cloud, Layers, Rocket } from "lucide-react";
+import { Zap, Cpu, Server, Package, CheckCircle, BookOpen, Wrench, Terminal, Brain, Cloud, Layers, Rocket } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
 
@@ -147,7 +147,26 @@ export default function RoadmapPage() {
                     milestoneDescription="Comprehensive package management and dependency resolution."
                 />
 
-                {/* Distributed Execution */}
+                {/* BCI / Neuroscience - Phase 13 */}
+                <RoadmapCard
+                    icon={<Brain className="w-8 h-8 text-pink-600" />}
+                    iconBg="bg-pink-50"
+                    title="BCI & Neuroscience"
+                    status="Phase 13"
+                    statusColor="bg-pink-100 text-pink-700"
+                    progress={5}
+                    progressColor="bg-pink-500"
+                    milestone="2026"
+                    description="Ultra-low latency runtime paths, streaming tensor support, and signal processing primitives for brain-computer interface and neuroscience applications."
+                    subDescription={
+                        <>
+                            Targeting {"<"}1ms inference latency, pre-allocated memory pools, and deterministic timing guarantees for medical device certification.
+                        </>
+                    }
+                    milestoneDescription="Initial research and design phase. Runtime optimizations, signal processing stdlib, and language extensions planned for late 2026."
+                />
+
+                {/* Distributed Execution - Phase 14 */}
                 <RoadmapCard
                     icon={<Cloud className="w-8 h-8 text-indigo-600" />}
                     iconBg="bg-indigo-50"
@@ -166,7 +185,7 @@ export default function RoadmapPage() {
                     milestoneDescription="Full-stack distributed training with pipeline parallelism and elastic scaling."
                 />
 
-                {/* Deployment & Serving */}
+                {/* Deployment & Serving - Phase 15 */}
                 <RoadmapCard
                     icon={<Rocket className="w-8 h-8 text-orange-600" />}
                     iconBg="bg-orange-50"
@@ -183,25 +202,6 @@ export default function RoadmapPage() {
                         </>
                     }
                     milestoneDescription="One-command deployment to cloud, edge, and on-premise environments."
-                />
-
-                {/* BCI / Neuroscience - Phase 13 */}
-                <RoadmapCard
-                    icon={<Brain className="w-8 h-8 text-pink-600" />}
-                    iconBg="bg-pink-50"
-                    title="BCI & Neuroscience"
-                    status="Phase 13"
-                    statusColor="bg-pink-100 text-pink-700"
-                    progress={5}
-                    progressColor="bg-pink-500"
-                    milestone="2026"
-                    description="Ultra-low latency runtime paths, streaming tensor support, and signal processing primitives for brain-computer interface and neuroscience applications."
-                    subDescription={
-                        <>
-                            Targeting {"<"}1ms inference latency, pre-allocated memory pools, and deterministic timing guarantees for medical device certification.
-                        </>
-                    }
-                    milestoneDescription="Initial research and design phase. Runtime optimizations, signal processing stdlib, and language extensions planned for late 2026."
                 />
 
                 {/* Testing & Conformance */}
