@@ -57,6 +57,7 @@ export const docsNavigation = [
             { name: "Security", href: "/docs/security" },
             { name: "Performance", href: "/docs/performance" },
             { name: "Future Extensions", href: "/docs/future" },
+            { name: "Contributing", href: "/docs/contributing" },
         ],
     },
 ];

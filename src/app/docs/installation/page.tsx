@@ -28,8 +28,11 @@ export default function InstallationPage() {
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Prerequisites</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
                             <li>Linux (x86_64) or macOS (Apple Silicon/Intel)</li>
-                            <li>Rust toolchain (stable), <code>cmake</code>, and a modern C/C++ toolchain</li>
+                            <li>Rust toolchain (<strong>stable</strong> channel required), <code>cmake</code>, and a modern C/C++ toolchain</li>
                         </ul>
+                        <p className="text-muted mb-8">
+                            Ensure your Rust toolchain is up to date: <code>rustup update stable</code>
+                        </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Build from source</h2>
                         <p className="text-muted mb-4">
