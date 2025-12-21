@@ -47,9 +47,7 @@ export default function DistributedPage() {
                             Enable distributed execution with the <code className="bg-slate-100 px-1.5 py-0.5 rounded text-sm">@distributed</code> annotation:
                         </p>
 
-                        <CodeBlock
-                            language="rust"
-                            code={`use mind::distributed::{init, world_size, rank};
+                        <CodeBlock className="mb-8">{`use mind::distributed::{init, world_size, rank};
 
 @distributed(strategy = "data_parallel")
 fn train_step(model: &mut Model, batch: Tensor<f32, [B, 784]>) -> f32 {
@@ -75,17 +73,14 @@ fn main() {
             println!("Epoch {}: loss = {:.4}", epoch, loss);
         }
     }
-}`}
-                        />
+}`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Data Parallelism</h2>
                         <p className="text-muted mb-4">
                             Data parallelism replicates the model on each device and splits input batches. Gradients are averaged across all replicas using all-reduce operations.
                         </p>
 
-                        <CodeBlock
-                            language="rust"
-                            code={`use mind::distributed::{DataParallel, AllReduce};
+                        <CodeBlock className="mb-8">{`use mind::distributed::{DataParallel, AllReduce};
 
 // Wrap model for data parallel training
 let model = DataParallel::new(model, devices);
@@ -97,8 +92,7 @@ for batch in dataloader.iter() {
 
     // Gradients synchronized via NCCL/Gloo
     optimizer.step();
-}`}
-                        />
+}`}</CodeBlock>
 
                         <h3 className="text-xl font-bold font-heading mt-8 mb-3">Gradient Synchronization</h3>
                         <p className="text-muted mb-4">
@@ -138,9 +132,7 @@ for batch in dataloader.iter() {
                             For models that don't fit on a single device, use model parallelism to split layers across devices:
                         </p>
 
-                        <CodeBlock
-                            language="rust"
-                            code={`use mind::distributed::{ModelParallel, DeviceMap};
+                        <CodeBlock className="mb-8">{`use mind::distributed::{ModelParallel, DeviceMap};
 
 // Define how layers map to devices
 let device_map = DeviceMap::new()
@@ -153,17 +145,14 @@ let device_map = DeviceMap::new()
 let model = ModelParallel::new(model, device_map);
 
 // Forward pass automatically moves tensors between devices
-let output = model.forward(input);`}
-                        />
+let output = model.forward(input);`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Pipeline Parallelism</h2>
                         <p className="text-muted mb-4">
                             Pipeline parallelism enables higher throughput by overlapping computation across micro-batches:
                         </p>
 
-                        <CodeBlock
-                            language="rust"
-                            code={`use mind::distributed::{Pipeline, Schedule};
+                        <CodeBlock className="mb-8">{`use mind::distributed::{Pipeline, Schedule};
 
 // Configure pipeline with micro-batching
 let pipeline = Pipeline::new(model)
@@ -175,34 +164,28 @@ let pipeline = Pipeline::new(model)
 for batch in dataloader.iter() {
     let loss = pipeline.forward_backward(batch);
     optimizer.step();
-}`}
-                        />
+}`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Multi-Node Training</h2>
                         <p className="text-muted mb-4">
                             Scale training across multiple machines using the MIND distributed launcher:
                         </p>
 
-                        <CodeBlock
-                            language="bash"
-                            code={`# Launch on 4 nodes with 8 GPUs each
+                        <CodeBlock className="mb-8">{`# Launch on 4 nodes with 8 GPUs each
 mind launch --nodes 4 --gpus-per-node 8 \\
     --master-addr 192.168.1.1 \\
     --master-port 29500 \\
     train.mind
 
 # Or use a hostfile
-mind launch --hostfile hosts.txt --gpus-per-node 8 train.mind`}
-                        />
+mind launch --hostfile hosts.txt --gpus-per-node 8 train.mind`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Fault Tolerance</h2>
                         <p className="text-muted mb-4">
                             MIND supports elastic training with automatic checkpointing and recovery:
                         </p>
 
-                        <CodeBlock
-                            language="rust"
-                            code={`use mind::distributed::{Elastic, Checkpoint};
+                        <CodeBlock className="mb-8">{`use mind::distributed::{Elastic, Checkpoint};
 
 // Enable elastic training with checkpointing
 let trainer = Elastic::new(model)
@@ -212,8 +195,7 @@ let trainer = Elastic::new(model)
     .checkpoint_interval(1000);  // steps
 
 // Training automatically resumes on node failure
-trainer.fit(dataloader, epochs);`}
-                        />
+trainer.fit(dataloader, epochs);`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Best Practices</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
