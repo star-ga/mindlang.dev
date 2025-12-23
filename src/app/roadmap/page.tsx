@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Zap, Cpu, Server, Package, CheckCircle, BookOpen, Wrench, Terminal, Brain, Cloud, Layers, Rocket } from "lucide-react";
+import { Zap, Cpu, Server, Package, CheckCircle, BookOpen, Wrench, Terminal, Brain, Cloud, Layers, Rocket, Timer, Target, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
 
@@ -62,6 +62,25 @@ export default function RoadmapPage() {
                     milestone="Released"
                     description="Reverse-mode AD for all Core v1 ops: Add, Sub, Mul, Div, MatMul, Dot, Transpose, Sum, Mean, Reshape, Relu, Conv2d, and indexing/slicing operations."
                     milestoneDescription="Full gradient support for Core v1 operations including Conv2d."
+                />
+
+                {/* Performance Benchmarks */}
+                <RoadmapCard
+                    icon={<Timer className="w-8 h-8 text-emerald-500" />}
+                    iconBg="bg-emerald-50"
+                    title="Performance Benchmarks"
+                    status="Complete"
+                    statusColor="bg-emerald-100 text-emerald-700"
+                    progress={100}
+                    progressColor="bg-emerald-500"
+                    milestone="Verified Dec 2025"
+                    description="Comprehensive benchmarks verified: ~38 µs compilation (53-247× faster than PyTorch 2.0), 100% bit-level determinism, 1,300-13,000× more efficient autodiff."
+                    subDescription={
+                        <>
+                            See <Link href="/docs/performance" className="text-primary underline">Performance</Link> and <Link href="/docs/guides/benchmarks" className="text-primary underline">Running Benchmarks</Link> for full details.
+                        </>
+                    }
+                    milestoneDescription="Python bindings, determinism verification, PyTorch comparison, and documentation complete."
                 />
 
                 {/* Info Text */}
@@ -245,6 +264,34 @@ export default function RoadmapPage() {
                     milestone="Core pipeline operational"
                     milestoneDescription="Full compiler workflow. GPU/accelerator extensions in progress."
                 />
+
+                {/* Performance Roadmap Section */}
+                <div className="!bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-xl p-8 mb-6">
+                    <div className="flex items-center gap-3 mb-4">
+                        <TrendingUp className="w-8 h-8 text-emerald-600" />
+                        <h2 className="text-2xl font-bold text-foreground m-0">Performance Roadmap</h2>
+                    </div>
+                    <p className="text-muted mb-6">
+                        MIND&apos;s performance story continues with runtime benchmarks, GPU support, and further compilation optimizations.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Target className="w-6 h-6 text-emerald-600 mb-2" />
+                            <h4 className="font-bold text-sm mb-1">Q1 2026: Runtime Benchmarks</h4>
+                            <p className="text-xs text-muted">CPU backend benchmarks (matmul, conv2d), memory bandwidth tests, comparison with NumPy/PyTorch/JAX runtime.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Timer className="w-6 h-6 text-emerald-600 mb-2" />
+                            <h4 className="font-bold text-sm mb-1">Q2-Q3 2026: Compilation Opts</h4>
+                            <p className="text-xs text-muted">Target &lt;20 µs compilation, incremental compilation, result caching, parallel type checking.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Cpu className="w-6 h-6 text-emerald-600 mb-2" />
+                            <h4 className="font-bold text-sm mb-1">2027+: Advanced Opts</h4>
+                            <p className="text-xs text-muted">Sub-10 µs compilation (4× improvement), GPU runtime benchmarks (CUDA, Metal), distributed compilation.</p>
+                        </div>
+                    </div>
+                </div>
 
                 {/* CTA Section */}
                 <div className="mt-8 rounded-xl !bg-footer-bg p-8 md:p-12 text-center shadow-lg border border-card-border relative overflow-hidden">

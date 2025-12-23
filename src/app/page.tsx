@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Terminal, Grid3X3, Zap, Server, Code, Cpu } from "lucide-react";
+import { Terminal, Grid3X3, Zap, Server, Code, Cpu, Clock, CheckCircle, TrendingUp } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { CodeWindow } from "@/components/ui/CodeWindow";
 
@@ -66,6 +66,22 @@ export default function HomePage() {
             <p className="hero-meta">
               Open-core · Rust implementation · MLIR + LLVM pipeline · Deterministic builds
             </p>
+
+            {/* Performance Highlights */}
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-emerald-700">38 µs</div>
+                <div className="text-sm text-emerald-600">Compilation time</div>
+              </div>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-blue-700">247×</div>
+                <div className="text-sm text-blue-600">Faster than PyTorch</div>
+              </div>
+              <div className="bg-violet-50 border border-violet-200 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-violet-700">100%</div>
+                <div className="text-sm text-violet-600">Deterministic</div>
+              </div>
+            </div>
           </div>
 
           {/* Code Example */}
@@ -124,8 +140,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stack Section */}
+      {/* Performance Section */}
       <section className="section">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+            <div className="lg:col-span-4">
+              <h2 className="section-title text-left !mb-0">Performance That Matters</h2>
+            </div>
+            <div className="lg:col-span-8">
+              <p className="section-lede text-left !mx-0 !max-w-none">
+                MIND optimizes both compilation and runtime — fast iteration during development AND production performance when it matters.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid--three">
+            <div className="card">
+              <Clock className="card-icon" />
+              <h3>Lightning-Fast Compilation</h3>
+              <p>Compile ML programs in <strong>38 microseconds</strong> — faster than most frameworks can parse your code.</p>
+              <div className="mt-4 p-3 bg-emerald-50 rounded-lg">
+                <span className="text-emerald-700 font-bold">53-247× faster</span>
+                <span className="text-emerald-600 text-sm block">than PyTorch 2.0 torch.compile()</span>
+              </div>
+            </div>
+
+            <div className="card">
+              <CheckCircle className="card-icon" />
+              <h3>Deterministic Builds</h3>
+              <p>Every compilation produces <strong>bit-identical output</strong>. No surprises, no debugging non-deterministic builds.</p>
+              <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+                <span className="text-blue-700 font-bold">100% reproducibility</span>
+                <span className="text-blue-600 text-sm block">verified across 40 test runs</span>
+              </div>
+            </div>
+
+            <div className="card">
+              <TrendingUp className="card-icon" />
+              <h3>Compile-Time Autodiff</h3>
+              <p>Gradients computed <strong>once during compilation</strong>, not on every training iteration.</p>
+              <div className="mt-4 p-3 bg-violet-50 rounded-lg">
+                <span className="text-violet-700 font-bold">1,300-13,000× more efficient</span>
+                <span className="text-violet-600 text-sm block">than runtime autodiff over 1000 iterations</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/docs/performance" className="text-primary font-medium hover:underline">
+              See Detailed Benchmarks →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Stack Section */}
+      <section className="section section--alt">
         <div className="container">
           <h2 className="section-title text-left">How the stack fits together</h2>
 
@@ -160,7 +230,7 @@ export default function HomePage() {
       </section>
 
       {/* Who is MIND for Section */}
-      <section className="section section--alt">
+      <section className="section">
         <div className="container">
           <h2 className="section-title text-left">Who is MIND for?</h2>
 
