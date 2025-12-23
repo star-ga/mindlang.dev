@@ -17,6 +17,7 @@ export const docsNavigation = [
             { name: "Quick Start", href: "/docs/quick-start" },
             { name: "Using Core v1 Today", href: "/docs/using-core-v1" },
             { name: "Cookbook", href: "/docs/cookbook" },
+            { name: "Running Benchmarks", href: "/docs/guides/benchmarks" },
         ],
     },
 
@@ -64,6 +65,7 @@ export const docsNavigation = [
             { name: "Stability & Versioning", href: "/docs/stability" },
             { name: "Security", href: "/docs/security" },
             { name: "Performance", href: "/docs/performance" },
+            { name: "Performance FAQ", href: "/docs/performance/faq" },
             { name: "Future Extensions", href: "/docs/future" },
             { name: "Contributing", href: "/docs/contributing" },
         ],
