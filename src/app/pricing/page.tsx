@@ -203,7 +203,7 @@ export default function PricingPage() {
             <div>
               <h3 className="font-bold mb-2">When will Pro pricing be available?</h3>
               <p className="text-muted text-sm">
-                We're finalizing Pro tier pricing and expect to announce it in Q2 2025.
+                We're finalizing Pro tier pricing and expect to announce it in Q2 2026.
                 In the meantime, enterprise customers can contact sales for custom arrangements.
               </p>
             </div>
