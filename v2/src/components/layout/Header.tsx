@@ -12,7 +12,6 @@ export function Header() {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
     const pathname = usePathname();
     const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-    const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
     // Close mobile menu on route change
     useEffect(() => {
@@ -38,17 +37,6 @@ export function Header() {
             }
         };
     }, []);
-
-    // Auto-focus first menu item when dropdown opens for keyboard navigation
-    useEffect(() => {
-        if (openDropdown && dropdownRefs.current[openDropdown]) {
-            const firstMenuItem = dropdownRefs.current[openDropdown]?.querySelector<HTMLElement>('[role="menuitem"]');
-            if (firstMenuItem) {
-                // Small delay to ensure the dropdown is rendered
-                setTimeout(() => firstMenuItem.focus(), 10);
-            }
-        }
-    }, [openDropdown]);
 
     const handleDropdownEnter = (label: string) => {
         if (dropdownTimeoutRef.current) {
@@ -130,9 +118,6 @@ export function Header() {
                                         </button>
                                         {openDropdown === item.label && (
                                             <div
-                                                ref={(el) => {
-                                                    dropdownRefs.current[item.label] = el;
-                                                }}
                                                 id={dropdownId}
                                                 role="menu"
                                                 tabIndex={-1}
