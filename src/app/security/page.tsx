@@ -236,8 +236,8 @@ export default function SecurityPage() {
               <h3 className="font-bold mb-3">How to report</h3>
               <p className="text-muted text-sm mb-4">
                 Email security reports to{" "}
-                <a href={`mailto:security@star.ga`} className="text-primary hover:underline">
-                  security@star.ga
+                <a href={`mailto:${siteConfig.securityEmail}`} className="text-primary hover:underline">
+                  {siteConfig.securityEmail}
                 </a>
                 . Please include:
               </p>

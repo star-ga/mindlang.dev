@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Check, Mail } from "lucide-react";
+import { Check } from "lucide-react";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
