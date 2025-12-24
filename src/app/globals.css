@@ -169,14 +169,14 @@ pre code {
   padding: 0;
 }
 
-/* Links */
-a {
+/* Links - exclude button-styled elements */
+a:not(.btn):not([class*="bg-primary"]) {
   color: var(--color-primary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-a:hover {
+a:not(.btn):not([class*="bg-primary"]):hover {
   color: var(--color-primary-hover);
 }
 
