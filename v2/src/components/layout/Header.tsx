@@ -108,7 +108,7 @@ export function Header() {
                                                     : "!text-slate-600 hover:!text-primary"
                                             }`}
                                             aria-expanded={openDropdown === item.label}
-                                            aria-haspopup="true"
+                                            aria-haspopup="menu"
                                             aria-controls={dropdownId}
                                             onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                                             onKeyDown={(e) => handleKeyDown(e, item.label)}
@@ -120,7 +120,43 @@ export function Header() {
                                             <div
                                                 id={dropdownId}
                                                 role="menu"
+                                                tabIndex={-1}
                                                 className="absolute top-full left-0 mt-2 w-48 bg-background border border-card-border rounded-lg shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-200"
+                                                onKeyDown={(e) => {
+                                                    const menu = e.currentTarget;
+                                                    const items = Array.from(
+                                                        menu.querySelectorAll<HTMLElement>('[role="menuitem"]')
+                                                    );
+                                                    if (items.length === 0) return;
+
+                                                    const current = document.activeElement as HTMLElement | null;
+                                                    let index = items.indexOf(current || items[0]);
+
+                                                    switch (e.key) {
+                                                        case "ArrowDown":
+                                                            e.preventDefault();
+                                                            index = (index + 1) % items.length;
+                                                            items[index].focus();
+                                                            break;
+                                                        case "ArrowUp":
+                                                            e.preventDefault();
+                                                            index = (index - 1 + items.length) % items.length;
+                                                            items[index].focus();
+                                                            break;
+                                                        case "Home":
+                                                            e.preventDefault();
+                                                            items[0].focus();
+                                                            break;
+                                                        case "End":
+                                                            e.preventDefault();
+                                                            items[items.length - 1].focus();
+                                                            break;
+                                                        case "Escape":
+                                                            e.preventDefault();
+                                                            setOpenDropdown(null);
+                                                            break;
+                                                    }
+                                                }}
                                             >
                                                 {item.dropdown.map((dropdownItem) => (
                                                     dropdownItem.external ? (
@@ -130,6 +166,7 @@ export function Header() {
                                                             target="_blank"
                                                             rel="noopener noreferrer"
                                                             role="menuitem"
+                                                            tabIndex={0}
                                                             className="flex items-center gap-2 px-4 py-2 text-sm !text-slate-600 hover:!text-primary hover:bg-alt-bg transition-colors"
                                                         >
                                                             {dropdownItem.label}
@@ -140,6 +177,7 @@ export function Header() {
                                                             key={dropdownItem.label}
                                                             href={dropdownItem.url}
                                                             role="menuitem"
+                                                            tabIndex={0}
                                                             className={`block px-4 py-2 text-sm hover:bg-alt-bg transition-colors ${
                                                                 pathname === dropdownItem.url
                                                                     ? "text-foreground font-bold bg-alt-bg"
@@ -156,6 +194,9 @@ export function Header() {
                                 );
                             } else if (item.external) {
                                 // External link
+                                if (!item.url) {
+                                    return null;
+                                }
                                 return (
                                     <a
                                         key={item.label}
@@ -273,6 +314,9 @@ export function Header() {
                                     </div>
                                 );
                             } else if (item.external) {
+                                if (!item.url) {
+                                    return null;
+                                }
                                 return (
                                     <a
                                         key={item.label}
