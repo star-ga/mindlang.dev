@@ -114,7 +114,7 @@ export default function SecurityPage() {
                 Security, availability, and confidentiality controls aligned with AICPA standards.
               </p>
               <div className="text-xs bg-amber-50 border border-amber-200 rounded px-3 py-2">
-                <strong>Status:</strong> Audit in progress (expected Q2 2025)
+                <strong>Status:</strong> Audit in progress (expected Q2 2026)
               </div>
             </div>
 
@@ -136,7 +136,7 @@ export default function SecurityPage() {
                 Certification planned for hosted offerings.
               </p>
               <div className="text-xs bg-amber-50 border border-amber-200 rounded px-3 py-2">
-                <strong>Status:</strong> Planned (2025)
+                <strong>Status:</strong> Planned (2026)
               </div>
             </div>
 
