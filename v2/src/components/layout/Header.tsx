@@ -12,6 +12,7 @@ export function Header() {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
     const pathname = usePathname();
     const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
     // Close mobile menu on route change
     useEffect(() => {
@@ -37,6 +38,17 @@ export function Header() {
             }
         };
     }, []);
+
+    // Auto-focus first menu item when dropdown opens for keyboard navigation
+    useEffect(() => {
+        if (openDropdown && dropdownRefs.current[openDropdown]) {
+            const firstMenuItem = dropdownRefs.current[openDropdown]?.querySelector<HTMLElement>('[role="menuitem"]');
+            if (firstMenuItem) {
+                // Small delay to ensure the dropdown is rendered
+                setTimeout(() => firstMenuItem.focus(), 10);
+            }
+        }
+    }, [openDropdown]);
 
     const handleDropdownEnter = (label: string) => {
         if (dropdownTimeoutRef.current) {
@@ -118,6 +130,9 @@ export function Header() {
                                         </button>
                                         {openDropdown === item.label && (
                                             <div
+                                                ref={(el) => {
+                                                    dropdownRefs.current[item.label] = el;
+                                                }}
                                                 id={dropdownId}
                                                 role="menu"
                                                 tabIndex={-1}
@@ -130,18 +145,26 @@ export function Header() {
                                                     if (items.length === 0) return;
 
                                                     const current = document.activeElement as HTMLElement | null;
-                                                    let index = items.indexOf(current || items[0]);
+                                                    const currentIndex = current ? items.indexOf(current) : -1;
 
                                                     switch (e.key) {
                                                         case "ArrowDown":
                                                             e.preventDefault();
-                                                            index = (index + 1) % items.length;
-                                                            items[index].focus();
+                                                            if (currentIndex === -1) {
+                                                                items[0].focus();
+                                                            } else {
+                                                                const nextIndex = (currentIndex + 1) % items.length;
+                                                                items[nextIndex].focus();
+                                                            }
                                                             break;
                                                         case "ArrowUp":
                                                             e.preventDefault();
-                                                            index = (index - 1 + items.length) % items.length;
-                                                            items[index].focus();
+                                                            if (currentIndex === -1) {
+                                                                items[items.length - 1].focus();
+                                                            } else {
+                                                                const prevIndex = (currentIndex - 1 + items.length) % items.length;
+                                                                items[prevIndex].focus();
+                                                            }
                                                             break;
                                                         case "Home":
                                                             e.preventDefault();
