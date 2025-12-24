@@ -142,7 +142,7 @@ export default function PerformanceFAQPage() {
                                 <li><strong>XLA:</strong> Non-deterministic (optimization passes)</li>
                             </ul>
                             <p className="text-sm text-muted mt-4 font-semibold">
-                                MIND is <strong>100% guaranteed</strong> deterministic.
+                                Unlike most frameworks, MIND is <strong>designed to be 100% deterministic</strong>.
                             </p>
                         </div>
 
@@ -182,7 +182,7 @@ export default function PerformanceFAQPage() {
                             <ul className="list-disc pl-6 space-y-2 text-muted mt-4">
                                 <li><strong>MIND:</strong> ~38 µs (paid once)</li>
                                 <li><strong>PyTorch:</strong> ~50-500 ms (paid every iteration)</li>
-                                <li><strong>Advantage:</strong> 1,300-13,000× more efficient</li>
+                                <li><strong>Advantage:</strong> 1,345-11,284× more efficient (depending on model complexity)</li>
                             </ul>
                         </div>
 
@@ -218,7 +218,7 @@ export default function PerformanceFAQPage() {
                                 <li><strong>Platform:</strong> Linux 4.4.0 x86_64</li>
                                 <li><strong>Python:</strong> 3.11.14</li>
                                 <li><strong>PyTorch:</strong> 2.9.1+cpu</li>
-                                <li><strong>Date:</strong> December 23, 2025</li>
+                                <li><strong>Date:</strong> December 2025</li>
                             </ul>
                         </div>
 
