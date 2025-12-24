@@ -118,7 +118,7 @@ export default function EnterprisePage() {
               </p>
               <ul className="list text-sm mt-4">
                 <li>Multi-region availability</li>
-                <li>SOC 2 Type II compliance</li>
+                <li>SOC 2 Type II (audit in progress)</li>
                 <li>Automatic updates and patching</li>
               </ul>
             </div>

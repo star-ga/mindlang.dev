@@ -101,6 +101,21 @@ export function Footer() {
                         <h3 className="font-heading font-bold text-foreground text-xl">Company</h3>
                         <ul className="space-y-3">
                             <li>
+                                <Link href="/enterprise" className="text-sm !text-slate-600 hover:!text-primary transition-colors">
+                                    Enterprise
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/pricing" className="text-sm !text-slate-600 hover:!text-primary transition-colors">
+                                    Pricing
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/security" className="text-sm !text-slate-600 hover:!text-primary transition-colors">
+                                    Security
+                                </Link>
+                            </li>
+                            <li>
                                 <a
                                     href={`mailto:${siteConfig.contactEmail}`}
                                     className="text-sm !text-slate-600 hover:!text-primary transition-colors"
@@ -111,11 +126,6 @@ export function Footer() {
                             <li>
                                 <Link href="/legal" className="text-sm !text-slate-600 hover:!text-primary transition-colors">
                                     Legal
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/enterprise-flow" className="text-sm !text-slate-600 hover:!text-primary transition-colors">
-                                    Enterprise Adoption Flow
                                 </Link>
                             </li>
                         </ul>
