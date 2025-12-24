@@ -40,7 +40,7 @@ export default function HomePage() {
               />
             </div>
 
-            <p className="eyebrow">MACHINE INTELLIGENCE NATIVE DESIGN</p>
+            <p className="eyebrow">Intelligence, compiled.</p>
             <h1>
               One language from prototype to production AI.
             </h1>
@@ -60,9 +60,9 @@ export default function HomePage() {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-primary transition-colors mt-2"
+                className="btn btn--outline btn--lg"
               >
-                Browse the source →
+                Browse the source
               </a>
             </div>
 
@@ -121,7 +121,7 @@ export default function HomePage() {
             <div className="card">
               <CheckCircle className="card-icon" />
               <h3>Non-deterministic builds</h3>
-              <p>Can't reproduce training runs or audit model provenance for compliance. MIND delivers bit-identical builds and deterministic execution mode.</p>
+              <p>Can't reproduce training runs or audit model provenance for compliance. MIND delivers reproducible builds (bit-identical with pinned toolchain) and deterministic execution mode.</p>
             </div>
           </div>
         </div>
@@ -158,7 +158,12 @@ export default function HomePage() {
             <div className="card">
               <CheckCircle className="card-icon" />
               <h3>Deterministic execution & auditable builds</h3>
-              <p>Every compilation produces bit-identical output. Designed for reproducibility within a defined environment, critical for regulated ML.</p>
+              <p>Reproducible builds with bit-identical output given the same inputs and toolchain. Designed for reproducibility within a defined environment, critical for regulated ML.</p>
+              <p className="mt-3 text-sm">
+                <Link href="/enterprise" className="text-primary hover:underline">Enterprise audit logs →</Link>
+                {" · "}
+                <Link href="/docs/security" className="text-primary hover:underline">Security details →</Link>
+              </p>
             </div>
           </div>
         </div>
@@ -233,10 +238,10 @@ export default function HomePage() {
             <div className="card">
               <CheckCircle className="card-icon" />
               <h3>Deterministic Mode</h3>
-              <p>Deterministic compilation mode designed for reproducibility within a defined environment. Every compilation produces bit-identical output.</p>
+              <p>Deterministic compilation mode designed for reproducibility within a defined environment. Reproducible builds with bit-identical output given consistent inputs and toolchain.</p>
               <div className="mt-4 p-3 bg-blue-50 rounded-lg">
                 <span className="text-blue-700 font-bold text-sm">Verified reproducibility</span>
-                <span className="text-blue-600 text-sm block">100% across 40 test runs</span>
+                <span className="text-blue-600 text-sm block">Same env & toolchain</span>
               </div>
             </div>
 
@@ -254,6 +259,10 @@ export default function HomePage() {
           <div className="text-center mt-8">
             <Link href="/docs/performance" className="text-primary font-medium hover:underline">
               See Detailed Benchmarks →
+            </Link>
+            {" · "}
+            <Link href="/compare" className="text-primary font-medium hover:underline">
+              Compare with other frameworks →
             </Link>
           </div>
         </div>

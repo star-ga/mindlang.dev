@@ -1,14 +1,26 @@
 export const mainNavigation: NavItem[] = [
     { url: "/", label: "Home" },
     { url: "/docs", label: "Docs" },
-    { url: "/features", label: "Features" },
-    { url: "/use-cases", label: "Use Cases" },
-    { url: "/ecosystem", label: "Ecosystem" },
-    { url: "/compare", label: "Compare" },
-    { url: "/enterprise", label: "Enterprise" },
-    { url: "/pricing", label: "Pricing" },
+    {
+        label: "Product",
+        dropdown: [
+            { url: "/features", label: "Features" },
+            { url: "/use-cases", label: "Use Cases" },
+            { url: "/ecosystem", label: "Ecosystem" },
+            { url: "/compare", label: "Compare" },
+            { url: "/roadmap", label: "Roadmap" },
+        ]
+    },
+    {
+        label: "Enterprise",
+        dropdown: [
+            { url: "/enterprise", label: "Overview" },
+            { url: "/pricing", label: "Pricing" },
+            { url: "/security", label: "Security" },
+            { url: "/enterprise-flow", label: "Adoption Flow" },
+        ]
+    },
     { url: "/community", label: "Community" },
-    { url: "/roadmap", label: "Roadmap" },
 ];
 
 export const docsNavigation = [
@@ -76,9 +88,10 @@ export const docsNavigation = [
 ];
 
 export type NavItem = {
-    url: string;
+    url?: string;
     label: string;
     external?: boolean;
+    dropdown?: { url: string; label: string; external?: boolean }[];
 };
 
 export type DocsNavSection = {
