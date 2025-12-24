@@ -30,9 +30,6 @@ export default function BenchmarksGuidePage() {
 git clone https://github.com/cputer/mind.git
 cd mind
 
-# Checkout the benchmark branch
-git checkout claude/benchmark-results-and-fixes-SygXj
-
 # Build MIND in release mode
 cargo build --release`}</CodeBlock>
 
@@ -177,11 +174,7 @@ python3 test_real_compile_time.py`}</CodeBlock>
                                 <tbody className="text-muted">
                                     <tr className="border-b">
                                         <td className="py-2 pr-4 font-semibold">Date</td>
-                                        <td className="py-2">December 23, 2025</td>
-                                    </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4 font-semibold">Branch</td>
-                                        <td className="py-2"><code>claude/benchmark-results-and-fixes-SygXj</code></td>
+                                        <td className="py-2">December 2025</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4 font-semibold">Platform</td>
@@ -201,8 +194,7 @@ python3 test_real_compile_time.py`}</CodeBlock>
                         <p className="text-muted mb-4">
                             To reproduce exactly:
                         </p>
-                        <CodeBlock className="mb-8">{`git checkout claude/benchmark-results-and-fixes-SygXj
-cargo build --release
+                        <CodeBlock className="mb-8">{`cargo build --release
 # Run benchmarks as shown above`}</CodeBlock>
                         <p className="text-muted mb-8">
                             Results should be within ±10% due to hardware differences.
