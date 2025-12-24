@@ -1,26 +1,49 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { Menu, X, ExternalLink, Moon, Sun, Github } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, ExternalLink, ChevronDown } from "lucide-react";
 import { mainNavigation } from "@/data/navigation";
 import { siteConfig } from "@/data/site";
 import { usePathname } from "next/navigation";
 
 export function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState<string | null>(null);
     const pathname = usePathname();
-
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-        document.documentElement.classList.toggle("dark");
-    };
+    const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     // Close mobile menu on route change
     useEffect(() => {
         setMobileMenuOpen(false);
+        setOpenDropdown(null);
     }, [pathname]);
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = () => setOpenDropdown(null);
+        if (openDropdown) {
+            document.addEventListener('click', handleClickOutside);
+            return () => document.removeEventListener('click', handleClickOutside);
+        }
+    }, [openDropdown]);
+
+    const handleDropdownEnter = (label: string) => {
+        if (dropdownTimeoutRef.current) {
+            clearTimeout(dropdownTimeoutRef.current);
+        }
+        setOpenDropdown(label);
+    };
+
+    const handleDropdownLeave = () => {
+        dropdownTimeoutRef.current = setTimeout(() => {
+            setOpenDropdown(null);
+        }, 200);
+    };
+
+    const isActiveDropdown = (dropdown: { url: string; label: string }[]) => {
+        return dropdown.some(item => pathname === item.url);
+    };
 
     return (
         <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-card-border">
@@ -38,37 +61,102 @@ export function Header() {
                         </span>
                         <span className="hidden xl:inline text-muted">|</span>
                         <span className="hidden xl:inline text-sm text-muted">
-                            Machine Intelligence Native Design
+                            Intelligence, compiled.
                         </span>
                     </Link>
 
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-6">
-                        {mainNavigation.map((item) =>
-                            item.external ? (
-                                <a
-                                    key={item.url}
-                                    href={item.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-sm font-medium !text-slate-600 hover:!text-primary transition-colors flex items-center gap-1"
-                                >
-                                    {item.label}
-                                    <ExternalLink size={12} className="opacity-70" />
-                                </a>
-                            ) : (
-                                <Link
-                                    key={item.url}
-                                    href={item.url}
-                                    className={`text-sm font-medium transition-colors ${pathname === item.url
-                                        ? "text-foreground font-bold"
-                                        : "!text-slate-600 hover:!text-primary"
+                        {mainNavigation.map((item) => {
+                            if (item.dropdown) {
+                                // Dropdown menu item
+                                const isActive = isActiveDropdown(item.dropdown);
+                                return (
+                                    <div
+                                        key={item.label}
+                                        className="relative"
+                                        onMouseEnter={() => handleDropdownEnter(item.label)}
+                                        onMouseLeave={handleDropdownLeave}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setOpenDropdown(openDropdown === item.label ? null : item.label);
+                                        }}
+                                    >
+                                        <button
+                                            className={`text-sm font-medium transition-colors flex items-center gap-1 ${
+                                                isActive
+                                                    ? "text-foreground font-bold"
+                                                    : "!text-slate-600 hover:!text-primary"
+                                            }`}
+                                            aria-expanded={openDropdown === item.label}
+                                            aria-haspopup="true"
+                                        >
+                                            {item.label}
+                                            <ChevronDown size={14} className={`transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`} />
+                                        </button>
+                                        {openDropdown === item.label && (
+                                            <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-card-border rounded-lg shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                                                {item.dropdown.map((dropdownItem) => (
+                                                    dropdownItem.external ? (
+                                                        <a
+                                                            key={dropdownItem.url}
+                                                            href={dropdownItem.url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="flex items-center gap-2 px-4 py-2 text-sm !text-slate-600 hover:!text-primary hover:bg-alt-bg transition-colors"
+                                                        >
+                                                            {dropdownItem.label}
+                                                            <ExternalLink size={12} className="opacity-70" />
+                                                        </a>
+                                                    ) : (
+                                                        <Link
+                                                            key={dropdownItem.url}
+                                                            href={dropdownItem.url}
+                                                            className={`block px-4 py-2 text-sm hover:bg-alt-bg transition-colors ${
+                                                                pathname === dropdownItem.url
+                                                                    ? "text-foreground font-bold bg-alt-bg"
+                                                                    : "!text-slate-600 hover:!text-primary"
+                                                            }`}
+                                                        >
+                                                            {dropdownItem.label}
+                                                        </Link>
+                                                    )
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            } else if (item.external) {
+                                // External link
+                                return (
+                                    <a
+                                        key={item.url}
+                                        href={item.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-sm font-medium !text-slate-600 hover:!text-primary transition-colors flex items-center gap-1"
+                                    >
+                                        {item.label}
+                                        <ExternalLink size={12} className="opacity-70" />
+                                    </a>
+                                );
+                            } else {
+                                // Regular link
+                                return (
+                                    <Link
+                                        key={item.url}
+                                        href={item.url!}
+                                        className={`text-sm font-medium transition-colors ${
+                                            pathname === item.url
+                                                ? "text-foreground font-bold"
+                                                : "!text-slate-600 hover:!text-primary"
                                         }`}
-                                >
-                                    {item.label}
-                                </Link>
-                            )
-                        )}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                );
+                            }
+                        })}
 
                         <div className="h-6 w-px bg-card-border mx-2" />
 
@@ -104,6 +192,7 @@ export function Header() {
                     <button
                         className="lg:hidden p-2 text-muted"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle menu"
                     >
                         {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
@@ -114,31 +203,73 @@ export function Header() {
             {mobileMenuOpen && (
                 <div className="lg:hidden border-t border-card-border bg-background absolute left-0 right-0 p-4 shadow-lg animate-in slide-in-from-top-5">
                     <div className="flex flex-col gap-4">
-                        {mainNavigation.map((item) =>
-                            item.external ? (
-                                <a
-                                    key={item.url}
-                                    href={item.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-base font-medium !text-slate-600 hover:!text-primary flex items-center gap-2 py-2"
-                                >
-                                    {item.label}
-                                    <ExternalLink size={14} />
-                                </a>
-                            ) : (
-                                <Link
-                                    key={item.url}
-                                    href={item.url}
-                                    className={`text-base font-medium py-2 ${pathname === item.url
-                                        ? "text-foreground font-bold"
-                                        : "!text-slate-600 hover:!text-primary"
+                        {mainNavigation.map((item) => {
+                            if (item.dropdown) {
+                                // Dropdown section in mobile
+                                return (
+                                    <div key={item.label}>
+                                        <div className="text-xs font-bold text-muted uppercase tracking-wider mb-2">
+                                            {item.label}
+                                        </div>
+                                        <div className="flex flex-col gap-2 pl-3">
+                                            {item.dropdown.map((dropdownItem) => (
+                                                dropdownItem.external ? (
+                                                    <a
+                                                        key={dropdownItem.url}
+                                                        href={dropdownItem.url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-base font-medium !text-slate-600 hover:!text-primary flex items-center gap-2 py-1"
+                                                    >
+                                                        {dropdownItem.label}
+                                                        <ExternalLink size={14} />
+                                                    </a>
+                                                ) : (
+                                                    <Link
+                                                        key={dropdownItem.url}
+                                                        href={dropdownItem.url}
+                                                        className={`text-base font-medium py-1 ${
+                                                            pathname === dropdownItem.url
+                                                                ? "text-foreground font-bold"
+                                                                : "!text-slate-600 hover:!text-primary"
+                                                        }`}
+                                                    >
+                                                        {dropdownItem.label}
+                                                    </Link>
+                                                )
+                                            ))}
+                                        </div>
+                                    </div>
+                                );
+                            } else if (item.external) {
+                                return (
+                                    <a
+                                        key={item.url}
+                                        href={item.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-base font-medium !text-slate-600 hover:!text-primary flex items-center gap-2 py-2"
+                                    >
+                                        {item.label}
+                                        <ExternalLink size={14} />
+                                    </a>
+                                );
+                            } else {
+                                return (
+                                    <Link
+                                        key={item.url}
+                                        href={item.url!}
+                                        className={`text-base font-medium py-2 ${
+                                            pathname === item.url
+                                                ? "text-foreground font-bold"
+                                                : "!text-slate-600 hover:!text-primary"
                                         }`}
-                                >
-                                    {item.label}
-                                </Link>
-                            )
-                        )}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                );
+                            }
+                        })}
                         <hr className="border-card-border my-2" />
                         <div className="flex items-center gap-4">
                             <a
