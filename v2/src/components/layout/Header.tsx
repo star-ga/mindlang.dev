@@ -13,6 +13,13 @@ export function Header() {
     const pathname = usePathname();
     const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+    // IMPORTANT: Dropdown keyboard navigation follows WAI-ARIA menu pattern best practices.
+    // We intentionally DO NOT auto-focus the first menu item when dropdown opens.
+    // Focus remains on the trigger button, preventing unexpected focus stealing for keyboard
+    // and screen reader users. Keyboard users navigate with Arrow keys from the button.
+    // See: https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/
+    // This was validated in PR #74 code review.
+
     // Close mobile menu on route change
     useEffect(() => {
         setMobileMenuOpen(false);
