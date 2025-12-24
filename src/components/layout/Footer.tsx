@@ -20,12 +20,12 @@ export function Footer() {
                             </span>
                             <span className="text-muted">·</span>
                             <span className="text-sm font-medium text-muted">
-                                Native Intelligence.
+                                Intelligence, compiled.
                             </span>
                         </Link>
                         <div className="text-sm text-muted leading-relaxed max-w-sm">
                             <p>
-                                Community Edition licensed under Apache 2.0. Enterprise extensions and hosted "MIND Cloud" offerings are available under commercial terms from STARGA Inc.
+                                Community Edition licensed under Apache 2.0. Enterprise extensions and hosted "MIND Cloud" offerings are available under commercial terms from STARGA, Inc.
                             </p>
                         </div>
                         <div className="flex gap-4 mt-2">

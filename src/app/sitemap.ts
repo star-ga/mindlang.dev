@@ -13,6 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/showcase',
         '/legal',
         '/enterprise-flow',
+        '/enterprise',
+        '/pricing',
+        '/compare',
+        '/security',
         '/terms',
         '/privacy',
     ];
@@ -38,6 +42,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/docs/stability',
         '/docs/security',
         '/docs/performance',
+        '/docs/performance/faq',
+        '/docs/guides/benchmarks',
+        '/docs/deployment',
+        '/docs/distributed',
+        '/docs/contributing',
         '/docs/future',
     ];
 
