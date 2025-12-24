@@ -139,7 +139,7 @@ export default function PerformancePage() {
                         </div>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <p className="text-sm text-muted">
-                                <strong>40 total runs, 0% hash collision rate, 100% reproducibility.</strong> MIND is the only ML compiler that guarantees bit-identical output across runs, machines, and time.
+                                <strong>40 total runs, 0% hash collision rate, 100% reproducibility.</strong> As of December 2025, MIND is one of the few ML compilers that guarantees bit-identical output across runs, machines, and time.
                             </p>
                         </div>
 
@@ -182,7 +182,7 @@ export default function PerformancePage() {
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <h4 className="font-semibold mb-2">Key Insight</h4>
                             <p className="text-sm text-muted">
-                                MIND&apos;s compile-time autodiff is <strong>1,300-13,000× more efficient</strong> than runtime autodiff over 1000 training iterations. The gradient code is already generated — just execute it.
+                                MIND&apos;s compile-time autodiff is <strong>1,345-11,284× more efficient</strong> than runtime autodiff over 1000 training iterations. The gradient code is already generated — just execute it.
                             </p>
                         </div>
 
@@ -384,7 +384,7 @@ mindc run model.mind --profile=time`}</CodeBlock>
                         </div>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <p className="text-sm text-muted">
-                                <strong>Key Insight:</strong> MIND is the only framework that achieves all three: sub-100 µs compilation, 100% deterministic builds, and compile-time autodiff.
+                                <strong>Key Insight:</strong> As of December 2025, MIND is the only framework we are aware of that achieves all three: sub-100 µs compilation, 100% deterministic builds, and compile-time autodiff.
                             </p>
                         </div>
 

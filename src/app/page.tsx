@@ -180,7 +180,7 @@ export default function HomePage() {
               <h3>Compile-Time Autodiff</h3>
               <p>Gradients computed <strong>once during compilation</strong>, not on every training iteration.</p>
               <div className="mt-4 p-3 bg-violet-50 rounded-lg">
-                <span className="text-violet-700 font-bold">1,300-13,000× more efficient</span>
+                <span className="text-violet-700 font-bold">1,345-11,284× more efficient</span>
                 <span className="text-violet-600 text-sm block">than runtime autodiff over 1000 iterations</span>
               </div>
             </div>
