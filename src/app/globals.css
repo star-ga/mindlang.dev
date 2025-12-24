@@ -170,22 +170,22 @@ pre code {
 }
 
 /* Links - exclude button-styled elements */
-a:not(.btn):not([class*="bg-primary"]) {
+a:not(.btn):not([class~="bg-primary"]) {
   color: var(--color-primary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-a:not(.btn):not([class*="bg-primary"]):hover {
+a:not(.btn):not([class~="bg-primary"]):hover {
   color: var(--color-primary-hover);
 }
 
 /* Ensure button-styled links have white text */
-a[class*="bg-primary"] {
+a[class~="bg-primary"] {
   color: white;
 }
 
-a[class*="bg-primary"]:hover {
+a[class~="bg-primary"]:hover {
   color: white;
 }
 
