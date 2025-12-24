@@ -180,6 +180,15 @@ a:not(.btn):not([class*="bg-primary"]):hover {
   color: var(--color-primary-hover);
 }
 
+/* Ensure button-styled links have white text */
+a[class*="bg-primary"] {
+  color: white;
+}
+
+a[class*="bg-primary"]:hover {
+  color: white;
+}
+
 /* Scrollbar styling (for dark mode) */
 .dark ::-webkit-scrollbar {
   width: 8px;
