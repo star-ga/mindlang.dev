@@ -28,6 +28,16 @@ export function Header() {
         }
     }, [openDropdown]);
 
+    // Clear any pending dropdown timeout on unmount to avoid updating state after unmount
+    useEffect(() => {
+        return () => {
+            if (dropdownTimeoutRef.current) {
+                clearTimeout(dropdownTimeoutRef.current);
+                dropdownTimeoutRef.current = null;
+            }
+        };
+    }, []);
+
     const handleDropdownEnter = (label: string) => {
         if (dropdownTimeoutRef.current) {
             clearTimeout(dropdownTimeoutRef.current);
@@ -39,6 +49,18 @@ export function Header() {
         dropdownTimeoutRef.current = setTimeout(() => {
             setOpenDropdown(null);
         }, 200);
+    };
+
+    const handleKeyDown = (event: React.KeyboardEvent, itemLabel: string) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            setOpenDropdown(openDropdown === itemLabel ? null : itemLabel);
+        } else if (event.key === "Escape") {
+            if (openDropdown !== null) {
+                event.stopPropagation();
+                setOpenDropdown(null);
+            }
+        }
     };
 
     const isActiveDropdown = (dropdown: { url: string; label: string }[]) => {
@@ -71,16 +93,13 @@ export function Header() {
                             if (item.dropdown) {
                                 // Dropdown menu item
                                 const isActive = isActiveDropdown(item.dropdown);
+                                const dropdownId = `dropdown-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
                                 return (
                                     <div
                                         key={item.label}
                                         className="relative"
                                         onMouseEnter={() => handleDropdownEnter(item.label)}
                                         onMouseLeave={handleDropdownLeave}
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            setOpenDropdown(openDropdown === item.label ? null : item.label);
-                                        }}
                                     >
                                         <button
                                             className={`text-sm font-medium transition-colors flex items-center gap-1 ${
@@ -90,19 +109,27 @@ export function Header() {
                                             }`}
                                             aria-expanded={openDropdown === item.label}
                                             aria-haspopup="true"
+                                            aria-controls={dropdownId}
+                                            onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
+                                            onKeyDown={(e) => handleKeyDown(e, item.label)}
                                         >
                                             {item.label}
                                             <ChevronDown size={14} className={`transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`} />
                                         </button>
                                         {openDropdown === item.label && (
-                                            <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-card-border rounded-lg shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                                            <div
+                                                id={dropdownId}
+                                                role="menu"
+                                                className="absolute top-full left-0 mt-2 w-48 bg-background border border-card-border rounded-lg shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-200"
+                                            >
                                                 {item.dropdown.map((dropdownItem) => (
                                                     dropdownItem.external ? (
                                                         <a
-                                                            key={dropdownItem.url}
+                                                            key={dropdownItem.label}
                                                             href={dropdownItem.url}
                                                             target="_blank"
                                                             rel="noopener noreferrer"
+                                                            role="menuitem"
                                                             className="flex items-center gap-2 px-4 py-2 text-sm !text-slate-600 hover:!text-primary hover:bg-alt-bg transition-colors"
                                                         >
                                                             {dropdownItem.label}
@@ -110,8 +137,9 @@ export function Header() {
                                                         </a>
                                                     ) : (
                                                         <Link
-                                                            key={dropdownItem.url}
+                                                            key={dropdownItem.label}
                                                             href={dropdownItem.url}
+                                                            role="menuitem"
                                                             className={`block px-4 py-2 text-sm hover:bg-alt-bg transition-colors ${
                                                                 pathname === dropdownItem.url
                                                                     ? "text-foreground font-bold bg-alt-bg"
@@ -130,7 +158,7 @@ export function Header() {
                                 // External link
                                 return (
                                     <a
-                                        key={item.url}
+                                        key={item.label}
                                         href={item.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -142,10 +170,13 @@ export function Header() {
                                 );
                             } else {
                                 // Regular link
+                                if (!item.url) {
+                                    return null;
+                                }
                                 return (
                                     <Link
-                                        key={item.url}
-                                        href={item.url!}
+                                        key={item.label}
+                                        href={item.url}
                                         className={`text-sm font-medium transition-colors ${
                                             pathname === item.url
                                                 ? "text-foreground font-bold"
@@ -215,7 +246,7 @@ export function Header() {
                                             {item.dropdown.map((dropdownItem) => (
                                                 dropdownItem.external ? (
                                                     <a
-                                                        key={dropdownItem.url}
+                                                        key={dropdownItem.label}
                                                         href={dropdownItem.url}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
@@ -226,7 +257,7 @@ export function Header() {
                                                     </a>
                                                 ) : (
                                                     <Link
-                                                        key={dropdownItem.url}
+                                                        key={dropdownItem.label}
                                                         href={dropdownItem.url}
                                                         className={`text-base font-medium py-1 ${
                                                             pathname === dropdownItem.url
@@ -244,7 +275,7 @@ export function Header() {
                             } else if (item.external) {
                                 return (
                                     <a
-                                        key={item.url}
+                                        key={item.label}
                                         href={item.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -255,10 +286,13 @@ export function Header() {
                                     </a>
                                 );
                             } else {
+                                if (!item.url) {
+                                    return null;
+                                }
                                 return (
                                     <Link
-                                        key={item.url}
-                                        href={item.url!}
+                                        key={item.label}
+                                        href={item.url}
                                         className={`text-base font-medium py-2 ${
                                             pathname === item.url
                                                 ? "text-foreground font-bold"

@@ -45,9 +45,7 @@ export default function HomePage() {
               Intelligence, <span className="accent">compiled.</span>
             </h1>
             <p className="hero-lede text-left">
-              <strong>One language from prototype to production AI.</strong>
-            </p>
-            <p className="hero-lede text-left">
+              <strong>One language from prototype to production AI.</strong>{" "}
               MIND brings compile-time tensor safety, compile-time autodiff, and deterministic execution to AI development —
               catching shape bugs before runtime, eliminating training overhead, and delivering auditable builds for regulated industries.
             </p>
