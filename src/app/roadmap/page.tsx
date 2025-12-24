@@ -306,7 +306,7 @@ export default function RoadmapPage() {
                         <div className="flex flex-wrap items-center justify-center gap-4">
                             <Link
                                 href="/docs"
-                                className="inline-flex items-center justify-center px-8 py-3.5 bg-primary !text-white font-semibold rounded-lg shadow-md hover:bg-primary/90 transition-all hover:shadow-lg"
+                                className="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary/90 transition-all hover:shadow-lg"
                             >
                                 View Documentation
                             </Link>
