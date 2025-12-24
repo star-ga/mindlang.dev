@@ -42,46 +42,33 @@ export default function HomePage() {
 
             <p className="eyebrow">MACHINE INTELLIGENCE NATIVE DESIGN</p>
             <h1>
-              Intelligence, <span className="accent">compiled.</span>
+              One language from prototype to production AI.
             </h1>
             <p className="hero-lede text-left">
-              MIND is a programming language and compiler stack built specifically for AI and numerical computing —
-              tensor-native types, static shape checks, automatic differentiation, and MLIR-powered code generation, all in one toolchain.
+              MIND brings compile-time tensor safety, compile-time autodiff, and deterministic execution to AI development —
+              catching shape bugs before runtime, eliminating training overhead, and delivering auditable builds for regulated industries.
             </p>
 
             <div className="hero-actions">
-              <Link href={siteConfig.docsPath} className="btn btn--primary btn--lg">
-                Read the language spec
+              <Link href="/docs/quick-start" className="btn btn--primary btn--lg">
+                Start in 5 minutes
+              </Link>
+              <Link href="/enterprise" className="btn btn--ghost btn--lg">
+                Request enterprise demo
               </Link>
               <a
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn--ghost btn--lg"
+                className="text-sm text-muted hover:text-primary transition-colors mt-2"
               >
-                Browse the source
+                Browse the source →
               </a>
             </div>
 
             <p className="hero-meta">
-              Open-core · Rust implementation · MLIR + LLVM pipeline · Deterministic builds
+              Apache 2.0 open core · MLIR + LLVM · deterministic-by-design · commercial runtime & hosted control plane
             </p>
-
-            {/* Performance Highlights */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 text-center">
-                <div className="text-2xl font-bold text-emerald-700">38 µs</div>
-                <div className="text-sm text-emerald-600">Compilation time</div>
-              </div>
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
-                <div className="text-2xl font-bold text-blue-700">247×</div>
-                <div className="text-sm text-blue-600">Faster than PyTorch</div>
-              </div>
-              <div className="bg-violet-50 border border-violet-200 rounded-lg p-4 text-center">
-                <div className="text-2xl font-bold text-violet-700">100%</div>
-                <div className="text-sm text-violet-600">Deterministic</div>
-              </div>
-            </div>
           </div>
 
           {/* Code Example */}
@@ -103,28 +90,59 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why MIND Section */}
+      {/* Problems We Solve Section */}
       <section className="section section--alt">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
             <div className="lg:col-span-4">
-              <h2 className="section-title text-left !mb-0">Why MIND?</h2>
+              <h2 className="section-title text-left !mb-0">The problems we solve</h2>
             </div>
             <div className="lg:col-span-8">
               <p className="section-lede text-left !mx-0 !max-w-none">
                 Today's AI stacks are fragmented: Python for research, C++/CUDA for performance, separate runtimes for cloud and edge.
-                MIND collapses that into a single language and compiler pipeline.
+                Models fail in production with runtime shape mismatches, training loops carry per-iteration autodiff overhead, and regulated industries can't get reproducible builds.
               </p>
             </div>
           </div>
 
           <div className="grid grid--three">
             <div className="card">
-              <Terminal className="card-icon" />
-              <h3>One language from prototype to production</h3>
-              <p>Author models, training loops, and serving code in the same language. No "Python version" and "C++ version" to keep in sync.</p>
+              <Grid3X3 className="card-icon" />
+              <h3>Runtime shape bugs</h3>
+              <p>Tensor shape and dtype errors surface in production, not during development. MIND catches these at compile time with static tensor types.</p>
             </div>
 
+            <div className="card">
+              <Terminal className="card-icon" />
+              <h3>Fragmented toolchains</h3>
+              <p>Python for prototypes, C++ for production, glue code everywhere. MIND gives you one language from research to deployment.</p>
+            </div>
+
+            <div className="card">
+              <CheckCircle className="card-icon" />
+              <h3>Non-deterministic builds</h3>
+              <p>Can't reproduce training runs or audit model provenance for compliance. MIND delivers bit-identical builds and deterministic execution mode.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What MIND Does Section */}
+      <section className="section">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+            <div className="lg:col-span-4">
+              <h2 className="section-title text-left !mb-0">What MIND does</h2>
+            </div>
+            <div className="lg:col-span-8">
+              <p className="section-lede text-left !mx-0 !max-w-none">
+                A programming language and compiler stack built specifically for AI and numerical computing —
+                tensor-native types, static shape checks, automatic differentiation, and MLIR-powered code generation, all in one toolchain.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid--three">
             <div className="card">
               <Grid3X3 className="card-icon" />
               <h3>Tensor-native and statically checked</h3>
@@ -132,9 +150,56 @@ export default function HomePage() {
             </div>
 
             <div className="card">
-              <Zap className="card-icon" />
-              <h3>Compiler-grade performance</h3>
-              <p>The compiler lowers through MLIR into LLVM, giving you highly optimized CPU and accelerator code without hand-written kernels.</p>
+              <Clock className="card-icon" />
+              <h3>Compile-time autodiff</h3>
+              <p>Gradients computed once during compilation, not on every training iteration. No runtime tape overhead.</p>
+            </div>
+
+            <div className="card">
+              <CheckCircle className="card-icon" />
+              <h3>Deterministic execution & auditable builds</h3>
+              <p>Every compilation produces bit-identical output. Designed for reproducibility within a defined environment, critical for regulated ML.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="section section--alt">
+        <div className="container">
+          <h2 className="section-title text-left">How it works</h2>
+
+          <div className="grid grid--two">
+            <div className="card card--outline">
+              <div className="w-full h-64 flex items-center justify-center mb-6">
+                <img src="/img/stack-language.svg" className="max-h-full max-w-full object-contain" alt="Language and type system diagram" loading="lazy" />
+              </div>
+              <h3>Language & type system</h3>
+              <p className="flex-1">A Rust-inspired language with first-class tensors, deterministic memory management, and built-in automatic differentiation.</p>
+              <ul className="list">
+                <li>Shape- and dtype-aware tensors</li>
+                <li>Differentiable functions with compiler-generated gradients</li>
+                <li>Device annotations for CPU, GPU, and future accelerators</li>
+              </ul>
+              <div className="mt-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-sm">
+                <strong className="text-emerald-800">Compiler & language:</strong> <span className="text-emerald-700">Apache 2.0</span>
+              </div>
+            </div>
+
+            <div className="card card--outline">
+              <div className="w-full h-64 flex items-center justify-center mb-6">
+                <img src="/img/stack-compiler.svg" className="max-h-full max-w-full object-contain" alt="Compiler and runtime diagram" loading="lazy" />
+              </div>
+              <h3>Compiler & runtime</h3>
+              <p className="flex-1">Source code is lowered into a custom MLIR dialect and then into LLVM IR, producing optimized binaries and modular runtimes for CPU and accelerators.</p>
+              <ul className="list">
+                <li>MLIR-based IR for tensor and graph optimizations</li>
+                <li>LLVM for hardware-specific code generation</li>
+                <li>Lean runtime modules for AOT, JIT, and embedded targets</li>
+              </ul>
+              <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm">
+                <strong className="text-blue-800">Runtime & hosted control plane:</strong> <span className="text-blue-700">Commercial</span>
+              </div>
             </div>
           </div>
         </div>
@@ -157,31 +222,31 @@ export default function HomePage() {
           <div className="grid grid--three">
             <div className="card">
               <Clock className="card-icon" />
-              <h3>Lightning-Fast Compilation</h3>
-              <p>Compile ML programs in <strong>38 microseconds</strong> — faster than most frameworks can parse your code.</p>
+              <h3>Fast Compilation</h3>
+              <p>Compile ML programs in microseconds, not milliseconds. Early benchmarks show compilation times orders of magnitude faster than traditional ML frameworks.</p>
               <div className="mt-4 p-3 bg-emerald-50 rounded-lg">
-                <span className="text-emerald-700 font-bold">53-247× faster</span>
-                <span className="text-emerald-600 text-sm block">than PyTorch 2.0 torch.compile()</span>
+                <span className="text-emerald-700 font-bold text-sm">Early internal benchmarks</span>
+                <span className="text-emerald-600 text-sm block">~38 µs average compilation time</span>
               </div>
             </div>
 
             <div className="card">
               <CheckCircle className="card-icon" />
-              <h3>Deterministic Builds</h3>
-              <p>Every compilation produces <strong>bit-identical output</strong>. No surprises, no debugging non-deterministic builds.</p>
+              <h3>Deterministic Mode</h3>
+              <p>Deterministic compilation mode designed for reproducibility within a defined environment. Every compilation produces bit-identical output.</p>
               <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-                <span className="text-blue-700 font-bold">100% reproducibility</span>
-                <span className="text-blue-600 text-sm block">verified across 40 test runs</span>
+                <span className="text-blue-700 font-bold text-sm">Verified reproducibility</span>
+                <span className="text-blue-600 text-sm block">100% across 40 test runs</span>
               </div>
             </div>
 
             <div className="card">
               <TrendingUp className="card-icon" />
-              <h3>Compile-Time Autodiff</h3>
-              <p>Gradients computed <strong>once during compilation</strong>, not on every training iteration.</p>
+              <h3>Low-Overhead Autodiff</h3>
+              <p>Gradients computed once during compilation, not on every training iteration. Eliminates per-iteration autodiff overhead.</p>
               <div className="mt-4 p-3 bg-violet-50 rounded-lg">
-                <span className="text-violet-700 font-bold">1,345-11,284× more efficient</span>
-                <span className="text-violet-600 text-sm block">than runtime autodiff over 1000 iterations</span>
+                <span className="text-violet-700 font-bold text-sm">Compile-time advantage</span>
+                <span className="text-violet-600 text-sm block">No runtime tape or graph construction</span>
               </div>
             </div>
           </div>
@@ -194,62 +259,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stack Section */}
-      <section className="section section--alt">
-        <div className="container">
-          <h2 className="section-title text-left">How the stack fits together</h2>
-
-          <div className="grid grid--two">
-            <div className="card card--outline">
-              <div className="w-full h-64 flex items-center justify-center mb-6">
-                <img src="/img/stack-language.svg" className="max-h-full max-w-full object-contain" alt="Language and type system diagram" loading="lazy" />
-              </div>
-              <h3>Language & type system</h3>
-              <p className="flex-1">A Rust-inspired language with first-class tensors, deterministic memory management, and built-in automatic differentiation.</p>
-              <ul className="list">
-                <li>Shape- and dtype-aware tensors</li>
-                <li>Differentiable functions with compiler-generated gradients</li>
-                <li>Device annotations for CPU, GPU, and future accelerators</li>
-              </ul>
-            </div>
-
-            <div className="card card--outline">
-              <div className="w-full h-64 flex items-center justify-center mb-6">
-                <img src="/img/stack-compiler.svg" className="max-h-full max-w-full object-contain" alt="Compiler and runtime diagram" loading="lazy" />
-              </div>
-              <h3>Compiler & runtime</h3>
-              <p className="flex-1">Source code is lowered into a custom MLIR dialect and then into LLVM IR, producing optimized binaries and modular runtimes for CPU and accelerators.</p>
-              <ul className="list">
-                <li>MLIR-based IR for tensor and graph optimizations</li>
-                <li>LLVM for hardware-specific code generation</li>
-                <li>Lean runtime modules for AOT, JIT, and embedded targets</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Who is MIND for Section */}
-      <section className="section">
+      <section className="section section--alt">
         <div className="container">
           <h2 className="section-title text-left">Who is MIND for?</h2>
 
           <div className="grid grid--three">
             <div className="card">
+              <CheckCircle className="card-icon" />
+              <h3>Regulated ML & audit trails</h3>
+              <p>Healthcare, finance, autonomous systems — industries where model provenance and reproducibility aren't optional. MIND's deterministic builds deliver auditable ML.</p>
+            </div>
+
+            <div className="card">
               <Server className="card-icon" />
-              <h3>AI platform teams</h3>
+              <h3>Platform teams scaling ML infrastructure</h3>
               <p>Standardize on one language for research and production. Eliminate glue code between notebooks, services, and accelerators.</p>
             </div>
 
             <div className="card">
-              <Code className="card-icon" />
-              <h3>Applied ML engineers</h3>
-              <p>Express models in high-level syntax with compiler-checked shapes and gradients. Spend time on modeling, not on fighting build systems.</p>
-            </div>
-
-            <div className="card">
               <Cpu className="card-icon" />
-              <h3>Edge & embedded builders</h3>
+              <h3>Edge & embedded deployment</h3>
               <p>Compile to lean, deterministic binaries that fit into constrained environments where interpreters and heavy runtimes are not an option.</p>
             </div>
           </div>
@@ -259,26 +289,26 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="section py-16 bg-white border-t border-card-border">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to explore the language?</h2>
+          <h2 className="text-3xl font-bold mb-6">Open core + enterprise</h2>
 
           <img src="/img/cta-graphic.svg" className="cta-graphic mx-auto max-w-5xl" alt="MIND Architecture" loading="lazy" />
 
-          <p className="max-w-2xl mx-auto text-muted mb-8">
-            Start with the language spec, then dive into the core implementation. MIND is open-core: the compiler and language are MIT-licensed and ready for experimentation.
-          </p>
+          <div className="max-w-2xl mx-auto mb-8">
+            <p className="text-muted mb-4">
+              <strong>Community Edition</strong> (Apache 2.0): The compiler and language are open source and ready for experimentation.
+            </p>
+            <p className="text-muted">
+              <strong>Commercial runtime + hosted offerings</strong> from {siteConfig.company}: Deterministic execution mode, audit logs, compliance tooling, and hosted control plane with SLA-backed support.
+            </p>
+          </div>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href={siteConfig.docsPath} className="btn btn--primary btn--lg">
-              Open the spec
+            <Link href="/docs/quick-start" className="btn btn--primary btn--lg">
+              Start in 5 minutes
             </Link>
-            <a
-              href={siteConfig.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--ghost btn--lg"
-            >
-              Clone the repo
-            </a>
+            <Link href="/enterprise" className="btn btn--ghost btn--lg">
+              Request enterprise demo
+            </Link>
           </div>
         </div>
       </section>

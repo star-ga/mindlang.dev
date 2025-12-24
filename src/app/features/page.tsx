@@ -108,7 +108,7 @@ export default function FeaturesPage() {
                             <img src="/img/features/open-core.svg" className="card-icon mx-auto !w-20 !h-20" alt="Open Core Schematic" loading="lazy" />
                             <h3 className="min-h-[2rem] flex items-center justify-center text-xs tracking-tight">Open-core, extensible design</h3>
                             <p className="min-h-[8rem] flex items-center text-left w-full">
-                                The core compiler is MIT-licensed. Add private backends and runtimes without forking the language.
+                                The core compiler is Apache 2.0 licensed. Add private backends and runtimes without forking the language.
                             </p>
                             <hr className="w-16 border-t-2 border-primary/20 mx-auto my-3" />
                             <ul className="list text-left w-full">

@@ -1,9 +1,12 @@
 export const mainNavigation: NavItem[] = [
-    { url: "/", label: "Overview" },
+    { url: "/", label: "Home" },
+    { url: "/docs", label: "Docs" },
     { url: "/features", label: "Features" },
     { url: "/use-cases", label: "Use Cases" },
     { url: "/ecosystem", label: "Ecosystem" },
-    { url: "/docs", label: "Docs" },
+    { url: "/compare", label: "Compare" },
+    { url: "/enterprise", label: "Enterprise" },
+    { url: "/pricing", label: "Pricing" },
     { url: "/community", label: "Community" },
     { url: "/roadmap", label: "Roadmap" },
 ];
