@@ -104,7 +104,7 @@ export default function ComparePage() {
                 <tr className="border-b border-card-border">
                   <td className="py-4 pr-6 font-medium">Deterministic builds</td>
                   <td className="py-4 px-4 text-center bg-primary/5">
-                    <div className="text-xs font-semibold text-primary">100% guaranteed</div>
+                    <div className="text-xs font-semibold text-primary">Within defined env</div>
                   </td>
                   <td className="py-4 px-4 text-center">
                     <X className="inline text-red-400" size={20} />
@@ -184,7 +184,7 @@ export default function ComparePage() {
           </div>
 
           <p className="text-sm text-muted mt-8 text-center max-w-2xl mx-auto">
-            This comparison reflects publicly available information as of December 2024.
+            This comparison reflects publicly available information at the time of writing.
             Frameworks evolve rapidly — consult official documentation for the latest capabilities.
           </p>
         </div>
