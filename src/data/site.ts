@@ -11,6 +11,7 @@ export const siteConfig = {
   x: "https://x.com/mindlang",
   company: "STARGA, Inc.",
   contactEmail: "info@star.ga",
+  securityEmail: "security@star.ga",
 };
 
 export type SiteConfig = typeof siteConfig;
