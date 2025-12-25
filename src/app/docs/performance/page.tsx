@@ -39,7 +39,7 @@ export default function PerformancePage() {
                             </div>
                         </div>
 
-                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Compilation Speed: MIND vs PyTorch 2.0</h2>
+                        <h2 id="compilation-speed-mind-vs-pytorch-20" className="text-2xl font-bold font-heading mt-12 mb-4">Compilation Speed: MIND vs PyTorch 2.0</h2>
                         <p className="text-muted mb-4">
                             MIND compiles in <strong>~38 microseconds</strong> on average — measured using Python bindings (PyO3) to eliminate subprocess overhead:
                         </p>
@@ -143,7 +143,7 @@ export default function PerformancePage() {
                             </p>
                         </div>
 
-                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Compile-Time Autodiff</h2>
+                        <h2 id="compile-time-autodiff" className="text-2xl font-bold font-heading mt-12 mb-4">Compile-Time Autodiff</h2>
                         <p className="text-muted mb-4">
                             MIND generates gradient code <strong>once at compile-time</strong>, not on every training iteration. This eliminates per-iteration autodiff overhead entirely.
                         </p>
@@ -264,7 +264,7 @@ export default function PerformancePage() {
                             </table>
                         </div>
 
-                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Compilation Speed: MIND vs Mojo</h2>
+                        <h2 id="compilation-speed-mind-vs-mojo" className="text-2xl font-bold font-heading mt-12 mb-4">Compilation Speed: MIND vs Mojo</h2>
                         <p className="text-muted mb-4">
                             MIND&apos;s compilation speed is designed for rapid iteration during development.
                             Unlike traditional ML compilers that scale compilation time with model complexity,
