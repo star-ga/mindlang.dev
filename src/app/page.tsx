@@ -235,6 +235,11 @@ export default function HomePage() {
                 <span className="text-emerald-600 text-sm block">53-247× faster than PyTorch 2.0</span>
                 <span className="text-emerald-600 text-sm block">12,000-339,000× faster than Mojo</span>
               </div>
+              <p className="mt-3 text-xs text-center text-muted">
+                <Link href="/docs/performance#compilation-speed-mind-vs-pytorch-20" className="text-primary hover:underline">PyTorch benchmarks</Link>
+                {" · "}
+                <Link href="/docs/performance#compilation-speed-mind-vs-mojo" className="text-primary hover:underline">Mojo benchmarks</Link>
+              </p>
             </div>
 
             <div className="card">
@@ -256,6 +261,9 @@ export default function HomePage() {
                 <span className="text-violet-600 text-sm block">1,345-11,284× more efficient than PyTorch</span>
                 <span className="text-violet-600 text-sm block">No runtime tape or graph construction</span>
               </div>
+              <p className="mt-3 text-xs text-center text-muted">
+                <Link href="/docs/performance#compile-time-autodiff" className="text-primary hover:underline">Autodiff benchmarks</Link>
+              </p>
             </div>
           </div>
 
