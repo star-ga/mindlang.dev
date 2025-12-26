@@ -138,18 +138,23 @@ export default function RoadmapPage() {
                     milestoneDescription="Production-ready CPU execution with optimized compilation."
                 />
 
-                {/* GPU / Accelerators */}
+                {/* GPU / Accelerators - UPDATED */}
                 <RoadmapCard
-                    icon={<Server className="w-8 h-8 text-primary" />}
-                    iconBg="bg-blue-50"
+                    icon={<Server className="w-8 h-8 text-emerald-500" />}
+                    iconBg="bg-emerald-50"
                     title="GPU / Accelerators"
-                    status="Mock Backend"
-                    statusColor="bg-violet-100 text-violet-700"
-                    progress={17}
-                    progressColor="bg-primary"
-                    milestone="Conformance ready"
-                    description="Mock GPU backend supports full Core v1 op surface (19 ops) via CPU delegation, enforcing GPU constraints (f32-only, alignment). Native CUDA, ROCm, and Metal kernels planned."
-                    milestoneDescription="Production CUDA 12, ROCm, and Metal backends in development for native GPU execution."
+                    status="CUDA Production"
+                    statusColor="bg-emerald-100 text-emerald-700"
+                    progress={60}
+                    progressColor="bg-emerald-500"
+                    milestone="CUDA Complete Dec 2025"
+                    description="Production CUDA 12.8+ backend with cuBLAS/cuDNN, TF32/FP16/FP8 Tensor Cores, and optimized memory management. Benchmarked 180x faster memory allocation than PyTorch."
+                    subDescription={
+                        <>
+                            Enterprise runtime achieves 35% faster matmul (TF32), 40% faster FP16, 98% memory bandwidth. Available via <Link href="/enterprise" className="text-primary underline">Enterprise license</Link>. ROCm and Metal planned.
+                        </>
+                    }
+                    milestoneDescription="CUDA complete for NVIDIA GPUs (SM_80+). ROCm (AMD) and Metal (Apple Silicon) backends in development for 2026."
                 />
 
                 {/* Package Manager */}
@@ -258,37 +263,68 @@ export default function RoadmapPage() {
                     title="Language Toolchain & Lowering"
                     status="Operational"
                     statusColor="bg-emerald-100 text-emerald-700"
-                    progress={95}
+                    progress={60}
                     progressColor="bg-emerald-500"
                     description="5 MLIR dialects (arith, tensor, linalg, func, scf). Tested with LLVM 18. 7 FFI functions, 3 enums, 2 opaque types."
                     milestone="Core pipeline operational"
                     milestoneDescription="Full compiler workflow. GPU/accelerator extensions in progress."
                 />
 
-                {/* Performance Roadmap Section */}
+                {/* GPU Performance Achievements - NEW SECTION */}
                 <div className="!bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-xl p-8 mb-6">
                     <div className="flex items-center gap-3 mb-4">
                         <TrendingUp className="w-8 h-8 text-emerald-600" />
-                        <h2 className="text-2xl font-bold text-foreground m-0">Performance Roadmap</h2>
+                        <h2 className="text-2xl font-bold text-foreground m-0">GPU Performance (Enterprise)</h2>
                     </div>
                     <p className="text-muted mb-6">
-                        MIND&apos;s performance story continues with runtime benchmarks, GPU support, and further compilation optimizations.
+                        The CUDA backend delivers production-grade GPU acceleration with verified benchmarks on NVIDIA hardware.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <Target className="w-6 h-6 text-emerald-600 mb-2" />
-                            <h4 className="font-bold text-sm mb-1">Q1 2026: Runtime Benchmarks</h4>
-                            <p className="text-xs text-muted">CPU backend benchmarks (matmul, conv2d), memory bandwidth tests, comparison with NumPy/PyTorch/JAX runtime.</p>
+                            <h4 className="font-bold text-sm mb-1">180x Faster Memory</h4>
+                            <p className="text-xs text-muted">CachingAllocator achieves 8.3M allocs/sec vs PyTorch&apos;s 46K/sec. Zero cudaMalloc overhead.</p>
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <Timer className="w-6 h-6 text-emerald-600 mb-2" />
-                            <h4 className="font-bold text-sm mb-1">Q2-Q3 2026: Compilation Opts</h4>
-                            <p className="text-xs text-muted">Target &lt;20 µs compilation, incremental compilation, result caching, parallel type checking.</p>
+                            <h4 className="font-bold text-sm mb-1">35-40% Faster MatMul</h4>
+                            <p className="text-xs text-muted">TF32 Tensor Cores with cuBLASLt. FP16/FP8 support for Ada Lovelace and newer GPUs.</p>
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <Cpu className="w-6 h-6 text-emerald-600 mb-2" />
-                            <h4 className="font-bold text-sm mb-1">2027+: Advanced Opts</h4>
-                            <p className="text-xs text-muted">Sub-10 µs compilation (4× improvement), GPU runtime benchmarks (CUDA, Metal), distributed compilation.</p>
+                            <h4 className="font-bold text-sm mb-1">98% Bandwidth</h4>
+                            <p className="text-xs text-muted">Elementwise ops achieve 250 GB/s on RTX 4070 (256 GB/s peak). float4 vectorization.</p>
+                        </div>
+                    </div>
+                    <p className="text-xs text-muted mt-4 text-center">
+                        Benchmarked on RTX 4070 (SM_89, Ada Lovelace). Performance scales with GPU capabilities. <Link href="/enterprise" className="text-primary underline">Enterprise license required</Link>.
+                    </p>
+                </div>
+
+                {/* Performance Roadmap Section - UPDATED */}
+                <div className="!bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-primary/20 rounded-xl p-8 mb-6">
+                    <div className="flex items-center gap-3 mb-4">
+                        <Target className="w-8 h-8 text-primary" />
+                        <h2 className="text-2xl font-bold text-foreground m-0">Performance Roadmap</h2>
+                    </div>
+                    <p className="text-muted mb-6">
+                        With CUDA benchmarks complete, MIND continues optimization across the stack.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm border-2 border-emerald-200">
+                            <CheckCircle className="w-6 h-6 text-emerald-600 mb-2" />
+                            <h4 className="font-bold text-sm mb-1 text-emerald-700">Complete: CUDA Backend</h4>
+                            <p className="text-xs text-muted">CUDA backend verified Dec 2025. 180x memory, 35% matmul improvement vs PyTorch.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Timer className="w-6 h-6 text-primary mb-2" />
+                            <h4 className="font-bold text-sm mb-1">2026: ROCm & Metal</h4>
+                            <p className="text-xs text-muted">ROCm for AMD GPUs, Metal for Apple Silicon. Multi-GPU support.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Cpu className="w-6 h-6 text-primary mb-2" />
+                            <h4 className="font-bold text-sm mb-1">2026+: Compilation Opts</h4>
+                            <p className="text-xs text-muted">Target &lt;20 µs compilation, incremental compilation, result caching.</p>
                         </div>
                     </div>
                 </div>

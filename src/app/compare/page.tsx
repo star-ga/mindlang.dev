@@ -179,6 +179,26 @@ export default function ComparePage() {
                     <div className="text-xs text-muted">Archived</div>
                   </td>
                 </tr>
+
+                {/* GPU Performance (Enterprise) */}
+                <tr className="border-b border-card-border">
+                  <td className="py-4 pr-6 font-medium">GPU memory performance</td>
+                  <td className="py-4 px-4 text-center bg-primary/5">
+                    <div className="text-xs font-semibold text-primary">180x faster (Enterprise)</div>
+                  </td>
+                  <td className="py-4 px-4 text-center">
+                    <div className="text-xs text-muted">cudaMalloc</div>
+                  </td>
+                  <td className="py-4 px-4 text-center">
+                    <div className="text-xs text-muted">XLA managed</div>
+                  </td>
+                  <td className="py-4 px-4 text-center">
+                    <Minus className="inline text-muted" size={20} />
+                  </td>
+                  <td className="py-4 px-4 text-center">
+                    <Minus className="inline text-muted" size={20} />
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
