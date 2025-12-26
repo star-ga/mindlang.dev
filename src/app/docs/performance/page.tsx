@@ -388,6 +388,53 @@ mindc run model.mind --profile=time`}</CodeBlock>
                             </p>
                         </div>
 
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">GPU Runtime Performance (Enterprise)</h2>
+                        <p className="text-muted mb-4">
+                            The Enterprise CUDA backend delivers production-grade GPU acceleration, benchmarked on RTX 4070 (SM_89, Ada Lovelace):
+                        </p>
+                        <div className="overflow-x-auto mb-6">
+                            <table className="min-w-full text-sm">
+                                <thead>
+                                    <tr className="border-b">
+                                        <th className="text-left py-2 pr-4 font-bold">Metric</th>
+                                        <th className="text-left py-2 pr-4 font-bold">PyTorch 2.8</th>
+                                        <th className="text-left py-2 pr-4 font-bold">MIND Runtime</th>
+                                        <th className="text-left py-2 font-bold">Improvement</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-muted">
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Memory Allocation</td>
+                                        <td className="py-2 pr-4">46K/sec</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-600">8.3M/sec</td>
+                                        <td className="py-2 font-semibold text-emerald-600">180x faster</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">MatMul TF32 (4096x4096)</td>
+                                        <td className="py-2 pr-4">12.83 TFLOPS</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-600">17.32 TFLOPS</td>
+                                        <td className="py-2 font-semibold text-emerald-600">35% faster</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">MatMul FP16 (4096x4096)</td>
+                                        <td className="py-2 pr-4">23.82 TFLOPS</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-600">33.34 TFLOPS</td>
+                                        <td className="py-2 font-semibold text-emerald-600">40% faster</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Elementwise Bandwidth</td>
+                                        <td className="py-2 pr-4">228 GB/s</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-600">250 GB/s</td>
+                                        <td className="py-2 font-semibold text-emerald-600">98% of peak</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p className="text-sm text-muted mb-8">
+                            GPU runtime requires <a href="/enterprise" className="text-primary hover:underline">Enterprise license</a>. 
+                            Performance scales with GPU capabilities. Benchmarks verified December 2025.
+                        </p>
+
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Learn More</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
                             <li>

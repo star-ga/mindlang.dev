@@ -91,6 +91,16 @@ export default function EnterprisePage() {
                 Validated on your hardware and workload profiles.
               </p>
             </div>
+
+            <div className="card">
+              <Server className="card-icon" />
+              <h3>Production GPU Runtime</h3>
+              <p>
+                CUDA 12.8+ backend with cuBLAS/cuDNN, TF32/FP16/FP8 Tensor Cores.
+                180x faster memory allocation than PyTorch. Supports NVIDIA Ampere, 
+                Ada Lovelace, and Hopper GPUs. ROCm and Metal planned for 2026.
+              </p>
+            </div>
           </div>
         </div>
       </section>

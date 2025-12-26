@@ -97,6 +97,20 @@ python3 test_real_compile_time.py`}</CodeBlock>
                             </p>
                         </div>
 
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">GPU Benchmarks (Enterprise)</h2>
+                        <p className="text-muted mb-4">
+                            The Enterprise runtime includes CUDA GPU benchmarks. Contact sales for access to:
+                        </p>
+                        <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
+                            <li><strong>Memory allocation</strong>: CachingAllocator vs cudaMalloc (180x improvement)</li>
+                            <li><strong>MatMul performance</strong>: cuBLAS with TF32/FP16 Tensor Cores (35-40% faster than PyTorch)</li>
+                            <li><strong>Elementwise operations</strong>: float4 vectorized kernels (98% bandwidth utilization)</li>
+                            <li><strong>Supported GPUs</strong>: NVIDIA SM_80+ (Ampere, Ada Lovelace, Hopper)</li>
+                        </ul>
+                        <p className="text-sm text-muted mb-8">
+                            See <a href="/enterprise" className="text-primary hover:underline">Enterprise</a> for licensing details.
+                        </p>
+
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Understanding the Results</h2>
 
                         <h3 className="text-xl font-bold font-heading mt-8 mb-4">Why Python Bindings?</h3>

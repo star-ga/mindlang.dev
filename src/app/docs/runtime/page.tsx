@@ -34,11 +34,23 @@ export default function RuntimePage() {
 │    Executor    │   Memory Manager   │
 ├────────────────┼────────────────────┤
 │   CPU Backend  │   GPU Backend      │
-│   (Stable)     │   (Mock/Planned)   │
+│   (Stable)     │   CUDA (Enterprise)│
 └────────────────┴────────────────────┘`}</CodeBlock>
                         <p className="text-sm text-muted mb-8">
-                            <strong>GPU Backend:</strong> MockGpuBackend supports full Core v1 op surface (19 ops) via CPU delegation for conformance testing. Native CUDA 12, ROCm, and Metal backends are planned.
+                            <strong>GPU Backend:</strong> Production CUDA 12.8+ backend available via Enterprise license. ROCm (AMD) and Metal (Apple) backends planned for 2026.
                         </p>
+
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">GPU Runtime (Enterprise)</h2>
+                        <p className="text-muted mb-4">
+                            The Enterprise GPU runtime provides production-grade CUDA acceleration:
+                        </p>
+                        <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
+                            <li><strong>cuBLAS/cuDNN</strong>: TF32 Tensor Cores for matmul, auto-tuned convolutions</li>
+                            <li><strong>Memory Allocator</strong>: CachingAllocator achieves 8.3M allocs/sec (180x faster than cudaMalloc)</li>
+                            <li><strong>Tensor Cores</strong>: TF32, FP16, FP8 (Ada Lovelace+) with PTX mma.sync</li>
+                            <li><strong>Async Streams</strong>: 8 streams (6 compute, 2 transfer) for overlapped execution</li>
+                            <li><strong>Supported GPUs</strong>: SM_80+ (Ampere, Ada Lovelace, Hopper)</li>
+                        </ul>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Execution Modes</h2>
                         <div className="overflow-x-auto mb-8">
