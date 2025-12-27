@@ -59,6 +59,8 @@ export const docsNavigation = [
         title: "Compiler & Runtime",
         items: [
             { name: "IR", href: "/docs/ir" },
+            { name: "MIC Format", href: "/docs/mic" },
+            { name: "MAP Protocol", href: "/docs/map" },
             { name: "MLIR Lowering", href: "/docs/mlir" },
             { name: "Runtime", href: "/docs/runtime" },
             { name: "FFI & Bindings", href: "/docs/ffi" },
