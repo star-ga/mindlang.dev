@@ -143,18 +143,18 @@ export default function RoadmapPage() {
                     icon={<Server className="w-8 h-8 text-emerald-500" />}
                     iconBg="bg-emerald-50"
                     title="GPU / Accelerators"
-                    status="CUDA Production"
+                    status="All Production"
                     statusColor="bg-emerald-100 text-emerald-700"
-                    progress={60}
+                    progress={100}
                     progressColor="bg-emerald-500"
-                    milestone="CUDA Complete Dec 2025"
-                    description="Production CUDA 12.8+ backend with cuBLAS/cuDNN, TF32/FP16/FP8 Tensor Cores, and optimized memory management. Benchmarked 180x faster memory allocation than PyTorch."
+                    milestone="Complete Dec 2025"
+                    description="All 4 GPU backends production-ready: CUDA (NVIDIA), Metal (Apple), ROCm/HIP (AMD), and WebGPU (cross-platform). Full trait implementations with poison-safe locking, defragmentation, and context recovery."
                     subDescription={
                         <>
-                            Enterprise runtime achieves 35% faster matmul (TF32), 40% faster FP16, 98% memory bandwidth. Available via <Link href="/enterprise" className="text-primary underline">Enterprise license</Link>. ROCm and Metal planned.
+                            Enterprise runtime achieves 35% faster matmul (TF32), 40% faster FP16, 98% memory bandwidth. Available via <Link href="/enterprise" className="text-primary underline">Enterprise license</Link>. All backends implement StreamSync, ContextRecovery, and Defragmenter traits.
                         </>
                     }
-                    milestoneDescription="CUDA complete for NVIDIA GPUs (SM_80+). ROCm (AMD) and Metal (Apple Silicon) backends in development for 2026."
+                    milestoneDescription="Production GPU backends for NVIDIA, AMD, Apple Silicon, and browsers/native via WebGPU."
                 />
 
                 {/* Package Manager */}
@@ -263,7 +263,7 @@ export default function RoadmapPage() {
                     title="Language Toolchain & Lowering"
                     status="Operational"
                     statusColor="bg-emerald-100 text-emerald-700"
-                    progress={60}
+                    progress={100}
                     progressColor="bg-emerald-500"
                     description="5 MLIR dialects (arith, tensor, linalg, func, scf). Tested with LLVM 18. 7 FFI functions, 3 enums, 2 opaque types."
                     milestone="Core pipeline operational"
@@ -318,8 +318,8 @@ export default function RoadmapPage() {
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <Timer className="w-6 h-6 text-primary mb-2" />
-                            <h4 className="font-bold text-sm mb-1">2026: ROCm & Metal</h4>
-                            <p className="text-xs text-muted">ROCm for AMD GPUs, Metal for Apple Silicon. Multi-GPU support.</p>
+                            <h4 className="font-bold text-sm mb-1">Complete: ROCm, Metal & WebGPU</h4>
+                            <p className="text-xs text-muted">ROCm (AMD), Metal (Apple Silicon), WebGPU (browsers/native) all production-ready.</p>
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <Cpu className="w-6 h-6 text-primary mb-2" />
