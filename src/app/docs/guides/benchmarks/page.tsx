@@ -214,6 +214,92 @@ python3 test_real_compile_time.py`}</CodeBlock>
                             Results should be within ±10% due to hardware differences.
                         </p>
 
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">MIC/MAP Format Benchmark</h2>
+                        <p className="text-muted mb-4">
+                            Compare MIC format efficiency against JSON, TOML, and TOON.
+                        </p>
+                        <CodeBlock className="mb-4">{`cd benchmarks
+python3 format_benchmark.py`}</CodeBlock>
+                        <div className="bg-card border border-border rounded-lg p-4 mb-8">
+                            <h4 className="font-semibold mb-2">Token Efficiency Results</h4>
+                            <div className="overflow-x-auto">
+                                <table className="min-w-full text-sm">
+                                    <thead>
+                                        <tr className="border-b">
+                                            <th className="text-left py-2 pr-4">Format</th>
+                                            <th className="text-left py-2 pr-4">Tokens</th>
+                                            <th className="text-left py-2 pr-4">vs JSON</th>
+                                            <th className="text-left py-2 pr-4">Parse Speed</th>
+                                            <th className="text-left py-2">Annual Cost (1M IRs)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-muted">
+                                        <tr className="border-b">
+                                            <td className="py-2 pr-4">JSON</td>
+                                            <td className="py-2 pr-4">278</td>
+                                            <td className="py-2 pr-4">baseline</td>
+                                            <td className="py-2 pr-4">5.31 us</td>
+                                            <td className="py-2">$8,340</td>
+                                        </tr>
+                                        <tr className="border-b">
+                                            <td className="py-2 pr-4">TOML</td>
+                                            <td className="py-2 pr-4">151</td>
+                                            <td className="py-2 pr-4">1.8x</td>
+                                            <td className="py-2 pr-4">137.06 us</td>
+                                            <td className="py-2">$4,530</td>
+                                        </tr>
+                                        <tr className="border-b">
+                                            <td className="py-2 pr-4">TOON</td>
+                                            <td className="py-2 pr-4">67</td>
+                                            <td className="py-2 pr-4">4.1x</td>
+                                            <td className="py-2 pr-4">2.67 us</td>
+                                            <td className="py-2">$2,010</td>
+                                        </tr>
+                                        <tr className="border-b bg-primary/5">
+                                            <td className="py-2 pr-4 font-bold">MIC</td>
+                                            <td className="py-2 pr-4 font-bold">52</td>
+                                            <td className="py-2 pr-4 font-bold">5.3x</td>
+                                            <td className="py-2 pr-4 font-bold">2.26 us</td>
+                                            <td className="py-2 font-bold">$1,560</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p className="text-sm text-muted mt-3">
+                                <strong>MIC saves $6,780/year</strong> per million IR operations vs JSON at GPT-4 pricing.
+                            </p>
+                        </div>
+
+                        <div className="bg-card border border-border rounded-lg p-4 mb-8">
+                            <h4 className="font-semibold mb-2">MAP vs JSON-RPC</h4>
+                            <div className="overflow-x-auto">
+                                <table className="min-w-full text-sm">
+                                    <thead>
+                                        <tr className="border-b">
+                                            <th className="text-left py-2 pr-4">Protocol</th>
+                                            <th className="text-left py-2 pr-4">Size</th>
+                                            <th className="text-left py-2 pr-4">Tokens</th>
+                                            <th className="text-left py-2">vs JSON-RPC</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-muted">
+                                        <tr className="border-b">
+                                            <td className="py-2 pr-4">JSON-RPC</td>
+                                            <td className="py-2 pr-4">1,004 bytes</td>
+                                            <td className="py-2 pr-4">251</td>
+                                            <td className="py-2">baseline</td>
+                                        </tr>
+                                        <tr className="border-b bg-primary/5">
+                                            <td className="py-2 pr-4 font-bold">MAP</td>
+                                            <td className="py-2 pr-4 font-bold">234 bytes</td>
+                                            <td className="py-2 pr-4 font-bold">58</td>
+                                            <td className="py-2 font-bold">4.3x fewer tokens</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Next Steps</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
                             <li>

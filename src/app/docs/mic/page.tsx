@@ -27,11 +27,60 @@ export default function MICPage() {
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Design Goals</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
-                            <li><strong>4x token reduction</strong> compared to JSON serialization</li>
+                            <li><strong>5.3x token reduction</strong> compared to JSON serialization</li>
+                            <li><strong>2.4x faster parsing</strong> than JSON (2.26 us vs 5.31 us)</li>
                             <li><strong>Git-friendly diffs</strong> with one node per line</li>
                             <li><strong>Stable IDs</strong> for safe patching operations</li>
                             <li><strong>Deterministic canonicalization</strong> for reproducible outputs</li>
                         </ul>
+
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Benchmark Results</h2>
+                        <div className="overflow-x-auto mb-8">
+                            <table className="min-w-full text-sm">
+                                <thead>
+                                    <tr className="border-b">
+                                        <th className="text-left py-2 pr-4 font-bold">Format</th>
+                                        <th className="text-left py-2 pr-4 font-bold">Tokens</th>
+                                        <th className="text-left py-2 pr-4 font-bold">vs JSON</th>
+                                        <th className="text-left py-2 pr-4 font-bold">Parse Speed</th>
+                                        <th className="text-left py-2 font-bold">Annual Cost (1M IRs)</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-muted">
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">JSON</td>
+                                        <td className="py-2 pr-4">278</td>
+                                        <td className="py-2 pr-4">baseline</td>
+                                        <td className="py-2 pr-4">5.31 us</td>
+                                        <td className="py-2">$8,340</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">TOML</td>
+                                        <td className="py-2 pr-4">151</td>
+                                        <td className="py-2 pr-4">1.8x</td>
+                                        <td className="py-2 pr-4">137.06 us</td>
+                                        <td className="py-2">$4,530</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">TOON</td>
+                                        <td className="py-2 pr-4">67</td>
+                                        <td className="py-2 pr-4">4.1x</td>
+                                        <td className="py-2 pr-4">2.67 us</td>
+                                        <td className="py-2">$2,010</td>
+                                    </tr>
+                                    <tr className="border-b bg-primary/5">
+                                        <td className="py-2 pr-4 font-bold">MIC</td>
+                                        <td className="py-2 pr-4 font-bold">52</td>
+                                        <td className="py-2 pr-4 font-bold">5.3x</td>
+                                        <td className="py-2 pr-4 font-bold">2.26 us</td>
+                                        <td className="py-2 font-bold">$1,560</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p className="text-muted mb-8">
+                            MIC saves <strong>$6,780/year</strong> per million IR operations vs JSON at GPT-4 pricing ($0.03/1K tokens).
+                        </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Format Overview</h2>
                         <CodeBlock className="mb-8">{`mic@1                    # Version header
