@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Terminal, Grid3X3, Zap, Server, Code, Cpu, Clock, CheckCircle, TrendingUp } from "lucide-react";
+import { Terminal, Grid3X3, Zap, Server, Code, Cpu, Clock, CheckCircle, TrendingUp, FileCode, MessageSquare } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { CodeWindow } from "@/components/ui/CodeWindow";
 
@@ -274,6 +274,111 @@ export default function HomePage() {
             {" · "}
             <Link href="/compare" className="text-primary font-medium hover:underline">
               Compare with other frameworks →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* AI-Native Formats Section */}
+      <section className="section section--alt">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+            <div className="lg:col-span-4">
+              <h2 className="section-title text-left !mb-0">AI-Native Formats</h2>
+            </div>
+            <div className="lg:col-span-8">
+              <p className="section-lede text-left !mx-0 !max-w-none">
+                Purpose-built formats for AI agents. MIC and MAP reduce token usage by 4-5× compared to JSON, saving thousands in LLM costs.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid--two">
+            <div className="card">
+              <FileCode className="card-icon" />
+              <h3>MIC Format</h3>
+              <p>MindIR Compact — token-efficient IR serialization for AI agents. Line-oriented, git-friendly, deterministic.</p>
+              <div className="mt-4 overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b">
+                      <th className="text-left py-2 pr-3 font-semibold">Format</th>
+                      <th className="text-left py-2 pr-3 font-semibold">Tokens</th>
+                      <th className="text-left py-2 pr-3 font-semibold">Speed</th>
+                      <th className="text-left py-2 font-semibold">Cost/yr</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-muted">
+                    <tr className="border-b">
+                      <td className="py-2 pr-3">JSON</td>
+                      <td className="py-2 pr-3">278</td>
+                      <td className="py-2 pr-3">5.31 μs</td>
+                      <td className="py-2">$8,340</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="py-2 pr-3">TOML</td>
+                      <td className="py-2 pr-3">151</td>
+                      <td className="py-2 pr-3">137 μs</td>
+                      <td className="py-2">$4,530</td>
+                    </tr>
+                    <tr className="border-b bg-primary/5">
+                      <td className="py-2 pr-3 font-bold">MIC</td>
+                      <td className="py-2 pr-3 font-bold">52</td>
+                      <td className="py-2 pr-3 font-bold">2.26 μs</td>
+                      <td className="py-2 font-bold">$1,560</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="mt-4 p-3 bg-emerald-50 rounded-lg">
+                <span className="text-emerald-700 font-bold text-sm">5.3× fewer tokens than JSON</span>
+                <span className="text-emerald-600 text-sm block">Saves $6,780/year per 1M IR operations</span>
+              </div>
+              <p className="mt-3 text-xs text-center">
+                <Link href="/docs/mic" className="text-primary hover:underline">MIC Documentation →</Link>
+              </p>
+            </div>
+
+            <div className="card">
+              <MessageSquare className="card-icon" />
+              <h3>MAP Protocol</h3>
+              <p>Mind AI Protocol — compiler-in-the-loop for AI agents. Verify, patch, and iterate with structured feedback.</p>
+              <div className="mt-4 overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b">
+                      <th className="text-left py-2 pr-3 font-semibold">Protocol</th>
+                      <th className="text-left py-2 pr-3 font-semibold">Size</th>
+                      <th className="text-left py-2 font-semibold">Tokens</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-muted">
+                    <tr className="border-b">
+                      <td className="py-2 pr-3">JSON-RPC</td>
+                      <td className="py-2 pr-3">1,004 bytes</td>
+                      <td className="py-2">251</td>
+                    </tr>
+                    <tr className="border-b bg-primary/5">
+                      <td className="py-2 pr-3 font-bold">MAP</td>
+                      <td className="py-2 pr-3 font-bold">234 bytes</td>
+                      <td className="py-2 font-bold">58</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+                <span className="text-blue-700 font-bold text-sm">4.3× fewer tokens than JSON-RPC</span>
+                <span className="text-blue-600 text-sm block">77% reduction in AI agent costs</span>
+              </div>
+              <p className="mt-3 text-xs text-center">
+                <Link href="/docs/map" className="text-primary hover:underline">MAP Documentation →</Link>
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/docs/guides/benchmarks" className="text-primary font-medium hover:underline">
+              See Full Benchmark Results →
             </Link>
           </div>
         </div>
