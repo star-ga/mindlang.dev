@@ -52,34 +52,34 @@ export default function MICPage() {
                                         <td className="py-2 pr-4">278</td>
                                         <td className="py-2 pr-4">baseline</td>
                                         <td className="py-2 pr-4">5.31 us</td>
-                                        <td className="py-2">$8,340</td>
+                                        <td className="py-2">$487</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">TOML</td>
                                         <td className="py-2 pr-4">151</td>
                                         <td className="py-2 pr-4">1.8x</td>
                                         <td className="py-2 pr-4">137.06 us</td>
-                                        <td className="py-2">$4,530</td>
+                                        <td className="py-2">$264</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">TOON</td>
                                         <td className="py-2 pr-4">67</td>
                                         <td className="py-2 pr-4">4.1x</td>
                                         <td className="py-2 pr-4">2.67 us</td>
-                                        <td className="py-2">$2,010</td>
+                                        <td className="py-2">$117</td>
                                     </tr>
                                     <tr className="border-b bg-primary/5">
                                         <td className="py-2 pr-4 font-bold">MIC</td>
                                         <td className="py-2 pr-4 font-bold">52</td>
                                         <td className="py-2 pr-4 font-bold">5.3x</td>
                                         <td className="py-2 pr-4 font-bold">2.26 us</td>
-                                        <td className="py-2 font-bold">$1,560</td>
+                                        <td className="py-2 font-bold">$91</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <p className="text-muted mb-8">
-                            MIC saves <strong>$6,780/year</strong> per million IR operations vs JSON at GPT-4 pricing ($0.03/1K tokens).
+                            MIC saves <strong>$396/year</strong> per million IR operations vs JSON at GPT-5.2 pricing ($0.00175/1K input tokens).
                         </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Format Overview</h2>
