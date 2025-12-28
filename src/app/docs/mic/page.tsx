@@ -79,7 +79,7 @@ export default function MICPage() {
                             </table>
                         </div>
                         <p className="text-muted mb-8">
-                            MIC saves <strong>$6,780/year</strong> per million IR operations vs JSON at GPT-4 pricing ($0.03/1K tokens).
+                            MIC saves <strong>$6,780/year</strong> per million IR operations vs JSON at GPT-5.2 pricing ($0.03/1K tokens).
                         </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Format Overview</h2>

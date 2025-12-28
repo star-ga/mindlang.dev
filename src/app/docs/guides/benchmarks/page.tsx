@@ -266,7 +266,7 @@ python3 format_benchmark.py`}</CodeBlock>
                                 </table>
                             </div>
                             <p className="text-sm text-muted mt-3">
-                                <strong>MIC saves $6,780/year</strong> per million IR operations vs JSON at GPT-4 pricing.
+                                <strong>MIC saves $6,780/year</strong> per million IR operations vs JSON at GPT-5.2 pricing.
                             </p>
                         </div>
 
