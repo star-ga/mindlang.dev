@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "Showcase",
-    description: "See how companies and developers are using MIND to solve real-world AI problems.",
+    description: "See how MIND powers real-world AI and GPU computing applications.",
 };
 
 export default function ShowcasePage() {
@@ -14,76 +14,73 @@ export default function ShowcasePage() {
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <h1 className="page-title mb-6">Built with MIND</h1>
                         <p className="text-xl text-muted">
-                            Discover how cutting-edge teams are using MIND to optimize their AI infrastructure and accelerate development.
+                            Real-world applications demonstrating MIND's capabilities in GPU computing and AI.
                         </p>
                     </div>
 
-                    <div className="grid grid--three">
-                        {/* Placeholder 1 */}
+                    <div className="grid grid--two">
+                        {/* Mind-Ray */}
                         <div className="card card--outline p-0 overflow-hidden flex flex-col">
-                            <div className="h-48 bg-slate-100 flex items-center justify-center">
-                                <span className="text-muted font-medium">Project Screenshot</span>
+                            <div className="h-48 bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
+                                <span className="text-white text-3xl font-bold">Mind-Ray</span>
                             </div>
                             <div className="p-6 flex flex-col flex-1">
                                 <div className="mb-4">
                                     <span className="inline-block px-2 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider">
-                                        FinTech
+                                        GPU Computing
                                     </span>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">High-Frequency Trading</h3>
+                                <h3 className="text-xl font-bold mb-2">GPU Path Tracer</h3>
                                 <p className="text-muted text-sm flex-1">
-                                    A leading prop trading firm uses MIND to compile custom inference kernels for sub-microsecond latency on FPGAs.
+                                    High-performance path tracer with BVH-accelerated CUDA backend. Benchmarked against Mitsuba 3, Cycles, Falcor, and LuxCore.
                                 </p>
+                                <div className="mt-4 p-3 bg-emerald-50 rounded-lg">
+                                    <span className="text-emerald-700 font-bold text-sm">Performance</span>
+                                    <span className="text-emerald-600 text-sm block">10-50x faster than industry engines</span>
+                                    <span className="text-emerald-600 text-sm block">48x steady-state speedup vs Mitsuba 3</span>
+                                </div>
                                 <div className="mt-6 pt-6 border-t border-gray-100">
-                                    <button className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                                        Read Case Study <ArrowRight size={14} />
-                                    </button>
+                                    <a
+                                        href="https://github.com/cputer/mind-ray"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                                    >
+                                        View on GitHub <ArrowRight size={14} />
+                                    </a>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Placeholder 2 */}
+                        {/* NikolaChess */}
                         <div className="card card--outline p-0 overflow-hidden flex flex-col">
-                            <div className="h-48 bg-slate-100 flex items-center justify-center">
-                                <span className="text-muted font-medium">Project Screenshot</span>
-                            </div>
-                            <div className="p-6 flex flex-col flex-1">
-                                <div className="mb-4">
-                                    <span className="inline-block px-2 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider">
-                                        Robotics
-                                    </span>
-                                </div>
-                                <h3 className="text-xl font-bold mb-2">Autonomous Drone Swarm</h3>
-                                <p className="text-muted text-sm flex-1">
-                                    Using MIND's differentiable programming to optimize control policies in real-time on embedded hardware.
-                                </p>
-                                <div className="mt-6 pt-6 border-t border-gray-100">
-                                    <button className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                                        Read Case Study <ArrowRight size={14} />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Placeholder 3 */}
-                        <div className="card card--outline p-0 overflow-hidden flex flex-col">
-                            <div className="h-48 bg-slate-100 flex items-center justify-center">
-                                <span className="text-muted font-medium">Project Screenshot</span>
+                            <div className="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
+                                <span className="text-white text-3xl font-bold">NikolaChess</span>
                             </div>
                             <div className="p-6 flex flex-col flex-1">
                                 <div className="mb-4">
                                     <span className="inline-block px-2 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-wider">
-                                        Generative AI
+                                        Game AI
                                     </span>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Large Language Models</h3>
+                                <h3 className="text-xl font-bold mb-2">NNUE Chess Engine</h3>
                                 <p className="text-muted text-sm flex-1">
-                                    Optimizing transformer inference across a heterogeneous cluster of GPUs and TPUs with a single codebase.
+                                    GPU-accelerated chess engine with Stockfish-compatible NNUE evaluation, Syzygy tablebase support, and advanced time management.
                                 </p>
+                                <div className="mt-4 p-3 bg-violet-50 rounded-lg">
+                                    <span className="text-violet-700 font-bold text-sm">Features</span>
+                                    <span className="text-violet-600 text-sm block">+600 Elo with NNUE evaluation</span>
+                                    <span className="text-violet-600 text-sm block">GPU-accelerated search via MIND Runtime</span>
+                                </div>
                                 <div className="mt-6 pt-6 border-t border-gray-100">
-                                    <button className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                                        Read Case Study <ArrowRight size={14} />
-                                    </button>
+                                    <a
+                                        href="https://github.com/cputer/NikolaChess"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                                    >
+                                        View on GitHub <ArrowRight size={14} />
+                                    </a>
                                 </div>
                             </div>
                         </div>
