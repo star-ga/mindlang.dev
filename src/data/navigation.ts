@@ -7,6 +7,7 @@ export const mainNavigation: NavItem[] = [
             { url: "/features", label: "Features" },
             { url: "/use-cases", label: "Use Cases" },
             { url: "/ecosystem", label: "Ecosystem" },
+            { url: "/showcase", label: "Showcase" },
             { url: "/compare", label: "Compare" },
             { url: "/roadmap", label: "Roadmap" },
         ]
