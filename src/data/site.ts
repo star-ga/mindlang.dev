@@ -7,7 +7,7 @@ export const siteConfig = {
   github: "https://github.com/cputer/mind",
   specRepo: "https://github.com/cputer/mind-spec",
   docsPath: "/docs",
-  discord: "https://discord.gg/mindlang",
+  discord: "https://discord.gg/uNjGFKAEV",
   x: "https://x.com/mindlang",
   company: "STARGA, Inc.",
   contactEmail: "info@star.ga",
