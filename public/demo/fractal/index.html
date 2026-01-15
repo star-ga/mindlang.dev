@@ -449,19 +449,19 @@
         @media (max-width: 1024px) {
             #topBar {
                 top: 8px; left: 8px; right: 8px;
-                padding: 12px;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
+                padding: 10px;
+                gap: 8px;
                 border-radius: 12px;
+                position: fixed;
             }
-            #info { display: block; }
-            #info .title { font-size: 14px; font-weight: 600; margin: 0 0 4px 0; }
-            #info .stats { font-size: 9px; line-height: 1.4; }
-            #topRight { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
-            #topRight #apiSwitcher { position: absolute; top: 12px; left: 130px; }
+            #info { flex: 1; min-width: 0; }
+            #info .title { font-size: 13px; font-weight: 600; margin: 0 0 4px 0; }
+            #info .stats { font-size: 9px; line-height: 1.4; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+            #topRight { display: flex; gap: 5px; align-items: center; }
+            #apiSwitcher { position: absolute; top: 8px; left: 120px; transform: scale(0.85); transform-origin: left center; }
+            #apiSwitcher button { padding: 4px 8px; font-size: 9px; }
             #resolution { display: none; }
-            .btn { width: 34px; height: 34px; font-size: 14px; border-radius: 8px; }
+            .btn { width: 32px; height: 32px; font-size: 14px; border-radius: 8px; }
             .btn.mobile-only { display: inline-flex; }
             #controls { display: none; }
             #startBtn { padding: 18px 36px; border-radius: 50px; }
