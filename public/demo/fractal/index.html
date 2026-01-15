@@ -19,7 +19,7 @@
 
         #topBar {
             position: fixed; top: 12px; left: 12px; right: 12px;
-            display: flex; justify-content: space-between; align-items: center;
+            display: none; justify-content: space-between; align-items: center;
             padding: 10px 16px; border-radius: 14px; color: #fff;
             z-index: 100;
         }
@@ -1671,6 +1671,7 @@
                     await loadDemoMusic();
                     if (state.audioSource === 'file') {
                         document.getElementById('startHint').style.display = 'none';
+                        document.getElementById('topBar').style.display = 'flex';
                         toggleAutoZoom();
                     } else { if (btnText) btnText.textContent = 'Click here to start'; demoStarted = false; }
                 } catch (e) {
