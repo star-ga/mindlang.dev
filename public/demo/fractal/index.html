@@ -457,7 +457,6 @@
             }
             #info { display: flex; align-items: center; gap: 12px; }
             #info .title { font-size: 14px; font-weight: 600; margin: 0; }
-            #info .title > .api { display: none; }
             #info .stats { display: none; }
             #topRight { display: flex; gap: 8px; justify-content: center; }
             #topRight #apiSwitcher { position: absolute; top: 12px; left: 130px; }
@@ -1467,7 +1466,7 @@
             const resLabel = state.resolution === 'auto' ? 'Auto DPI' : state.resolution;
 
             info.innerHTML = `
-                <div class="title">Fractal Voyager <span class="api ${apiClass}">${apiName}</span> <span class="api ${apiClass}">${resLabel}</span></div>
+                <div class="title">Fractal Voyager</div>
                 <div class="stats">
                     <span class="highlight">${FRACTALS[state.fractalType]}</span> <span class="dim">|</span>
                     ${COLORS[state.colorScheme]} <span class="dim">|</span>
