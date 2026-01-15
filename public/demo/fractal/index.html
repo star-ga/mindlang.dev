@@ -6,6 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
     <title>Fractal Voyager - MindLang GPU Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #000; overflow: hidden; font-family: 'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif; }
@@ -199,6 +200,7 @@
             display: flex; align-items: center; justify-content: center;
             background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
             z-index: 9999;
+            overflow-y: auto;
         }
         .start-container {
             position: relative;
@@ -295,6 +297,67 @@
             margin-bottom: 24px;
             text-align: center;
         }
+        .made-with {
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        .made-with-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .made-with-demo {
+            font-size: 16px;
+            color: #fff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .made-with-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 4px;
+        }
+        .made-with-logo-vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .made-with-logo-vertical .mind-icon {
+            height: 150px;
+            width: auto;
+        }
+        .made-with-logo-vertical .mind-text {
+            font-family: 'Manrope', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-top: 8px;
+        }
+        .made-with-subtitle {
+            font-size: 10px;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .made-with-footer {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .made-with-footer a {
+            color: #7af;
+            text-decoration: none;
+        }
         .instruction-text {
             color: rgba(255,255,255,0.9);
             font-size: 16px;
@@ -359,8 +422,8 @@
             background: linear-gradient(135deg, #1a1a24 0%, #12121a 100%);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
-            padding: 24px;
-            margin-top: 16px;
+            padding: 16px;
+            margin-top: 12px;
             text-align: left;
             box-shadow: 0 8px 40px rgba(0,0,0,0.6);
             margin-left: auto;
@@ -368,29 +431,48 @@
         }
         .browser-instructions.visible {
             display: block;
-            animation: slideDown 0.3s ease;
         }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* When dropdown is expanded, reposition layout */
+        #startHint.dropdown-expanded {
+            align-items: flex-start;
+            padding: 20px;
+        }
+        #startHint.dropdown-expanded .made-with,
+        #startHint.dropdown-expanded .start-glow,
+        #startHint.dropdown-expanded #apiBadge,
+        #startHint.dropdown-expanded .start-api-selector,
+        #startHint.dropdown-expanded #startBtn,
+        #startHint.dropdown-expanded .start-instructions,
+        #startHint.dropdown-expanded .start-keys {
+            display: none;
+        }
+        #startHint.dropdown-expanded .browser-help {
+            width: 100%;
+            max-width: 100%;
+        }
+        #startHint.dropdown-expanded .browser-instructions {
+            width: 100%;
+            max-width: 600px;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
         }
         .browser-instructions h4 {
             color: #fff;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            margin: 0 0 16px 0;
-            padding-bottom: 12px;
+            margin: 0 0 12px 0;
+            padding-bottom: 8px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .browser-list {
             display: grid;
-            gap: 12px;
+            gap: 8px;
         }
         .browser-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            padding: 12px 14px;
+            gap: 10px;
+            padding: 10px 12px;
             background: rgba(255,255,255,0.03);
             border-radius: 10px;
             border: 1px solid rgba(255,255,255,0.05);
@@ -401,10 +483,17 @@
             border-color: rgba(255,255,255,0.1);
         }
         .browser-icon {
-            font-size: 20px;
             flex-shrink: 0;
-            width: 28px;
-            text-align: center;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .browser-icon img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
         }
         .browser-info {
             flex: 1;
@@ -412,23 +501,23 @@
         .browser-name {
             color: #fff;
             font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 4px;
+            font-size: 12px;
+            margin-bottom: 2px;
         }
         .browser-name .check { color: #4f4; margin-left: 6px; }
-        .browser-name .warning { color: #fa0; margin-left: 6px; font-size: 11px; }
+        .browser-name .warning { color: #fa0; margin-left: 6px; font-size: 10px; }
         .browser-steps {
             color: rgba(255,255,255,0.6);
-            font-size: 12px;
-            line-height: 1.5;
+            font-size: 11px;
+            line-height: 1.4;
             font-family: 'SF Mono', 'Fira Code', monospace;
         }
         .browser-steps code {
             background: rgba(102,126,234,0.2);
             color: #9af;
-            padding: 2px 6px;
+            padding: 1px 5px;
             border-radius: 4px;
-            font-size: 11px;
+            font-size: 10px;
         }
 
         /* Tablet styles */
@@ -452,7 +541,6 @@
                 padding: 8px 10px;
                 border-radius: 10px;
                 position: fixed;
-                display: flex;
                 flex-direction: row;
                 align-items: center;
                 gap: 8px;
@@ -464,7 +552,7 @@
             #topRight #apiSwitcher { position: absolute; top: 7px; left: 110px; border-radius: 4px; }
             #topRight #apiSwitcher button { padding: 2px 5px; font-size: 7px; }
             #resolution { display: none; }
-            .btn { width: 28px; height: 28px; font-size: 12px; border-radius: 6px; }
+            .btn { width: 36px; height: 36px; font-size: 14px; border-radius: 6px; }
             .btn.mobile-only { display: inline-flex; }
             #controls { display: none; }
             #startBtn { padding: 18px 36px; border-radius: 50px; }
@@ -550,6 +638,15 @@
 
     <div id="startHint">
         <div class="start-container">
+            <div class="made-with">
+                <div class="made-with-title">Fractal Voyager</div>
+                <div class="made-with-demo">Demo</div>
+                <div class="made-with-label">Made with:</div>
+                <a href="https://mindlang.dev" target="_blank" class="made-with-logo-vertical">
+                    <img src="../../img/mind-logo-full.svg" alt="MIND" class="mind-icon">
+                </a>
+                <div class="made-with-subtitle">Machine Intelligence Native Design</div>
+            </div>
             <div class="start-glow"></div>
             <div id="apiBadge" class="api-badge">Detecting GPU...</div>
             <div class="start-api-selector" id="startApiSelector" style="z-index:1; margin-bottom: 20px;">
@@ -583,14 +680,14 @@
                     <h4>Enable WebGPU for Best Performance</h4>
                     <div class="browser-list">
                         <div class="browser-item">
-                            <span class="browser-icon">🌐</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Chrome 113+ (Windows/macOS) <span class="check">✓</span></div>
                                 <div class="browser-steps">WebGPU enabled by default with native D3D12/Metal backend.</div>
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🔶</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Chrome (older) <span class="warning">flag required</span></div>
                                 <div class="browser-steps">
@@ -602,14 +699,14 @@
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🦊</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Firefox"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Firefox 121+ <span class="check">✓</span></div>
                                 <div class="browser-steps">WebGPU enabled by default on Windows/macOS.</div>
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🦊</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Firefox"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Firefox (Linux) <span class="warning">flag required</span></div>
                                 <div class="browser-steps">
@@ -621,7 +718,7 @@
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🐧</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Chrome/Chromium (Linux) <span class="warning">launch flags</span></div>
                                 <div class="browser-steps">
@@ -632,14 +729,14 @@
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🧭</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Safari_browser_logo.svg" alt="Safari"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Safari 18+ (macOS Sequoia) <span class="check">✓</span></div>
                                 <div class="browser-steps">WebGPU enabled by default.</div>
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🧭</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Safari_browser_logo.svg" alt="Safari"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Safari 17 <span class="warning">flag required</span></div>
                                 <div class="browser-steps">
@@ -651,7 +748,7 @@
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">📱</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Microsoft_Edge_logo_%282019%29.svg" alt="Edge"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Edge 113+ <span class="check">✓</span></div>
                                 <div class="browser-steps">WebGPU enabled by default (Chromium-based).</div>
@@ -1699,8 +1796,10 @@
             e.stopPropagation();
             const toggle = document.getElementById('browserHelpToggle');
             const instructions = document.getElementById('browserInstructions');
+            const startHint = document.getElementById('startHint');
             toggle.classList.toggle('expanded');
             instructions.classList.toggle('visible');
+            startHint.classList.toggle('dropdown-expanded');
         });
 
         // ============ API DETECTION ============
