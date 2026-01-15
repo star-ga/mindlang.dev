@@ -8,7 +8,7 @@ export const siteConfig = {
   runtimeRepo: "https://github.com/cputer/mind-runtime",
   specRepo: "https://github.com/cputer/mind-spec",
   docsPath: "/docs",
-  discord: "https://discord.gg/mindlang",
+  discord: "https://discord.gg/pg6eqrtgg",
   x: "https://x.com/mindlang",
   company: "STARGA, Inc.",
   contactEmail: "info@star.ga",
