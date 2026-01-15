@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "MIND pricing: Community Edition (free), Pro (coming soon), and Enterprise (custom pricing).",
+  description: "MIND pricing: Community (free), Pro ($99/seat), Teams ($399/month), and Enterprise (custom).",
 };
 
 export default function PricingPage() {
@@ -26,7 +26,7 @@ export default function PricingPage() {
       {/* Pricing Tiers */}
       <section className="section">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {/* Community */}
             <div className="card card--outline flex flex-col">
               <div className="mb-6">
@@ -75,12 +75,12 @@ export default function PricingPage() {
 
               <div className="mb-6">
                 <h3 className="text-2xl font-bold mb-2">Pro</h3>
-                <div className="text-4xl font-bold text-primary mb-1">TBD</div>
+                <div className="text-4xl font-bold text-primary mb-1">$99</div>
                 <p className="text-sm text-muted">Per seat / month</p>
               </div>
 
               <p className="text-muted mb-6 flex-1">
-                Hosted control plane, deterministic runtime, and basic audit logging for small teams.
+                Hosted control plane, deterministic runtime, and basic audit logging for individuals and small teams.
               </p>
 
               <ul className="space-y-3 mb-8">
@@ -115,6 +115,54 @@ export default function PricingPage() {
               </button>
             </div>
 
+            {/* Teams */}
+            <div className="card card--outline flex flex-col relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold">
+                Coming Soon
+              </div>
+
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold mb-2">Teams</h3>
+                <div className="text-4xl font-bold text-primary mb-1">$399</div>
+                <p className="text-sm text-muted">Per month</p>
+              </div>
+
+              <p className="text-muted mb-6 flex-1">
+                Unlimited team members, extended audit logs, and priority support for growing teams.
+              </p>
+
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-2 text-sm">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span><strong>Everything in Pro, plus:</strong></span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span>Unlimited team members</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span>Extended audit logs (90-day retention)</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span>Priority support (24-hour response)</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span>Team collaboration features</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                  <span>Usage analytics dashboard</span>
+                </li>
+              </ul>
+
+              <button className="btn btn--ghost w-full mt-auto" disabled>
+                Notify me
+              </button>
+            </div>
+
             {/* Enterprise */}
             <div className="card card--outline flex flex-col">
               <div className="mb-6">
@@ -130,7 +178,7 @@ export default function PricingPage() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2 text-sm">
                   <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
-                  <span><strong>Everything in Pro, plus:</strong></span>
+                  <span><strong>Everything in Teams, plus:</strong></span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
@@ -138,7 +186,7 @@ export default function PricingPage() {
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
-                  <span>Extended audit logs (custom retention)</span>
+                  <span>Custom audit log retention</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
@@ -154,7 +202,7 @@ export default function PricingPage() {
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <Check className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
-                  <span>Unlimited users</span>
+                  <span>Custom training & onboarding</span>
                 </li>
               </ul>
 
@@ -184,11 +232,12 @@ export default function PricingPage() {
             </div>
 
             <div>
-              <h3 className="font-bold mb-2">What's the difference between Community and Pro?</h3>
+              <h3 className="font-bold mb-2">What's the difference between the tiers?</h3>
               <p className="text-muted text-sm">
-                Community Edition includes the open-source compiler and language.
-                Pro adds the commercial runtime (deterministic execution mode), hosted MIND Cloud control plane, and basic audit logging.
-                It's designed for small teams that need reproducibility and hosted infrastructure but don't require enterprise-grade compliance.
+                <strong>Community</strong> is the open-source compiler and language — free forever.
+                <strong>Pro ($99/seat)</strong> adds the hosted control plane, deterministic execution, and basic audit logs for individuals.
+                <strong>Teams ($399/month)</strong> includes unlimited members, extended logs, and priority support.
+                <strong>Enterprise</strong> adds on-premises deployment, compliance support, and dedicated engineering.
               </p>
             </div>
 
@@ -201,10 +250,10 @@ export default function PricingPage() {
             </div>
 
             <div>
-              <h3 className="font-bold mb-2">When will Pro pricing be available?</h3>
+              <h3 className="font-bold mb-2">When will Pro and Teams be available?</h3>
               <p className="text-muted text-sm">
-                We're finalizing Pro tier pricing and expect to announce it in Q2 2026.
-                In the meantime, enterprise customers can contact sales for custom arrangements.
+                Pro and Teams tiers are coming in Q2 2026. Sign up for notifications on the pricing page.
+                Enterprise customers can contact sales now for custom arrangements.
               </p>
             </div>
 
