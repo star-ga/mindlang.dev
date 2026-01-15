@@ -449,31 +449,18 @@
         @media (max-width: 1024px) {
             #topBar {
                 top: 8px; left: 8px; right: 8px;
-                padding: 6px 10px;
-                flex-wrap: nowrap; gap: 8px;
+                padding: 8px 12px;
+                gap: 8px;
                 border-radius: 10px;
-                align-items: flex-start;
             }
-            #info {
-                flex: 1 1 auto;
-                font-size: 11px;
-                min-width: 0;
-                text-align: left;
-            }
-            #info .title { font-size: 12px; margin-bottom: 2px; white-space: nowrap; }
-            #info .title .api, #info .api, .api { display: none !important; }
-            #info .stats { font-size: 9px; white-space: normal; line-height: 1.4; }
-            #topRight {
-                flex: 0 0 auto;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 4px;
-                max-width: 64px;
-            }
-            #apiSwitcher { display: flex !important; width: 100%; margin-top: 4px; }
-            #resolution { display: none !important; }
-            .btn { width: 28px; height: 28px; font-size: 12px; border-radius: 6px; }
-            .btn.mobile-only { display: inline-flex; }
+            #info { flex: 1; font-size: 11px; }
+            #info .title { font-size: 12px; margin-bottom: 2px; }
+            #info .title > .api { display: none; }
+            #info .stats { font-size: 9px; }
+            #topRight { display: flex; flex-wrap: wrap; gap: 4px; max-width: 68px; }
+            #apiSwitcher { width: 100%; margin-top: 4px; }
+            #resolution { display: none; }
+            .btn { width: 28px; height: 28px; font-size: 12px; }
             #controls { display: none; }
             #startBtn { padding: 18px 36px; border-radius: 50px; }
             #startBtn .btn-text { font-size: 16px; }
