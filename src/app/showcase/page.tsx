@@ -121,7 +121,7 @@ export default function ShowcasePage() {
                                         View on GitHub <ArrowRight size={14} />
                                     </a>
                                     <a
-                                        href="https://github.com/cputer/fractal-voyager"
+                                        href="https://cputer.github.io/fractal-voyager/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-muted font-bold text-sm flex items-center gap-1 hover:gap-2 hover:text-primary transition-all"
