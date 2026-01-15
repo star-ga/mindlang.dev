@@ -104,12 +104,12 @@ export default function ShowcasePage() {
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">Real-time Fractal Explorer</h3>
                                 <p className="text-muted text-sm flex-1">
-                                    GPU-accelerated fractal visualization with WebGPU compute shaders. Features interactive exploration, audio-reactive coloring, and smooth infinite zoom.
+                                    Explore infinite mathematical complexity with GPU-accelerated rendering. Dive into Mandelbrot, Julia, and Burning Ship fractals with buttery-smooth zoom and pan controls.
                                 </p>
                                 <div className="mt-4 p-3 bg-pink-50 rounded-lg">
                                     <span className="text-pink-700 font-bold text-sm">Features</span>
-                                    <span className="text-pink-600 text-sm block">WebGPU compute shader pipeline</span>
-                                    <span className="text-pink-600 text-sm block">Audio-reactive visualization</span>
+                                    <span className="text-pink-600 text-sm block">WebGPU compute with WebGL2 fallback</span>
+                                    <span className="text-pink-600 text-sm block">Audio-reactive colors from microphone input</span>
                                 </div>
                                 <div className="mt-6 pt-6 border-t border-gray-100 flex gap-4">
                                     <a
