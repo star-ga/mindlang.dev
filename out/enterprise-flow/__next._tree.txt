@@ -1,0 +1,6 @@
+:HL["/_next/static/chunks/1f3560c075887f3e.css","style"]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/a343f882a40d2cc9-s.p.71e1367e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/ba65b388a16226ee.css","style"]
+:HL["/img/mind-logo-grid-grey.svg","image"]
+0:{"buildId":"TEDdOQwXOapvgwUJwj0-e","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"enterprise-flow","paramType":null,"paramKey":"enterprise-flow","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

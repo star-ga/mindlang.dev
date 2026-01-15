@@ -1,0 +1,48 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="specGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <filter id="docGlow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="28" fill="url(#specGradient)" opacity="0.1"/>
+  
+  <!-- Main document -->
+  <rect x="18" y="12" width="28" height="36" rx="3" fill="url(#specGradient)" opacity="0.9" filter="url(#docGlow)"/>
+  
+  <!-- Document corner fold -->
+  <path d="M38 12 L46 20 L38 20 Z" fill="url(#specGradient)" opacity="0.7"/>
+  
+  <!-- Document lines representing specification content -->
+  <g stroke="white" stroke-width="1.5" opacity="0.8">
+    <line x1="22" y1="20" x2="38" y2="20"/>
+    <line x1="22" y1="24" x2="42" y2="24"/>
+    <line x1="22" y1="28" x2="36" y2="28"/>
+    <line x1="22" y1="32" x2="40" y2="32"/>
+    <line x1="22" y1="36" x2="34" y2="36"/>
+    <line x1="22" y1="40" x2="38" y2="40"/>
+  </g>
+  
+  <!-- RFC badge -->
+  <rect x="20" y="16" width="16" height="6" rx="3" fill="white" opacity="0.9"/>
+  <text x="28" y="20.5" fill="url(#specGradient)" font-family="sans-serif" font-size="4" font-weight="bold" text-anchor="middle">RFC</text>
+  
+  <!-- Specification symbol -->
+  <circle cx="32" cy="52" r="6" fill="white" opacity="0.9"/>
+  <text x="32" y="55" fill="url(#specGradient)" font-family="serif" font-size="8" font-weight="bold" text-anchor="middle">§</text>
+  
+  <!-- Version indicator -->
+  <g fill="white" opacity="0.7">
+    <circle cx="50" cy="14" r="3"/>
+    <text x="50" y="16" font-family="monospace" font-size="3" text-anchor="middle">v2</text>
+  </g>
+</svg>
