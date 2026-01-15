@@ -115,65 +115,6 @@ export default function RoadmapPage() {
                     </Link>
                 </div>
 
-                {/* Full-Stack AI Vision Section */}
-                <div className="!bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-primary/20 rounded-xl p-8">
-                    <div className="flex items-center gap-3 mb-4">
-                        <Layers className="w-8 h-8 text-primary" />
-                        <h2 className="text-2xl font-bold text-foreground m-0">Full-Stack AI Vision</h2>
-                    </div>
-                    <p className="text-muted mb-6">
-                        MIND is evolving beyond a tensor language into a complete full-stack platform for AI development. Our vision encompasses the entire AI lifecycle from model development to production deployment.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
-                            <Cloud className="w-6 h-6 text-primary mb-2" />
-                            <h4 className="font-bold text-sm mb-1">Distributed Execution</h4>
-                            <p className="text-xs text-muted">Scale models across clusters with automatic sharding and gradient synchronization.</p>
-                        </div>
-                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
-                            <Rocket className="w-6 h-6 text-primary mb-2" />
-                            <h4 className="font-bold text-sm mb-1">Production Deployment</h4>
-                            <p className="text-xs text-muted">One-command deployment to cloud, edge, or on-premise with built-in serving infrastructure.</p>
-                        </div>
-                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
-                            <Server className="w-6 h-6 text-primary mb-2" />
-                            <h4 className="font-bold text-sm mb-1">End-to-End Integration</h4>
-                            <p className="text-xs text-muted">Seamless data pipelines, model versioning, and monitoring from a unified platform.</p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* GPU Performance Achievements */}
-                <div className="!bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-xl p-8">
-                    <div className="flex items-center gap-3 mb-4">
-                        <TrendingUp className="w-8 h-8 text-emerald-600" />
-                        <h2 className="text-2xl font-bold text-foreground m-0">GPU Performance (Enterprise)</h2>
-                    </div>
-                    <p className="text-muted mb-6">
-                        The CUDA backend delivers production-grade GPU acceleration with verified benchmarks on NVIDIA hardware.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
-                            <Target className="w-6 h-6 text-emerald-600 mb-2" />
-                            <h4 className="font-bold text-sm mb-1">180x Faster Memory</h4>
-                            <p className="text-xs text-muted">CachingAllocator achieves 8.3M allocs/sec vs PyTorch&apos;s 46K/sec. Zero cudaMalloc overhead.</p>
-                        </div>
-                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
-                            <Timer className="w-6 h-6 text-emerald-600 mb-2" />
-                            <h4 className="font-bold text-sm mb-1">35-40% Faster MatMul</h4>
-                            <p className="text-xs text-muted">TF32 Tensor Cores with cuBLASLt. FP16/FP8 support for Ada Lovelace and newer GPUs.</p>
-                        </div>
-                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
-                            <Cpu className="w-6 h-6 text-emerald-600 mb-2" />
-                            <h4 className="font-bold text-sm mb-1">98% Bandwidth</h4>
-                            <p className="text-xs text-muted">Elementwise ops achieve 250 GB/s on RTX 4070 (256 GB/s peak). float4 vectorization.</p>
-                        </div>
-                    </div>
-                    <p className="text-xs text-muted mt-4 text-center">
-                        Benchmarked on RTX 4070 (SM_89, Ada Lovelace). Performance scales with GPU capabilities. <Link href="/enterprise" className="text-primary underline">Enterprise license required</Link>.
-                    </p>
-                </div>
-
                 {/* CPU Execution */}
                 <RoadmapCard
                     icon={<Terminal className="w-8 h-8 text-emerald-500" />}
@@ -319,6 +260,65 @@ export default function RoadmapPage() {
                     milestone="Core pipeline operational"
                     milestoneDescription="Full compiler workflow. GPU/accelerator extensions in progress."
                 />
+
+                {/* Full-Stack AI Vision Section */}
+                <div className="!bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-primary/20 rounded-xl p-8">
+                    <div className="flex items-center gap-3 mb-4">
+                        <Layers className="w-8 h-8 text-primary" />
+                        <h2 className="text-2xl font-bold text-foreground m-0">Full-Stack AI Vision</h2>
+                    </div>
+                    <p className="text-muted mb-6">
+                        MIND is evolving beyond a tensor language into a complete full-stack platform for AI development. Our vision encompasses the entire AI lifecycle from model development to production deployment.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Cloud className="w-6 h-6 text-primary mb-2" />
+                            <h4 className="font-bold text-sm mb-1">Distributed Execution</h4>
+                            <p className="text-xs text-muted">Scale models across clusters with automatic sharding and gradient synchronization.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Rocket className="w-6 h-6 text-primary mb-2" />
+                            <h4 className="font-bold text-sm mb-1">Production Deployment</h4>
+                            <p className="text-xs text-muted">One-command deployment to cloud, edge, or on-premise with built-in serving infrastructure.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Server className="w-6 h-6 text-primary mb-2" />
+                            <h4 className="font-bold text-sm mb-1">End-to-End Integration</h4>
+                            <p className="text-xs text-muted">Seamless data pipelines, model versioning, and monitoring from a unified platform.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* GPU Performance Achievements */}
+                <div className="!bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-xl p-8">
+                    <div className="flex items-center gap-3 mb-4">
+                        <TrendingUp className="w-8 h-8 text-emerald-600" />
+                        <h2 className="text-2xl font-bold text-foreground m-0">GPU Performance (Enterprise)</h2>
+                    </div>
+                    <p className="text-muted mb-6">
+                        The CUDA backend delivers production-grade GPU acceleration with verified benchmarks on NVIDIA hardware.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Target className="w-6 h-6 text-emerald-600 mb-2" />
+                            <h4 className="font-bold text-sm mb-1">180x Faster Memory</h4>
+                            <p className="text-xs text-muted">CachingAllocator achieves 8.3M allocs/sec vs PyTorch&apos;s 46K/sec. Zero cudaMalloc overhead.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Timer className="w-6 h-6 text-emerald-600 mb-2" />
+                            <h4 className="font-bold text-sm mb-1">35-40% Faster MatMul</h4>
+                            <p className="text-xs text-muted">TF32 Tensor Cores with cuBLASLt. FP16/FP8 support for Ada Lovelace and newer GPUs.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Cpu className="w-6 h-6 text-emerald-600 mb-2" />
+                            <h4 className="font-bold text-sm mb-1">98% Bandwidth</h4>
+                            <p className="text-xs text-muted">Elementwise ops achieve 250 GB/s on RTX 4070 (256 GB/s peak). float4 vectorization.</p>
+                        </div>
+                    </div>
+                    <p className="text-xs text-muted mt-4 text-center">
+                        Benchmarked on RTX 4070 (SM_89, Ada Lovelace). Performance scales with GPU capabilities. <Link href="/enterprise" className="text-primary underline">Enterprise license required</Link>.
+                    </p>
+                </div>
 
                 {/* Performance Roadmap Section */}
                 <div className="!bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-primary/20 rounded-xl p-8 mb-6">
