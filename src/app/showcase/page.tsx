@@ -22,7 +22,7 @@ export default function ShowcasePage() {
                         {/* Mind-Ray */}
                         <div className="card card--outline p-0 overflow-hidden flex flex-col">
                             <div className="h-48 bg-gradient-to-br from-blue-900 to-purple-900 flex flex-col items-center justify-center gap-3">
-                                <img src="/favicon.svg" alt="MIND" className="h-28 w-auto" />
+                                <img src="/favicon.svg" alt="MIND" className="h-20 w-auto" />
                                 <span className="text-white text-3xl font-bold">Mind-Ray</span>
                             </div>
                             <div className="p-6 flex flex-col flex-1">
@@ -93,7 +93,7 @@ export default function ShowcasePage() {
                         {/* Fractal Voyager */}
                         <div className="card card--outline p-0 overflow-hidden flex flex-col">
                             <div className="h-48 bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 flex flex-col items-center justify-center gap-3">
-                                <img src="/favicon.svg" alt="MIND" className="h-28 w-auto" />
+                                <img src="/favicon.svg" alt="MIND" className="h-20 w-auto" />
                                 <span className="text-white text-3xl font-bold">Fractal Voyager</span>
                             </div>
                             <div className="p-6 flex flex-col flex-1">
