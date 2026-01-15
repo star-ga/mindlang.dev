@@ -18,7 +18,7 @@ export default function ShowcasePage() {
                         </p>
                     </div>
 
-                    <div className="grid grid--two">
+                    <div className="grid grid--three">
                         {/* Mind-Ray */}
                         <div className="card card--outline p-0 overflow-hidden flex flex-col">
                             <div className="h-48 bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
@@ -54,8 +54,12 @@ export default function ShowcasePage() {
 
                         {/* NikolaChess */}
                         <div className="card card--outline p-0 overflow-hidden flex flex-col">
-                            <div className="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
-                                <span className="text-white text-3xl font-bold">NikolaChess</span>
+                            <div className="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center p-6">
+                                <img
+                                    src="https://nikolachess.com/nikola_latest_logo.svg"
+                                    alt="NikolaChess"
+                                    className="h-24 w-auto"
+                                />
                             </div>
                             <div className="p-6 flex flex-col flex-1">
                                 <div className="mb-4">
@@ -80,6 +84,47 @@ export default function ShowcasePage() {
                                         className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
                                     >
                                         View on GitHub <ArrowRight size={14} />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Fractal Voyager */}
+                        <div className="card card--outline p-0 overflow-hidden flex flex-col">
+                            <div className="h-48 bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 flex items-center justify-center">
+                                <span className="text-white text-3xl font-bold">Fractal Voyager</span>
+                            </div>
+                            <div className="p-6 flex flex-col flex-1">
+                                <div className="mb-4">
+                                    <span className="inline-block px-2 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-bold uppercase tracking-wider">
+                                        WebGPU Visualization
+                                    </span>
+                                </div>
+                                <h3 className="text-xl font-bold mb-2">Real-time Fractal Explorer</h3>
+                                <p className="text-muted text-sm flex-1">
+                                    GPU-accelerated fractal visualization with WebGPU compute shaders. Features interactive exploration, audio-reactive coloring, and smooth infinite zoom.
+                                </p>
+                                <div className="mt-4 p-3 bg-pink-50 rounded-lg">
+                                    <span className="text-pink-700 font-bold text-sm">Features</span>
+                                    <span className="text-pink-600 text-sm block">WebGPU compute shader pipeline</span>
+                                    <span className="text-pink-600 text-sm block">Audio-reactive visualization</span>
+                                </div>
+                                <div className="mt-6 pt-6 border-t border-gray-100 flex gap-4">
+                                    <a
+                                        href="https://github.com/cputer/fractal-voyager"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                                    >
+                                        View on GitHub <ArrowRight size={14} />
+                                    </a>
+                                    <a
+                                        href="https://github.com/cputer/fractal-voyager"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-muted font-bold text-sm flex items-center gap-1 hover:gap-2 hover:text-primary transition-all"
+                                    >
+                                        Live Demo <ArrowRight size={14} />
                                     </a>
                                 </div>
                             </div>
