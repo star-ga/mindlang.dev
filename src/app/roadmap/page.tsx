@@ -83,21 +83,40 @@ export default function RoadmapPage() {
                     milestoneDescription="Python bindings, determinism verification, PyTorch comparison, and documentation complete."
                 />
 
-                {/* Info Text */}
-                <div className="max-w-3xl mx-auto px-4 py-6 text-sm text-muted space-y-4">
-                    <p>
-                        See <Link href="/docs/shapes" className="text-primary underline">Shapes & Broadcasting</Link> for practical shape rules and the reference engine.
-                    </p>
-                    <p>
-                        See <Link href="/docs/spec" className="text-primary underline">Core v1 Spec</Link>, <Link href="/docs/conformance" className="text-primary underline">Conformance</Link>, and <Link href="/docs/stability" className="text-primary underline">Stability & Versioning</Link> for official guarantees.
-                    </p>
-                    <p>
-                        For practical usage examples, visit <Link href="/docs/using-core-v1" className="text-primary underline">Using Core v1 Today</Link> and the <Link href="/docs/cookbook" className="text-primary underline">Cookbook</Link>.
-                    </p>
+                {/* Quick Reference Boxes */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <Link href="/docs/shapes" className="group block p-5 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 hover:border-primary/40 hover:shadow-md transition-all">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Layers className="w-5 h-5 text-primary" />
+                            <h4 className="font-bold text-sm text-foreground group-hover:text-primary transition-colors">Shapes & Broadcasting</h4>
+                        </div>
+                        <p className="text-xs text-muted leading-relaxed">Practical shape rules and the reference engine.</p>
+                    </Link>
+                    <Link href="/docs/spec" className="group block p-5 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100 hover:border-emerald-300 hover:shadow-md transition-all">
+                        <div className="flex items-center gap-2 mb-2">
+                            <CheckCircle className="w-5 h-5 text-emerald-600" />
+                            <h4 className="font-bold text-sm text-foreground group-hover:text-emerald-600 transition-colors">Core v1 Spec</h4>
+                        </div>
+                        <p className="text-xs text-muted leading-relaxed">Official spec, conformance, and stability guarantees.</p>
+                    </Link>
+                    <Link href="/docs/using-core-v1" className="group block p-5 rounded-xl bg-gradient-to-br from-violet-50 to-purple-50 border border-violet-100 hover:border-violet-300 hover:shadow-md transition-all">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Terminal className="w-5 h-5 text-violet-600" />
+                            <h4 className="font-bold text-sm text-foreground group-hover:text-violet-600 transition-colors">Using Core v1</h4>
+                        </div>
+                        <p className="text-xs text-muted leading-relaxed">Getting started with practical usage examples.</p>
+                    </Link>
+                    <Link href="/docs/cookbook" className="group block p-5 rounded-xl bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-100 hover:border-orange-300 hover:shadow-md transition-all">
+                        <div className="flex items-center gap-2 mb-2">
+                            <BookOpen className="w-5 h-5 text-orange-600" />
+                            <h4 className="font-bold text-sm text-foreground group-hover:text-orange-600 transition-colors">Cookbook</h4>
+                        </div>
+                        <p className="text-xs text-muted leading-relaxed">Ready-to-use recipes and code patterns.</p>
+                    </Link>
                 </div>
 
                 {/* Full-Stack AI Vision Section */}
-                <div className="!bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-primary/20 rounded-xl p-8 mb-6">
+                <div className="!bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-primary/20 rounded-xl p-8">
                     <div className="flex items-center gap-3 mb-4">
                         <Layers className="w-8 h-8 text-primary" />
                         <h2 className="text-2xl font-bold text-foreground m-0">Full-Stack AI Vision</h2>
@@ -122,6 +141,37 @@ export default function RoadmapPage() {
                             <p className="text-xs text-muted">Seamless data pipelines, model versioning, and monitoring from a unified platform.</p>
                         </div>
                     </div>
+                </div>
+
+                {/* GPU Performance Achievements */}
+                <div className="!bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-xl p-8">
+                    <div className="flex items-center gap-3 mb-4">
+                        <TrendingUp className="w-8 h-8 text-emerald-600" />
+                        <h2 className="text-2xl font-bold text-foreground m-0">GPU Performance (Enterprise)</h2>
+                    </div>
+                    <p className="text-muted mb-6">
+                        The CUDA backend delivers production-grade GPU acceleration with verified benchmarks on NVIDIA hardware.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Target className="w-6 h-6 text-emerald-600 mb-2" />
+                            <h4 className="font-bold text-sm mb-1">180x Faster Memory</h4>
+                            <p className="text-xs text-muted">CachingAllocator achieves 8.3M allocs/sec vs PyTorch&apos;s 46K/sec. Zero cudaMalloc overhead.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Timer className="w-6 h-6 text-emerald-600 mb-2" />
+                            <h4 className="font-bold text-sm mb-1">35-40% Faster MatMul</h4>
+                            <p className="text-xs text-muted">TF32 Tensor Cores with cuBLASLt. FP16/FP8 support for Ada Lovelace and newer GPUs.</p>
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
+                            <Cpu className="w-6 h-6 text-emerald-600 mb-2" />
+                            <h4 className="font-bold text-sm mb-1">98% Bandwidth</h4>
+                            <p className="text-xs text-muted">Elementwise ops achieve 250 GB/s on RTX 4070 (256 GB/s peak). float4 vectorization.</p>
+                        </div>
+                    </div>
+                    <p className="text-xs text-muted mt-4 text-center">
+                        Benchmarked on RTX 4070 (SM_89, Ada Lovelace). Performance scales with GPU capabilities. <Link href="/enterprise" className="text-primary underline">Enterprise license required</Link>.
+                    </p>
                 </div>
 
                 {/* CPU Execution */}
@@ -270,38 +320,7 @@ export default function RoadmapPage() {
                     milestoneDescription="Full compiler workflow. GPU/accelerator extensions in progress."
                 />
 
-                {/* GPU Performance Achievements - NEW SECTION */}
-                <div className="!bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-xl p-8 mb-6">
-                    <div className="flex items-center gap-3 mb-4">
-                        <TrendingUp className="w-8 h-8 text-emerald-600" />
-                        <h2 className="text-2xl font-bold text-foreground m-0">GPU Performance (Enterprise)</h2>
-                    </div>
-                    <p className="text-muted mb-6">
-                        The CUDA backend delivers production-grade GPU acceleration with verified benchmarks on NVIDIA hardware.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
-                            <Target className="w-6 h-6 text-emerald-600 mb-2" />
-                            <h4 className="font-bold text-sm mb-1">180x Faster Memory</h4>
-                            <p className="text-xs text-muted">CachingAllocator achieves 8.3M allocs/sec vs PyTorch&apos;s 46K/sec. Zero cudaMalloc overhead.</p>
-                        </div>
-                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
-                            <Timer className="w-6 h-6 text-emerald-600 mb-2" />
-                            <h4 className="font-bold text-sm mb-1">35-40% Faster MatMul</h4>
-                            <p className="text-xs text-muted">TF32 Tensor Cores with cuBLASLt. FP16/FP8 support for Ada Lovelace and newer GPUs.</p>
-                        </div>
-                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
-                            <Cpu className="w-6 h-6 text-emerald-600 mb-2" />
-                            <h4 className="font-bold text-sm mb-1">98% Bandwidth</h4>
-                            <p className="text-xs text-muted">Elementwise ops achieve 250 GB/s on RTX 4070 (256 GB/s peak). float4 vectorization.</p>
-                        </div>
-                    </div>
-                    <p className="text-xs text-muted mt-4 text-center">
-                        Benchmarked on RTX 4070 (SM_89, Ada Lovelace). Performance scales with GPU capabilities. <Link href="/enterprise" className="text-primary underline">Enterprise license required</Link>.
-                    </p>
-                </div>
-
-                {/* Performance Roadmap Section - UPDATED */}
+                {/* Performance Roadmap Section */}
                 <div className="!bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-primary/20 rounded-xl p-8 mb-6">
                     <div className="flex items-center gap-3 mb-4">
                         <Target className="w-8 h-8 text-primary" />

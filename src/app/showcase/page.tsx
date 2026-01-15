@@ -21,7 +21,8 @@ export default function ShowcasePage() {
                     <div className="grid grid--three">
                         {/* Mind-Ray */}
                         <div className="card card--outline p-0 overflow-hidden flex flex-col">
-                            <div className="h-48 bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
+                            <div className="h-48 bg-gradient-to-br from-blue-900 to-purple-900 flex flex-col items-center justify-center gap-3">
+                                <img src="/favicon.svg" alt="MIND" className="h-10 w-auto" />
                                 <span className="text-white text-3xl font-bold">Mind-Ray</span>
                             </div>
                             <div className="p-6 flex flex-col flex-1">
@@ -54,11 +55,11 @@ export default function ShowcasePage() {
 
                         {/* NikolaChess */}
                         <div className="card card--outline p-0 overflow-hidden flex flex-col">
-                            <div className="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center p-6">
+                            <div className="h-48 bg-white flex items-center justify-center p-6">
                                 <img
                                     src="https://nikolachess.com/nikola_latest_logo.svg"
                                     alt="NikolaChess"
-                                    className="h-24 w-auto"
+                                    className="h-28 w-auto"
                                 />
                             </div>
                             <div className="p-6 flex flex-col flex-1">
@@ -91,13 +92,14 @@ export default function ShowcasePage() {
 
                         {/* Fractal Voyager */}
                         <div className="card card--outline p-0 overflow-hidden flex flex-col">
-                            <div className="h-48 bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 flex items-center justify-center">
+                            <div className="h-48 bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 flex flex-col items-center justify-center gap-3">
+                                <img src="/favicon.svg" alt="MIND" className="h-10 w-auto" />
                                 <span className="text-white text-3xl font-bold">Fractal Voyager</span>
                             </div>
                             <div className="p-6 flex flex-col flex-1">
                                 <div className="mb-4">
                                     <span className="inline-block px-2 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-bold uppercase tracking-wider">
-                                        WebGPU Visualization
+                                        WebGPU / WebGL2
                                     </span>
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">Real-time Fractal Explorer</h3>
