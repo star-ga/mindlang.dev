@@ -449,17 +449,18 @@
         @media (max-width: 1024px) {
             #topBar {
                 top: 8px; left: 8px; right: 8px;
-                padding: 10px;
-                gap: 8px;
-                border-radius: 12px;
+                padding: 8px 10px;
+                gap: 6px;
+                border-radius: 10px;
                 position: fixed;
+                align-items: center;
             }
-            #info { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
-            #info .title { font-size: 13px; font-weight: 600; margin: 0; }
-            #info .stats { font-size: 9px; line-height: 1.3; flex: 1; }
-            #topRight { display: flex; gap: 5px; align-items: center; }
-            #apiSwitcher { order: 1; }
-            #apiSwitcher button { padding: 4px 8px; font-size: 9px; }
+            #info { flex: 1; min-width: 0; }
+            #info .title { font-size: 12px; font-weight: 600; margin: 0 0 2px 0; display: inline; }
+            #info .stats { font-size: 8px; line-height: 1.3; }
+            #topRight { display: flex; gap: 4px; align-items: center; flex-shrink: 0; }
+            #apiSwitcher { position: absolute; top: 6px; left: 115px; }
+            #apiSwitcher button { padding: 3px 6px; font-size: 8px; }
             #resolution { display: none; }
             .btn { width: 32px; height: 32px; font-size: 14px; border-radius: 8px; }
             .btn.mobile-only { display: inline-flex; }
