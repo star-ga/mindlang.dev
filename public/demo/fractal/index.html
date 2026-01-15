@@ -460,22 +460,20 @@
                 min-width: 0;
                 text-align: left;
             }
-            #info .title { font-size: 12px; margin-bottom: 2px; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
-            #info .api { display: none !important; }
-            .api { display: none !important; }
+            #info .title { font-size: 12px; margin-bottom: 2px; white-space: nowrap; }
+            #info .title .api, #info .api, .api { display: none !important; }
             #info .stats { font-size: 9px; white-space: normal; line-height: 1.4; }
             #topRight {
                 flex: 0 0 auto;
-                display: grid;
-                grid-template-columns: repeat(2, 28px);
-                grid-template-rows: repeat(2, 28px);
+                display: flex;
+                flex-wrap: wrap;
                 gap: 4px;
+                max-width: 64px;
             }
-            #apiSwitcher { display: flex !important; position: absolute; top: 6px; left: 110px; }
+            #apiSwitcher { display: flex !important; width: 100%; margin-top: 4px; }
             #resolution { display: none !important; }
             .btn { width: 28px; height: 28px; font-size: 12px; border-radius: 6px; }
             .btn.mobile-only { display: inline-flex; }
-            #topBar { position: relative; }
             #controls { display: none; }
             #startBtn { padding: 18px 36px; border-radius: 50px; }
             #startBtn .btn-text { font-size: 16px; }
@@ -540,8 +538,8 @@
                 </optgroup>
             </select>
             <div class="api-switcher" id="apiSwitcher" title="Switch Rendering API">
-                <button id="webgpuBtn">WebGPU</button>
                 <button id="webgl2Btn">WebGL2</button>
+                <button id="webgpuBtn">WebGPU</button>
             </div>
         </div>
     </div>
@@ -1738,12 +1736,8 @@
             const urlParams = new URLSearchParams(window.location.search);
             const forceRenderer = urlParams.get('renderer');
 
-            // Set default selection based on availability and browser
+            // Set default selection based on availability and browser (WebGL2 is default)
             if (forceRenderer === 'webgpu' && webgpuAvailable) {
-                selectedApi = 'webgpu';
-            } else if (forceRenderer === 'webgl2') {
-                selectedApi = 'webgl2';
-            } else if (webgpuAvailable && isChrome) {
                 selectedApi = 'webgpu';
             } else {
                 selectedApi = 'webgl2';
