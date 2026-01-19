@@ -61,7 +61,7 @@ export function Header() {
                         </span>
                         <span className="hidden xl:inline text-muted">|</span>
                         <span className="hidden xl:inline text-sm text-muted">
-                            Intelligence, compiled.
+                            Machine Intelligence Native Design
                         </span>
                     </Link>
 

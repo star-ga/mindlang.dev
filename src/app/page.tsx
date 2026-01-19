@@ -231,9 +231,9 @@ export default function HomePage() {
               <h3>Fast Compilation</h3>
               <p>Compile ML programs in ~25-53 µs. Verified benchmarks show 800-3,200× faster compilation than PyTorch 2.0 (inductor), and 17,000-36,000× faster than Mojo.</p>
               <div className="mt-4 p-3 bg-emerald-50 rounded-lg">
-                <span className="text-emerald-700 font-bold text-sm">Verified benchmarks</span>
-                <span className="text-emerald-600 text-sm block">Machine 1 (Dec 2025): 53-247× faster than PyTorch</span>
-                <span className="text-emerald-600 text-sm block">Machine 2 (Jan 2026): 800-3,200× faster than PyTorch</span>
+                <span className="text-emerald-700 font-bold text-sm">Verified benchmarks (fair in-process comparison)</span>
+                <span className="text-emerald-600 text-sm block">Windows 11 (Dec 2025): ~38 µs, 800-3,200× faster</span>
+                <span className="text-emerald-600 text-sm block">Ubuntu Linux (Jan 2026): 25-53 µs, 800-3,200× faster</span>
               </div>
               <p className="mt-3 text-xs text-center text-muted">
                 <Link href="/docs/performance#compilation-speed-mind-vs-pytorch-20" className="text-primary hover:underline">PyTorch benchmarks</Link>

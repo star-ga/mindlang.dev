@@ -46,11 +46,11 @@ export default function PerformanceFAQPage() {
                                     </thead>
                                     <tbody className="text-muted">
                                         <tr className="border-b bg-emerald-50/50">
-                                            <td className="py-2 pr-4 font-semibold">MIND (Machine 1, Dec 2025)</td>
+                                            <td className="py-2 pr-4 font-semibold">MIND (Windows 11, Dec 2025)</td>
                                             <td className="py-2 font-semibold text-emerald-700">~38 µs</td>
                                         </tr>
                                         <tr className="border-b bg-emerald-50/50">
-                                            <td className="py-2 pr-4 font-semibold">MIND (Machine 2, Jan 2026)</td>
+                                            <td className="py-2 pr-4 font-semibold">MIND (Ubuntu Linux, Jan 2026)</td>
                                             <td className="py-2 font-semibold text-emerald-700">~25-53 µs</td>
                                         </tr>
                                         <tr className="border-b">

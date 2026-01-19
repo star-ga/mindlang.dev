@@ -33,13 +33,13 @@ export default function PerformancePage() {
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                                 <div className="p-3 bg-white/50 rounded-lg">
-                                    <div className="font-semibold mb-1">Machine 1 (Dec 23, 2025)</div>
+                                    <div className="font-semibold mb-1">Windows 11 Desktop (Dec 2025)</div>
                                     <div><span className="text-muted">MIND:</span> <span className="font-medium">~38 µs</span></div>
-                                    <div><span className="text-muted">vs PyTorch:</span> <span className="font-medium text-emerald-700">53-247× faster</span></div>
+                                    <div><span className="text-muted">vs PyTorch (inductor):</span> <span className="font-medium text-emerald-700">800-3,200× faster</span></div>
                                 </div>
                                 <div className="p-3 bg-white/50 rounded-lg">
-                                    <div className="font-semibold mb-1">Machine 2 (Jan 19, 2026)</div>
-                                    <div><span className="text-muted">MIND:</span> <span className="font-medium">~25-53 µs</span></div>
+                                    <div className="font-semibold mb-1">Ubuntu Linux Server (Jan 2026)</div>
+                                    <div><span className="text-muted">MIND:</span> <span className="font-medium">25-53 µs</span></div>
                                     <div><span className="text-muted">vs PyTorch (inductor):</span> <span className="font-medium text-emerald-700">800-3,200× faster</span></div>
                                 </div>
                             </div>
@@ -85,11 +85,11 @@ export default function PerformancePage() {
                             <h4 className="font-semibold mb-2">MIND Compilation Statistics</h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                                 <div className="p-3 bg-gray-50 rounded-lg">
-                                    <div className="font-medium mb-1">Machine 1 (Dec 2025)</div>
+                                    <div className="font-medium mb-1">Windows 11 (Dec 2025)</div>
                                     <div><span className="text-muted">Mean:</span> 38.3 µs | <span className="text-muted">StdDev:</span> 4.3 µs</div>
                                 </div>
                                 <div className="p-3 bg-gray-50 rounded-lg">
-                                    <div className="font-medium mb-1">Machine 2 (Jan 2026)</div>
+                                    <div className="font-medium mb-1">Ubuntu Linux (Jan 2026)</div>
                                     <div><span className="text-muted">Range:</span> 25-53 µs (Criterion benchmarks)</div>
                                 </div>
                             </div>
