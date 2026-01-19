@@ -78,7 +78,7 @@ match detect_format(data) {
                             </div>
                         </div>
 
-                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Comparison</h2>
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Format Comparison</h2>
                         <div className="overflow-x-auto mb-8">
                             <table className="min-w-full text-sm">
                                 <thead>
@@ -86,7 +86,8 @@ match detect_format(data) {
                                         <th className="text-left py-2 pr-4 font-bold">Format</th>
                                         <th className="text-left py-2 pr-4 font-bold">Tokens</th>
                                         <th className="text-left py-2 pr-4 font-bold">Bytes</th>
-                                        <th className="text-left py-2 pr-4 font-bold">vs JSON</th>
+                                        <th className="text-left py-2 pr-4 font-bold">vs JSON (tokens)</th>
+                                        <th className="text-left py-2 pr-4 font-bold">vs JSON (bytes)</th>
                                         <th className="text-left py-2 font-bold">Use Case</th>
                                     </tr>
                                 </thead>
@@ -96,28 +97,48 @@ match detect_format(data) {
                                         <td className="py-2 pr-4">~180</td>
                                         <td className="py-2 pr-4">~450</td>
                                         <td className="py-2 pr-4">baseline</td>
+                                        <td className="py-2 pr-4">baseline</td>
                                         <td className="py-2">Legacy interchange</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">TOML</td>
+                                        <td className="py-2 pr-4">~151</td>
+                                        <td className="py-2 pr-4">~380</td>
+                                        <td className="py-2 pr-4">1.2x</td>
+                                        <td className="py-2 pr-4">1.2x</td>
+                                        <td className="py-2">Config files</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">TOON</td>
+                                        <td className="py-2 pr-4">~67</td>
+                                        <td className="py-2 pr-4">~170</td>
+                                        <td className="py-2 pr-4">2.7x</td>
+                                        <td className="py-2 pr-4">2.6x</td>
+                                        <td className="py-2">Compact text</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">mic@1</td>
                                         <td className="py-2 pr-4">~45</td>
                                         <td className="py-2 pr-4">~120</td>
-                                        <td className="py-2 pr-4">4x</td>
-                                        <td className="py-2">Legacy text format</td>
+                                        <td className="py-2 pr-4">4.0x</td>
+                                        <td className="py-2 pr-4">3.8x</td>
+                                        <td className="py-2">Legacy Mind IR</td>
                                     </tr>
                                     <tr className="border-b bg-primary/5">
                                         <td className="py-2 pr-4 font-bold">mic@2</td>
                                         <td className="py-2 pr-4 font-bold">~28</td>
                                         <td className="py-2 pr-4 font-bold">~85</td>
                                         <td className="py-2 pr-4 font-bold">6.4x</td>
+                                        <td className="py-2 pr-4 font-bold">5.3x</td>
                                         <td className="py-2">LLM prompts, git diffs</td>
                                     </tr>
                                     <tr className="border-b bg-primary/5">
                                         <td className="py-2 pr-4 font-bold">MIC-B v2</td>
                                         <td className="py-2 pr-4 font-bold">-</td>
                                         <td className="py-2 pr-4 font-bold">~40</td>
-                                        <td className="py-2 pr-4 font-bold">11x</td>
-                                        <td className="py-2">Storage, network transfer</td>
+                                        <td className="py-2 pr-4 font-bold">-</td>
+                                        <td className="py-2 pr-4 font-bold">11.3x</td>
+                                        <td className="py-2">Storage, network</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -125,6 +146,72 @@ match detect_format(data) {
                         <p className="text-muted text-sm mb-8">
                             Benchmark: residual block <code>Y = relu(X @ W + b) + X</code>
                         </p>
+
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Feature Comparison</h2>
+                        <div className="overflow-x-auto mb-8">
+                            <table className="min-w-full text-sm">
+                                <thead>
+                                    <tr className="border-b">
+                                        <th className="text-left py-2 pr-4 font-bold">Feature</th>
+                                        <th className="text-left py-2 pr-4 font-bold">JSON</th>
+                                        <th className="text-left py-2 pr-4 font-bold">TOON</th>
+                                        <th className="text-left py-2 pr-4 font-bold">mic@1</th>
+                                        <th className="text-left py-2 pr-4 font-bold">mic@2</th>
+                                        <th className="text-left py-2 font-bold">MIC-B</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-muted">
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Human readable</td>
+                                        <td className="py-2 pr-4">Yes</td>
+                                        <td className="py-2 pr-4">Yes</td>
+                                        <td className="py-2 pr-4">Yes</td>
+                                        <td className="py-2 pr-4">Yes</td>
+                                        <td className="py-2">No</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Git-friendly</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 pr-4">Partial</td>
+                                        <td className="py-2 pr-4">Yes</td>
+                                        <td className="py-2 pr-4 font-bold">Yes</td>
+                                        <td className="py-2">No</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Deterministic</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 pr-4">Yes</td>
+                                        <td className="py-2 pr-4 font-bold">Yes</td>
+                                        <td className="py-2 font-bold">Yes</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">LLM-optimized</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 pr-4">Partial</td>
+                                        <td className="py-2 pr-4 font-bold">Yes</td>
+                                        <td className="py-2">N/A</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Binary format</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 font-bold">Yes</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Implicit IDs</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 pr-4">No</td>
+                                        <td className="py-2 pr-4 font-bold">Yes</td>
+                                        <td className="py-2 font-bold">Yes</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Side-by-Side Example</h2>
                         <div className="grid md:grid-cols-2 gap-6 mb-8">
