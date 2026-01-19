@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
-
 .flow-header {
     background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
     border-bottom: 1px solid #f0f0f0;
     padding: 24px 40px;
+    text-align: center;
 }
 
 .flow-header-top {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 14px;
     margin-bottom: 6px;
 }
@@ -26,30 +26,36 @@
 }
 
 .flow-title {
+    font-family: var(--font-heading), 'Manrope', sans-serif;
     font-size: 32px;
-    font-weight: 900;
+    font-weight: 700;
     letter-spacing: -1.2px;
     color: #1a1a1a;
     margin: 0;
 }
 
 .flow-subtitle {
-    font-size: 13px;
+    font-family: var(--font-body), 'Inter', sans-serif;
+    font-size: 15px;
     color: #7a7a7a;
     font-weight: 500;
 }
 
 .flow-context-note {
-    font-size: 12px;
-    color: #999;
-    font-style: italic;
-    margin-top: 8px;
-    max-width: 600px;
-    line-height: 1.5;
+    font-family: var(--font-body), 'Inter', sans-serif;
+    font-size: 14px;
+    color: #666;
+    font-style: normal;
+    margin-top: 12px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
 }
 
 .flow-stats {
     display: flex;
+    justify-content: center;
     gap: 40px;
     margin-top: 18px;
 }
