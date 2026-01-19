@@ -232,11 +232,12 @@ export default function HomePage() {
             <div className="card">
               <Clock className="card-icon" />
               <h3>Fast Compilation</h3>
-              <p>Compile ML programs in ~25-53 µs. Verified benchmarks show 800-3,200× faster compilation than PyTorch 2.0 (inductor), and ~650× faster than Mojo.</p>
+              <p>Compile ML programs in ~100-187 µs. Scientific benchmarks (subprocess overhead subtracted) show massive speedups over all major ML compilers.</p>
               <div className="mt-4 p-3 bg-emerald-50 rounded-lg">
-                <span className="text-emerald-700 font-bold text-sm">Verified benchmarks (fair in-process comparison)</span>
-                <span className="text-emerald-600 text-sm block">Windows 11: ~38 µs, 1,100-2,100× faster</span>
-                <span className="text-emerald-600 text-sm block">Ubuntu Linux: 25-53 µs, 800-3,200× faster</span>
+                <span className="text-emerald-700 font-bold text-sm">Scientific methodology (Jan 2026)</span>
+                <span className="text-emerald-600 text-sm block">14,769× faster than PyTorch 2.0</span>
+                <span className="text-emerald-600 text-sm block">2,699× faster than JAX</span>
+                <span className="text-emerald-600 text-sm block">4,040× faster than Mojo</span>
               </div>
               <p className="mt-3 text-xs text-center text-muted">
                 <Link href="/docs/performance#compilation-speed-mind-vs-pytorch-20" className="text-primary hover:underline">PyTorch benchmarks</Link>
@@ -268,6 +269,31 @@ export default function HomePage() {
                 <Link href="/docs/performance#compile-time-autodiff" className="text-primary hover:underline">Autodiff benchmarks</Link>
               </p>
             </div>
+          </div>
+
+          {/* Live Benchmark Demo */}
+          <div className="mt-12 max-w-3xl mx-auto">
+            <h3 className="text-xl font-bold text-center mb-4">Live Benchmark Demo</h3>
+            <p className="text-sm text-muted text-center mb-4">
+              Scientific methodology: subprocess overhead subtracted for fair comparison
+            </p>
+            <div className="rounded-xl overflow-hidden border border-border bg-neutral-900 shadow-lg">
+              <video
+                className="w-full"
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster="/demo/benchmarks/MIND_Scientific_Benchmark.gif"
+              >
+                <source src="/demo/benchmarks/MIND_Scientific_Benchmark.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <p className="text-xs text-muted mt-2 text-center">
+              All measurements run live — no hardcoded values. MIND vs PyTorch 2.0, JAX, and Mojo.
+            </p>
           </div>
 
           <div className="text-center mt-8">
