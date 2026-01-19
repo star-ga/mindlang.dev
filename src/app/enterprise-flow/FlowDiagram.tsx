@@ -13,13 +13,13 @@ export default function FlowDiagram() {
 
         // --- Logic Start ---
         const nodes: Record<string, { x: number, y: number, w: number, h: number }> = {
-            entry: { x: 80, y: 340, w: 280, h: 130 },
-            standard: { x: 520, y: 180, w: 300, h: 130 },
-            custom: { x: 520, y: 380, w: 300, h: 130 },
-            managed: { x: 520, y: 570, w: 300, h: 130 },
-            stall: { x: 520, y: 800, w: 260, h: 110 },
-            governed: { x: 1020, y: 320, w: 320, h: 130 },
-            success: { x: 1540, y: 320, w: 340, h: 130 }
+            entry: { x: 80, y: 280, w: 280, h: 130 },
+            standard: { x: 520, y: 120, w: 300, h: 130 },
+            custom: { x: 520, y: 280, w: 300, h: 130 },
+            managed: { x: 520, y: 470, w: 300, h: 130 },
+            stall: { x: 520, y: 700, w: 260, h: 110 },
+            governed: { x: 1020, y: 280, w: 320, h: 130 },
+            success: { x: 1540, y: 280, w: 340, h: 130 }
         };
 
         function edge(id: string, side: 'left' | 'right', vOffset = 0) {
@@ -632,7 +632,7 @@ export default function FlowDiagram() {
                     <svg id="flow-svg"></svg>
 
                     {/* ENTRY */}
-                    <div className="flow-node primary" data-node="entry" style={{ left: 80, top: 340, width: 280 }}>
+                    <div className="flow-node primary" data-node="entry" style={{ left: 80, top: 280, width: 280 }}>
                         <div className="flow-node-label">Entry</div>
                         <div className="flow-node-title">Workspace Activation</div>
                         <div className="flow-node-desc">Contract signed • Tenant provisioned • Identity + billing initialized</div>
@@ -643,7 +643,7 @@ export default function FlowDiagram() {
                     </div>
 
                     {/* PRIMARY PATH */}
-                    <div className="flow-node primary" data-node="standard" style={{ left: 520, top: 180, width: 300 }}>
+                    <div className="flow-node primary" data-node="standard" style={{ left: 520, top: 120, width: 300 }}>
                         <div className="flow-node-label">Primary · ~60%</div>
                         <div className="flow-node-title">Standard MIND Deployment</div>
                         <div className="flow-node-desc">Default governance stack • Managed providers • Reference policies</div>
@@ -654,7 +654,7 @@ export default function FlowDiagram() {
                     </div>
 
                     {/* ALTERNATIVE PATH */}
-                    <div className="flow-node alternative" data-node="custom" style={{ left: 520, top: 380, width: 300 }}>
+                    <div className="flow-node alternative" data-node="custom" style={{ left: 520, top: 280, width: 300 }}>
                         <div className="flow-node-label">Alternative · ~25%</div>
                         <div className="flow-node-title">Custom Governance Setup</div>
                         <div className="flow-node-desc">Custom policies • External providers • Org-specific controls</div>
@@ -665,7 +665,7 @@ export default function FlowDiagram() {
                     </div>
 
                     {/* MANAGED PATH */}
-                    <div className="flow-node enhanced" data-node="managed" style={{ left: 520, top: 570, width: 300 }}>
+                    <div className="flow-node enhanced" data-node="managed" style={{ left: 520, top: 470, width: 300 }}>
                         <div className="flow-node-label">Managed · ~10%</div>
                         <div className="flow-node-title">Managed Enterprise Delivery</div>
                         <div className="flow-node-desc">White-glove onboarding • Dedicated governance • SLA support</div>
@@ -676,7 +676,7 @@ export default function FlowDiagram() {
                     </div>
 
                     {/* EXIT */}
-                    <div className="flow-node exit" data-node="stall" style={{ left: 520, top: 800, width: 260 }}>
+                    <div className="flow-node exit" data-node="stall" style={{ left: 520, top: 700, width: 260 }}>
                         <div className="flow-node-label">Exit · ~5%</div>
                         <div className="flow-node-title">Adoption Stall</div>
                         <div className="flow-node-desc">No internal owner • Org not AI-ready • Strategic deprioritization</div>
@@ -686,7 +686,7 @@ export default function FlowDiagram() {
                     </div>
 
                     {/* CORE PLATFORM */}
-                    <div className="flow-node core" data-node="governed" style={{ left: 1020, top: 320, width: 320 }}>
+                    <div className="flow-node core" data-node="governed" style={{ left: 1020, top: 280, width: 320 }}>
                         <div className="flow-node-label">Core · ~95%</div>
                         <div className="flow-node-title">Governed AI Operations</div>
                         <div className="flow-node-desc">Policies enforced • Costs tracked • Providers orchestrated</div>
@@ -697,7 +697,7 @@ export default function FlowDiagram() {
                     </div>
 
                     {/* SUCCESS */}
-                    <div className="flow-node success" data-node="success" style={{ left: 1540, top: 320, width: 340 }}>
+                    <div className="flow-node success" data-node="success" style={{ left: 1540, top: 280, width: 340 }}>
                         <div className="flow-node-label">Success · ~90%</div>
                         <div className="flow-node-title">Organization-Wide AI Governance</div>
                         <div className="flow-node-desc">AI standardized • Risk reduced • Spend controlled</div>
