@@ -27,18 +27,18 @@ export default function PerformancePage() {
 
                         {/* Verified Benchmarks Banner */}
                         <div className="bg-gradient-to-r from-emerald-50 to-blue-50 border border-emerald-200 rounded-xl p-6 mb-8">
-                            <h3 className="text-lg font-bold text-foreground mb-2">Verified Benchmarks (Dec 2025 & Jan 2026)</h3>
+                            <h3 className="text-lg font-bold text-foreground mb-2">Verified Benchmarks</h3>
                             <p className="text-sm text-muted mb-4">
                                 Results from two different machines, both using fair in-process comparison methodology:
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                                 <div className="p-3 bg-white/50 rounded-lg">
-                                    <div className="font-semibold mb-1">Windows 11 Desktop (Dec 2025)</div>
+                                    <div className="font-semibold mb-1">Windows 11 Desktop</div>
                                     <div><span className="text-muted">MIND:</span> <span className="font-medium">~38 µs</span></div>
-                                    <div><span className="text-muted">vs PyTorch (inductor):</span> <span className="font-medium text-emerald-700">800-3,200× faster</span></div>
+                                    <div><span className="text-muted">vs PyTorch (inductor):</span> <span className="font-medium text-emerald-700">1,100-2,100× faster</span></div>
                                 </div>
                                 <div className="p-3 bg-white/50 rounded-lg">
-                                    <div className="font-semibold mb-1">Ubuntu Linux Server (Jan 2026)</div>
+                                    <div className="font-semibold mb-1">Ubuntu Linux Server</div>
                                     <div><span className="text-muted">MIND:</span> <span className="font-medium">25-53 µs</span></div>
                                     <div><span className="text-muted">vs PyTorch (inductor):</span> <span className="font-medium text-emerald-700">800-3,200× faster</span></div>
                                 </div>
@@ -278,8 +278,8 @@ export default function PerformancePage() {
                                 <thead>
                                     <tr className="border-b">
                                         <th className="text-left py-2 pr-4 font-bold">Benchmark</th>
-                                        <th className="text-left py-2 pr-4 font-bold">MIND</th>
-                                        <th className="text-left py-2 pr-4 font-bold">Mojo 0.25.7</th>
+                                        <th className="text-left py-2 pr-4 font-bold">MIND (compile)</th>
+                                        <th className="text-left py-2 pr-4 font-bold">Mojo 0.25.7 (build)</th>
                                         <th className="text-left py-2 font-bold">MIND Speedup</th>
                                     </tr>
                                 </thead>
@@ -287,26 +287,14 @@ export default function PerformancePage() {
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">Scalar Math</td>
                                         <td className="py-2 pr-4">22 µs</td>
-                                        <td className="py-2 pr-4">441 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">20,041×</td>
+                                        <td className="py-2 pr-4">~14 ms</td>
+                                        <td className="py-2 font-semibold text-green-600">~636×</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">Small MatMul (10×20 × 20×30)</td>
                                         <td className="py-2 pr-4">41 µs</td>
-                                        <td className="py-2 pr-4">498 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">12,126×</td>
-                                    </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">Medium MatMul (128×256 × 256×512)</td>
-                                        <td className="py-2 pr-4">41 µs</td>
-                                        <td className="py-2 pr-4">1.34 s</td>
-                                        <td className="py-2 font-semibold text-green-600">32,925×</td>
-                                    </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">Large MatMul (512×1024 × 1024×512)</td>
-                                        <td className="py-2 pr-4">41 µs</td>
-                                        <td className="py-2 pr-4">13.8 s</td>
-                                        <td className="py-2 font-semibold text-green-600">339,426×</td>
+                                        <td className="py-2 pr-4">~27 ms</td>
+                                        <td className="py-2 font-semibold text-green-600">~659×</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -315,9 +303,8 @@ export default function PerformancePage() {
                             <h4 className="font-semibold mb-2">Key Observations</h4>
                             <ul className="list-disc pl-6 space-y-1 text-muted text-sm">
                                 <li>MIND compiles in <strong>microseconds</strong> regardless of model complexity</li>
-                                <li>Mojo compilation time scales with computation size (seconds for larger models)</li>
                                 <li>Fair comparison using <code>mojo build</code> (compile-only): MIND achieves <strong>~650× faster</strong> compilation</li>
-                                <li>Table above shows <code>mojo run</code> (compile+execute) for reference — fair compile-only comparison is ~650×</li>
+                                <li>Both measurements are compile-only — no execution time included</li>
                             </ul>
                             <p className="text-xs text-muted mt-3">
                                 Same-machine benchmark: AlmaLinux 9.7, LLVM 20, Mojo 0.25.7 |

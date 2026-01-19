@@ -73,8 +73,8 @@ export default function RoadmapPage() {
                     statusColor="bg-emerald-100 text-emerald-700"
                     progress={100}
                     progressColor="bg-emerald-500"
-                    milestone="Verified Dec 2025 & Jan 2026"
-                    description="Windows 11 (Dec 2025): ~38 µs. Ubuntu Linux (Jan 2026): 25-53 µs. Both achieve 800-3,200× faster compilation than PyTorch 2.0 (inductor). 100% bit-level determinism, 17,000-36,000× faster than Mojo."
+                    milestone="Verified"
+                    description="Windows 11: ~38 µs (1,100-2,100× faster). Ubuntu Linux: 25-53 µs (800-3,200× faster). Both vs PyTorch 2.0 (inductor). 100% bit-level determinism, ~650× faster than Mojo."
                     subDescription={
                         <>
                             See <Link href="/docs/performance" className="text-primary underline">Performance</Link> and <Link href="/docs/guides/benchmarks" className="text-primary underline">Running Benchmarks</Link> for full details.

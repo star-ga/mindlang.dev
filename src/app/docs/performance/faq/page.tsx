@@ -46,16 +46,16 @@ export default function PerformanceFAQPage() {
                                     </thead>
                                     <tbody className="text-muted">
                                         <tr className="border-b bg-emerald-50/50">
-                                            <td className="py-2 pr-4 font-semibold">MIND (Windows 11, Dec 2025)</td>
+                                            <td className="py-2 pr-4 font-semibold">MIND (Windows 11)</td>
                                             <td className="py-2 font-semibold text-emerald-700">~38 µs</td>
                                         </tr>
                                         <tr className="border-b bg-emerald-50/50">
-                                            <td className="py-2 pr-4 font-semibold">MIND (Ubuntu Linux, Jan 2026)</td>
+                                            <td className="py-2 pr-4 font-semibold">MIND (Ubuntu Linux)</td>
                                             <td className="py-2 font-semibold text-emerald-700">~25-53 µs</td>
                                         </tr>
                                         <tr className="border-b">
                                             <td className="py-2 pr-4">PyTorch 2.0 (inductor)</td>
-                                            <td className="py-2">43-79 ms (800-3,200× slower)</td>
+                                            <td className="py-2">43-79 ms (800-3,200× slower than Ubuntu, 1,100-2,100× slower than Windows)</td>
                                         </tr>
                                         <tr className="border-b">
                                             <td className="py-2 pr-4">JAX (XLA)</td>
@@ -69,7 +69,7 @@ export default function PerformanceFAQPage() {
                                 </table>
                             </div>
                             <p className="text-sm text-muted mt-4">
-                                MIND is <strong>800-3,200× faster than PyTorch 2.0 (inductor)</strong> — fair in-process comparison.
+                                MIND is <strong>800-3,200× faster</strong> (Ubuntu) and <strong>1,100-2,100× faster</strong> (Windows) than PyTorch 2.0 (inductor) — fair in-process comparison.
                             </p>
                         </div>
 
