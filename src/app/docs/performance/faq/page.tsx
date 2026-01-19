@@ -47,11 +47,11 @@ export default function PerformanceFAQPage() {
                                     <tbody className="text-muted">
                                         <tr className="border-b bg-emerald-50/50">
                                             <td className="py-2 pr-4 font-semibold">MIND</td>
-                                            <td className="py-2 font-semibold text-emerald-700">~38 µs</td>
+                                            <td className="py-2 font-semibold text-emerald-700">~1.4 ms</td>
                                         </tr>
                                         <tr className="border-b">
                                             <td className="py-2 pr-4">PyTorch 2.0</td>
-                                            <td className="py-2">2-10 ms (53-247× slower)</td>
+                                            <td className="py-2">43-79 ms (31-53× slower)</td>
                                         </tr>
                                         <tr className="border-b">
                                             <td className="py-2 pr-4">JAX (XLA)</td>

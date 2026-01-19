@@ -41,7 +41,7 @@ export default function PerformancePage() {
 
                         <h2 id="compilation-speed-mind-vs-pytorch-20" className="text-2xl font-bold font-heading mt-12 mb-4">Compilation Speed: MIND vs PyTorch 2.0</h2>
                         <p className="text-muted mb-4">
-                            MIND compiles in <strong>~38 microseconds</strong> on average — measured using Python bindings (PyO3) to eliminate subprocess overhead:
+                            MIND compiles in <strong>~1.4 ms</strong> via subprocess (25-53 µs in-process) — for fair comparison with other tools:
                         </p>
                         <div className="overflow-x-auto mb-6">
                             <table className="min-w-full text-sm">
@@ -70,7 +70,7 @@ export default function PerformancePage() {
                                         <td className="py-2 pr-4">Conv2D</td>
                                         <td className="py-2 pr-4">38 µs</td>
                                         <td className="py-2 pr-4">9.4 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">247× faster</td>
+                                        <td className="py-2 font-semibold text-green-600">53× faster</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">Simple MLP</td>
@@ -313,7 +313,7 @@ export default function PerformancePage() {
                             <ul className="list-disc pl-6 space-y-1 text-muted text-sm">
                                 <li>MIND compiles in <strong>microseconds</strong> regardless of model complexity</li>
                                 <li>Mojo compilation time scales with computation size (seconds for larger models)</li>
-                                <li>MIND achieves <strong>12,000× to 339,000× faster</strong> compilation</li>
+                                <li>MIND achieves <strong>~650× faster</strong> compilation (fair subprocess-to-subprocess comparison)</li>
                             </ul>
                             <p className="text-xs text-muted mt-3">
                                 Same-machine benchmark: AlmaLinux 9.7, LLVM 20, Mojo 0.25.7 |

@@ -74,7 +74,7 @@ export default function RoadmapPage() {
                     progress={100}
                     progressColor="bg-emerald-500"
                     milestone="Verified Dec 2025"
-                    description="Comprehensive benchmarks verified: ~38 µs compilation (53-247× faster than PyTorch 2.0), 100% bit-level determinism, 1,345-11,284× more efficient autodiff."
+                    description="Comprehensive benchmarks verified: ~1.4 ms compilation (31-53× faster than PyTorch 2.0 inductor), 100% bit-level determinism, ~650× faster than Mojo."
                     subDescription={
                         <>
                             See <Link href="/docs/performance" className="text-primary underline">Performance</Link> and <Link href="/docs/guides/benchmarks" className="text-primary underline">Running Benchmarks</Link> for full details.
