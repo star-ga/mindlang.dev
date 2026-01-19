@@ -51,7 +51,7 @@ export default function UsingCoreV1Page() {
                         <h3 className="text-lg font-bold mt-6 mb-3">From source</h3>
                         <p className="text-muted mb-4">Clone and build:</p>
                         <pre className="bg-slate-900 text-slate-50 p-4 rounded-lg text-sm font-mono overflow-x-auto mb-6">
-                            {`git clone https://github.com/cputer/mind.git
+                            {`git clone https://github.com/star-ga/mind.git
 cargo build --release
 ./target/release/mindc --help`}
                         </pre>

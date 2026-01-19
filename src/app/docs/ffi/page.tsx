@@ -126,7 +126,7 @@ fn predict(input: Tensor<f32, N, 784>) -> Tensor<f32, N, 10> {
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Learn More</h2>
                         <p className="text-muted">
                             See the full FFI specification at{" "}
-                            <a href="https://github.com/cputer/mind-spec/blob/main/spec/v1.0/ffi.md" target="_blank" rel="noopener" className="text-primary hover:underline">
+                            <a href="https://github.com/star-ga/mind-spec/blob/main/spec/v1.0/ffi.md" target="_blank" rel="noopener" className="text-primary hover:underline">
                                 mind-spec/ffi.md
                             </a>.
                         </p>

@@ -144,7 +144,7 @@ match detect_format(data) {
                             </table>
                         </div>
                         <p className="text-muted text-sm mb-8">
-                            Benchmark: 6-node neural network layer (param, matmul, add, relu). See <a href="https://github.com/cputer/mind/blob/main/benchmarks/BENCHMARK_RESULTS.md" className="text-primary hover:underline">BENCHMARK_RESULTS.md</a> for methodology.
+                            Benchmark: 6-node neural network layer (param, matmul, add, relu). See <a href="https://github.com/star-ga/mind/blob/main/benchmarks/BENCHMARK_RESULTS.md" className="text-primary hover:underline">BENCHMARK_RESULTS.md</a> for methodology.
                         </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Feature Comparison</h2>
@@ -302,8 +302,8 @@ assert_eq!(emit_mic2(&parse_mic2(&text)?), text);`}</CodeBlock>
 
                         <p className="text-muted mt-8">
                             See the full specifications at{" "}
-                            <a href="https://github.com/cputer/mind-spec/blob/main/spec/mic/" target="_blank" rel="noopener" className="text-primary hover:underline">
-                                cputer/mind-spec
+                            <a href="https://github.com/star-ga/mind-spec/blob/main/spec/mic/" target="_blank" rel="noopener" className="text-primary hover:underline">
+                                star-ga/mind-spec
                             </a>.
                         </p>
                     </div>

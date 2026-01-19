@@ -56,9 +56,9 @@ export default function InstallationPage() {
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Build from source</h2>
                         <p className="text-muted mb-4">
-                            The compiler and CLI live in the public <code>cputer/mind</code> repository.
+                            The compiler and CLI live in the public <code>star-ga/mind</code> repository.
                         </p>
-                        <CodeBlock className="mb-8">{`git clone https://github.com/cputer/mind.git
+                        <CodeBlock className="mb-8">{`git clone https://github.com/star-ga/mind.git
 cd mind
 cargo build --bin mindc`}</CodeBlock>
 

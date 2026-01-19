@@ -103,7 +103,7 @@ mindc --emit=asm model.mind`}</CodeBlock>
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Learn More</h2>
                         <p className="text-muted">
                             See the full MLIR lowering specification at{" "}
-                            <a href="https://github.com/cputer/mind-spec/blob/main/spec/v1.0/mlir-lowering.md" target="_blank" rel="noopener" className="text-primary hover:underline">
+                            <a href="https://github.com/star-ga/mind-spec/blob/main/spec/v1.0/mlir-lowering.md" target="_blank" rel="noopener" className="text-primary hover:underline">
                                 mind-spec/mlir-lowering.md
                             </a>.
                         </p>

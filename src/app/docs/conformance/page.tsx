@@ -28,7 +28,7 @@ export default function ConformancePage() {
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Core v1 CPU baseline</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
                             <li>Guarantees deterministic execution for the full Core v1 op set on CPU, including shape inference, gradients, and canonical rewriting behavior.</li>
-                            <li>Conformance expectations are defined in the Core spec under <a href="https://github.com/cputer/mind-spec/blob/main/spec/v1.0/conformance.md" target="_blank" rel="noopener" className="text-primary hover:underline">conformance.md</a>.</li>
+                            <li>Conformance expectations are defined in the Core spec under <a href="https://github.com/star-ga/mind-spec/blob/main/spec/v1.0/conformance.md" target="_blank" rel="noopener" className="text-primary hover:underline">conformance.md</a>.</li>
                             <li>Run the official suite locally with: <code>mindc conformance --profile cpu</code></li>
                         </ul>
 
@@ -47,7 +47,7 @@ export default function ConformancePage() {
                         </ul>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Running the conformance suite</h2>
-                        <p className="text-muted mb-4">From the <code>cputer/mind</code> repo, run the Rust test harness:</p>
+                        <p className="text-muted mb-4">From the <code>star-ga/mind</code> repo, run the Rust test harness:</p>
                         <CodeBlock className="mb-4">{`cargo test -p mind-compiler --test conformance`}</CodeBlock>
                         <p className="text-muted mb-4">From any environment with <code>mindc</code> installed:</p>
                         <CodeBlock className="mb-8">{`mindc conformance --profile cpu
@@ -56,7 +56,7 @@ mindc conformance --profile gpu`}</CodeBlock>
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">For other implementations</h2>
                         <p className="text-muted">
                             The conformance corpus is intended to be reused—port the tests to your runtime or run them through a compatibility shim.
-                            Opening issues or PRs against <a href="https://github.com/cputer/mind-spec" target="_blank" rel="noopener" className="text-primary hover:underline">mind-spec</a> is the best way to clarify expectations.
+                            Opening issues or PRs against <a href="https://github.com/star-ga/mind-spec" target="_blank" rel="noopener" className="text-primary hover:underline">mind-spec</a> is the best way to clarify expectations.
                         </p>
                     </div>
 

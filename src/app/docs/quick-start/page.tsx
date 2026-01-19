@@ -29,7 +29,7 @@ export default function QuickStartPage() {
                         <p className="text-muted mb-4">
                             Use the public compiler repo and build the CLI from source:
                         </p>
-                        <CodeBlock className="mb-8">{`git clone https://github.com/cputer/mind.git
+                        <CodeBlock className="mb-8">{`git clone https://github.com/star-ga/mind.git
 cd mind
 cargo build --bin mindc`}</CodeBlock>
 

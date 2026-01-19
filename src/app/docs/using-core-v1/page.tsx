@@ -29,7 +29,7 @@ export default function UsingCoreV1Page() {
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">1. Installing mindc</h2>
                         <h3 className="text-lg font-bold mt-6 mb-3">From source</h3>
                         <p className="text-muted mb-4">Clone and build:</p>
-                        <CodeBlock className="mb-6">{`git clone https://github.com/cputer/mind.git
+                        <CodeBlock className="mb-6">{`git clone https://github.com/star-ga/mind.git
 cargo build --release
 ./target/release/mindc --help`}</CodeBlock>
 

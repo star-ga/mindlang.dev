@@ -308,7 +308,7 @@ export default function PerformancePage() {
                             </ul>
                             <p className="text-xs text-muted mt-3">
                                 Same-machine benchmark: AlmaLinux 9.7, LLVM 20, Mojo 0.25.7 |
-                                <a href="https://github.com/cputer/mind/tree/main/benchmarks/mojo" target="_blank" rel="noopener" className="text-primary hover:underline ml-1">
+                                <a href="https://github.com/star-ga/mind/tree/main/benchmarks/mojo" target="_blank" rel="noopener" className="text-primary hover:underline ml-1">
                                     View benchmark source
                                 </a>
                             </p>
@@ -435,10 +435,10 @@ mindc run model.mind --profile=time`}</CodeBlock>
                                 <a href="/docs/performance/faq" className="text-primary hover:underline">Performance FAQ</a> — Common questions answered
                             </li>
                             <li>
-                                <a href="https://github.com/cputer/mind/blob/main/benchmarks/FINAL_PATENT_RESULTS.md" target="_blank" rel="noopener" className="text-primary hover:underline">Full Benchmark Results</a> — Complete verified data
+                                <a href="https://github.com/star-ga/mind/blob/main/benchmarks/FINAL_PATENT_RESULTS.md" target="_blank" rel="noopener" className="text-primary hover:underline">Full Benchmark Results</a> — Complete verified data
                             </li>
                             <li>
-                                <a href="https://github.com/cputer/mind-spec/blob/main/spec/v1.0/performance.md" target="_blank" rel="noopener" className="text-primary hover:underline">Performance Specification</a> — Official spec document
+                                <a href="https://github.com/star-ga/mind-spec/blob/main/spec/v1.0/performance.md" target="_blank" rel="noopener" className="text-primary hover:underline">Performance Specification</a> — Official spec document
                             </li>
                         </ul>
                     </div>

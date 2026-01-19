@@ -133,11 +133,11 @@ for op in profile.operations {
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Learn More</h2>
                         <p className="text-muted">
                             See the full runtime specification at{" "}
-                            <a href="https://github.com/cputer/mind-spec/blob/main/spec/v1.0/runtime.md" target="_blank" rel="noopener" className="text-primary hover:underline">
+                            <a href="https://github.com/star-ga/mind-spec/blob/main/spec/v1.0/runtime.md" target="_blank" rel="noopener" className="text-primary hover:underline">
                                 mind-spec/runtime.md
                             </a>{" "}
                             and the runtime repository at{" "}
-                            <a href="https://github.com/cputer/mind-runtime" target="_blank" rel="noopener" className="text-primary hover:underline">
+                            <a href="https://github.com/star-ga/mind-runtime" target="_blank" rel="noopener" className="text-primary hover:underline">
                                 mind-runtime
                             </a>.
                         </p>

@@ -24,7 +24,7 @@ jobs:
 
       - name: Clone mind-spec repository
         run: |
-          git clone --depth 1 https://github.com/cputer/mind-spec.git temp-spec
+          git clone --depth 1 https://github.com/star-ga/mind-spec.git temp-spec
           
       - name: Sync spec documentation
         run: |

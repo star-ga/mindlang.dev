@@ -49,7 +49,7 @@ export default function StabilityPage() {
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Stable</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
-                            <li><strong>Core IR (mind-spec Core v1):</strong> The SSA-based core IR defined in <a href="https://github.com/cputer/mind-spec/tree/main/spec/v1.0" target="_blank" rel="noopener" className="text-primary hover:underline">mind-spec/spec/v1.0</a> is locked for compatibility guarantees.</li>
+                            <li><strong>Core IR (mind-spec Core v1):</strong> The SSA-based core IR defined in <a href="https://github.com/star-ga/mind-spec/tree/main/spec/v1.0" target="_blank" rel="noopener" className="text-primary hover:underline">mind-spec/spec/v1.0</a> is locked for compatibility guarantees.</li>
                             <li><strong>Autodiff:</strong> Reverse-mode differentiation over the core IR with deterministic gradient IR output.</li>
                             <li><strong>Shapes & broadcasting:</strong> Shape inference, static shapes, and broadcasting semantics are fixed for 1.0.</li>
                             <li><strong>Deterministic canonicalization:</strong> Canonical forms and rewrite ordering are stable to enable reproducible builds.</li>
@@ -74,8 +74,8 @@ export default function StabilityPage() {
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">References</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted">
-                            <li>Core IR and semantics: <a href="https://github.com/cputer/mind-spec/tree/main/spec/v1.0" target="_blank" rel="noopener" className="text-primary hover:underline">mind-spec/spec/v1.0</a></li>
-                            <li>Versioning policy and guarantees: <a href="https://github.com/cputer/mind/blob/main/docs/versioning.md" target="_blank" rel="noopener" className="text-primary hover:underline">cputer/mind/docs/versioning.md</a></li>
+                            <li>Core IR and semantics: <a href="https://github.com/star-ga/mind-spec/tree/main/spec/v1.0" target="_blank" rel="noopener" className="text-primary hover:underline">mind-spec/spec/v1.0</a></li>
+                            <li>Versioning policy and guarantees: <a href="https://github.com/star-ga/mind/blob/main/docs/versioning.md" target="_blank" rel="noopener" className="text-primary hover:underline">star-ga/mind/docs/versioning.md</a></li>
                         </ul>
                     </div>
                 </main>

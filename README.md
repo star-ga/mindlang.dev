@@ -7,17 +7,17 @@ The site aggregates:
 
 - High-level introductions to the MIND project and roadmap.
 - The Core v1 language, IR, autodiff, shapes, runtime, and MLIR-lowering
-  documentation (mirroring the normative specs in `cputer/mind-spec`).
+  documentation (mirroring the normative specs in `star-ga/mind-spec`).
 - Stability & Versioning guidance for users integrating the MIND toolchain.
 
 Related repositories
 --------------------
 
 - **Compiler & runtime**:
-  <https://github.com/cputer/mind>
+  <https://github.com/star-ga/mind>
 
 - **Core v1 specification**:
-  <https://github.com/cputer/mind-spec>
+  <https://github.com/star-ga/mind-spec>
 
 These repos define the public behaviour of the compiler and Core IR; this site
 provides the user-facing documentation and navigation around them.
@@ -31,10 +31,10 @@ The content is organised into several sections:
 - **Core v1** – surface language, IR, autodiff, shapes, runtime and MLIR
   lowering chapters aligned with the current public implementation
   (corresponding to “Phase-2” as described in the project roadmap in
-  `cputer/mind`).
+  `star-ga/mind`).
 - **Stability & Versioning** – a description of which parts of the stack are
   considered stable, conditionally stable, or experimental, with links back to
-  the versioning and error-model docs in `cputer/mind`.
+  the versioning and error-model docs in `star-ga/mind`.
 - **Roadmap** – a high-level view of completed work (Core v1, CPU execution)
   and upcoming items (GPU / accelerator backends, package tooling, etc.).
 

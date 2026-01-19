@@ -29,7 +29,7 @@ export default function ContributingPage() {
                         <p className="text-muted mb-4">
                             Clone the repository and ensure you have the required toolchain:
                         </p>
-                        <CodeBlock className="mb-4">{`git clone https://github.com/cputer/mind.git
+                        <CodeBlock className="mb-4">{`git clone https://github.com/star-ga/mind.git
 cd mind
 rustup update stable
 cargo build --all`}</CodeBlock>
@@ -96,15 +96,15 @@ cargo build --all`}</CodeBlock>
                             The MIND ecosystem spans multiple repositories:
                         </p>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
-                            <li><a href="https://github.com/cputer/mind" target="_blank" rel="noopener" className="text-primary hover:underline">cputer/mind</a> — Compiler and CLI (<code>mindc</code>)</li>
-                            <li><a href="https://github.com/cputer/mind-spec" target="_blank" rel="noopener" className="text-primary hover:underline">cputer/mind-spec</a> — Language specification (normative)</li>
-                            <li><a href="https://github.com/cputer/mind-runtime" target="_blank" rel="noopener" className="text-primary hover:underline">cputer/mind-runtime</a> — CPU and GPU runtime implementations</li>
+                            <li><a href="https://github.com/star-ga/mind" target="_blank" rel="noopener" className="text-primary hover:underline">star-ga/mind</a> — Compiler and CLI (<code>mindc</code>)</li>
+                            <li><a href="https://github.com/star-ga/mind-spec" target="_blank" rel="noopener" className="text-primary hover:underline">star-ga/mind-spec</a> — Language specification (normative)</li>
+                            <li><a href="https://github.com/star-ga/mind-runtime" target="_blank" rel="noopener" className="text-primary hover:underline">star-ga/mind-runtime</a> — CPU and GPU runtime implementations</li>
                         </ul>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Getting Help</h2>
                         <p className="text-muted">
                             If you have questions about contributing, open a discussion on the{" "}
-                            <a href="https://github.com/cputer/mind/discussions" target="_blank" rel="noopener" className="text-primary hover:underline">
+                            <a href="https://github.com/star-ga/mind/discussions" target="_blank" rel="noopener" className="text-primary hover:underline">
                                 GitHub Discussions
                             </a>{" "}
                             page or check existing issues for guidance.

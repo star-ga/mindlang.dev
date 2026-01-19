@@ -119,7 +119,7 @@ export default function CommunityPage() {
                                 The MIND project is committed to providing a welcoming, inclusive, and harassment-free experience for all contributors and community members.
                             </p>
                             <a
-                                href="https://github.com/cputer/mind/blob/main/CODE_OF_CONDUCT.md"
+                                href="https://github.com/star-ga/mind/blob/main/CODE_OF_CONDUCT.md"
                                 className="btn btn--primary mt-4"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -142,7 +142,7 @@ export default function CommunityPage() {
                                 If you discover a security vulnerability, please report it responsibly according to our security policy rather than opening a public issue.
                             </p>
                             <a
-                                href="https://github.com/cputer/mind/blob/main/SECURITY.md"
+                                href="https://github.com/star-ga/mind/blob/main/SECURITY.md"
                                 className="btn btn--primary mt-4"
                                 target="_blank"
                                 rel="noopener noreferrer"

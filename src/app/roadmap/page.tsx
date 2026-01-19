@@ -92,7 +92,7 @@ export default function RoadmapPage() {
                         </div>
                         <p className="text-xs text-muted leading-relaxed">Practical shape rules and the reference engine.</p>
                     </Link>
-                    <a href="https://github.com/cputer/mind-spec" target="_blank" rel="noopener noreferrer" className="group block p-5 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100 hover:border-emerald-300 hover:shadow-md transition-all">
+                    <a href="https://github.com/star-ga/mind-spec" target="_blank" rel="noopener noreferrer" className="group block p-5 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100 hover:border-emerald-300 hover:shadow-md transition-all">
                         <div className="flex items-center gap-2 mb-2">
                             <CheckCircle className="w-5 h-5 text-emerald-600" />
                             <h4 className="font-bold text-sm text-foreground group-hover:text-emerald-600 transition-colors">Core v1 Spec</h4>
@@ -376,9 +376,9 @@ export default function RoadmapPage() {
 
                         <div className="mt-8 flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 md:gap-8 text-sm md:text-base">
                             <span className="font-bold text-foreground">Technical deep-dives:</span>
-                            <a href="https://github.com/cputer/mind/blob/main/docs/autodiff.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Autodiff design</a>
-                            <a href="https://github.com/cputer/mind/blob/main/docs/ir.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">IR core</a>
-                            <a href="https://github.com/cputer/mind/blob/main/docs/mlir-lowering.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">MLIR lowering pipeline</a>
+                            <a href="https://github.com/star-ga/mind/blob/main/docs/autodiff.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Autodiff design</a>
+                            <a href="https://github.com/star-ga/mind/blob/main/docs/ir.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">IR core</a>
+                            <a href="https://github.com/star-ga/mind/blob/main/docs/mlir-lowering.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">MLIR lowering pipeline</a>
                         </div>
                     </div>
                     {/* Background decoration */}

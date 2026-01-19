@@ -189,9 +189,9 @@ export default function RoadmapPage() {
 
                         <div className="mt-8 flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 md:gap-8 text-sm md:text-base">
                             <span className="font-bold text-foreground">Technical deep-dives:</span>
-                            <a href="https://github.com/cputer/mind/blob/main/docs/autodiff.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Autodiff design</a>
-                            <a href="https://github.com/cputer/mind/blob/main/docs/ir.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">IR core</a>
-                            <a href="https://github.com/cputer/mind/blob/main/docs/mlir-lowering.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">MLIR lowering pipeline</a>
+                            <a href="https://github.com/star-ga/mind/blob/main/docs/autodiff.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Autodiff design</a>
+                            <a href="https://github.com/star-ga/mind/blob/main/docs/ir.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">IR core</a>
+                            <a href="https://github.com/star-ga/mind/blob/main/docs/mlir-lowering.md" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">MLIR lowering pipeline</a>
                         </div>
                     </div>
                     {/* Background decoration */}

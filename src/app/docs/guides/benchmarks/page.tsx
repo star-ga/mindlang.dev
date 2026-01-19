@@ -27,7 +27,7 @@ export default function BenchmarksGuidePage() {
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Prerequisites</h2>
                         <CodeBlock className="mb-8">{`# Clone the MIND repository
-git clone https://github.com/cputer/mind.git
+git clone https://github.com/star-ga/mind.git
 cd mind
 
 # Build MIND in release mode
@@ -303,7 +303,7 @@ python3 format_benchmark.py`}</CodeBlock>
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Next Steps</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
                             <li>
-                                <a href="https://github.com/cputer/mind/blob/main/benchmarks/FINAL_PATENT_RESULTS.md" target="_blank" rel="noopener" className="text-primary hover:underline">View Full Results</a> — Complete benchmark data
+                                <a href="https://github.com/star-ga/mind/blob/main/benchmarks/FINAL_PATENT_RESULTS.md" target="_blank" rel="noopener" className="text-primary hover:underline">View Full Results</a> — Complete benchmark data
                             </li>
                             <li>
                                 <a href="/docs/performance" className="text-primary hover:underline">Performance Overview</a> — Understand the performance characteristics

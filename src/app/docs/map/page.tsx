@@ -230,7 +230,7 @@ nc localhost 9999`}</CodeBlock>
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Learn More</h2>
                         <p className="text-muted">
                             See the full MAP specification at{" "}
-                            <a href="https://github.com/cputer/mind-spec/blob/main/rfcs/0002-mind-ai-protocol.md" target="_blank" rel="noopener" className="text-primary hover:underline">
+                            <a href="https://github.com/star-ga/mind-spec/blob/main/rfcs/0002-mind-ai-protocol.md" target="_blank" rel="noopener" className="text-primary hover:underline">
                                 RFC-0002: Mind AI Protocol
                             </a>.
                         </p>

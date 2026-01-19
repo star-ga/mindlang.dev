@@ -43,7 +43,7 @@ export default function ShowcasePage() {
                                 </div>
                                 <div className="mt-6 pt-6 border-t border-gray-100">
                                     <a
-                                        href="https://github.com/cputer/mind-ray"
+                                        href="https://github.com/star-ga/mind-ray"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
@@ -80,7 +80,7 @@ export default function ShowcasePage() {
                                 </div>
                                 <div className="mt-6 pt-6 border-t border-gray-100">
                                     <a
-                                        href="https://github.com/cputer/NikolaChess"
+                                        href="https://github.com/star-ga/NikolaChess"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
@@ -115,7 +115,7 @@ export default function ShowcasePage() {
                                 </div>
                                 <div className="mt-6 pt-6 border-t border-gray-100 flex gap-4">
                                     <a
-                                        href="https://github.com/cputer/fractal-voyager"
+                                        href="https://github.com/star-ga/fractal-voyager"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"

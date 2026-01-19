@@ -137,7 +137,7 @@ fn transformer_block(x: Tensor<f32, B, S, D>) -> Tensor<f32, B, S, D> {
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Learn More</h2>
                         <p className="text-muted">
                             See the full autodiff specification at{" "}
-                            <a href="https://github.com/cputer/mind-spec/blob/main/spec/v1.0/autodiff.md" target="_blank" rel="noopener" className="text-primary hover:underline">
+                            <a href="https://github.com/star-ga/mind-spec/blob/main/spec/v1.0/autodiff.md" target="_blank" rel="noopener" className="text-primary hover:underline">
                                 mind-spec/autodiff.md
                             </a>.
                         </p>

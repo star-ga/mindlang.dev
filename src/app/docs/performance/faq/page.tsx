@@ -203,7 +203,7 @@ export default function PerformanceFAQPage() {
                         <div className="bg-card border border-border rounded-lg p-6 mb-6">
                             <h3 className="text-lg font-bold mb-2">Where can I see the full results?</h3>
                             <p className="text-muted">
-                                <a href="https://github.com/cputer/mind/blob/main/benchmarks/FINAL_PATENT_RESULTS.md" target="_blank" rel="noopener" className="text-primary hover:underline">
+                                <a href="https://github.com/star-ga/mind/blob/main/benchmarks/FINAL_PATENT_RESULTS.md" target="_blank" rel="noopener" className="text-primary hover:underline">
                                     Full benchmark results on GitHub
                                 </a>
                             </p>
@@ -273,7 +273,7 @@ export default function PerformanceFAQPage() {
                                 <a href="/docs/guides/benchmarks" className="text-primary hover:underline">Running Benchmarks</a> — Reproduce the results yourself
                             </li>
                             <li>
-                                <a href="https://github.com/cputer/mind/blob/main/benchmarks/FINAL_PATENT_RESULTS.md" target="_blank" rel="noopener" className="text-primary hover:underline">Full Benchmark Results</a> — Complete verified data
+                                <a href="https://github.com/star-ga/mind/blob/main/benchmarks/FINAL_PATENT_RESULTS.md" target="_blank" rel="noopener" className="text-primary hover:underline">Full Benchmark Results</a> — Complete verified data
                             </li>
                         </ul>
                     </div>
