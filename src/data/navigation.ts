@@ -61,6 +61,8 @@ export const docsNavigation = [
         items: [
             { name: "IR", href: "/docs/ir" },
             { name: "MIC Format", href: "/docs/mic" },
+            { name: "mic@2 Text", href: "/docs/mic/v2" },
+            { name: "MIC-B Binary", href: "/docs/mic/binary" },
             { name: "MAP Protocol", href: "/docs/map" },
             { name: "MLIR Lowering", href: "/docs/mlir" },
             { name: "Runtime", href: "/docs/runtime" },
