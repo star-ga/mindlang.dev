@@ -86,65 +86,65 @@ match detect_format(data) {
                                         <th className="text-left py-2 pr-4 font-bold">Format</th>
                                         <th className="text-left py-2 pr-4 font-bold">Tokens</th>
                                         <th className="text-left py-2 pr-4 font-bold">Bytes</th>
-                                        <th className="text-left py-2 pr-4 font-bold">vs JSON (tokens)</th>
-                                        <th className="text-left py-2 pr-4 font-bold">vs JSON (bytes)</th>
+                                        <th className="text-left py-2 pr-4 font-bold">vs JSON</th>
+                                        <th className="text-left py-2 pr-4 font-bold">Parse Speed</th>
                                         <th className="text-left py-2 font-bold">Use Case</th>
                                     </tr>
                                 </thead>
                                 <tbody className="text-muted">
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">JSON</td>
-                                        <td className="py-2 pr-4">~180</td>
-                                        <td className="py-2 pr-4">~450</td>
+                                        <td className="py-2 pr-4">278</td>
+                                        <td className="py-2 pr-4">1,133</td>
                                         <td className="py-2 pr-4">baseline</td>
-                                        <td className="py-2 pr-4">baseline</td>
+                                        <td className="py-2 pr-4">5.31 µs</td>
                                         <td className="py-2">Legacy interchange</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">TOML</td>
-                                        <td className="py-2 pr-4">~151</td>
-                                        <td className="py-2 pr-4">~380</td>
-                                        <td className="py-2 pr-4">1.2x</td>
-                                        <td className="py-2 pr-4">1.2x</td>
+                                        <td className="py-2 pr-4">151</td>
+                                        <td className="py-2 pr-4">607</td>
+                                        <td className="py-2 pr-4">1.8x</td>
+                                        <td className="py-2 pr-4">137.06 µs</td>
                                         <td className="py-2">Config files</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">TOON</td>
-                                        <td className="py-2 pr-4">~67</td>
-                                        <td className="py-2 pr-4">~170</td>
-                                        <td className="py-2 pr-4">2.7x</td>
-                                        <td className="py-2 pr-4">2.6x</td>
+                                        <td className="py-2 pr-4">67</td>
+                                        <td className="py-2 pr-4">269</td>
+                                        <td className="py-2 pr-4">4.1x</td>
+                                        <td className="py-2 pr-4">2.67 µs</td>
                                         <td className="py-2">Compact text</td>
                                     </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">mic@1</td>
-                                        <td className="py-2 pr-4">~45</td>
-                                        <td className="py-2 pr-4">~120</td>
-                                        <td className="py-2 pr-4">4.0x</td>
-                                        <td className="py-2 pr-4">3.8x</td>
-                                        <td className="py-2">Legacy Mind IR</td>
+                                    <tr className="border-b bg-primary/5">
+                                        <td className="py-2 pr-4 font-bold">mic@1</td>
+                                        <td className="py-2 pr-4 font-bold">52</td>
+                                        <td className="py-2 pr-4 font-bold">209</td>
+                                        <td className="py-2 pr-4 font-bold">5.3x</td>
+                                        <td className="py-2 pr-4 font-bold">2.26 µs</td>
+                                        <td className="py-2">Mind IR (text)</td>
                                     </tr>
                                     <tr className="border-b bg-primary/5">
                                         <td className="py-2 pr-4 font-bold">mic@2</td>
-                                        <td className="py-2 pr-4 font-bold">~28</td>
-                                        <td className="py-2 pr-4 font-bold">~85</td>
-                                        <td className="py-2 pr-4 font-bold">6.4x</td>
-                                        <td className="py-2 pr-4 font-bold">5.3x</td>
+                                        <td className="py-2 pr-4 font-bold">~35</td>
+                                        <td className="py-2 pr-4 font-bold">~140</td>
+                                        <td className="py-2 pr-4 font-bold">~8x</td>
+                                        <td className="py-2 pr-4 font-bold">~1.8 µs</td>
                                         <td className="py-2">LLM prompts, git diffs</td>
                                     </tr>
                                     <tr className="border-b bg-primary/5">
                                         <td className="py-2 pr-4 font-bold">MIC-B v2</td>
                                         <td className="py-2 pr-4 font-bold">-</td>
-                                        <td className="py-2 pr-4 font-bold">~40</td>
-                                        <td className="py-2 pr-4 font-bold">-</td>
-                                        <td className="py-2 pr-4 font-bold">11.3x</td>
+                                        <td className="py-2 pr-4 font-bold">~50</td>
+                                        <td className="py-2 pr-4 font-bold">22x (bytes)</td>
+                                        <td className="py-2 pr-4 font-bold">~0.5 µs</td>
                                         <td className="py-2">Storage, network</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <p className="text-muted text-sm mb-8">
-                            Benchmark: residual block <code>Y = relu(X @ W + b) + X</code>
+                            Benchmark: 6-node neural network layer (param, matmul, add, relu). See <a href="https://github.com/cputer/mind/blob/main/benchmarks/BENCHMARK_RESULTS.md" className="text-primary hover:underline">BENCHMARK_RESULTS.md</a> for methodology.
                         </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Feature Comparison</h2>

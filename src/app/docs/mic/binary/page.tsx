@@ -27,7 +27,7 @@ export default function MicBinaryPage() {
                         <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mb-8">
                             <h4 className="font-bold mb-2">Key Features</h4>
                             <ul className="text-sm text-muted space-y-1 mb-0">
-                                <li><strong>~4x smaller</strong> than mic@2 text format</li>
+                                <li><strong>~1.4-3x smaller</strong> than mic@2 text format (55 vs 78 bytes for residual block)</li>
                                 <li><strong>ULEB128 varints</strong> for space-efficient integers</li>
                                 <li><strong>String table deduplication</strong> for repeated identifiers</li>
                                 <li><strong>Deterministic</strong> — same graph produces identical bytes</li>
@@ -193,7 +193,7 @@ repeat input_count:
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Binary Example</h2>
                         <p className="text-muted mb-4">
-                            Residual block <code>Y = relu(X @ W + b) + X</code> (~40 bytes):
+                            Residual block <code>Y = relu(X @ W + b) + X</code> (~55 bytes vs 78 bytes mic@2 text):
                         </p>
                         <CodeBlock className="mb-8">{`4D 49 43 42 02              # Magic "MICB" + version 2
 05                          # 5 strings

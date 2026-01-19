@@ -27,7 +27,8 @@ export default function MicV2Page() {
                         <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mb-8">
                             <h4 className="font-bold mb-2">Key Improvements over mic@1</h4>
                             <ul className="text-sm text-muted space-y-1 mb-0">
-                                <li><strong>~40% token reduction</strong> through implicit value IDs</li>
+                                <li><strong>~33% token reduction</strong> (35 vs 52 tokens) through implicit value IDs</li>
+                                <li><strong>~33% size reduction</strong> (140 vs 209 bytes)</li>
                                 <li><strong>Compact opcodes:</strong> <code>m</code>, <code>+</code>, <code>r</code> instead of <code>matmul</code>, <code>add</code>, <code>relu</code></li>
                                 <li><strong>Space-separated dims:</strong> <code>f16 128 128</code> instead of <code>[f16;128,128]</code></li>
                             </ul>
