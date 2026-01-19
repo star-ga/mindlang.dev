@@ -6,6 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
     <title>Fractal Voyager - MindLang GPU Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #000; overflow: hidden; font-family: 'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif; }
@@ -19,7 +20,7 @@
 
         #topBar {
             position: fixed; top: 12px; left: 12px; right: 12px;
-            display: flex; justify-content: space-between; align-items: center;
+            display: none; justify-content: space-between; align-items: center;
             padding: 10px 16px; border-radius: 14px; color: #fff;
             z-index: 100;
         }
@@ -53,6 +54,30 @@
             max-width: 350px;
         }
         #gpuInfo .label { opacity: 0.5; }
+
+        #githubLink {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            z-index: 100;
+        }
+        #githubLink.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        #githubLink svg {
+            width: 48px;
+            height: 48px;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+            transition: transform 0.2s ease;
+        }
+        #githubLink:hover svg {
+            transform: scale(1.1);
+        }
 
         #topRight {
             display: flex; gap: 8px; align-items: center;
@@ -127,11 +152,55 @@
             box-shadow: 0 4px 20px rgba(102,126,234,0.4);
         }
 
+        /* API Switcher */
+        .api-switcher {
+            display: flex;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: linear-gradient(135deg, #1a1a24 0%, #12121a 100%);
+        }
+        .api-switcher button {
+            padding: 6px 10px;
+            border: none;
+            background: transparent;
+            color: rgba(255,255,255,0.5);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .api-switcher button:hover {
+            color: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.05);
+        }
+        .api-switcher button.active {
+            color: #fff;
+        }
+        .api-switcher button.active.webgpu {
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+        }
+        .api-switcher button.active.webgl2 {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+        }
+        .api-switcher button.unavailable {
+            opacity: 0.3;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+        .api-switcher button.unavailable:hover {
+            background: transparent;
+            color: rgba(255,255,255,0.3);
+        }
+
         #startHint {
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             display: flex; align-items: center; justify-content: center;
             background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
             z-index: 9999;
+            overflow-y: auto;
         }
         .start-container {
             position: relative;
@@ -228,6 +297,67 @@
             margin-bottom: 24px;
             text-align: center;
         }
+        .made-with {
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        .made-with-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .made-with-demo {
+            font-size: 16px;
+            color: #fff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .made-with-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 4px;
+        }
+        .made-with-logo-vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .made-with-logo-vertical .mind-icon {
+            height: 150px;
+            width: auto;
+        }
+        .made-with-logo-vertical .mind-text {
+            font-family: 'Manrope', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-top: 8px;
+        }
+        .made-with-subtitle {
+            font-size: 10px;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .made-with-footer {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .made-with-footer a {
+            color: #7af;
+            text-decoration: none;
+        }
         .instruction-text {
             color: rgba(255,255,255,0.9);
             font-size: 16px;
@@ -292,8 +422,8 @@
             background: linear-gradient(135deg, #1a1a24 0%, #12121a 100%);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
-            padding: 24px;
-            margin-top: 16px;
+            padding: 16px;
+            margin-top: 12px;
             text-align: left;
             box-shadow: 0 8px 40px rgba(0,0,0,0.6);
             margin-left: auto;
@@ -301,29 +431,48 @@
         }
         .browser-instructions.visible {
             display: block;
-            animation: slideDown 0.3s ease;
         }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* When dropdown is expanded, reposition layout */
+        #startHint.dropdown-expanded {
+            align-items: flex-start;
+            padding: 20px;
+        }
+        #startHint.dropdown-expanded .made-with,
+        #startHint.dropdown-expanded .start-glow,
+        #startHint.dropdown-expanded #apiBadge,
+        #startHint.dropdown-expanded .start-api-selector,
+        #startHint.dropdown-expanded #startBtn,
+        #startHint.dropdown-expanded .start-instructions,
+        #startHint.dropdown-expanded .start-keys {
+            display: none;
+        }
+        #startHint.dropdown-expanded .browser-help {
+            width: 100%;
+            max-width: 100%;
+        }
+        #startHint.dropdown-expanded .browser-instructions {
+            width: 100%;
+            max-width: 600px;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
         }
         .browser-instructions h4 {
             color: #fff;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            margin: 0 0 16px 0;
-            padding-bottom: 12px;
+            margin: 0 0 12px 0;
+            padding-bottom: 8px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .browser-list {
             display: grid;
-            gap: 12px;
+            gap: 8px;
         }
         .browser-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            padding: 12px 14px;
+            gap: 10px;
+            padding: 10px 12px;
             background: rgba(255,255,255,0.03);
             border-radius: 10px;
             border: 1px solid rgba(255,255,255,0.05);
@@ -334,10 +483,17 @@
             border-color: rgba(255,255,255,0.1);
         }
         .browser-icon {
-            font-size: 20px;
             flex-shrink: 0;
-            width: 28px;
-            text-align: center;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .browser-icon img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
         }
         .browser-info {
             flex: 1;
@@ -345,23 +501,23 @@
         .browser-name {
             color: #fff;
             font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 4px;
+            font-size: 12px;
+            margin-bottom: 2px;
         }
         .browser-name .check { color: #4f4; margin-left: 6px; }
-        .browser-name .warning { color: #fa0; margin-left: 6px; font-size: 11px; }
+        .browser-name .warning { color: #fa0; margin-left: 6px; font-size: 10px; }
         .browser-steps {
             color: rgba(255,255,255,0.6);
-            font-size: 12px;
-            line-height: 1.5;
+            font-size: 11px;
+            line-height: 1.4;
             font-family: 'SF Mono', 'Fira Code', monospace;
         }
         .browser-steps code {
             background: rgba(102,126,234,0.2);
             color: #9af;
-            padding: 2px 6px;
+            padding: 1px 5px;
             border-radius: 4px;
-            font-size: 11px;
+            font-size: 10px;
         }
 
         /* Tablet styles */
@@ -378,31 +534,26 @@
             .browser-item { padding: 10px 12px; }
         }
 
-        /* Mobile styles */
-        @media (max-width: 640px) {
+        /* Mobile/Tablet styles */
+        @media (max-width: 1024px) {
             #topBar {
                 top: 8px; left: 8px; right: 8px;
-                padding: 6px 10px;
-                flex-wrap: nowrap; gap: 8px;
+                padding: 8px 10px;
                 border-radius: 10px;
-                align-items: flex-start;
+                position: fixed;
+                flex-direction: row;
+                align-items: center;
+                gap: 8px;
             }
-            #info {
-                flex: 1 1 auto;
-                font-size: 11px;
-                min-width: 0;
-            }
-            #info .title { font-size: 13px; margin-bottom: 2px; }
-            #info .api { padding: 2px 5px; font-size: 9px; margin-left: 3px; }
-            #info .stats { font-size: 9px; }
-            #topRight {
-                flex: 0 0 auto;
-                gap: 4px;
-                margin-left: auto;
-            }
-            .btn { width: 28px; height: 28px; font-size: 12px; border-radius: 6px; }
-            .btn.mobile-only { display: flex; }
+            #info { flex: 1; min-width: 0; }
+            #info .title { font-size: 12px; font-weight: 600; margin: 0 0 3px 0; white-space: nowrap; display: inline-block; }
+            #info .stats { font-size: 8px; line-height: 1.3; }
+            #topRight { display: flex; gap: 4px; align-items: center; flex-shrink: 0; }
+            #topRight #apiSwitcher { position: absolute; top: 7px; left: 110px; border-radius: 4px; }
+            #topRight #apiSwitcher button { padding: 2px 5px; font-size: 7px; }
             #resolution { display: none; }
+            .btn { width: 36px; height: 36px; font-size: 14px; border-radius: 6px; }
+            .btn.mobile-only { display: inline-flex; }
             #controls { display: none; }
             #startBtn { padding: 18px 36px; border-radius: 50px; }
             #startBtn .btn-text { font-size: 16px; }
@@ -466,6 +617,10 @@
                     <option value="6016x3384">Pro Display XDR</option>
                 </optgroup>
             </select>
+            <div class="api-switcher" id="apiSwitcher" title="Switch Rendering API">
+                <button id="webgl2Btn">WebGL2</button>
+                <button id="webgpuBtn">WebGPU</button>
+            </div>
         </div>
     </div>
     <div id="controls" class="glass">
@@ -473,12 +628,34 @@
     </div>
     <div id="gpuInfo" class="glass"></div>
 
+    <a id="githubLink" href="https://github.com/cputer/fractal-voyager" target="_blank" title="View on GitHub">
+        <svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#fff"/>
+        </svg>
+    </a>
+
     <input type="file" id="audioFile" accept="audio/*" style="display:none">
 
     <div id="startHint">
         <div class="start-container">
+            <div class="made-with">
+                <div class="made-with-title">Fractal Voyager</div>
+                <div class="made-with-demo">Demo</div>
+                <div class="made-with-label">Made with:</div>
+                <a href="https://mindlang.dev" target="_blank" class="made-with-logo-vertical">
+                    <img src="../../img/mind-logo-full.svg" alt="MIND" class="mind-icon">
+                </a>
+                <div class="made-with-subtitle">Machine Intelligence Native Design</div>
+            </div>
             <div class="start-glow"></div>
             <div id="apiBadge" class="api-badge">Detecting GPU...</div>
+            <div class="start-api-selector" id="startApiSelector" style="z-index:1; margin-bottom: 20px;">
+                <div style="color: rgba(255,255,255,0.6); font-size: 12px; margin-bottom: 8px; text-align: center;">Select Rendering API</div>
+                <div class="api-switcher" style="transform: scale(1.3); transform-origin: center;">
+                    <button id="startWebgl2Btn">WebGL2</button>
+                    <button id="startWebgpuBtn">WebGPU</button>
+                </div>
+            </div>
             <button id="startBtn">
                 <span class="btn-text">Click here to start</span>
                 <span class="btn-icon">▶</span>
@@ -503,14 +680,14 @@
                     <h4>Enable WebGPU for Best Performance</h4>
                     <div class="browser-list">
                         <div class="browser-item">
-                            <span class="browser-icon">🌐</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Chrome 113+ (Windows/macOS) <span class="check">✓</span></div>
                                 <div class="browser-steps">WebGPU enabled by default with native D3D12/Metal backend.</div>
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🔶</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Chrome (older) <span class="warning">flag required</span></div>
                                 <div class="browser-steps">
@@ -522,14 +699,14 @@
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🦊</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Firefox"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Firefox 121+ <span class="check">✓</span></div>
                                 <div class="browser-steps">WebGPU enabled by default on Windows/macOS.</div>
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🦊</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Firefox"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Firefox (Linux) <span class="warning">flag required</span></div>
                                 <div class="browser-steps">
@@ -541,7 +718,7 @@
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🐧</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Chrome/Chromium (Linux) <span class="warning">launch flags</span></div>
                                 <div class="browser-steps">
@@ -552,14 +729,14 @@
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🧭</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Safari_browser_logo.svg" alt="Safari"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Safari 18+ (macOS Sequoia) <span class="check">✓</span></div>
                                 <div class="browser-steps">WebGPU enabled by default.</div>
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">🧭</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Safari_browser_logo.svg" alt="Safari"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Safari 17 <span class="warning">flag required</span></div>
                                 <div class="browser-steps">
@@ -571,7 +748,7 @@
                             </div>
                         </div>
                         <div class="browser-item">
-                            <span class="browser-icon">📱</span>
+                            <span class="browser-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Microsoft_Edge_logo_%282019%29.svg" alt="Edge"></span>
                             <div class="browser-info">
                                 <div class="browser-name">Edge 113+ <span class="check">✓</span></div>
                                 <div class="browser-steps">WebGPU enabled by default (Chromium-based).</div>
@@ -709,7 +886,7 @@
 
                     // Iteration 1
                     if (zr2 + zi2 > ESCAPE_R_SQ) { break; }
-                    zi = fma(2.0 * zr, zi, ci);
+                    zi = 2.0 * zr * zi + ci;
                     zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi;
                     iter = iter + 1.0;
@@ -725,21 +902,21 @@
 
                     // Iteration 2
                     if (zr2 + zi2 > ESCAPE_R_SQ) { break; }
-                    zi = fma(2.0 * zr, zi, ci);
+                    zi = 2.0 * zr * zi + ci;
                     zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi;
                     iter = iter + 1.0;
 
                     // Iteration 3
                     if (zr2 + zi2 > ESCAPE_R_SQ) { break; }
-                    zi = fma(2.0 * zr, zi, ci);
+                    zi = 2.0 * zr * zi + ci;
                     zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi;
                     iter = iter + 1.0;
 
                     // Iteration 4
                     if (zr2 + zi2 > ESCAPE_R_SQ) { break; }
-                    zi = fma(2.0 * zr, zi, ci);
+                    zi = 2.0 * zr * zi + ci;
                     zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi;
                     iter = iter + 1.0;
@@ -750,7 +927,7 @@
                 for (var r: i32 = 0; r < 4; r = r + 1) {
                     if (r >= rem) { break; }
                     if (zr2 + zi2 > ESCAPE_R_SQ) { break; }
-                    zi = fma(2.0 * zr, zi, ci);
+                    zi = 2.0 * zr * zi + ci;
                     zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi;
                     iter = iter + 1.0;
@@ -806,22 +983,22 @@
                     var azr = abs(zr); var azi = abs(zi);
                     if (azr * azr + azi * azi > ESCAPE_R_SQ) { break; }
                     zr = azr * azr - azi * azi + cr;
-                    zi = fma(2.0 * azr, azi, ci); iter = iter + 1.0;
+                    zi = 2.0 * azr * azi + ci; iter = iter + 1.0;
 
                     azr = abs(zr); azi = abs(zi);
                     if (azr * azr + azi * azi > ESCAPE_R_SQ) { break; }
                     zr = azr * azr - azi * azi + cr;
-                    zi = fma(2.0 * azr, azi, ci); iter = iter + 1.0;
+                    zi = 2.0 * azr * azi + ci; iter = iter + 1.0;
 
                     azr = abs(zr); azi = abs(zi);
                     if (azr * azr + azi * azi > ESCAPE_R_SQ) { break; }
                     zr = azr * azr - azi * azi + cr;
-                    zi = fma(2.0 * azr, azi, ci); iter = iter + 1.0;
+                    zi = 2.0 * azr * azi + ci; iter = iter + 1.0;
 
                     azr = abs(zr); azi = abs(zi);
                     if (azr * azr + azi * azi > ESCAPE_R_SQ) { break; }
                     zr = azr * azr - azi * azi + cr;
-                    zi = fma(2.0 * azr, azi, ci); iter = iter + 1.0;
+                    zi = 2.0 * azr * azi + ci; iter = iter + 1.0;
                 }
 
                 return vec2<f32>(iter, sqrt(zr * zr + zi * zi));
@@ -966,7 +1143,7 @@
 
                     // 4x unrolled with FMA
                     if (zr2 + zi2 > ESCAPE_R_SQ) break;
-                    zi = fma(2.0 * zr, zi, ci); zr = zr2 - zi2 + cr;
+                    zi = 2.0 * zr * zi + ci; zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi; iter += 1.0;
 
                     // Periodicity check
@@ -974,15 +1151,15 @@
                     period++; if (period > 20) { ozr = zr; ozi = zi; period = 0; }
 
                     if (zr2 + zi2 > ESCAPE_R_SQ) break;
-                    zi = fma(2.0 * zr, zi, ci); zr = zr2 - zi2 + cr;
+                    zi = 2.0 * zr * zi + ci; zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi; iter += 1.0;
 
                     if (zr2 + zi2 > ESCAPE_R_SQ) break;
-                    zi = fma(2.0 * zr, zi, ci); zr = zr2 - zi2 + cr;
+                    zi = 2.0 * zr * zi + ci; zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi; iter += 1.0;
 
                     if (zr2 + zi2 > ESCAPE_R_SQ) break;
-                    zi = fma(2.0 * zr, zi, ci); zr = zr2 - zi2 + cr;
+                    zi = 2.0 * zr * zi + ci; zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi; iter += 1.0;
                 }
 
@@ -990,7 +1167,7 @@
                 int rem = maxI - int(iter);
                 for (int r = 0; r < 4; r++) {
                     if (r >= rem || zr2 + zi2 > ESCAPE_R_SQ) break;
-                    zi = fma(2.0 * zr, zi, ci); zr = zr2 - zi2 + cr;
+                    zi = 2.0 * zr * zi + ci; zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi; iter += 1.0;
                 }
 
@@ -1006,19 +1183,19 @@
                     if (i >= loopCount) break;
 
                     if (zr2 + zi2 > ESCAPE_R_SQ) break;
-                    zi = fma(2.0 * zr, zi, ci); zr = zr2 - zi2 + cr;
+                    zi = 2.0 * zr * zi + ci; zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi; iter += 1.0;
 
                     if (zr2 + zi2 > ESCAPE_R_SQ) break;
-                    zi = fma(2.0 * zr, zi, ci); zr = zr2 - zi2 + cr;
+                    zi = 2.0 * zr * zi + ci; zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi; iter += 1.0;
 
                     if (zr2 + zi2 > ESCAPE_R_SQ) break;
-                    zi = fma(2.0 * zr, zi, ci); zr = zr2 - zi2 + cr;
+                    zi = 2.0 * zr * zi + ci; zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi; iter += 1.0;
 
                     if (zr2 + zi2 > ESCAPE_R_SQ) break;
-                    zi = fma(2.0 * zr, zi, ci); zr = zr2 - zi2 + cr;
+                    zi = 2.0 * zr * zi + ci; zr = zr2 - zi2 + cr;
                     zr2 = zr * zr; zi2 = zi * zi; iter += 1.0;
                 }
                 return vec2(iter, sqrt(zr2 + zi2));
@@ -1035,22 +1212,22 @@
                     float azr = abs(zr), azi = abs(zi);
                     if (azr * azr + azi * azi > ESCAPE_R_SQ) break;
                     zr = azr * azr - azi * azi + cr;
-                    zi = fma(2.0 * azr, azi, ci); iter += 1.0;
+                    zi = 2.0 * azr * azi + ci; iter += 1.0;
 
                     azr = abs(zr); azi = abs(zi);
                     if (azr * azr + azi * azi > ESCAPE_R_SQ) break;
                     zr = azr * azr - azi * azi + cr;
-                    zi = fma(2.0 * azr, azi, ci); iter += 1.0;
+                    zi = 2.0 * azr * azi + ci; iter += 1.0;
 
                     azr = abs(zr); azi = abs(zi);
                     if (azr * azr + azi * azi > ESCAPE_R_SQ) break;
                     zr = azr * azr - azi * azi + cr;
-                    zi = fma(2.0 * azr, azi, ci); iter += 1.0;
+                    zi = 2.0 * azr * azi + ci; iter += 1.0;
 
                     azr = abs(zr); azi = abs(zi);
                     if (azr * azr + azi * azi > ESCAPE_R_SQ) break;
                     zr = azr * azr - azi * azi + cr;
-                    zi = fma(2.0 * azr, azi, ci); iter += 1.0;
+                    zi = 2.0 * azr * azi + ci; iter += 1.0;
                 }
                 return vec2(iter, sqrt(zr * zr + zi * zi));
             }
@@ -1115,6 +1292,8 @@
         const apiBadge = document.getElementById('apiBadge');
 
         let renderer = null; // 'webgpu' or 'webgl2'
+        let selectedApi = null; // User's preferred API
+        let webgpuAvailable = false; // Whether WebGPU is available
         let gpuDevice, gpuContext, gpuRenderPipeline, gpuUniformBuffer, gpuBindGroup, canvasFormat;
         let gl, glProgram, glUniforms = {};
         let gpuName = 'Unknown GPU';
@@ -1201,26 +1380,38 @@
 
         // ============ WebGL2 INIT ============
         function initWebGL2() {
-            gl = canvas.getContext('webgl2');
-            if (!gl) return false;
-
-            const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-            gpuName = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : 'WebGL2 Device';
-
-            function createShader(type, source) {
-                const shader = gl.createShader(type);
-                gl.shaderSource(shader, source);
-                gl.compileShader(shader);
-                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-                    console.error(gl.getShaderInfoLog(shader));
-                    return null;
+            try {
+                console.log('initWebGL2: attempting canvas.getContext("webgl2")');
+                gl = canvas.getContext('webgl2');
+                console.log('initWebGL2: gl =', gl);
+                if (!gl) {
+                    console.error('initWebGL2: Failed to get WebGL2 context');
+                    return false;
                 }
-                return shader;
-            }
 
-            const vs = createShader(gl.VERTEX_SHADER, glslVS);
-            const fs = createShader(gl.FRAGMENT_SHADER, glslFS);
-            if (!vs || !fs) return false;
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                gpuName = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : 'WebGL2 Device';
+                console.log('initWebGL2: GPU =', gpuName);
+
+                function createShader(type, source) {
+                    const shader = gl.createShader(type);
+                    gl.shaderSource(shader, source);
+                    gl.compileShader(shader);
+                    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                        console.error('Shader compile error:', gl.getShaderInfoLog(shader));
+                        return null;
+                    }
+                    return shader;
+                }
+
+                console.log('initWebGL2: Creating shaders...');
+                const vs = createShader(gl.VERTEX_SHADER, glslVS);
+                const fs = createShader(gl.FRAGMENT_SHADER, glslFS);
+                console.log('initWebGL2: vs =', !!vs, 'fs =', !!fs);
+                if (!vs || !fs) {
+                    console.error('initWebGL2: Shader creation failed');
+                    return false;
+                }
 
             glProgram = gl.createProgram();
             gl.attachShader(glProgram, vs);
@@ -1241,8 +1432,13 @@
                 glUniforms[n] = gl.getUniformLocation(glProgram, 'u_' + n);
             });
 
-            renderer = 'webgl2';
-            return true;
+                console.log('initWebGL2: Success!');
+                renderer = 'webgl2';
+                return true;
+            } catch (e) {
+                console.error('initWebGL2 exception:', e);
+                return false;
+            }
         }
 
         // ============ RESIZE ============
@@ -1371,7 +1567,7 @@
             const resLabel = state.resolution === 'auto' ? 'Auto DPI' : state.resolution;
 
             info.innerHTML = `
-                <div class="title">Fractal Voyager <span class="api ${apiClass}">${apiName}</span> <span class="api ${apiClass}">${resLabel}</span></div>
+                <div class="title">Fractal Voyager</div>
                 <div class="stats">
                     <span class="highlight">${FRACTALS[state.fractalType]}</span> <span class="dim">|</span>
                     ${COLORS[state.colorScheme]} <span class="dim">|</span>
@@ -1389,6 +1585,19 @@
                 <div><span class="label">Precision:</span> 32-bit (fast)</div>
                 <div><span class="label">Workgroups:</span> ${Math.ceil(canvas.width/16)}×${Math.ceil(canvas.height/16)} (16×16)</div>
             `;
+
+            // Show GitHub link near end of audio track (last 10 seconds)
+            const githubLink = document.getElementById('githubLink');
+            if (audioElement && audioElement.duration && !audioElement.paused) {
+                const timeLeft = audioElement.duration - audioElement.currentTime;
+                if (timeLeft <= 10 && timeLeft > 0) {
+                    githubLink.classList.add('visible');
+                } else {
+                    githubLink.classList.remove('visible');
+                }
+            } else {
+                githubLink.classList.remove('visible');
+            }
 
             requestAnimationFrame(render);
         }
@@ -1415,7 +1624,7 @@
         canvas.addEventListener('touchstart', e => {
             if (e.touches.length === 1) lastTouch = [e.touches[0].clientX, e.touches[0].clientY];
             else if (e.touches.length === 2) { const dx = e.touches[1].clientX - e.touches[0].clientX, dy = e.touches[1].clientY - e.touches[0].clientY; lastDist = Math.sqrt(dx*dx + dy*dy); }
-        });
+        }, { passive: true });
         canvas.addEventListener('touchmove', e => {
             e.preventDefault();
             if (e.touches.length === 1 && lastTouch) {
@@ -1484,6 +1693,7 @@
                     document.getElementById('muteBtn').classList.add('active');
                 } else {
                     audioElement.pause();
+                    state.audioIntensity = 0; // Stop audio reactivity immediately
                     document.getElementById('muteBtn').textContent = '🔇';
                     document.getElementById('muteBtn').classList.remove('active');
                 }
@@ -1539,18 +1749,37 @@
         }
 
         let demoStarted = false;
-        async function startDemo() {
+        function startDemo() {
             if (demoStarted) return;
             demoStarted = true;
             const btnText = document.querySelector('#startBtn .btn-text');
             if (btnText) btnText.textContent = 'Loading...';
-            try {
-                await loadDemoMusic();
-                if (state.audioSource === 'file') {
-                    document.getElementById('startHint').style.display = 'none';
-                    toggleAutoZoom();
-                } else { if (btnText) btnText.textContent = 'Click here to start'; demoStarted = false; }
-            } catch (e) { if (btnText) btnText.textContent = 'Click here to start'; demoStarted = false; }
+            // Defer heavy work to avoid blocking click handler
+            requestAnimationFrame(async () => {
+                try {
+                    // Wait for API detection if not complete
+                    if (typeof apiDetectionComplete !== 'undefined' && !apiDetectionComplete) {
+                        await new Promise(resolve => {
+                            const check = setInterval(() => {
+                                if (apiDetectionComplete) { clearInterval(check); resolve(); }
+                            }, 50);
+                        });
+                    }
+                    console.log('Starting demo. selectedApi:', selectedApi, 'webgpuAvailable:', webgpuAvailable);
+                    // Initialize the renderer first
+                    await init();
+                    await loadDemoMusic();
+                    if (state.audioSource === 'file') {
+                        document.getElementById('startHint').style.display = 'none';
+                        document.getElementById('topBar').style.display = 'flex';
+                        toggleAutoZoom();
+                    } else { if (btnText) btnText.textContent = 'Click here to start'; demoStarted = false; }
+                } catch (e) {
+                    console.error('startDemo error:', e);
+                    if (btnText) btnText.textContent = 'Click here to start';
+                    demoStarted = false;
+                }
+            });
         }
 
         // Only start on button click or spacebar
@@ -1567,49 +1796,186 @@
             e.stopPropagation();
             const toggle = document.getElementById('browserHelpToggle');
             const instructions = document.getElementById('browserInstructions');
+            const startHint = document.getElementById('startHint');
             toggle.classList.toggle('expanded');
             instructions.classList.toggle('visible');
+            startHint.classList.toggle('dropdown-expanded');
         });
 
-        // ============ INIT ============
-        async function init() {
-            // Check URL for force mode: ?renderer=webgl2 or ?renderer=webgpu
-            // Default depends on browser: Chrome uses WebGPU, Firefox uses WebGL2
-            const urlParams = new URLSearchParams(window.location.search);
-            const forceRenderer = urlParams.get('renderer');
+        // ============ API DETECTION ============
+        async function detectApis() {
+            // Check WebGPU availability
+            if (navigator.gpu) {
+                try {
+                    const adapter = await navigator.gpu.requestAdapter();
+                    webgpuAvailable = !!adapter;
+                } catch (e) {
+                    webgpuAvailable = false;
+                }
+            }
+
+            // Update start screen buttons
+            const startWebgpuBtn = document.getElementById('startWebgpuBtn');
+            const startWebgl2Btn = document.getElementById('startWebgl2Btn');
+            const webgpuBtn = document.getElementById('webgpuBtn');
+            const webgl2Btn = document.getElementById('webgl2Btn');
 
             // Detect browser - Firefox WebGPU is 20x slower than WebGL2
             const isFirefox = navigator.userAgent.includes('Firefox');
             const isChrome = navigator.userAgent.includes('Chrome') && !navigator.userAgent.includes('Edge');
 
-            let hasWebGPU = false;
-            // Use WebGPU on Chrome (fast) or if explicitly requested, otherwise WebGL2
-            if (forceRenderer === 'webgpu' || (isChrome && forceRenderer !== 'webgl2')) {
-                hasWebGPU = await initWebGPU();
+            // Check URL for force mode
+            const urlParams = new URLSearchParams(window.location.search);
+            const forceRenderer = urlParams.get('renderer');
+
+            // Set default selection based on availability and browser (WebGL2 is default)
+            if (forceRenderer === 'webgpu' && webgpuAvailable) {
+                selectedApi = 'webgpu';
+            } else {
+                selectedApi = 'webgl2';
             }
 
-            if (!hasWebGPU) {
-                const hasWebGL2 = initWebGL2();
-                if (!hasWebGL2) {
-                    // Fallback: try WebGPU if WebGL2 not available
-                    hasWebGPU = await initWebGPU();
-                    if (!hasWebGPU) {
-                        errorDiv.style.display = 'block';
-                        document.getElementById('startHint').style.display = 'none';
-                        return;
-                    }
+            // Update UI for WebGPU availability
+            if (!webgpuAvailable) {
+                startWebgpuBtn.classList.add('unavailable');
+                startWebgpuBtn.title = 'WebGPU not available in this browser';
+                webgpuBtn.classList.add('unavailable');
+                webgpuBtn.title = 'WebGPU not available';
+            }
+
+            // Set initial active state
+            updateApiSelection(selectedApi);
+
+            // Update badge
+            if (webgpuAvailable) {
+                apiBadge.textContent = selectedApi === 'webgpu' ? 'WebGPU Ready' : 'WebGL2 Selected';
+            } else {
+                apiBadge.textContent = 'WebGL2 Only';
+            }
+            apiBadge.className = 'api-badge ' + selectedApi;
+        }
+
+        function updateApiSelection(api) {
+            selectedApi = api;
+            const startWebgpuBtn = document.getElementById('startWebgpuBtn');
+            const startWebgl2Btn = document.getElementById('startWebgl2Btn');
+            const webgpuBtn = document.getElementById('webgpuBtn');
+            const webgl2Btn = document.getElementById('webgl2Btn');
+
+            // Start screen buttons
+            startWebgpuBtn.classList.remove('active', 'webgpu');
+            startWebgl2Btn.classList.remove('active', 'webgl2');
+            if (api === 'webgpu' && webgpuAvailable) {
+                startWebgpuBtn.classList.add('active', 'webgpu');
+            } else {
+                startWebgl2Btn.classList.add('active', 'webgl2');
+                selectedApi = 'webgl2';
+            }
+
+            // Top bar buttons
+            webgpuBtn.classList.remove('active', 'webgpu');
+            webgl2Btn.classList.remove('active', 'webgl2');
+            if (selectedApi === 'webgpu') {
+                webgpuBtn.classList.add('active', 'webgpu');
+            } else {
+                webgl2Btn.classList.add('active', 'webgl2');
+            }
+
+            // Update badge
+            apiBadge.textContent = selectedApi === 'webgpu' ? 'WebGPU Ready' : 'WebGL2 Selected';
+            apiBadge.className = 'api-badge ' + selectedApi;
+        }
+
+        // ============ INIT ============
+        async function init() {
+            let hasWebGPU = false;
+            let hasWebGL2 = false;
+
+            console.log('init() called. selectedApi:', selectedApi);
+
+            // Initialize based on selected API (default to webgl2 if not set)
+            if (selectedApi === 'webgpu') {
+                console.log('Trying WebGPU first...');
+                hasWebGPU = await initWebGPU();
+                console.log('WebGPU result:', hasWebGPU);
+                if (!hasWebGPU) {
+                    // Fallback to WebGL2
+                    console.log('WebGPU failed, falling back to WebGL2...');
+                    hasWebGL2 = initWebGL2();
+                    console.log('WebGL2 result:', hasWebGL2);
                 }
+            } else {
+                // Try WebGL2 first (default)
+                console.log('Trying WebGL2 first...');
+                hasWebGL2 = initWebGL2();
+                console.log('WebGL2 result:', hasWebGL2);
+                if (!hasWebGL2) {
+                    // Fallback to WebGPU
+                    console.log('WebGL2 failed, falling back to WebGPU...');
+                    hasWebGPU = await initWebGPU();
+                    console.log('WebGPU result:', hasWebGPU);
+                }
+            }
+
+            if (!hasWebGPU && !hasWebGL2) {
+                console.error('Both WebGPU and WebGL2 failed to initialize!');
+                console.error('navigator.gpu:', !!navigator.gpu);
+                console.error('canvas.getContext("webgl2"):', !!canvas.getContext('webgl2'));
+                errorDiv.style.display = 'block';
+                document.getElementById('startHint').style.display = 'none';
+                return;
             }
 
             apiBadge.textContent = renderer === 'webgpu' ? 'WebGPU Compute' : 'WebGL2 Fragment';
             apiBadge.className = 'api-badge ' + renderer;
 
+            // Update API switcher state
+            const webgpuBtn = document.getElementById('webgpuBtn');
+            const webgl2Btn = document.getElementById('webgl2Btn');
+            webgpuBtn.classList.remove('active', 'webgpu');
+            webgl2Btn.classList.remove('active', 'webgl2');
+            if (renderer === 'webgpu') {
+                webgpuBtn.classList.add('active', 'webgpu');
+            } else {
+                webgl2Btn.classList.add('active', 'webgl2');
+            }
+
             resize();
             gpuReady = true;
-            render();
+            // Defer first render to next frame to avoid blocking
+            requestAnimationFrame(render);
         }
 
-        init();
+        // Start screen API selector handlers
+        document.getElementById('startWebgpuBtn').addEventListener('click', () => {
+            if (webgpuAvailable) {
+                updateApiSelection('webgpu');
+            }
+        });
+        document.getElementById('startWebgl2Btn').addEventListener('click', () => {
+            updateApiSelection('webgl2');
+        });
+
+        // Top bar API switcher handlers (reload with URL param)
+        document.getElementById('webgpuBtn').addEventListener('click', () => {
+            if (!webgpuAvailable) return;
+            const url = new URL(window.location);
+            url.searchParams.set('renderer', 'webgpu');
+            window.location.href = url.toString();
+        });
+        document.getElementById('webgl2Btn').addEventListener('click', () => {
+            const url = new URL(window.location);
+            url.searchParams.set('renderer', 'webgl2');
+            window.location.href = url.toString();
+        });
+
+        // Detect APIs first, then wait for user to start
+        let apiDetectionComplete = false;
+        (async () => {
+            await detectApis();
+            apiDetectionComplete = true;
+            console.log('API Detection complete. WebGPU:', webgpuAvailable, 'Selected:', selectedApi);
+        })();
     </script>
 </body>
 </html>
