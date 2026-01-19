@@ -27,27 +27,28 @@
 
 .flow-title {
     font-family: var(--font-heading), 'Manrope', sans-serif;
-    font-size: 32px;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
     font-weight: 700;
-    letter-spacing: -1.2px;
-    color: #1a1a1a;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
     margin: 0;
 }
 
 .flow-subtitle {
     font-family: var(--font-body), 'Inter', sans-serif;
-    font-size: 15px;
-    color: #7a7a7a;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: var(--text-secondary);
     font-weight: 500;
+    margin-top: 0.5rem;
 }
 
 .flow-context-note {
     font-family: var(--font-body), 'Inter', sans-serif;
-    font-size: 14px;
-    color: #666;
+    font-size: 1rem;
+    color: var(--text-secondary);
     font-style: normal;
-    margin-top: 12px;
-    max-width: 700px;
+    margin-top: 1rem;
+    max-width: 48rem;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
