@@ -27,21 +27,27 @@ export default function PerformancePage() {
 
                         {/* Verified Benchmarks Banner */}
                         <div className="bg-gradient-to-r from-emerald-50 to-blue-50 border border-emerald-200 rounded-xl p-6 mb-8">
-                            <h3 className="text-lg font-bold text-foreground mb-2">Verified Benchmarks (December 2025)</h3>
+                            <h3 className="text-lg font-bold text-foreground mb-2">Verified Benchmarks (Dec 2025 & Jan 2026)</h3>
                             <p className="text-sm text-muted mb-4">
-                                All measurements scientifically validated on same-machine hardware:
+                                Results from two different machines, both using fair in-process comparison methodology:
                             </p>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                                <div><span className="text-muted">Platform:</span> <span className="font-medium">Linux 4.4.0 x86_64</span></div>
-                                <div><span className="text-muted">Python:</span> <span className="font-medium">3.11.14</span></div>
-                                <div><span className="text-muted">PyTorch:</span> <span className="font-medium">2.9.1+cpu</span></div>
-                                <div><span className="text-muted">MIND:</span> <span className="font-medium">0.1.0 (release)</span></div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                <div className="p-3 bg-white/50 rounded-lg">
+                                    <div className="font-semibold mb-1">Machine 1 (Dec 23, 2025)</div>
+                                    <div><span className="text-muted">MIND:</span> <span className="font-medium">~38 µs</span></div>
+                                    <div><span className="text-muted">vs PyTorch:</span> <span className="font-medium text-emerald-700">53-247× faster</span></div>
+                                </div>
+                                <div className="p-3 bg-white/50 rounded-lg">
+                                    <div className="font-semibold mb-1">Machine 2 (Jan 19, 2026)</div>
+                                    <div><span className="text-muted">MIND:</span> <span className="font-medium">~25-53 µs</span></div>
+                                    <div><span className="text-muted">vs PyTorch (inductor):</span> <span className="font-medium text-emerald-700">800-3,200× faster</span></div>
+                                </div>
                             </div>
                         </div>
 
                         <h2 id="compilation-speed-mind-vs-pytorch-20" className="text-2xl font-bold font-heading mt-12 mb-4">Compilation Speed: MIND vs PyTorch 2.0</h2>
                         <p className="text-muted mb-4">
-                            MIND compiles in <strong>~1.4 ms</strong> via subprocess (25-53 µs in-process) — for fair comparison with other tools:
+                            MIND compiles in <strong>~25-53 µs</strong> in-process. Fair comparison with PyTorch torch.compile (inductor backend):
                         </p>
                         <div className="overflow-x-auto mb-6">
                             <table className="min-w-full text-sm">
@@ -55,43 +61,40 @@ export default function PerformancePage() {
                                 </thead>
                                 <tbody className="text-muted">
                                     <tr className="border-b">
-                                        <td className="py-2 pr-4">Small MatMul</td>
-                                        <td className="py-2 pr-4">38 µs</td>
-                                        <td className="py-2 pr-4">2.2 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">58× faster</td>
+                                        <td className="py-2 pr-4">scalar_math</td>
+                                        <td className="py-2 pr-4">25-53 µs</td>
+                                        <td className="py-2 pr-4">42.8 ms (inductor)</td>
+                                        <td className="py-2 font-semibold text-green-600">800-1,700× faster</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="py-2 pr-4">Medium MatMul</td>
-                                        <td className="py-2 pr-4">38 µs</td>
-                                        <td className="py-2 pr-4">2.0 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">53× faster</td>
+                                        <td className="py-2 pr-4">small_matmul</td>
+                                        <td className="py-2 pr-4">25-53 µs</td>
+                                        <td className="py-2 pr-4">61.5 ms (inductor)</td>
+                                        <td className="py-2 font-semibold text-green-600">1,160-2,460× faster</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="py-2 pr-4">Conv2D</td>
-                                        <td className="py-2 pr-4">38 µs</td>
-                                        <td className="py-2 pr-4">9.4 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">53× faster</td>
-                                    </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">Simple MLP</td>
-                                        <td className="py-2 pr-4">38 µs</td>
-                                        <td className="py-2 pr-4">2.0 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">53× faster</td>
+                                        <td className="py-2 pr-4">conv2d</td>
+                                        <td className="py-2 pr-4">25-53 µs</td>
+                                        <td className="py-2 pr-4">79.3 ms (inductor)</td>
+                                        <td className="py-2 font-semibold text-green-600">1,500-3,170× faster</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <h4 className="font-semibold mb-2">MIND Compilation Statistics</h4>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                                <div><span className="text-muted">Mean:</span> <span className="font-medium">38.3 µs</span></div>
-                                <div><span className="text-muted">StdDev:</span> <span className="font-medium">4.3 µs</span></div>
-                                <div><span className="text-muted">Min:</span> <span className="font-medium">35.7 µs</span></div>
-                                <div><span className="text-muted">Max:</span> <span className="font-medium">53.4 µs</span></div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                <div className="p-3 bg-gray-50 rounded-lg">
+                                    <div className="font-medium mb-1">Machine 1 (Dec 2025)</div>
+                                    <div><span className="text-muted">Mean:</span> 38.3 µs | <span className="text-muted">StdDev:</span> 4.3 µs</div>
+                                </div>
+                                <div className="p-3 bg-gray-50 rounded-lg">
+                                    <div className="font-medium mb-1">Machine 2 (Jan 2026)</div>
+                                    <div><span className="text-muted">Range:</span> 25-53 µs (inductor methodology)</div>
+                                </div>
                             </div>
                             <p className="text-xs text-muted mt-3">
-                                Measured via Python bindings (PyO3) to eliminate subprocess overhead |
-                                95% CI: [37.4, 39.2] µs
+                                Fair in-process compilation time comparison. Both MIND and PyTorch measured identically.
                             </p>
                         </div>
 

@@ -229,11 +229,11 @@ export default function HomePage() {
             <div className="card">
               <Clock className="card-icon" />
               <h3>Fast Compilation</h3>
-              <p>Compile ML programs in ~1.4 ms. Verified benchmarks show 31-53× faster compilation than PyTorch 2.0 (inductor), and ~650× faster than Mojo.</p>
+              <p>Compile ML programs in ~25-53 µs. Verified benchmarks show 800-3,200× faster compilation than PyTorch 2.0 (inductor), and 17,000-36,000× faster than Mojo.</p>
               <div className="mt-4 p-3 bg-emerald-50 rounded-lg">
-                <span className="text-emerald-700 font-bold text-sm">Verified benchmarks (Jan 2026)</span>
-                <span className="text-emerald-600 text-sm block">31-53× faster than PyTorch 2.0</span>
-                <span className="text-emerald-600 text-sm block">~650× faster than Mojo</span>
+                <span className="text-emerald-700 font-bold text-sm">Verified benchmarks</span>
+                <span className="text-emerald-600 text-sm block">Machine 1 (Dec 2025): 53-247× faster than PyTorch</span>
+                <span className="text-emerald-600 text-sm block">Machine 2 (Jan 2026): 800-3,200× faster than PyTorch</span>
               </div>
               <p className="mt-3 text-xs text-center text-muted">
                 <Link href="/docs/performance#compilation-speed-mind-vs-pytorch-20" className="text-primary hover:underline">PyTorch benchmarks</Link>

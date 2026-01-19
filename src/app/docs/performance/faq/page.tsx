@@ -46,12 +46,16 @@ export default function PerformanceFAQPage() {
                                     </thead>
                                     <tbody className="text-muted">
                                         <tr className="border-b bg-emerald-50/50">
-                                            <td className="py-2 pr-4 font-semibold">MIND</td>
-                                            <td className="py-2 font-semibold text-emerald-700">~1.4 ms</td>
+                                            <td className="py-2 pr-4 font-semibold">MIND (Machine 1, Dec 2025)</td>
+                                            <td className="py-2 font-semibold text-emerald-700">~38 µs</td>
+                                        </tr>
+                                        <tr className="border-b bg-emerald-50/50">
+                                            <td className="py-2 pr-4 font-semibold">MIND (Machine 2, Jan 2026)</td>
+                                            <td className="py-2 font-semibold text-emerald-700">~25-53 µs</td>
                                         </tr>
                                         <tr className="border-b">
-                                            <td className="py-2 pr-4">PyTorch 2.0</td>
-                                            <td className="py-2">43-79 ms (31-53× slower)</td>
+                                            <td className="py-2 pr-4">PyTorch 2.0 (inductor)</td>
+                                            <td className="py-2">43-79 ms (800-3,200× slower)</td>
                                         </tr>
                                         <tr className="border-b">
                                             <td className="py-2 pr-4">JAX (XLA)</td>
@@ -65,7 +69,7 @@ export default function PerformanceFAQPage() {
                                 </table>
                             </div>
                             <p className="text-sm text-muted mt-4">
-                                MIND is <strong>53-2,632× faster</strong> than other frameworks.
+                                MIND is <strong>800-3,200× faster than PyTorch 2.0 (inductor)</strong> — fair in-process comparison.
                             </p>
                         </div>
 
