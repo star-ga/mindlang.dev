@@ -271,32 +271,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Live Benchmark Demo */}
-          <div className="mt-12 max-w-3xl mx-auto">
-            <h3 className="text-xl font-bold text-center mb-4">Live Benchmark Demo</h3>
-            <p className="text-sm text-muted text-center mb-4">
-              Scientific methodology: subprocess overhead subtracted for fair comparison
-            </p>
-            <div className="rounded-xl overflow-hidden border border-border bg-neutral-900 shadow-lg">
-              <video
-                className="w-full"
-                controls
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster="/demo/benchmarks/MIND_Scientific_Benchmark.gif"
-              >
-                <source src="/demo/benchmarks/MIND_Scientific_Benchmark.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <p className="text-xs text-muted mt-2 text-center">
-              All measurements run live — no hardcoded values. MIND vs PyTorch 2.0, JAX, and Mojo.
-            </p>
-          </div>
-
-          <div className="text-center mt-8">
+          <div className="text-center mt-12">
             <Link href="/docs/performance" className="text-primary font-medium hover:underline">
               See Detailed Benchmarks →
             </Link>

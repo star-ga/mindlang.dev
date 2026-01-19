@@ -210,6 +210,54 @@ export default function ComparePage() {
         </div>
       </section>
 
+      {/* Determinism Proof */}
+      <section className="section section--alt">
+        <div className="container">
+          <h2 className="section-title">Determinism Proof</h2>
+          <p className="text-muted text-center max-w-2xl mx-auto mb-8">
+            MIND guarantees <strong>100% bit-level reproducibility</strong> — every compilation produces identical output,
+            verified via SHA256 cryptographic hashing. Watch the proof:
+          </p>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="rounded-lg overflow-hidden shadow-lg bg-[#1a1b26] border border-card-border">
+              <video
+                className="w-full"
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster="/demo/determinism/MIND_Determinism_Proof.gif"
+              >
+                <source src="/demo/determinism/MIND_Determinism_Proof.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <p className="text-sm text-muted mt-4 text-center">
+              30 compilation runs, 3 test programs (scalar math, matrix multiply, MLP network), 0 hash collisions.
+              <br />
+              <strong>Same source → Same IR → Same binary → Same output</strong> (bit-for-bit)
+            </p>
+          </div>
+
+          <div className="grid grid--three gap-6 mt-12 max-w-4xl mx-auto">
+            <div className="card text-center">
+              <div className="text-3xl font-bold text-primary mb-2">30</div>
+              <div className="text-sm text-muted">Compilation runs</div>
+            </div>
+            <div className="card text-center">
+              <div className="text-3xl font-bold text-primary mb-2">1</div>
+              <div className="text-sm text-muted">Unique hash per test</div>
+            </div>
+            <div className="card text-center">
+              <div className="text-3xl font-bold text-primary mb-2">100%</div>
+              <div className="text-sm text-muted">Reproducibility</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Key Differences */}
       <section className="section section--alt">
         <div className="container">
