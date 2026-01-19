@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsHeader } from "@/components/ui/DocsHeader";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function FuturePage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/future" />
                     <h1 className="page-title mt-4">Future Extensions</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -151,7 +151,6 @@ export default function FuturePage() {
                         next={{ label: "Contributing", href: "/docs/contributing" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/future" />
                 </main>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { DocsHeader } from "@/components/ui/DocsHeader";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function LanguagePage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/language" />
                     <h1 className="page-title mt-4">Language</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -116,7 +116,6 @@ fn sum_first_n(x: Tensor<f32, 100>, n: i32) -> f32 {
                         next={{ label: "Shapes & Broadcasting", href: "/docs/shapes" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/language" />
                 </main>
             </div>
         </div>

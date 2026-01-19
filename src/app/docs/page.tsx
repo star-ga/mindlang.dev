@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsHeader } from "@/components/ui/DocsHeader";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 import { Box, ShieldCheck, Zap, Cpu, BookOpen, MessageCircle, Github, FileText, Cloud, Rocket } from "lucide-react";
 
@@ -19,7 +19,7 @@ export default function DocsPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs" />
                     <h1 className="page-title mt-4">MIND Language Documentation</h1>
 
                     <div className="prose max-w-none">
@@ -161,7 +161,6 @@ export default function DocsPage() {
                         next={{ label: "Quick Start", href: "/docs/quick-start" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs" />
                 </main>
             </div>
         </div>

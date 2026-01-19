@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { DocsHeader } from "@/components/ui/DocsHeader";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function InstallationPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/installation" />
                     <h1 className="page-title mt-4">Installation</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -54,7 +54,6 @@ cargo build --bin mindc`}</CodeBlock>
                         next={{ label: "Using Core v1", href: "/docs/using-core-v1" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/installation" />
                 </main>
             </div>
         </div>

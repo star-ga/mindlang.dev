@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { DocsHeader } from "@/components/ui/DocsHeader";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function AutodiffPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/autodiff" />
                     <h1 className="page-title mt-4">Automatic Differentiation</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -148,7 +148,6 @@ fn transformer_block(x: Tensor<f32, B, S, D>) -> Tensor<f32, B, S, D> {
                         next={{ label: "Errors", href: "/docs/errors" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/autodiff" />
                 </main>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { DocsHeader } from "@/components/ui/DocsHeader";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function SecurityPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/security" />
                     <h1 className="page-title mt-4">Security</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -93,7 +93,6 @@ fn untrusted_inference(input: Tensor<f32, N, M>) -> Tensor<f32, N, K> {
                         next={{ label: "Performance", href: "/docs/performance" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/security" />
                 </main>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { DocsHeader } from "@/components/ui/DocsHeader";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function StdCorePage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/std/core" />
                     <h1 className="page-title mt-4">Standard Library: Core</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -49,7 +49,6 @@ fn divide(a: f32, b: f32) -> Result<f32, String> {
                         next={{ label: "Tensor", href: "/docs/std/tensor" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/std/core" />
                 </main>
             </div>
         </div>

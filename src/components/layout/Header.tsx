@@ -2,21 +2,37 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ExternalLink, ChevronDown } from "lucide-react";
-import { mainNavigation } from "@/data/navigation";
+import { Menu, X, ExternalLink, ChevronDown, ChevronRight, BookOpen } from "lucide-react";
+import { mainNavigation, docsNavigation } from "@/data/navigation";
 import { siteConfig } from "@/data/site";
 import { usePathname } from "next/navigation";
 
 export function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const [docsExpanded, setDocsExpanded] = useState(false);
+    const [expandedDocsSections, setExpandedDocsSections] = useState<string[]>([]);
     const pathname = usePathname();
     const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    // Check if current path is in docs
+    const isDocsPath = pathname.startsWith("/docs");
+
+    // Toggle docs section expansion
+    const toggleDocsSection = (title: string) => {
+        setExpandedDocsSections(prev =>
+            prev.includes(title)
+                ? prev.filter(t => t !== title)
+                : [...prev, title]
+        );
+    };
 
     // Close mobile menu on route change
     useEffect(() => {
         setMobileMenuOpen(false);
         setOpenDropdown(null);
+        setDocsExpanded(false);
+        setExpandedDocsSections([]);
     }, [pathname]);
 
     // Close dropdown when clicking outside
@@ -201,77 +217,141 @@ export function Header() {
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="lg:hidden border-t border-card-border bg-background absolute left-0 right-0 p-4 shadow-lg animate-in slide-in-from-top-5">
-                    <div className="flex flex-col gap-4">
-                        {mainNavigation.map((item) => {
-                            if (item.dropdown) {
-                                // Dropdown section in mobile
-                                return (
-                                    <div key={item.label}>
-                                        <div className="text-xs font-bold text-muted uppercase tracking-wider mb-2">
-                                            {item.label}
-                                        </div>
-                                        <div className="flex flex-col gap-2 pl-3">
-                                            {item.dropdown.map((dropdownItem) => (
-                                                dropdownItem.external ? (
-                                                    <a
-                                                        key={dropdownItem.url}
-                                                        href={dropdownItem.url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="text-base font-medium !text-slate-600 hover:!text-primary flex items-center gap-2 py-1"
-                                                    >
-                                                        {dropdownItem.label}
-                                                        <ExternalLink size={14} />
-                                                    </a>
-                                                ) : (
-                                                    <Link
-                                                        key={dropdownItem.url}
-                                                        href={dropdownItem.url}
-                                                        className={`text-base font-medium py-1 ${
-                                                            pathname === dropdownItem.url
-                                                                ? "text-foreground font-bold"
-                                                                : "!text-slate-600 hover:!text-primary"
-                                                        }`}
-                                                    >
-                                                        {dropdownItem.label}
-                                                    </Link>
-                                                )
-                                            ))}
-                                        </div>
-                                    </div>
-                                );
-                            } else if (item.external) {
-                                return (
-                                    <a
-                                        key={item.url}
-                                        href={item.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-base font-medium !text-slate-600 hover:!text-primary flex items-center gap-2 py-2"
-                                    >
-                                        {item.label}
-                                        <ExternalLink size={14} />
-                                    </a>
-                                );
-                            } else {
-                                return (
+                <div className="lg:hidden border-t border-card-border bg-background absolute left-0 right-0 shadow-lg animate-in slide-in-from-top-5 max-h-[85vh] overflow-y-auto">
+                    <div className="flex flex-col">
+                        {/* Home link */}
+                        <Link
+                            href="/"
+                            className={`px-4 py-3 text-base font-medium border-b border-card-border/50 ${
+                                pathname === "/"
+                                    ? "text-foreground font-bold bg-alt-bg"
+                                    : "!text-slate-600 hover:!text-primary hover:bg-alt-bg/50"
+                            }`}
+                        >
+                            Home
+                        </Link>
+
+                        {/* Docs with expandable sections */}
+                        <div className="border-b border-card-border/50">
+                            <button
+                                onClick={() => setDocsExpanded(!docsExpanded)}
+                                className={`w-full flex items-center justify-between px-4 py-3 text-base font-medium transition-colors ${
+                                    isDocsPath
+                                        ? "text-foreground font-bold bg-alt-bg/50"
+                                        : "!text-slate-600 hover:!text-primary hover:bg-alt-bg/50"
+                                }`}
+                            >
+                                <span className="flex items-center gap-2">
+                                    <BookOpen size={18} />
+                                    Docs
+                                </span>
+                                <ChevronDown size={18} className={`transition-transform duration-200 ${docsExpanded ? 'rotate-180' : ''}`} />
+                            </button>
+
+                            {docsExpanded && (
+                                <div className="bg-slate-50/50 border-t border-card-border/30">
+                                    {/* Quick link to docs home */}
                                     <Link
-                                        key={item.url}
-                                        href={item.url!}
-                                        className={`text-base font-medium py-2 ${
-                                            pathname === item.url
-                                                ? "text-foreground font-bold"
+                                        href="/docs"
+                                        className={`block px-6 py-2.5 text-sm font-medium border-b border-card-border/30 ${
+                                            pathname === "/docs"
+                                                ? "text-primary font-bold"
                                                 : "!text-slate-600 hover:!text-primary"
                                         }`}
                                     >
-                                        {item.label}
+                                        Introduction
                                     </Link>
-                                );
-                            }
-                        })}
-                        <hr className="border-card-border my-2" />
-                        <div className="flex items-center gap-4">
+
+                                    {/* Docs sections */}
+                                    {docsNavigation.map((section) => (
+                                        <div key={section.title} className="border-b border-card-border/30 last:border-b-0">
+                                            <button
+                                                onClick={() => toggleDocsSection(section.title)}
+                                                className="w-full flex items-center justify-between px-6 py-2.5 text-sm font-bold text-slate-700 hover:text-primary transition-colors"
+                                            >
+                                                {section.title}
+                                                <ChevronRight
+                                                    size={14}
+                                                    className={`transition-transform duration-200 ${
+                                                        expandedDocsSections.includes(section.title) ? 'rotate-90' : ''
+                                                    }`}
+                                                />
+                                            </button>
+
+                                            {expandedDocsSections.includes(section.title) && (
+                                                <div className="pb-2">
+                                                    {section.items.map((item) => (
+                                                        <Link
+                                                            key={item.href}
+                                                            href={item.href}
+                                                            className={`block px-8 py-2 text-sm transition-colors ${
+                                                                pathname === item.href
+                                                                    ? "text-primary font-semibold"
+                                                                    : "!text-slate-500 hover:!text-primary"
+                                                            }`}
+                                                        >
+                                                            {item.name}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Product dropdown */}
+                        {mainNavigation.filter(item => item.dropdown).map((item) => (
+                            <div key={item.label} className="border-b border-card-border/50">
+                                <div className="px-4 py-2 text-xs font-bold text-muted uppercase tracking-wider bg-slate-50/50">
+                                    {item.label}
+                                </div>
+                                <div className="flex flex-col">
+                                    {item.dropdown!.map((dropdownItem) => (
+                                        dropdownItem.external ? (
+                                            <a
+                                                key={dropdownItem.url}
+                                                href={dropdownItem.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="px-6 py-2.5 text-sm font-medium !text-slate-600 hover:!text-primary hover:bg-alt-bg/50 flex items-center gap-2"
+                                            >
+                                                {dropdownItem.label}
+                                                <ExternalLink size={12} className="opacity-70" />
+                                            </a>
+                                        ) : (
+                                            <Link
+                                                key={dropdownItem.url}
+                                                href={dropdownItem.url}
+                                                className={`px-6 py-2.5 text-sm font-medium transition-colors ${
+                                                    pathname === dropdownItem.url
+                                                        ? "text-primary font-bold bg-alt-bg/50"
+                                                        : "!text-slate-600 hover:!text-primary hover:bg-alt-bg/50"
+                                                }`}
+                                            >
+                                                {dropdownItem.label}
+                                            </Link>
+                                        )
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+
+                        {/* Community link */}
+                        <Link
+                            href="/community"
+                            className={`px-4 py-3 text-base font-medium border-b border-card-border/50 ${
+                                pathname === "/community"
+                                    ? "text-foreground font-bold bg-alt-bg"
+                                    : "!text-slate-600 hover:!text-primary hover:bg-alt-bg/50"
+                            }`}
+                        >
+                            Community
+                        </Link>
+
+                        {/* Social links */}
+                        <div className="flex items-center gap-6 px-4 py-4 bg-slate-50/50">
                             <a
                                 href={siteConfig.github}
                                 target="_blank"

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsHeader } from "@/components/ui/DocsHeader";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function StabilityPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/stability" />
                     <h1 className="page-title mt-4">Stability & Versioning</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -61,7 +61,6 @@ export default function StabilityPage() {
                         next={{ label: "Security", href: "/docs/security" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/stability" />
                 </main>
             </div>
         </div>

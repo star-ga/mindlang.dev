@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { DocsHeader } from "@/components/ui/DocsHeader";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function FFIPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/ffi" />
                     <h1 className="page-title mt-4">FFI & Bindings</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -137,7 +137,6 @@ fn predict(input: Tensor<f32, N, 784>) -> Tensor<f32, N, 10> {
                         next={{ label: "Conformance", href: "/docs/conformance" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/ffi" />
                 </main>
             </div>
         </div>

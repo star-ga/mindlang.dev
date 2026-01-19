@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsHeader } from "@/components/ui/DocsHeader";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function QuickStartPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/quick-start" />
                     <h1 className="page-title mt-4">Quick Start</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -53,8 +53,6 @@ cargo run --features "mlir-lowering autodiff" --bin mindc -- examples/hello_tens
                     <PageNavigation
                         next={{ label: "Installation", href: "/docs/installation" }}
                     />
-
-                    <MobileDocsSidebar currentPath="/docs/quick-start" />
                 </main>
             </div>
         </div>

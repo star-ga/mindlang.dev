@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { DocsHeader } from "@/components/ui/DocsHeader";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function IRPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/ir" />
                     <h1 className="page-title mt-4">Intermediate Representation</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -128,7 +128,6 @@ Machine Code`}</CodeBlock>
                         next={{ label: "MLIR Lowering", href: "/docs/mlir" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/ir" />
                 </main>
             </div>
         </div>

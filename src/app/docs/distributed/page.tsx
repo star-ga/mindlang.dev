@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsHeader } from "@/components/ui/DocsHeader";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 
@@ -18,7 +18,7 @@ export default function DistributedPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/distributed" />
                     <h1 className="page-title mt-4">Distributed Execution</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -217,7 +217,6 @@ trainer.fit(dataloader, epochs);`}</CodeBlock>
                         next={{ label: "Deployment", href: "/docs/deployment" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/distributed" />
                 </main>
             </div>
         </div>

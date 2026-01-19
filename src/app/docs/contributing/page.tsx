@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { DocsHeader } from "@/components/ui/DocsHeader";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function ContributingPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/contributing" />
                     <h1 className="page-title mt-4">Contributing</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -115,7 +115,6 @@ cargo build --all`}</CodeBlock>
                         prev={{ label: "Future Extensions", href: "/docs/future" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/contributing" />
                 </main>
             </div>
         </div>

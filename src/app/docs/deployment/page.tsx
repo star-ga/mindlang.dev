@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsHeader } from "@/components/ui/DocsHeader";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 
@@ -18,7 +18,7 @@ export default function DeploymentPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/deployment" />
                     <h1 className="page-title mt-4">Deployment</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -305,7 +305,6 @@ mind model diff v1.1.0 v1.2.0`}</CodeBlock>
                         next={{ label: "Conformance", href: "/docs/conformance" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/deployment" />
                 </main>
             </div>
         </div>

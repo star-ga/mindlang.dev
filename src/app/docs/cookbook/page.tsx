@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { DocsHeader } from "@/components/ui/DocsHeader";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function CookbookPage() {
 
                 {/* Main Content */}
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/cookbook" />
                     <h1 className="page-title mt-4">MIND Core v1 Cookbook</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -71,7 +71,6 @@ let result = rt.read_tensor(out)?;`}</CodeBlock>
                         next={{ label: "Language", href: "/docs/language" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/cookbook" />
                 </main>
             </div>
         </div>

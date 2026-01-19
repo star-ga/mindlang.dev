@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { DocsHeader } from "@/components/ui/DocsHeader";
 import { CodeBlock } from "@/components/ui/CodeBlock";
-import { DocsSidebar, MobileDocsSidebar } from "@/components/ui/DocsSidebar";
+import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function MicV2Page() {
                 <DocsSidebar currentPath="/docs/mic/v2" />
 
                 <main className="flex-1 min-w-0">
-                    <Breadcrumbs />
+                    <DocsHeader currentPath="/docs/mic/v2" />
                     <h1 className="page-title mt-4">mic@2 Text Format</h1>
 
                     <div className="prose prose-slate max-w-none">
@@ -373,7 +373,6 @@ match parse_mic2(input) {
                         next={{ label: "MIC-B Binary", href: "/docs/mic/binary" }}
                     />
 
-                    <MobileDocsSidebar currentPath="/docs/mic/v2" />
                 </main>
             </div>
         </div>
