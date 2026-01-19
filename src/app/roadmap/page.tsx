@@ -92,13 +92,13 @@ export default function RoadmapPage() {
                         </div>
                         <p className="text-xs text-muted leading-relaxed">Practical shape rules and the reference engine.</p>
                     </Link>
-                    <Link href="/docs/spec" className="group block p-5 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100 hover:border-emerald-300 hover:shadow-md transition-all">
+                    <a href="https://github.com/cputer/mind-spec" target="_blank" rel="noopener noreferrer" className="group block p-5 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100 hover:border-emerald-300 hover:shadow-md transition-all">
                         <div className="flex items-center gap-2 mb-2">
                             <CheckCircle className="w-5 h-5 text-emerald-600" />
                             <h4 className="font-bold text-sm text-foreground group-hover:text-emerald-600 transition-colors">Core v1 Spec</h4>
                         </div>
                         <p className="text-xs text-muted leading-relaxed">Official spec, conformance, and stability guarantees.</p>
-                    </Link>
+                    </a>
                     <Link href="/docs/using-core-v1" className="group block p-5 rounded-xl bg-gradient-to-br from-violet-50 to-purple-50 border border-violet-100 hover:border-violet-300 hover:shadow-md transition-all">
                         <div className="flex items-center gap-2 mb-2">
                             <Terminal className="w-5 h-5 text-violet-600" />
