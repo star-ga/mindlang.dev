@@ -33,10 +33,13 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto">
             {/* Logo */}
             <div className="mb-8">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/img/mind-logo-full.svg"
                 alt="MIND Logo"
                 className="h-72 w-auto mx-auto"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
 
