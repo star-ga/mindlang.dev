@@ -25,13 +25,30 @@ export default function QuickStartPage() {
                             Write and run your first Tensor program in 5 minutes.
                         </p>
 
-                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">1. Clone & build the compiler</h2>
+                        {/* Quick Install */}
+                        <div className="bg-gradient-to-r from-violet-50 to-blue-50 border border-violet-200 rounded-xl p-6 mb-8">
+                            <h3 className="text-lg font-bold text-foreground mb-2">Quick Install (Recommended)</h3>
+                            <p className="text-sm text-muted mb-4">
+                                One command to install MIND with all dependencies:
+                            </p>
+                            <CodeBlock>{`curl -fsSL https://mindlang.dev/install.sh | sh`}</CodeBlock>
+                            <p className="text-xs text-muted mt-3">
+                                This will install Rust (if needed), clone the repo, build the compiler, and add <code>mind</code> to your PATH.
+                            </p>
+                        </div>
+
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Manual Installation</h2>
+                        <p className="text-muted mb-4">
+                            Alternatively, build from source manually:
+                        </p>
+
+                        <h3 className="text-xl font-bold font-heading mt-8 mb-4">1. Clone & build the compiler</h3>
                         <p className="text-muted mb-4">
                             Use the public compiler repo and build the CLI from source:
                         </p>
                         <CodeBlock className="mb-8">{`git clone https://github.com/star-ga/mind.git
 cd mind
-cargo build --bin mindc`}</CodeBlock>
+cargo build --release --bin mindc`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">2. Inspect the sample program</h2>
                         <p className="text-muted mb-4">
