@@ -90,7 +90,7 @@ export default function PerformancePage() {
                                 </div>
                                 <div className="p-3 bg-gray-50 rounded-lg">
                                     <div className="font-medium mb-1">Machine 2 (Jan 2026)</div>
-                                    <div><span className="text-muted">Range:</span> 25-53 µs (inductor methodology)</div>
+                                    <div><span className="text-muted">Range:</span> 25-53 µs (Criterion benchmarks)</div>
                                 </div>
                             </div>
                             <p className="text-xs text-muted mt-3">
@@ -316,7 +316,8 @@ export default function PerformancePage() {
                             <ul className="list-disc pl-6 space-y-1 text-muted text-sm">
                                 <li>MIND compiles in <strong>microseconds</strong> regardless of model complexity</li>
                                 <li>Mojo compilation time scales with computation size (seconds for larger models)</li>
-                                <li>MIND achieves <strong>~650× faster</strong> compilation (fair subprocess-to-subprocess comparison)</li>
+                                <li>Fair comparison using <code>mojo build</code> (compile-only): MIND achieves <strong>~650× faster</strong> compilation</li>
+                                <li>Table above shows <code>mojo run</code> (compile+execute) for reference — fair compile-only comparison is ~650×</li>
                             </ul>
                             <p className="text-xs text-muted mt-3">
                                 Same-machine benchmark: AlmaLinux 9.7, LLVM 20, Mojo 0.25.7 |
@@ -360,13 +361,13 @@ mindc run model.mind --profile=time`}</CodeBlock>
                                 <tbody className="text-muted">
                                     <tr className="border-b bg-emerald-50/50">
                                         <td className="py-2 pr-4 font-semibold">MIND</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">~38 µs</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">25-53 µs</td>
                                         <td className="py-2 pr-4 font-semibold text-emerald-700">Compile-time</td>
                                         <td className="py-2 font-semibold text-emerald-700">100% guaranteed</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">PyTorch 2.0</td>
-                                        <td className="py-2 pr-4">2-10 ms</td>
+                                        <td className="py-2 pr-4">43-79 ms</td>
                                         <td className="py-2 pr-4">Runtime tape</td>
                                         <td className="py-2">Not guaranteed</td>
                                     </tr>

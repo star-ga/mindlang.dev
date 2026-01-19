@@ -123,7 +123,7 @@ python3 test_real_compile_time.py`}</CodeBlock>
                             <li><strong>Total overhead: ~5 ms</strong></li>
                         </ul>
                         <p className="text-muted mb-4">
-                            This reveals MIND&apos;s <strong>true compilation performance: ~38 µs</strong>
+                            This reveals MIND&apos;s <strong>true compilation performance: 25-53 µs</strong> (varies by machine)
                         </p>
 
                         <h3 className="text-xl font-bold font-heading mt-8 mb-4">Subprocess vs Direct Call</h3>
@@ -134,7 +134,7 @@ python3 test_real_compile_time.py`}</CodeBlock>
                                     <ul className="text-sm text-muted space-y-1">
                                         <li>Spawn process: ~2-3 ms</li>
                                         <li>IPC overhead: ~1-2 ms</li>
-                                        <li>Actual compile: ~38 µs</li>
+                                        <li>Actual compile: 25-53 µs</li>
                                         <li className="font-semibold border-t pt-1 mt-2">TOTAL: ~5 ms</li>
                                     </ul>
                                 </div>
@@ -142,8 +142,8 @@ python3 test_real_compile_time.py`}</CodeBlock>
                                     <h4 className="font-semibold mb-2 text-emerald-700">mind.compile() (Python binding)</h4>
                                     <ul className="text-sm text-muted space-y-1">
                                         <li>Direct function call: ~0 µs</li>
-                                        <li>Actual compile: ~38 µs</li>
-                                        <li className="font-semibold border-t pt-1 mt-2 text-emerald-700">TOTAL: ~38 µs</li>
+                                        <li>Actual compile: 25-53 µs</li>
+                                        <li className="font-semibold border-t pt-1 mt-2 text-emerald-700">TOTAL: 25-53 µs</li>
                                     </ul>
                                 </div>
                             </div>
