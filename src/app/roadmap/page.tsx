@@ -234,7 +234,7 @@ export default function RoadmapPage() {
                     progress={100}
                     progressColor="bg-emerald-500"
                     milestone="Complete"
-                    description="Spec aligned with implementations. 20 IR instructions, 47 E-codes, 1e-5 numerical tolerance. 154 compiler tests, 37 runtime tests, all passing."
+                    description="Spec aligned with implementations. 20 IR instructions, 47 E-codes, 1e-5 numerical tolerance. 175+ compiler tests, 136 runtime tests, all passing."
                     milestoneDescription="Compiler and runtime implementations fully match spec. Conformance test suite complete."
                 />
 
@@ -263,7 +263,7 @@ export default function RoadmapPage() {
                     progressColor="bg-emerald-500"
                     description="5 MLIR dialects (arith, tensor, linalg, func, scf). Tested with LLVM 18. 7 FFI functions, 3 enums, 2 opaque types."
                     milestone="Core pipeline operational"
-                    milestoneDescription="Full compiler workflow. GPU/accelerator extensions in progress."
+                    milestoneDescription="Full compiler workflow with all GPU backends production-ready."
                 />
 
                 {/* Full-Stack AI Vision Section */}
