@@ -26,9 +26,9 @@ export default function DeploymentPage() {
                             MIND provides production-ready deployment options for cloud, edge, and on-premise environments with built-in serving infrastructure, auto-scaling, and monitoring.
                         </p>
 
-                        <div className="bg-orange-50 border border-orange-200 rounded-xl p-6 mb-8">
-                            <p className="text-sm text-orange-800 m-0">
-                                <strong>Early Access:</strong> Deployment features are currently in Phase 15 development. The APIs described here are subject to change. See the <Link href="/roadmap" className="text-orange-600 underline">Roadmap</Link> for current status.
+                        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 mb-8">
+                            <p className="text-sm text-emerald-800 m-0">
+                                <strong>Production Ready:</strong> The MIND runtime provides complete model serving infrastructure including native + ONNX export with quantization (FP32→INT4), HTTP/gRPC inference server with dynamic batching, Prometheus metrics, and Kubernetes health checks. See the <Link href="/roadmap" className="text-emerald-600 underline">Roadmap</Link> for details.
                             </p>
                         </div>
 
