@@ -187,15 +187,18 @@ core.workspace = true  # inherits from workspace`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Learn More</h2>
                         <p className="text-muted">
-                            See the package management implementation at{" "}
-                            <a href="https://github.com/star-ga/mind-runtime/tree/main/src/package" target="_blank" rel="noopener" className="text-primary hover:underline">
-                                mind-runtime/src/package
+                            See the{" "}
+                            <a href="https://github.com/star-ga/mind-spec/blob/main/spec/v1.0/package.md" target="_blank" rel="noopener" className="text-primary hover:underline">
+                                Package Management Specification
                             </a>{" "}
-                            and the{" "}
+                            for the full technical details, and the{" "}
                             <Link href="/roadmap" className="text-primary hover:underline">
                                 Roadmap
                             </Link>{" "}
-                            for the full feature status.
+                            for the feature status. Enterprise customers can access the runtime implementation via{" "}
+                            <Link href="/enterprise" className="text-primary hover:underline">
+                                Enterprise license
+                            </Link>.
                         </p>
                     </div>
 
