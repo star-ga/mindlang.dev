@@ -200,23 +200,23 @@ export default function RoadmapPage() {
                     milestoneDescription="Full-stack distributed training with data/model/pipeline parallelism and elastic scaling."
                 />
 
-                {/* Deployment & Serving - Phase 15 */}
+                {/* Deployment & Serving - Complete */}
                 <RoadmapCard
-                    icon={<Rocket className="w-8 h-8 text-orange-600" />}
-                    iconBg="bg-orange-50"
+                    icon={<Rocket className="w-8 h-8 text-emerald-500" />}
+                    iconBg="bg-emerald-50"
                     title="Deployment & Serving"
-                    status="Phase 15"
-                    statusColor="bg-orange-100 text-orange-700"
-                    progress={20}
-                    progressColor="bg-orange-500"
-                    milestone="2026"
-                    description="Production-ready model serving with containerized deployment, auto-scaling, A/B testing, and model versioning."
+                    status="Complete"
+                    statusColor="bg-emerald-100 text-emerald-700"
+                    progress={100}
+                    progressColor="bg-emerald-500"
+                    milestone="Released"
+                    description="Production-ready model serving: native + ONNX export with quantization, HTTP/gRPC inference server, dynamic batching, Prometheus metrics, Kubernetes health checks."
                     subDescription={
                         <>
                             See <Link href="/docs/deployment" className="text-primary underline">Deployment Guide</Link> for deployment options and best practices.
                         </>
                     }
-                    milestoneDescription="One-command deployment to cloud, edge, and on-premise environments."
+                    milestoneDescription="Full model serving infrastructure with export, inference, metrics, and health monitoring."
                 />
 
                 {/* Testing & Conformance */}
