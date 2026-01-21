@@ -75,6 +75,7 @@ export const docsNavigation = [
         items: [
             { name: "Distributed Execution", href: "/docs/distributed" },
             { name: "Deployment", href: "/docs/deployment" },
+            { name: "Package Management", href: "/docs/package" },
         ],
     },
 

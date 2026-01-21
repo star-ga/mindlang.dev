@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 import { DocsHeader } from "@/components/ui/DocsHeader";
 import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { PageNavigation } from "@/components/ui/PageNavigation";
-import { Box, ShieldCheck, Zap, Cpu, BookOpen, MessageCircle, Github, FileText, Cloud, Rocket } from "lucide-react";
+import { Box, ShieldCheck, Zap, Cpu, BookOpen, MessageCircle, Github, FileText, Cloud, Rocket, Package } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "Documentation",
@@ -98,7 +98,7 @@ export default function DocsPage() {
                         <p className="text-muted mb-6">
                             MIND is evolving into a complete platform for building, deploying, and scaling AI systems.
                         </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
                             <Link href="/docs/distributed" className="p-6 rounded-xl border border-card-border hover:border-primary transition-colors group">
                                 <Cloud className="w-8 h-8 text-indigo-600 mb-4" />
                                 <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Distributed Execution</h3>
@@ -111,6 +111,13 @@ export default function DocsPage() {
                                 <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Deployment</h3>
                                 <p className="text-sm text-muted">
                                     Deploy to cloud, edge, or on-premise with one command. Built-in serving, auto-scaling, and monitoring.
+                                </p>
+                            </Link>
+                            <Link href="/docs/package" className="p-6 rounded-xl border border-card-border hover:border-primary transition-colors group">
+                                <Package className="w-8 h-8 text-emerald-600 mb-4" />
+                                <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Package Management</h3>
+                                <p className="text-sm text-muted">
+                                    Enterprise-grade dependency resolution, SBOM generation, security audit, and supply chain provenance.
                                 </p>
                             </Link>
                         </div>
