@@ -26,9 +26,9 @@ export default function DistributedPage() {
                             MIND provides first-class support for distributed training and inference, allowing you to scale models across multiple nodes with automatic sharding, gradient synchronization, and fault tolerance.
                         </p>
 
-                        <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-6 mb-8">
-                            <p className="text-sm text-indigo-800 m-0">
-                                <strong>Early Access:</strong> Distributed execution is currently in Phase 14 development. The APIs described here are subject to change. See the <Link href="/roadmap" className="text-indigo-600 underline">Roadmap</Link> for current status.
+                        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 mb-8">
+                            <p className="text-sm text-emerald-800 m-0">
+                                <strong>Production Ready:</strong> Distributed execution is complete with TCP transport, NCCL/Gloo backends, RingAllReduce, pipeline parallelism, and fault tolerance. See the <Link href="/roadmap" className="text-emerald-600 underline">Roadmap</Link> for full status.
                             </p>
                         </div>
 
@@ -197,6 +197,155 @@ let trainer = Elastic::new(model)
 // Training automatically resumes on node failure
 trainer.fit(dataloader, epochs);`}</CodeBlock>
 
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Complete Example: Distributed MNIST Training</h2>
+                        <p className="text-muted mb-4">
+                            Here's a complete example training a simple neural network on MNIST across multiple GPUs:
+                        </p>
+
+                        <CodeBlock className="mb-8">{`// distributed_mnist.mind
+use mind::nn::{Linear, relu, softmax, cross_entropy};
+use mind::optim::{Adam, Optimizer};
+use mind::data::{Dataset, DataLoader};
+use mind::distributed::{init, rank, world_size, DataParallel, all_reduce};
+
+struct MLP {
+    fc1: Linear<784, 256>,
+    fc2: Linear<256, 128>,
+    fc3: Linear<128, 10>,
+}
+
+impl MLP {
+    fn forward(&self, x: Tensor<f32, [B, 784]>) -> Tensor<f32, [B, 10]> {
+        let h1 = relu(self.fc1.forward(x));
+        let h2 = relu(self.fc2.forward(h1));
+        softmax(self.fc3.forward(h2), axis: -1)
+    }
+}
+
+fn main() {
+    // Initialize distributed runtime (auto-detects backend)
+    init();
+
+    let local_rank = rank();
+    let n_workers = world_size();
+
+    if local_rank == 0 {
+        println!("Training with {} workers", n_workers);
+    }
+
+    // Create model and wrap for data parallelism
+    let model = MLP::new();
+    let model = DataParallel::new(model);
+
+    // Optimizer with scaled learning rate
+    let lr = 0.001 * (n_workers as f32).sqrt();
+    let optimizer = Adam::new(model.parameters(), lr: lr);
+
+    // Each worker gets a shard of the dataset
+    let dataset = Dataset::mnist("data/", train: true);
+    let loader = DataLoader::new(dataset)
+        .batch_size(64)
+        .shuffle(true)
+        .distributed(rank: local_rank, world_size: n_workers);
+
+    // Training loop
+    for epoch in 0..10 {
+        let mut total_loss = 0.0;
+        let mut batches = 0;
+
+        for (images, labels) in loader.iter() {
+            // Forward pass
+            let output = model.forward(images);
+            let loss = cross_entropy(output, labels);
+
+            // Backward pass (gradients auto-synced)
+            loss.backward();
+            optimizer.step();
+            optimizer.zero_grad();
+
+            total_loss += loss.item();
+            batches += 1;
+        }
+
+        // Reduce loss across all workers for logging
+        let avg_loss = all_reduce(total_loss, op: "mean") / (batches as f32);
+
+        if local_rank == 0 {
+            println!("Epoch {}: loss = {:.4}", epoch + 1, avg_loss);
+        }
+    }
+
+    // Save model (only on rank 0)
+    if local_rank == 0 {
+        model.save("mnist_model.mind");
+        println!("Model saved!");
+    }
+}`}</CodeBlock>
+
+                        <p className="text-muted mb-4">
+                            Launch with:
+                        </p>
+
+                        <CodeBlock className="mb-8">{`# Single node, 4 GPUs
+mind launch --gpus 4 distributed_mnist.mind
+
+# Multi-node (2 nodes, 8 GPUs each)
+mind launch --nodes 2 --gpus-per-node 8 \\
+    --master-addr 10.0.0.1 distributed_mnist.mind`}</CodeBlock>
+
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Environment Variables</h2>
+                        <p className="text-muted mb-4">
+                            Configure distributed execution with these environment variables:
+                        </p>
+                        <div className="overflow-x-auto mb-8">
+                            <table className="min-w-full text-sm">
+                                <thead>
+                                    <tr className="border-b">
+                                        <th className="text-left py-2 pr-4 font-bold">Variable</th>
+                                        <th className="text-left py-2 pr-4 font-bold">Default</th>
+                                        <th className="text-left py-2 font-bold">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-muted">
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4 font-mono text-sm">MIND_BACKEND</td>
+                                        <td className="py-2 pr-4">nccl</td>
+                                        <td className="py-2">Communication backend (nccl, gloo, mpi)</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4 font-mono text-sm">MIND_MASTER_ADDR</td>
+                                        <td className="py-2 pr-4">localhost</td>
+                                        <td className="py-2">Master node IP address</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4 font-mono text-sm">MIND_MASTER_PORT</td>
+                                        <td className="py-2 pr-4">29500</td>
+                                        <td className="py-2">Master node port for coordination</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4 font-mono text-sm">MIND_WORLD_SIZE</td>
+                                        <td className="py-2 pr-4">1</td>
+                                        <td className="py-2">Total number of workers</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4 font-mono text-sm">MIND_RANK</td>
+                                        <td className="py-2 pr-4">0</td>
+                                        <td className="py-2">This worker's rank</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4 font-mono text-sm">MIND_LOCAL_RANK</td>
+                                        <td className="py-2 pr-4">0</td>
+                                        <td className="py-2">Local GPU index on this node</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4 font-mono text-sm">MIND_PROFILE</td>
+                                        <td className="py-2 pr-4">0</td>
+                                        <td className="py-2">Enable profiling (1=basic, 2=detailed)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Best Practices</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
                             <li>Start with data parallelism for most workloads - it's the simplest and most efficient</li>
@@ -204,7 +353,82 @@ trainer.fit(dataloader, epochs);`}</CodeBlock>
                             <li>Profile communication overhead with <code className="bg-slate-100 px-1.5 py-0.5 rounded text-sm">MIND_PROFILE=1</code></li>
                             <li>Enable mixed precision training to reduce communication bandwidth</li>
                             <li>Use gradient compression for slow network connections</li>
+                            <li>Scale learning rate with the square root of worker count for stable convergence</li>
+                            <li>Use warmup epochs when training with many workers</li>
                         </ul>
+
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Runtime Implementation</h2>
+                        <p className="text-muted mb-4">
+                            The MIND runtime provides production-grade distributed primitives:
+                        </p>
+
+                        <h3 className="text-xl font-bold font-heading mt-8 mb-3">Transport Layer</h3>
+                        <p className="text-muted mb-4">
+                            TCP-based transport with connection pooling, message serialization, and ring topology helpers for efficient collective operations.
+                        </p>
+                        <CodeBlock className="mb-8">{`use mind::distributed::transport::{TcpTransport, TransportConfig};
+
+let config = TransportConfig {
+    bind_addr: "0.0.0.0:29500".parse()?,
+    connect_timeout_ms: 5000,
+    buffer_size: 1024 * 1024,  // 1MB
+};
+
+let transport = TcpTransport::new(config, rank, world_size)?;
+
+// Ring topology helpers
+let left = transport.left_neighbor();   // (rank - 1) % world_size
+let right = transport.right_neighbor(); // (rank + 1) % world_size`}</CodeBlock>
+
+                        <h3 className="text-xl font-bold font-heading mt-8 mb-3">Communication Backends</h3>
+                        <p className="text-muted mb-4">
+                            Abstract backend trait with NCCL (GPU) and Gloo (CPU/cross-platform) implementations:
+                        </p>
+                        <CodeBlock className="mb-8">{`use mind::distributed::backend::{Backend, NcclBackend, GlooBackend};
+
+// Auto-select based on hardware
+let backend = Backend::auto_select()?;
+
+// Or explicitly choose
+let nccl = NcclBackend::new(rank, world_size)?;  // GPU clusters
+let gloo = GlooBackend::new(rank, world_size)?;  // CPU or cross-platform
+
+// Collective operations via backend
+backend.all_reduce(tensor, AllReduceOp::Sum)?;
+backend.broadcast(tensor, root: 0)?;
+backend.barrier()?;`}</CodeBlock>
+
+                        <h3 className="text-xl font-bold font-heading mt-8 mb-3">Fault Tolerance</h3>
+                        <p className="text-muted mb-4">
+                            Elastic training with automatic failure detection and recovery:
+                        </p>
+                        <CodeBlock className="mb-8">{`use mind::distributed::coordinator::{
+    DistributedCoordinator, FaultToleranceConfig, ClusterHealth
+};
+
+let fault_config = FaultToleranceConfig {
+    min_workers: 2,
+    max_workers: 16,
+    elastic: true,                // Allow dynamic scaling
+    checkpoint_interval: 1000,    // Steps between checkpoints
+    auto_recover: true,
+    max_heartbeat_misses: 3,
+    replacement_delay_ms: 5000,
+};
+
+let coordinator = DistributedCoordinator::new_with_fault_tolerance(
+    world_size, fault_config
+)?;
+
+// Monitor cluster health
+let health: ClusterHealth = coordinator.health_status();
+println!("Workers: {}/{} alive, can_train: {}",
+    health.alive_workers, health.total_workers, health.can_train);
+
+// Automatic checkpoint on failure
+if coordinator.should_checkpoint() {
+    model.save_checkpoint("checkpoint.mind")?;
+}`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Learn More</h2>
                         <p className="text-muted">

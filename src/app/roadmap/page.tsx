@@ -181,23 +181,23 @@ export default function RoadmapPage() {
                     milestoneDescription="Initial research and design phase. Runtime optimizations, signal processing stdlib, and language extensions planned for late 2026."
                 />
 
-                {/* Distributed Execution - Phase 14 */}
+                {/* Distributed Execution - Complete */}
                 <RoadmapCard
-                    icon={<Cloud className="w-8 h-8 text-indigo-600" />}
-                    iconBg="bg-indigo-50"
+                    icon={<Cloud className="w-8 h-8 text-emerald-500" />}
+                    iconBg="bg-emerald-50"
                     title="Distributed Execution"
-                    status="Phase 14"
-                    statusColor="bg-indigo-100 text-indigo-700"
-                    progress={25}
-                    progressColor="bg-indigo-500"
-                    milestone="2026"
-                    description="Multi-node training and inference with automatic model sharding, data parallelism, and collective communication (NCCL, Gloo)."
+                    status="Complete"
+                    statusColor="bg-emerald-100 text-emerald-700"
+                    progress={100}
+                    progressColor="bg-emerald-500"
+                    milestone="Jan 2026"
+                    description="Production-ready distributed training: TCP transport with connection pooling and ring topology, NCCL/Gloo backends, bandwidth-optimal RingAllReduce, pipeline parallelism with micro-batching, and comprehensive fault tolerance."
                     subDescription={
                         <>
-                            See <Link href="/docs/distributed" className="text-primary underline">Distributed Execution Guide</Link> for early access documentation.
+                            Elastic training with heartbeat monitoring, checkpoint recovery, and ClusterHealth tracking. See <Link href="/docs/distributed" className="text-primary underline">Distributed Execution Guide</Link>.
                         </>
                     }
-                    milestoneDescription="Full-stack distributed training with pipeline parallelism and elastic scaling."
+                    milestoneDescription="Full-stack distributed training with data/model/pipeline parallelism and elastic scaling."
                 />
 
                 {/* Deployment & Serving - Phase 15 */}
