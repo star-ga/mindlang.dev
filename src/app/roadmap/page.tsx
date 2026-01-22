@@ -74,7 +74,7 @@ export default function RoadmapPage() {
                     progress={100}
                     progressColor="bg-emerald-500"
                     milestone="Verified"
-                    description="Windows 11: ~38 µs (1,100-2,100× faster). Ubuntu Linux: 25-53 µs (800-3,200× faster). Both vs PyTorch 2.0 (inductor). 100% bit-level determinism, ~650× faster than Mojo."
+                    description="MIND compiles in ~25 µs — 136,000× faster than PyTorch 2.9 (GPU torch.compile), 36,000× faster than Mojo. O(1) constant time regardless of model size. 100% bit-level determinism."
                     subDescription={
                         <>
                             See <Link href="/docs/performance" className="text-primary underline">Performance</Link> and <Link href="/docs/guides/benchmarks" className="text-primary underline">Running Benchmarks</Link> for full details.

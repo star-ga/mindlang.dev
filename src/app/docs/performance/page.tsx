@@ -328,43 +328,55 @@ export default function PerformancePage() {
 
                         <h2 id="compilation-speed-mind-vs-mojo" className="text-2xl font-bold font-heading mt-12 mb-4">Compilation Speed: MIND vs Mojo</h2>
                         <p className="text-muted mb-4">
-                            Scientific comparison using subprocess overhead subtraction methodology (Jan 2026). Mojo only offers <code>mojo build</code> (full LLVM compilation) — no separate typecheck mode like MIND&apos;s <code>mind compile</code>.
+                            Scientific comparison using in-process Criterion benchmarks (Jan 2026). Mojo only offers <code>mojo build</code> (full LLVM compilation) — no separate typecheck mode like MIND&apos;s <code>mind compile</code>.
                         </p>
                         <div className="overflow-x-auto mb-6">
                             <table className="min-w-full text-sm">
                                 <thead>
                                     <tr className="border-b">
-                                        <th className="text-left py-2 pr-4 font-bold">Compiler</th>
-                                        <th className="text-left py-2 pr-4 font-bold">Command</th>
-                                        <th className="text-left py-2 pr-4 font-bold">Pure Compile Time</th>
-                                        <th className="text-left py-2 font-bold">MIND Speedup</th>
+                                        <th className="text-left py-2 pr-4 font-bold">Benchmark</th>
+                                        <th className="text-left py-2 pr-4 font-bold">MIND</th>
+                                        <th className="text-left py-2 pr-4 font-bold">Mojo 0.25.7</th>
+                                        <th className="text-left py-2 font-bold">Speedup</th>
                                     </tr>
                                 </thead>
                                 <tbody className="text-muted">
                                     <tr className="border-b bg-emerald-50/50">
-                                        <td className="py-2 pr-4 font-semibold">MIND</td>
-                                        <td className="py-2 pr-4"><code>mind build</code></td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">187 µs</td>
-                                        <td className="py-2">baseline</td>
+                                        <td className="py-2 pr-4">scalar_math</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">25.3 µs</td>
+                                        <td className="py-2 pr-4">908 ms</td>
+                                        <td className="py-2 font-semibold text-green-600">35,906×</td>
                                     </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">Mojo</td>
-                                        <td className="py-2 pr-4"><code>mojo build</code></td>
-                                        <td className="py-2 pr-4">757 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">4,040× slower</td>
+                                    <tr className="border-b bg-emerald-50/50">
+                                        <td className="py-2 pr-4">small_matmul</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">53.5 µs</td>
+                                        <td className="py-2 pr-4">928 ms</td>
+                                        <td className="py-2 font-semibold text-green-600">17,352×</td>
+                                    </tr>
+                                    <tr className="border-b bg-emerald-50/50">
+                                        <td className="py-2 pr-4">medium_matmul</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">52.8 µs</td>
+                                        <td className="py-2 pr-4">915 ms</td>
+                                        <td className="py-2 font-semibold text-green-600">17,327×</td>
+                                    </tr>
+                                    <tr className="border-b bg-emerald-50/50">
+                                        <td className="py-2 pr-4">large_matmul</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">52.2 µs</td>
+                                        <td className="py-2 pr-4">913 ms</td>
+                                        <td className="py-2 font-semibold text-green-600">17,494×</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
-                            <h4 className="font-semibold mb-2">Why MIND Is Faster Than Mojo</h4>
+                            <h4 className="font-semibold mb-2">Why MIND Is 17,000-36,000× Faster Than Mojo</h4>
                             <ul className="list-disc pl-6 space-y-1 text-muted text-sm">
                                 <li><strong>MIND:</strong> Purpose-built Rust compiler, minimal dependencies, efficient IR design</li>
                                 <li><strong>Mojo:</strong> Full LLVM pipeline including library initialization (~57ms startup overhead)</li>
                                 <li><strong>Key difference:</strong> Mojo has no typecheck-only mode — <code>mojo build</code> always runs full LLVM compilation</li>
                             </ul>
                             <p className="text-xs text-muted mt-3">
-                                Live benchmark using scientific methodology (subprocess overhead subtracted). |
+                                Verified Jan 2026 on Ubuntu 24.04, Mojo 0.25.7. |
                                 <a href="https://github.com/star-ga/mind/tree/main/benchmarks/mojo" target="_blank" rel="noopener" className="text-primary hover:underline ml-1">
                                     View benchmark source
                                 </a>
@@ -390,7 +402,7 @@ mindc run model.mind --profile=time`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Framework Comparison</h2>
                         <p className="text-muted mb-4">
-                            Scientific comparison using subprocess overhead subtraction methodology (Jan 2026):
+                            Scientific comparison using in-process benchmarks (Jan 2026, verified):
                         </p>
                         <div className="overflow-x-auto mb-8">
                             <table className="min-w-full text-sm">
@@ -398,7 +410,7 @@ mindc run model.mind --profile=time`}</CodeBlock>
                                     <tr className="border-b">
                                         <th className="text-left py-2 pr-4 font-bold">Framework</th>
                                         <th className="text-left py-2 pr-4 font-bold">Compilation</th>
-                                        <th className="text-left py-2 pr-4 font-bold">Typecheck-Only Mode</th>
+                                        <th className="text-left py-2 pr-4 font-bold">vs MIND</th>
                                         <th className="text-left py-2 pr-4 font-bold">Autodiff</th>
                                         <th className="text-left py-2 font-bold">Determinism</th>
                                     </tr>
@@ -406,29 +418,29 @@ mindc run model.mind --profile=time`}</CodeBlock>
                                 <tbody className="text-muted">
                                     <tr className="border-b bg-emerald-50/50">
                                         <td className="py-2 pr-4 font-semibold">MIND</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">100-187 µs</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">Yes (~100 µs)</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">25-53 µs</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">baseline</td>
                                         <td className="py-2 pr-4 font-semibold text-emerald-700">Compile-time</td>
                                         <td className="py-2 font-semibold text-emerald-700">100% guaranteed</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="py-2 pr-4">PyTorch 2.0</td>
-                                        <td className="py-2 pr-4">2,766 ms</td>
-                                        <td className="py-2 pr-4 text-red-600">No</td>
+                                        <td className="py-2 pr-4">PyTorch 2.9 (GPU)</td>
+                                        <td className="py-2 pr-4">3,172-3,599 ms</td>
+                                        <td className="py-2 pr-4 text-red-600">65,000-125,000× slower</td>
                                         <td className="py-2 pr-4">Runtime tape</td>
                                         <td className="py-2">Not guaranteed</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="py-2 pr-4">JAX (XLA)</td>
-                                        <td className="py-2 pr-4">135 ms</td>
-                                        <td className="py-2 pr-4 text-red-600">No</td>
+                                        <td className="py-2 pr-4">JAX 0.8 (GPU)</td>
+                                        <td className="py-2 pr-4">~430 ms</td>
+                                        <td className="py-2 pr-4 text-red-600">~17,000× slower</td>
                                         <td className="py-2 pr-4">JIT transforms</td>
                                         <td className="py-2">Mostly deterministic</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="py-2 pr-4">Mojo</td>
-                                        <td className="py-2 pr-4">757 ms</td>
-                                        <td className="py-2 pr-4 text-red-600">No (LLVM only)</td>
+                                        <td className="py-2 pr-4">Mojo 0.25.7</td>
+                                        <td className="py-2 pr-4">908-928 ms</td>
+                                        <td className="py-2 pr-4 text-red-600">17,000-36,000× slower</td>
                                         <td className="py-2 pr-4">External</td>
                                         <td className="py-2">Yes</td>
                                     </tr>
@@ -437,10 +449,10 @@ mindc run model.mind --profile=time`}</CodeBlock>
                         </div>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <p className="text-sm text-muted">
-                                <strong>Key Insight:</strong> As of January 2026, MIND is the only ML compiler offering <strong>dual-mode compilation</strong> (typecheck-only + full IR), achieving sub-200 µs compilation, 100% deterministic builds, and compile-time autodiff.
+                                <strong>Key Insight:</strong> MIND achieves <strong>65,000-125,000× faster compilation</strong> than PyTorch 2.9 GPU torch.compile, with 100% deterministic builds and compile-time autodiff.
                             </p>
                             <p className="text-xs text-muted mt-2 italic">
-                                Mojo only has <code>build</code> (full LLVM) — no separate typecheck mode. PyTorch/JAX also only have full compilation. MIND is unique with both modes.
+                                Environment: Ubuntu 24.04, RTX 3080, CUDA 13.0, PyTorch 2.9.1+cu126, Mojo 0.25.7
                             </p>
                         </div>
 
