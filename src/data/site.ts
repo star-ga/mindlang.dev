@@ -6,12 +6,15 @@ export const siteConfig = {
   url: "https://mindlang.dev",
   github: "https://github.com/star-ga/mind",
   specRepo: "https://github.com/star-ga/mind-spec",
+  runtimeRepo: "https://github.com/star-ga/mind-runtime",
   docsPath: "/docs",
   discord: "https://discord.gg/pg6eqrtgg",
   x: "https://x.com/mindlang",
   company: "STARGA, Inc.",
   contactEmail: "info@star.ga",
   securityEmail: "info@star.ga",
+  version: "0.1.8",
+  llvmVersion: "21",
 };
 
 export type SiteConfig = typeof siteConfig;
