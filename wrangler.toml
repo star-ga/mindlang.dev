@@ -1,0 +1,13 @@
+# Cloudflare Pages configuration
+name = "mindlang-dev"
+compatibility_date = "2026-02-05"
+pages_build_output_dir = "out"
+
+[build]
+command = "npm run build"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[env.preview]
+vars = { ENVIRONMENT = "preview" }
