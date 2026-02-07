@@ -157,59 +157,9 @@ export default function PerformancePage() {
                             </p>
                         </div>
 
-                        {/* Runtime Tensor Compute */}
-                        <h2 id="runtime-tensor-compute" className="text-2xl font-bold font-heading mt-12 mb-4">Runtime Tensor Compute: MIND vs NumPy</h2>
+                        <h2 id="runtime-tensor-compute" className="text-2xl font-bold font-heading mt-12 mb-4">Runtime Tensor Compute</h2>
                         <p className="text-muted mb-4">
-                            MIND&apos;s full pipeline (parse + compile + compute) is <strong>faster than NumPy&apos;s compute-only</strong> at medium-to-large tensor sizes. NumPy numbers exclude import, parse, and compile overhead — only measuring raw computation.
-                        </p>
-                        <div className="overflow-x-auto mb-6">
-                            <table className="min-w-full text-sm">
-                                <thead>
-                                    <tr className="border-b">
-                                        <th className="text-left py-2 pr-4 font-bold">Operation</th>
-                                        <th className="text-left py-2 pr-4 font-bold">MIND (full pipeline)</th>
-                                        <th className="text-left py-2 pr-4 font-bold">NumPy (compute only)</th>
-                                        <th className="text-left py-2 font-bold">MIND Speedup</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="text-muted">
-                                    <tr className="border-b bg-emerald-50/50">
-                                        <td className="py-2 pr-4">add 100K f32</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">220 µs</td>
-                                        <td className="py-2 pr-4">327 µs</td>
-                                        <td className="py-2 font-semibold text-green-600">1.5x faster</td>
-                                    </tr>
-                                    <tr className="border-b bg-emerald-50/50">
-                                        <td className="py-2 pr-4">matmul (64,128) x (128,64)</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">194 µs</td>
-                                        <td className="py-2 pr-4">308 µs</td>
-                                        <td className="py-2 font-semibold text-green-600">1.6x faster</td>
-                                    </tr>
-                                    <tr className="border-b bg-emerald-50/50">
-                                        <td className="py-2 pr-4">matmul (128,256) x (256,128)</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">913 µs</td>
-                                        <td className="py-2 pr-4">2,254 µs</td>
-                                        <td className="py-2 font-semibold text-green-600">2.5x faster</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="bg-card border border-border rounded-lg p-4 mb-8">
-                            <h4 className="font-semibold mb-2">Methodology</h4>
-                            <p className="text-sm text-muted">
-                                <strong>MIND:</strong> Criterion.rs in-process benchmarks (100 samples). Includes full parse + compile + compute pipeline.
-                            </p>
-                            <p className="text-sm text-muted mt-1">
-                                <strong>NumPy 1.26.4:</strong> In-process <code>time.perf_counter_ns</code> (100 runs). Compute-only — no parse or compile overhead.
-                            </p>
-                            <p className="text-sm text-muted mt-1">
-                                Despite including parse + compile in the measurement, MIND&apos;s Rust-native compute avoids Python interpreter overhead and wins at medium-to-large tensor sizes.
-                            </p>
-                        </div>
-
-                        <h3 className="text-xl font-bold font-heading mt-8 mb-4">Full Pipeline Breakdown</h3>
-                        <p className="text-muted mb-4">
-                            In-process Criterion benchmarks showing parse + compile + real tensor compute (Feb 2026):
+                            In-process Criterion benchmarks showing MIND&apos;s full pipeline: parse + compile + real tensor compute (Feb 2026):
                         </p>
                         <div className="overflow-x-auto mb-8">
                             <table className="min-w-full text-sm">
