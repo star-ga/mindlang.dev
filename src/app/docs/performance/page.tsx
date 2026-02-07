@@ -157,59 +157,6 @@ export default function PerformancePage() {
                             </p>
                         </div>
 
-                        <h2 id="runtime-tensor-compute" className="text-2xl font-bold font-heading mt-12 mb-4">Runtime Tensor Compute</h2>
-                        <p className="text-muted mb-4">
-                            In-process Criterion benchmarks showing MIND&apos;s full pipeline: parse + compile + real tensor compute (Feb 2026):
-                        </p>
-                        <div className="overflow-x-auto mb-8">
-                            <table className="min-w-full text-sm">
-                                <thead>
-                                    <tr className="border-b">
-                                        <th className="text-left py-2 pr-4 font-bold">Operation</th>
-                                        <th className="text-left py-2 pr-4 font-bold">Time</th>
-                                        <th className="text-left py-2 font-bold">Notes</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="text-muted">
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">Parse + eval baseline</td>
-                                        <td className="py-2 pr-4">33 µs</td>
-                                        <td className="py-2">Minimal program overhead</td>
-                                    </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">add 10K elements</td>
-                                        <td className="py-2 pr-4">54 µs</td>
-                                        <td className="py-2">~21 µs actual compute</td>
-                                    </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">add 100K elements</td>
-                                        <td className="py-2 pr-4">220 µs</td>
-                                        <td className="py-2">~187 µs actual compute</td>
-                                    </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">sum + reduce 10K</td>
-                                        <td className="py-2 pr-4">65 µs</td>
-                                        <td className="py-2">add + sum reduction</td>
-                                    </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">matmul (10,20)x(20,30)</td>
-                                        <td className="py-2 pr-4">45 µs</td>
-                                        <td className="py-2">6K multiply-accumulate</td>
-                                    </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">matmul (64,128)x(128,64)</td>
-                                        <td className="py-2 pr-4">194 µs</td>
-                                        <td className="py-2">1M multiply-accumulate</td>
-                                    </tr>
-                                    <tr className="border-b">
-                                        <td className="py-2 pr-4">matmul (128,256)x(256,128)</td>
-                                        <td className="py-2 pr-4">913 µs</td>
-                                        <td className="py-2">8.4M multiply-accumulate</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Deterministic Compilation</h2>
                         <p className="text-muted mb-4">
                             MIND guarantees <strong>100% bit-level reproducibility</strong> — every compilation produces identical output, verified via SHA256 cryptographic hashing.

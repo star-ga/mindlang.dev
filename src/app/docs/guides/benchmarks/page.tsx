@@ -97,24 +97,6 @@ python3 test_real_compile_time.py`}</CodeBlock>
                             </p>
                         </div>
 
-                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Tensor Compute Benchmarks</h2>
-                        <p className="text-muted mb-4">
-                            Measure MIND&apos;s real tensor compute performance (parse + compile + compute):
-                        </p>
-                        <CodeBlock className="mb-4">{`# Run tensor compute benchmarks (requires cpu-exec feature)
-cargo bench --bench tensor_compute --features full`}</CodeBlock>
-                        <div className="bg-card border border-border rounded-lg p-4 mb-8">
-                            <h4 className="font-semibold mb-2">Expected Output (Feb 2026)</h4>
-                            <pre className="text-sm text-muted bg-slate-50 p-3 rounded overflow-x-auto">
-{`elementwise/compute/add_100000    time: [218 µs  220 µs  221 µs]
-matmul/compute/64x128_128x64      time: [191 µs  194 µs  198 µs]
-matmul/compute/128x256_256x128    time: [902 µs  913 µs  926 µs]`}
-                            </pre>
-                            <p className="text-sm text-muted mt-3">
-                                <strong>These numbers include the full pipeline</strong> — parse, compile, and compute. Compare against NumPy&apos;s compute-only numbers to see MIND&apos;s advantage at medium-to-large tensor sizes.
-                            </p>
-                        </div>
-
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">GPU Benchmarks (Enterprise)</h2>
                         <p className="text-muted mb-4">
                             The Enterprise runtime includes CUDA GPU benchmarks. Contact sales for access to:
