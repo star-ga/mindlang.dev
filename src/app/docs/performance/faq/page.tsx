@@ -185,7 +185,7 @@ export default function PerformanceFAQPage() {
                                 Over 1000 training iterations:
                             </p>
                             <ul className="list-disc pl-6 space-y-2 text-muted mt-4">
-                                <li><strong>MIND:</strong> 1.8-15.5 µs (paid once)</li>
+                                <li><strong>MIND:</strong> ~38 µs autodiff generation (paid once at compile time)</li>
                                 <li><strong>PyTorch:</strong> ~50-500 ms (paid every iteration)</li>
                                 <li><strong>Advantage:</strong> 1,345-11,284× more efficient (depending on model complexity)</li>
                             </ul>

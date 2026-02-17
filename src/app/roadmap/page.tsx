@@ -338,7 +338,7 @@ export default function RoadmapPage() {
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm border-2 border-emerald-200">
                             <CheckCircle className="w-6 h-6 text-emerald-600 mb-2" />
                             <h4 className="font-bold text-sm mb-1 text-emerald-700">Complete: CUDA Backend</h4>
-                            <p className="text-xs text-muted">CUDA backend verified Dec 2025. 180x memory, 35% matmul improvement vs PyTorch.</p>
+                            <p className="text-xs text-muted">CUDA backend verified Feb 2026. 180x memory, 35% matmul improvement vs PyTorch.</p>
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <Timer className="w-6 h-6 text-primary mb-2" />

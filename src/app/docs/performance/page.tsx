@@ -117,7 +117,7 @@ export default function PerformancePage() {
                                         <td className="py-2 pr-4">scalar_math</td>
                                         <td className="py-2 pr-4 font-semibold text-emerald-700">1.8 µs</td>
                                         <td className="py-2 pr-4">99 ms</td>
-                                        <td className="py-2 font-semibold text-emerald-700">56,000x</td>
+                                        <td className="py-2 font-semibold text-emerald-700">55,000x</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">small_matmul</td>
