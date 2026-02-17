@@ -74,7 +74,7 @@ export default function RoadmapPage() {
                     progress={100}
                     progressColor="bg-emerald-500"
                     milestone="Verified"
-                    description="MIND frontend processes programs in 1.8-15.5 µs (parse + typecheck + IR). 35,000-176,000x faster than PyTorch 2.10 GPU torch.compile(); 135,000-458,000x faster than Mojo 0.26.1. 100% bit-level determinism verified."
+                    description="MIND frontend processes programs in 1.8-15.5 µs (parse + typecheck + IR). 35,000-176,000x faster than PyTorch 2.10 GPU torch.compile(); 21,200-95,100x faster than JAX 0.9 cold-start XLA; 135,000-458,000x faster than Mojo 0.26.1. 100% bit-level determinism verified."
                     subDescription={
                         <>
                             See <Link href="/docs/performance" className="text-primary underline">Performance</Link> and <Link href="/docs/guides/benchmarks" className="text-primary underline">Running Benchmarks</Link> for full details.

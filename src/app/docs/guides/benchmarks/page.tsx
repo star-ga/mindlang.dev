@@ -86,6 +86,22 @@ Ratio:                      135,000-458,000×`}
                             </p>
                         </div>
 
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">JAX Comparison Benchmark</h2>
+                        <p className="text-muted mb-4">
+                            Compare MIND frontend compilation speed vs JAX cold-start XLA compilation.
+                        </p>
+                        <div className="bg-card border border-border rounded-lg p-4 mb-8">
+                            <h4 className="font-semibold mb-2">Results (February 2026)</h4>
+                            <pre className="text-sm text-muted bg-slate-50 p-3 rounded overflow-x-auto">
+{`MIND (Criterion):                   1.8-6.1 µs
+JAX 0.9 (jax.jit cold-start XLA):  37.5-360.5 ms
+Ratio:                              21,200-95,100×`}
+                            </pre>
+                            <p className="text-sm text-muted mt-3">
+                                <strong>Note:</strong> MIND measures frontend only (parse + typecheck + IR). JAX <code>jax.jit()</code> performs full XLA compilation (HLO lowering + optimization + code generation). Cache disabled via <code>JAX_ENABLE_COMPILATION_CACHE=0</code>. Different scopes of work.
+                            </p>
+                        </div>
+
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Real Compilation Time (Criterion)</h2>
                         <p className="text-muted mb-4">
                             Measure MIND&apos;s true compilation time with in-process Criterion benchmarks.

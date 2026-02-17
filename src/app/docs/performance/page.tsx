@@ -32,7 +32,7 @@ export default function PerformancePage() {
                                 MIND benchmarks measure the <strong>compiler frontend</strong> only: parsing, type checking, and IR lowering. This does <strong>not</strong> include code generation, optimization passes, linking, or producing an executable.
                             </p>
                             <p className="text-sm text-muted">
-                                Comparisons with PyTorch <code>torch.compile()</code> and Mojo <code>mojo build</code> are shown for context, but these tools perform <strong>fundamentally more work</strong> (full compilation to runnable code). The ratios reflect this scope difference, not just speed.
+                                Comparisons with PyTorch <code>torch.compile()</code>, Mojo <code>mojo build</code>, and JAX <code>jax.jit()</code> are shown for context, but these tools perform <strong>fundamentally more work</strong> (full compilation to runnable code). The ratios reflect this scope difference, not just speed.
                             </p>
                         </div>
 
@@ -213,6 +213,67 @@ export default function PerformancePage() {
                             </p>
                             <p className="text-xs text-muted mt-3 italic">
                                 Same-machine measurement: Mojo 0.26.1.0 (pixi, Ubuntu 24.04). MIND: Criterion (100 samples). Feb 2026.
+                            </p>
+                        </div>
+
+                        {/* JAX Comparison */}
+                        <h2 id="mind-vs-jax" className="text-2xl font-bold font-heading mt-12 mb-4">MIND Frontend vs JAX 0.9 jax.jit()</h2>
+                        <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4">
+                            <p className="text-sm text-muted">
+                                <strong>Scope difference:</strong> MIND measures frontend only (parse + typecheck + IR). JAX <code>jax.jit()</code> performs <strong>full XLA compilation</strong> (HLO lowering + optimization + code generation). These are <strong>not equivalent operations</strong>.
+                            </p>
+                        </div>
+                        <div className="overflow-x-auto mb-6">
+                            <table className="min-w-full text-sm">
+                                <thead>
+                                    <tr className="border-b">
+                                        <th className="text-left py-2 pr-4 font-bold">Benchmark</th>
+                                        <th className="text-left py-2 pr-4 font-bold">MIND Frontend</th>
+                                        <th className="text-left py-2 pr-4 font-bold">JAX jax.jit() cold-start</th>
+                                        <th className="text-left py-2 font-bold">Ratio</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-muted">
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">scalar_math</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">1.8 µs</td>
+                                        <td className="py-2 pr-4">37.5 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">21,200x</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">small_matmul</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">3.0 µs</td>
+                                        <td className="py-2 pr-4">127.2 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">43,100x</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">medium_matmul</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">3.0 µs</td>
+                                        <td className="py-2 pr-4">139.7 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">47,400x</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">large_matmul</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">3.0 µs</td>
+                                        <td className="py-2 pr-4">280.6 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">95,100x</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">simple_mlp</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">6.1 µs</td>
+                                        <td className="py-2 pr-4">360.5 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">58,600x</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="bg-card border border-border rounded-lg p-4 mb-8">
+                            <h4 className="font-semibold mb-2">What This Means</h4>
+                            <p className="text-sm text-muted mb-2">
+                                MIND&apos;s frontend is <strong>21,200-95,100x faster</strong> than JAX&apos;s cold-start XLA compilation. JAX compiles through XLA to produce optimized GPU/CPU kernels, while MIND&apos;s frontend only performs parsing, type checking, and IR lowering.
+                            </p>
+                            <p className="text-xs text-muted mt-3 italic">
+                                Same-machine measurement: JAX 0.9.0.1 (CUDA 12.8, RTX 3080), cold-start with compilation cache disabled. MIND: Criterion (100 samples). Feb 2026.
                             </p>
                         </div>
 
