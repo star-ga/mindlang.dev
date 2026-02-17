@@ -56,11 +56,16 @@ export default function PerformanceFAQPage() {
                                             <td className="py-2 pr-4 text-xs">Full pipeline (graph+codegen)</td>
                                             <td className="py-2">99-878 ms GPU cold-start (35,000-176,000x ratio)</td>
                                         </tr>
+                                        <tr className="border-b">
+                                            <td className="py-2 pr-4">Mojo 0.26.1</td>
+                                            <td className="py-2 pr-4 text-xs">Full LLVM compilation (mojo build)</td>
+                                            <td className="py-2">810-829 ms (135,000-458,000x ratio)</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <p className="text-sm text-muted mt-4">
-                                <strong>Important:</strong> These measure different amounts of work. MIND&apos;s frontend (no codegen) is 35,000-176,000x faster than PyTorch&apos;s full GPU torch.compile() pipeline (includes Triton/cuBLAS kernel generation). This ratio reflects scope difference, not just speed.
+                                <strong>Important:</strong> These measure different amounts of work. MIND&apos;s frontend (no codegen) is 35,000-176,000x faster than PyTorch&apos;s full GPU torch.compile() pipeline, and 135,000-458,000x faster than Mojo&apos;s full LLVM compilation. These ratios reflect scope difference, not just speed.
                             </p>
                         </div>
 

@@ -235,7 +235,7 @@ export default function HomePage() {
               <p>Frontend processes ML programs in 1.8-15.5 µs (parse + typecheck + IR). Microsecond feedback enables instant iteration during development.</p>
               <div className="mt-4 p-3 bg-emerald-50 rounded-lg">
                 <span className="text-emerald-700 font-bold text-sm">Verified benchmarks (Feb 2026)</span>
-                <span className="text-emerald-600 text-sm block">Frontend: 35,000-176,000x faster than PyTorch GPU torch.compile()</span>
+                <span className="text-emerald-600 text-sm block">Frontend: 35,000-176,000x faster than PyTorch GPU; 135,000-458,000x faster than Mojo</span>
                 <span className="text-emerald-600 text-xs block text-emerald-500">Different scope: frontend-only vs full compilation pipeline</span>
               </div>
               <p className="mt-3 text-xs text-center text-muted">

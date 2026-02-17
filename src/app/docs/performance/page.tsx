@@ -167,6 +167,55 @@ export default function PerformancePage() {
                             </p>
                         </div>
 
+                        {/* Mojo Comparison */}
+                        <h2 id="mind-vs-mojo" className="text-2xl font-bold font-heading mt-12 mb-4">MIND Frontend vs Mojo 0.26.1</h2>
+                        <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4">
+                            <p className="text-sm text-muted">
+                                <strong>Scope difference:</strong> MIND measures frontend only (parse + typecheck + IR). Mojo <code>mojo build</code> performs <strong>full LLVM compilation</strong> to a native binary. These are <strong>not equivalent operations</strong>.
+                            </p>
+                        </div>
+                        <div className="overflow-x-auto mb-6">
+                            <table className="min-w-full text-sm">
+                                <thead>
+                                    <tr className="border-b">
+                                        <th className="text-left py-2 pr-4 font-bold">Benchmark</th>
+                                        <th className="text-left py-2 pr-4 font-bold">MIND Frontend</th>
+                                        <th className="text-left py-2 pr-4 font-bold">Mojo mojo build</th>
+                                        <th className="text-left py-2 font-bold">Ratio</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-muted">
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">scalar_math</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">1.8 µs</td>
+                                        <td className="py-2 pr-4">810 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">458,000x</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">matmul</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">3.0 µs</td>
+                                        <td className="py-2 pr-4">827 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">280,000x</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">mlp</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">6.1 µs</td>
+                                        <td className="py-2 pr-4">829 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">135,000x</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="bg-card border border-border rounded-lg p-4 mb-8">
+                            <h4 className="font-semibold mb-2">What This Means</h4>
+                            <p className="text-sm text-muted mb-2">
+                                MIND&apos;s frontend is <strong>135,000-458,000x faster</strong> than Mojo&apos;s full <code>mojo build</code> compilation. Mojo compiles through LLVM to produce a native binary, while MIND&apos;s frontend only performs parsing, type checking, and IR lowering.
+                            </p>
+                            <p className="text-xs text-muted mt-3 italic">
+                                Same-machine measurement: Mojo 0.26.1.0 (pixi, Ubuntu 24.04). MIND: Criterion (100 samples). Feb 2026.
+                            </p>
+                        </div>
+
                         {/* Reproduce It Yourself */}
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <h4 className="font-semibold mb-2">Reproduce It Yourself</h4>
@@ -382,6 +431,13 @@ python benchmarks/scientific_benchmark.py`}</CodeBlock>
                                         <td className="py-2 pr-4">99-878 ms</td>
                                         <td className="py-2 pr-4">Runtime tape</td>
                                         <td className="py-2">Not guaranteed</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">Mojo 0.26.1</td>
+                                        <td className="py-2 pr-4 text-xs">Full LLVM compilation (mojo build)</td>
+                                        <td className="py-2 pr-4">810-829 ms</td>
+                                        <td className="py-2 pr-4">N/A</td>
+                                        <td className="py-2">N/A</td>
                                     </tr>
                                 </tbody>
                             </table>
