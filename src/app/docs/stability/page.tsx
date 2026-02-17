@@ -40,13 +40,13 @@ export default function StabilityPage() {
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Experimental</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
-                            <li><strong>Concrete GPU backends:</strong> Accelerated GPU/accelerator implementations (CUDA/ROCm/etc.) are upcoming.</li>
-                            <li><strong>Package manager:</strong> Dependency resolution and registry workflows are not finalized.</li>
+                            <li><strong>Concrete GPU backends:</strong> CUDA backend available via Enterprise license. Open-source GPU backends (ROCm, Metal, WebGPU) are experimental and in development.</li>
+                            <li><strong>Package manager:</strong> Design specified in mind-spec; implementation is early. Dependency resolution and registry workflows are not yet finalized.</li>
                             <li><strong>Future ops / extensions:</strong> New operators and language extensions will ship behind experimental flags.</li>
                         </ul>
 
                         <div className="p-4 bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg text-indigo-900">
-                            <strong>Tip:</strong> Experimental areas may change without notice; feature flags are required for MLIR lowering and upcoming GPU support.
+                            <strong>Tip:</strong> Experimental areas may change without notice; feature flags are required for MLIR lowering. GPU backends require Enterprise license (CUDA) or are in development (ROCm, Metal, WebGPU).
                         </div>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">References</h2>

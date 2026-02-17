@@ -34,15 +34,15 @@ export default function RuntimePage() {
 │    Executor    │   Memory Manager   │
 ├────────────────┼────────────────────┤
 │   CPU Backend  │   GPU Backends     │
-│   (Stable)     │ CUDA|Metal|ROCm|WebGPU│
+│   (Stable)     │ CUDA (Enterprise)  │
 └────────────────┴────────────────────┘`}</CodeBlock>
                         <p className="text-sm text-muted mb-8">
-                            <strong>GPU Backend:</strong> Production CUDA 12.8+ backend available via Enterprise license. All 4 GPU backends (CUDA, Metal, ROCm, WebGPU) are production-ready.
+                            <strong>GPU Backend:</strong> Production CUDA 12.8+ backend available via Enterprise license. Additional GPU backends (Metal, ROCm, WebGPU) are experimental and in development for the open-source compiler.
                         </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">GPU Runtime (Enterprise)</h2>
                         <p className="text-muted mb-4">
-                            The Enterprise GPU runtime provides production-grade GPU acceleration across 4 backends:
+                            The Enterprise GPU runtime provides production-grade CUDA acceleration:
                         </p>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
                             <li><strong>cuBLAS/cuDNN</strong>: TF32 Tensor Cores for matmul, auto-tuned convolutions</li>

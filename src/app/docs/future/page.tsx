@@ -105,24 +105,24 @@ export default function FuturePage() {
                                         <td className="py-2">NEON vectorization</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="py-2 pr-4">NVIDIA GPU</td>
-                                        <td className="py-2 pr-4 text-amber-600">Mock Ready</td>
-                                        <td className="py-2">MockGpuBackend (CPU delegation); native CUDA 12 planned</td>
+                                        <td className="py-2 pr-4">NVIDIA GPU (CUDA)</td>
+                                        <td className="py-2 pr-4 text-emerald-600">Enterprise</td>
+                                        <td className="py-2">Production CUDA 12.8+ backend via Enterprise license; open-source has MockGpuBackend (CPU delegation)</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">AMD GPU</td>
-                                        <td className="py-2 pr-4 text-amber-600">Mock Ready</td>
-                                        <td className="py-2">MockGpuBackend (CPU delegation); native ROCm planned</td>
+                                        <td className="py-2 pr-4 text-amber-600">In Development</td>
+                                        <td className="py-2">MockGpuBackend (CPU delegation); native ROCm in development</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">WebGPU</td>
-                                        <td className="py-2 pr-4 text-slate-500">Planned</td>
-                                        <td className="py-2">Browser-based inference</td>
+                                        <td className="py-2 pr-4 text-amber-600">In Development</td>
+                                        <td className="py-2">Browser and native inference; in development</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">Apple Silicon</td>
-                                        <td className="py-2 pr-4 text-amber-600">Mock Ready</td>
-                                        <td className="py-2">MockGpuBackend (CPU delegation); native Metal planned</td>
+                                        <td className="py-2 pr-4 text-amber-600">In Development</td>
+                                        <td className="py-2">MockGpuBackend (CPU delegation); native Metal in development</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -131,40 +131,40 @@ export default function RoadmapPage() {
 
                 {/* GPU / Accelerators - UPDATED */}
                 <RoadmapCard
-                    icon={<Server className="w-8 h-8 text-emerald-500" />}
-                    iconBg="bg-emerald-50"
+                    icon={<Server className="w-8 h-8 text-amber-500" />}
+                    iconBg="bg-amber-50"
                     title="GPU / Accelerators"
-                    status="All Production"
-                    statusColor="bg-emerald-100 text-emerald-700"
-                    progress={100}
-                    progressColor="bg-emerald-500"
-                    milestone="Complete Dec 2025"
-                    description="All 4 GPU backends production-ready: CUDA (NVIDIA), Metal (Apple), ROCm/HIP (AMD), and WebGPU (cross-platform). Full trait implementations with poison-safe locking, defragmentation, and context recovery."
+                    status="In Development"
+                    statusColor="bg-amber-100 text-amber-700"
+                    progress={40}
+                    progressColor="bg-amber-500"
+                    milestone="Feb 2026"
+                    description="GPU backend contract (enums, error model, GPUBackend trait) is stable. CUDA backend verified on RTX 3080 (Feb 2026) under enterprise license. Open-source GPU backends are in development; the open-source compiler currently targets CPU only."
                     subDescription={
                         <>
-                            Enterprise runtime achieves 35% faster matmul (TF32), 40% faster FP16, 98% memory bandwidth. Available via <Link href="/enterprise" className="text-primary underline">Enterprise license</Link>. All backends implement StreamSync, ContextRecovery, and Defragmenter traits.
+                            Enterprise runtime provides production CUDA acceleration. Open-source roadmap targets Metal, ROCm, and WebGPU backends. See <Link href="/enterprise" className="text-primary underline">Enterprise license</Link> for GPU access today.
                         </>
                     }
-                    milestoneDescription="Production GPU backends for NVIDIA, AMD, Apple Silicon, and browsers/native via WebGPU."
+                    milestoneDescription="CUDA backend available via enterprise license. Open-source GPU backends in active development."
                 />
 
                 {/* Package Manager */}
                 <RoadmapCard
-                    icon={<Package className="w-8 h-8 text-emerald-500" />}
-                    iconBg="bg-emerald-50"
+                    icon={<Package className="w-8 h-8 text-amber-500" />}
+                    iconBg="bg-amber-50"
                     title="Package Manager"
-                    status="Complete"
-                    statusColor="bg-emerald-100 text-emerald-700"
-                    progress={100}
-                    progressColor="bg-emerald-500"
-                    milestone="Jan 2026"
-                    description="Production-ready package management: PubGrub CDCL resolver with multi-version isolation, content-addressed storage, sparse registry protocol, workspace/monorepo support, and comprehensive security features."
+                    status="Early"
+                    statusColor="bg-amber-100 text-amber-700"
+                    progress={30}
+                    progressColor="bg-amber-500"
+                    milestone="2026"
+                    description="Package manager design is specified in mind-spec (PubGrub CDCL resolver, content-addressed storage, sparse registry protocol). Implementation is in early stages; dependency resolution and registry workflows are not yet finalized."
                     subDescription={
                         <>
-                            Includes SLSA provenance attestations with Ed25519 signing, SBOM generation (SPDX 3.0 + CycloneDX 1.5), OSV vulnerability scanning, and policy enforcement gates. MLO consensus: 9.67/10.
+                            Planned features include SLSA provenance attestations, SBOM generation (SPDX 3.0 + CycloneDX 1.5), OSV vulnerability scanning, and policy enforcement gates.
                         </>
                     }
-                    milestoneDescription="Enterprise-grade package management with supply chain security and compliance features."
+                    milestoneDescription="Design specified. Implementation in progress; not yet production-ready."
                 />
 
                 {/* BCI / Neuroscience - Phase 13 */}
@@ -263,7 +263,7 @@ export default function RoadmapPage() {
                     progressColor="bg-emerald-500"
                     description="5 MLIR dialects (arith, tensor, linalg, func, scf). Tested with LLVM 18. 7 FFI functions, 3 enums, 2 opaque types."
                     milestone="Core pipeline operational"
-                    milestoneDescription="Full compiler workflow with all GPU backends production-ready."
+                    milestoneDescription="Full compiler workflow with CPU backend. GPU backends via enterprise license or in development."
                 />
 
                 {/* Full-Stack AI Vision Section */}
@@ -337,13 +337,13 @@ export default function RoadmapPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm border-2 border-emerald-200">
                             <CheckCircle className="w-6 h-6 text-emerald-600 mb-2" />
-                            <h4 className="font-bold text-sm mb-1 text-emerald-700">Complete: CUDA Backend</h4>
-                            <p className="text-xs text-muted">CUDA backend verified Feb 2026. 180x memory, 35% matmul improvement vs PyTorch.</p>
+                            <h4 className="font-bold text-sm mb-1 text-emerald-700">Enterprise: CUDA Backend</h4>
+                            <p className="text-xs text-muted">CUDA backend verified Feb 2026. 180x memory, 35% matmul improvement vs PyTorch. Enterprise license required.</p>
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <Timer className="w-6 h-6 text-primary mb-2" />
-                            <h4 className="font-bold text-sm mb-1">Complete: ROCm, Metal & WebGPU</h4>
-                            <p className="text-xs text-muted">ROCm (AMD), Metal (Apple Silicon), WebGPU (browsers/native) all production-ready.</p>
+                            <h4 className="font-bold text-sm mb-1">In Development: ROCm, Metal & WebGPU</h4>
+                            <p className="text-xs text-muted">ROCm (AMD), Metal (Apple Silicon), WebGPU (browsers/native) backends are in development for the open-source compiler.</p>
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <Cpu className="w-6 h-6 text-primary mb-2" />

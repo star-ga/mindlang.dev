@@ -23,7 +23,7 @@ export default function PackagePage() {
 
                     <div className="prose prose-slate max-w-none">
                         <p className="text-lg text-muted mb-8">
-                            MIND provides enterprise-grade package management with modern dependency resolution, supply chain security, and compliance features.
+                            The MIND package manager design is specified in mind-spec with modern dependency resolution, supply chain security, and compliance features. Implementation is in early stages; the interfaces and workflows described here reflect the specification and are subject to change.
                         </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Architecture</h2>
