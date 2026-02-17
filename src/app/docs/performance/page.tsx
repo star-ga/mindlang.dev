@@ -494,6 +494,13 @@ python benchmarks/scientific_benchmark.py`}</CodeBlock>
                                         <td className="py-2">Not guaranteed</td>
                                     </tr>
                                     <tr className="border-b">
+                                        <td className="py-2 pr-4">JAX 0.9</td>
+                                        <td className="py-2 pr-4 text-xs">Full XLA compilation (cold-start)</td>
+                                        <td className="py-2 pr-4">37.5-360.5 ms</td>
+                                        <td className="py-2 pr-4">jax.grad (tracing)</td>
+                                        <td className="py-2">Mostly deterministic</td>
+                                    </tr>
+                                    <tr className="border-b">
                                         <td className="py-2 pr-4">Mojo 0.26.1</td>
                                         <td className="py-2 pr-4 text-xs">Full LLVM compilation (mojo build)</td>
                                         <td className="py-2 pr-4">810-829 ms</td>
@@ -565,7 +572,7 @@ mindc run model.mind --profile=time`}</CodeBlock>
                         </div>
                         <p className="text-sm text-muted mb-8">
                             GPU runtime requires <a href="/enterprise" className="text-primary hover:underline">Enterprise license</a>.
-                            Performance scales with GPU capabilities. Benchmarks verified December 2025.
+                            Performance scales with GPU capabilities. Benchmarks verified February 2026.
                         </p>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Learn More</h2>

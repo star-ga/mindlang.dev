@@ -215,19 +215,27 @@ compiler_pipeline/parse_typecheck_ir/large_network
                                 <tbody className="text-muted">
                                     <tr className="border-b">
                                         <td className="py-2 pr-4 font-semibold">Date</td>
-                                        <td className="py-2">December 2025</td>
+                                        <td className="py-2">February 2026</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4 font-semibold">Platform</td>
-                                        <td className="py-2">Linux 4.4.0 x86_64</td>
+                                        <td className="py-2">Ubuntu 24.04, Linux 6.17, x86_64</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="py-2 pr-4 font-semibold">Python</td>
-                                        <td className="py-2">3.11.14</td>
+                                        <td className="py-2 pr-4 font-semibold">GPU</td>
+                                        <td className="py-2">RTX 3080, CUDA 12.8</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4 font-semibold">PyTorch</td>
-                                        <td className="py-2">2.9.1+cpu</td>
+                                        <td className="py-2">2.10.0+cu128</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4 font-semibold">JAX</td>
+                                        <td className="py-2">0.9.0.1</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4 font-semibold">Mojo</td>
+                                        <td className="py-2">0.26.1.0</td>
                                     </tr>
                                 </tbody>
                             </table>

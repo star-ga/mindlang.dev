@@ -220,10 +220,14 @@ export default function PerformanceFAQPage() {
                         <div className="bg-card border border-border rounded-lg p-6 mb-6">
                             <h3 className="text-lg font-bold mb-2">What hardware were benchmarks run on?</h3>
                             <ul className="list-disc pl-6 space-y-2 text-muted mt-4">
-                                <li><strong>Platform:</strong> Linux 4.4.0 x86_64</li>
-                                <li><strong>Python:</strong> 3.11.14</li>
-                                <li><strong>PyTorch:</strong> 2.9.1+cpu</li>
-                                <li><strong>Date:</strong> December 2025</li>
+                                <li><strong>Platform:</strong> Ubuntu 24.04, Linux 6.17 x86_64</li>
+                                <li><strong>GPU:</strong> NVIDIA RTX 3080 10GB, CUDA 12.8</li>
+                                <li><strong>CPU:</strong> Intel Core i7-5930K @ 3.50GHz, 64GB DDR4</li>
+                                <li><strong>PyTorch:</strong> 2.10.0+cu128 (GPU)</li>
+                                <li><strong>JAX:</strong> 0.9.0.1 (CUDA)</li>
+                                <li><strong>Mojo:</strong> 0.26.1.0 (pixi)</li>
+                                <li><strong>MIND:</strong> v0.2.1 (Criterion in-process benchmarks)</li>
+                                <li><strong>Date:</strong> February 2026</li>
                             </ul>
                         </div>
 

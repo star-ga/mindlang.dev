@@ -235,7 +235,7 @@ export default function ComparePage() {
               </video>
             </div>
             <p className="text-sm text-muted mt-4 text-center">
-              30 compilation runs, 3 test programs (scalar math, matrix multiply, MLP network), 0 hash collisions.
+              40 compilation runs, 4 test programs (scalar math, matrix multiply, MLP network, large network), 0 hash collisions.
               <br />
               <strong>Same source → Same IR → Same binary → Same output</strong> (bit-for-bit)
             </p>
@@ -243,7 +243,7 @@ export default function ComparePage() {
 
           <div className="grid grid--three gap-6 mt-12 max-w-4xl mx-auto">
             <div className="card text-center">
-              <div className="text-3xl font-bold text-primary mb-2">30</div>
+              <div className="text-3xl font-bold text-primary mb-2">40</div>
               <div className="text-sm text-muted">Compilation runs</div>
             </div>
             <div className="card text-center">
