@@ -51,7 +51,7 @@ cargo build --release`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">PyTorch Comparison Benchmark</h2>
                         <p className="text-muted mb-4">
-                            Compare MIND compilation speed vs PyTorch 2.9 GPU torch.compile.
+                            Compare MIND frontend compilation speed vs PyTorch torch.compile() (CPU).
                         </p>
                         <CodeBlock className="mb-4">{`# Install PyTorch if needed
 pip install torch
@@ -61,12 +61,12 @@ python3 benchmarks/pytorch_comparison/benchmark_pytorch_compile.py`}</CodeBlock>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <h4 className="font-semibold mb-2">Expected Output</h4>
                             <pre className="text-sm text-muted bg-slate-50 p-3 rounded overflow-x-auto">
-{`MIND (Criterion):     1.8-4.8 µs
-PyTorch 2.9 (GPU):    3,172-3,599 ms
-Speedup:              1,200,000-1,800,000×`}
+{`MIND (Criterion):           1.8-15.5 µs
+PyTorch torch.compile (CPU): 40-60 ms
+Ratio:                       10,000-22,000×`}
                             </pre>
                             <p className="text-sm text-muted mt-3">
-                                <strong>Note:</strong> MIND numbers are from in-process Criterion benchmarks. PyTorch numbers are GPU torch.compile cold-start.
+                                <strong>Note:</strong> MIND measures frontend only (parse + typecheck + IR). PyTorch torch.compile() measures the full compilation pipeline. These are different scopes of work.
                             </p>
                         </div>
 
@@ -118,7 +118,7 @@ compiler_pipeline/parse_typecheck_ir/large_network
                             <li><strong>Total overhead: ~5 ms</strong></li>
                         </ul>
                         <p className="text-muted mb-4">
-                            This reveals MIND&apos;s <strong>true compilation performance: 1.8-4.8 µs</strong> (varies by machine)
+                            This reveals MIND&apos;s <strong>true compilation performance: 1.8-15.5 µs</strong> (varies by machine)
                         </p>
 
                         <h3 className="text-xl font-bold font-heading mt-8 mb-4">Subprocess vs Direct Call</h3>
@@ -129,7 +129,7 @@ compiler_pipeline/parse_typecheck_ir/large_network
                                     <ul className="text-sm text-muted space-y-1">
                                         <li>Spawn process: ~2-3 ms</li>
                                         <li>IPC overhead: ~1-2 ms</li>
-                                        <li>Actual compile: 1.8-4.8 µs</li>
+                                        <li>Actual compile: 1.8-15.5 µs</li>
                                         <li className="font-semibold border-t pt-1 mt-2">TOTAL: ~5 ms</li>
                                     </ul>
                                 </div>
@@ -137,8 +137,8 @@ compiler_pipeline/parse_typecheck_ir/large_network
                                     <h4 className="font-semibold mb-2 text-emerald-700">mind.compile() (Python binding)</h4>
                                     <ul className="text-sm text-muted space-y-1">
                                         <li>Direct function call: ~0 µs</li>
-                                        <li>Actual compile: 1.8-4.8 µs</li>
-                                        <li className="font-semibold border-t pt-1 mt-2 text-emerald-700">TOTAL: 1.8-4.8 µs</li>
+                                        <li>Actual compile: 1.8-15.5 µs</li>
+                                        <li className="font-semibold border-t pt-1 mt-2 text-emerald-700">TOTAL: 1.8-15.5 µs</li>
                                     </ul>
                                 </div>
                             </div>

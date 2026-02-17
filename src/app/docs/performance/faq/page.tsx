@@ -30,7 +30,7 @@ export default function PerformanceFAQPage() {
                         <div className="bg-card border border-border rounded-lg p-6 mb-6">
                             <h3 className="text-lg font-bold mb-2">How fast is MIND compilation?</h3>
                             <p className="text-muted">
-                                <strong>1.8-4.8 microseconds</strong> for typical programs (measured in-process via Rust Criterion benchmarks).
+                                <strong>1.8-15.5 microseconds</strong> for the frontend (parse + typecheck + IR), measured in-process via Rust Criterion benchmarks. Time scales with program complexity: a single expression takes ~1.8 µs, a 3-layer MLP takes ~15.5 µs. This does <strong>not</strong> include code generation or linking.
                             </p>
                         </div>
 
@@ -41,31 +41,26 @@ export default function PerformanceFAQPage() {
                                     <thead>
                                         <tr className="border-b">
                                             <th className="text-left py-2 pr-4 font-bold">Framework</th>
-                                            <th className="text-left py-2 font-bold">Compilation Time</th>
+                                            <th className="text-left py-2 pr-4 font-bold">What&apos;s Measured</th>
+                                            <th className="text-left py-2 font-bold">Time</th>
                                         </tr>
                                     </thead>
                                     <tbody className="text-muted">
                                         <tr className="border-b bg-emerald-50/50">
                                             <td className="py-2 pr-4 font-semibold">MIND</td>
-                                            <td className="py-2 font-semibold text-emerald-700">~2 µs (O(1) constant)</td>
+                                            <td className="py-2 pr-4 text-xs">Frontend (parse+typecheck+IR)</td>
+                                            <td className="py-2 font-semibold text-emerald-700">1.8-15.5 µs</td>
                                         </tr>
                                         <tr className="border-b">
-                                            <td className="py-2 pr-4">PyTorch 2.9 (GPU torch.compile)</td>
-                                            <td className="py-2">~3,400 ms (1,792,000× slower)</td>
-                                        </tr>
-                                        <tr className="border-b">
-                                            <td className="py-2 pr-4">JAX (XLA)</td>
-                                            <td className="py-2">10-50 ms (5,000-25,000× slower)</td>
-                                        </tr>
-                                        <tr className="border-b">
-                                            <td className="py-2 pr-4">TVM</td>
-                                            <td className="py-2">10-100 ms (5,000-50,000× slower)</td>
+                                            <td className="py-2 pr-4">PyTorch 2.10 (CPU)</td>
+                                            <td className="py-2 pr-4 text-xs">Full pipeline (graph+codegen)</td>
+                                            <td className="py-2">40-60 ms (10,000-22,000x ratio)</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <p className="text-sm text-muted mt-4">
-                                MIND is <strong>1,792,000× faster</strong> than PyTorch 2.9 GPU torch.compile (cold-start). O(1) ~2 µs compilation regardless of model size.
+                                <strong>Important:</strong> These measure different amounts of work. MIND&apos;s frontend (no codegen) is 10,000-22,000x faster than PyTorch&apos;s full torch.compile() pipeline (includes code generation). This ratio reflects scope difference, not just speed.
                             </p>
                         </div>
 
@@ -86,7 +81,7 @@ export default function PerformanceFAQPage() {
                                 <strong>No.</strong> MIND optimizes <strong>both</strong> compilation and runtime:
                             </p>
                             <ul className="list-disc pl-6 space-y-2 text-muted mt-4">
-                                <li>Fast compilation (1.8-4.8 µs) enables rapid iteration</li>
+                                <li>Fast frontend (1.8-15.5 µs) enables rapid iteration</li>
                                 <li>Efficient runtime ensures production performance</li>
                             </ul>
                             <p className="text-sm text-muted mt-4">
@@ -180,7 +175,7 @@ export default function PerformanceFAQPage() {
                                 Over 1000 training iterations:
                             </p>
                             <ul className="list-disc pl-6 space-y-2 text-muted mt-4">
-                                <li><strong>MIND:</strong> 1.8-4.8 µs (paid once)</li>
+                                <li><strong>MIND:</strong> 1.8-15.5 µs (paid once)</li>
                                 <li><strong>PyTorch:</strong> ~50-500 ms (paid every iteration)</li>
                                 <li><strong>Advantage:</strong> 1,345-11,284× more efficient (depending on model complexity)</li>
                             </ul>
@@ -229,7 +224,7 @@ export default function PerformanceFAQPage() {
                             </p>
                             <div className="bg-slate-50 rounded-lg p-3 mt-4 text-sm text-muted">
                                 <p><strong>With subprocess:</strong> ~5.5 ms (includes ~5ms overhead)</p>
-                                <p><strong>With bindings:</strong> 1.8-4.8 µs (true compilation time)</p>
+                                <p><strong>With bindings:</strong> 1.8-15.5 µs (true compilation time)</p>
                             </div>
                         </div>
 
@@ -253,7 +248,7 @@ export default function PerformanceFAQPage() {
                         <div className="bg-card border border-border rounded-lg p-6 mb-8">
                             <h3 className="text-lg font-bold mb-2">What about GPU support?</h3>
                             <p className="text-muted">
-                                GPU support (CUDA, Metal) is on the roadmap. Compilation will remain fast (1.8-4.8 µs), with GPU-optimized runtime kernels.
+                                GPU support (CUDA, Metal) is on the roadmap. Compilation will remain fast (1.8-15.5 µs), with GPU-optimized runtime kernels.
                             </p>
                             <p className="text-sm text-muted mt-4">
                                 See <a href="/roadmap" className="text-primary hover:underline">Roadmap</a> for details.

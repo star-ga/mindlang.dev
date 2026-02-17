@@ -232,17 +232,14 @@ export default function HomePage() {
             <div className="card">
               <Clock className="card-icon" />
               <h3>Fast Compilation</h3>
-              <p>Compile ML programs in 1.8-4.8 µs. In-process Criterion benchmarks show massive speedups over all major ML compilers.</p>
+              <p>Frontend processes ML programs in 1.8-15.5 µs (parse + typecheck + IR). Microsecond feedback enables instant iteration during development.</p>
               <div className="mt-4 p-3 bg-emerald-50 rounded-lg">
                 <span className="text-emerald-700 font-bold text-sm">Verified benchmarks (Feb 2026)</span>
-                <span className="text-emerald-600 text-sm block">1,200,000-1,800,000× faster than PyTorch 2.9 GPU</span>
-                <span className="text-emerald-600 text-sm block">~240,000× faster than JAX GPU</span>
-                <span className="text-emerald-600 text-sm block">321,000-513,000× faster than Mojo</span>
+                <span className="text-emerald-600 text-sm block">Frontend: 10,000-22,000x faster than PyTorch torch.compile()</span>
+                <span className="text-emerald-600 text-xs block text-emerald-500">Different scope: frontend-only vs full compilation pipeline</span>
               </div>
               <p className="mt-3 text-xs text-center text-muted">
-                <Link href="/docs/performance#compilation-speed-mind-vs-pytorch-20" className="text-primary hover:underline">PyTorch benchmarks</Link>
-                {" · "}
-                <Link href="/docs/performance#compilation-speed-mind-vs-mojo" className="text-primary hover:underline">Mojo benchmarks</Link>
+                <Link href="/docs/performance#mind-vs-pytorch" className="text-primary hover:underline">Benchmark details</Link>
               </p>
             </div>
 
