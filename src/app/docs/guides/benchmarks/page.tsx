@@ -51,7 +51,7 @@ cargo build --release`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">PyTorch Comparison Benchmark</h2>
                         <p className="text-muted mb-4">
-                            Compare MIND frontend compilation speed vs PyTorch torch.compile() (CPU).
+                            Compare MIND frontend compilation speed vs PyTorch torch.compile() (GPU, RTX 3080).
                         </p>
                         <CodeBlock className="mb-4">{`# Install PyTorch if needed
 pip install torch
@@ -61,12 +61,12 @@ python3 benchmarks/pytorch_comparison/benchmark_pytorch_compile.py`}</CodeBlock>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <h4 className="font-semibold mb-2">Expected Output</h4>
                             <pre className="text-sm text-muted bg-slate-50 p-3 rounded overflow-x-auto">
-{`MIND (Criterion):           1.8-15.5 µs
-PyTorch torch.compile (CPU): 40-60 ms
-Ratio:                       10,000-22,000×`}
+{`MIND (Criterion):                1.8-15.5 µs
+PyTorch torch.compile GPU (RTX 3080): 99-878 ms
+Ratio:                           35,000-176,000×`}
                             </pre>
                             <p className="text-sm text-muted mt-3">
-                                <strong>Note:</strong> MIND measures frontend only (parse + typecheck + IR). PyTorch torch.compile() measures the full compilation pipeline. These are different scopes of work.
+                                <strong>Note:</strong> MIND measures frontend only (parse + typecheck + IR). PyTorch torch.compile() on GPU measures the full compilation pipeline including Triton/cuBLAS kernel generation. These are different scopes of work.
                             </p>
                         </div>
 

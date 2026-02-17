@@ -116,32 +116,38 @@ export default function PerformancePage() {
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">scalar_math</td>
                                         <td className="py-2 pr-4 font-semibold text-emerald-700">1.8 µs</td>
-                                        <td className="py-2 pr-4">40.3 ms</td>
-                                        <td className="py-2 font-semibold text-emerald-700">22,000x</td>
+                                        <td className="py-2 pr-4">99 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">56,000x</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">small_matmul</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">2.8 µs</td>
-                                        <td className="py-2 pr-4">42.3 ms</td>
-                                        <td className="py-2 font-semibold text-emerald-700">15,000x</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">3.0 µs</td>
+                                        <td className="py-2 pr-4">162 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">55,000x</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">medium_matmul</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">2.8 µs</td>
-                                        <td className="py-2 pr-4">42.9 ms</td>
-                                        <td className="py-2 font-semibold text-emerald-700">15,000x</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">3.0 µs</td>
+                                        <td className="py-2 pr-4">109 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">37,000x</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">large_matmul</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">2.8 µs</td>
-                                        <td className="py-2 pr-4">50.3 ms</td>
-                                        <td className="py-2 font-semibold text-emerald-700">18,000x</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">3.0 µs</td>
+                                        <td className="py-2 pr-4">105 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">36,000x</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">simple_mlp</td>
                                         <td className="py-2 pr-4 font-semibold text-emerald-700">6.1 µs</td>
-                                        <td className="py-2 pr-4">60.2 ms</td>
-                                        <td className="py-2 font-semibold text-emerald-700">10,000x</td>
+                                        <td className="py-2 pr-4">752 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">122,000x</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">conv2d</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">~5 µs</td>
+                                        <td className="py-2 pr-4">878 ms</td>
+                                        <td className="py-2 font-semibold text-emerald-700">176,000x</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -149,7 +155,7 @@ export default function PerformancePage() {
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <h4 className="font-semibold mb-2">What This Means</h4>
                             <p className="text-sm text-muted mb-2">
-                                MIND&apos;s frontend is <strong>10,000-22,000x faster</strong> than PyTorch&apos;s full <code>torch.compile()</code> pipeline. This is expected because:
+                                MIND&apos;s frontend is <strong>35,000-176,000x faster</strong> than PyTorch&apos;s full GPU <code>torch.compile()</code> pipeline. This is expected because:
                             </p>
                             <ul className="list-disc pl-6 space-y-1 text-muted text-sm">
                                 <li><strong>MIND:</strong> Specialized Rust frontend — parse, typecheck, IR emit. No code generation.</li>
@@ -157,7 +163,7 @@ export default function PerformancePage() {
                                 <li><strong>Key takeaway:</strong> MIND&apos;s frontend is microsecond-fast, enabling instant feedback during development. A full end-to-end comparison would require MIND to also generate and compile executable code.</li>
                             </ul>
                             <p className="text-xs text-muted mt-3 italic">
-                                Same-machine measurement: PyTorch 2.10 CPU, Python perf_counter (3 warmup + 10 samples). MIND: Criterion (100 samples). Feb 2026.
+                                Same-machine measurement: PyTorch 2.10 GPU (RTX 3080, CUDA 12.8), full cold-start (caches cleared). MIND: Criterion (100 samples). Feb 2026.
                             </p>
                         </div>
 
@@ -371,9 +377,9 @@ python benchmarks/scientific_benchmark.py`}</CodeBlock>
                                         <td className="py-2 font-semibold text-emerald-700">100% guaranteed</td>
                                     </tr>
                                     <tr className="border-b">
-                                        <td className="py-2 pr-4">PyTorch 2.10 (CPU)</td>
+                                        <td className="py-2 pr-4">PyTorch 2.10 (GPU)</td>
                                         <td className="py-2 pr-4 text-xs">Full pipeline (graph+optimize+codegen)</td>
-                                        <td className="py-2 pr-4">40-60 ms</td>
+                                        <td className="py-2 pr-4">99-878 ms</td>
                                         <td className="py-2 pr-4">Runtime tape</td>
                                         <td className="py-2">Not guaranteed</td>
                                     </tr>

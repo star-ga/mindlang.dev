@@ -52,15 +52,15 @@ export default function PerformanceFAQPage() {
                                             <td className="py-2 font-semibold text-emerald-700">1.8-15.5 µs</td>
                                         </tr>
                                         <tr className="border-b">
-                                            <td className="py-2 pr-4">PyTorch 2.10 (CPU)</td>
+                                            <td className="py-2 pr-4">PyTorch 2.10 (GPU)</td>
                                             <td className="py-2 pr-4 text-xs">Full pipeline (graph+codegen)</td>
-                                            <td className="py-2">40-60 ms (10,000-22,000x ratio)</td>
+                                            <td className="py-2">99-878 ms GPU cold-start (35,000-176,000x ratio)</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <p className="text-sm text-muted mt-4">
-                                <strong>Important:</strong> These measure different amounts of work. MIND&apos;s frontend (no codegen) is 10,000-22,000x faster than PyTorch&apos;s full torch.compile() pipeline (includes code generation). This ratio reflects scope difference, not just speed.
+                                <strong>Important:</strong> These measure different amounts of work. MIND&apos;s frontend (no codegen) is 35,000-176,000x faster than PyTorch&apos;s full GPU torch.compile() pipeline (includes Triton/cuBLAS kernel generation). This ratio reflects scope difference, not just speed.
                             </p>
                         </div>
 
