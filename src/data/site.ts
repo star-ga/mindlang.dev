@@ -13,7 +13,7 @@ export const siteConfig = {
   company: "STARGA, Inc.",
   contactEmail: "info@star.ga",
   securityEmail: "info@star.ga",
-  version: "0.1.8",
+  version: "0.2.1",
   llvmVersion: "21",
 };
 

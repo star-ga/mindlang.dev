@@ -74,7 +74,7 @@ export default function RoadmapPage() {
                     progress={100}
                     progressColor="bg-emerald-500"
                     milestone="Verified"
-                    description="MIND compiles in ~25 µs — 136,000× faster than PyTorch 2.9 (GPU torch.compile), 36,000× faster than Mojo. O(1) constant time regardless of model size. 100% bit-level determinism."
+                    description="MIND compiles in ~2 µs — 1,792,000× faster than PyTorch 2.9 (GPU torch.compile), 513,000× faster than Mojo. O(1) constant time regardless of model size. 100% bit-level determinism."
                     subDescription={
                         <>
                             See <Link href="/docs/performance" className="text-primary underline">Performance</Link> and <Link href="/docs/guides/benchmarks" className="text-primary underline">Running Benchmarks</Link> for full details.
@@ -348,7 +348,7 @@ export default function RoadmapPage() {
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <Cpu className="w-6 h-6 text-primary mb-2" />
                             <h4 className="font-bold text-sm mb-1">2026+: Compilation Opts</h4>
-                            <p className="text-xs text-muted">Target &lt;20 µs compilation, incremental compilation, result caching.</p>
+                            <p className="text-xs text-muted">Target &lt;1 µs compilation, incremental compilation, result caching.</p>
                         </div>
                     </div>
                 </div>

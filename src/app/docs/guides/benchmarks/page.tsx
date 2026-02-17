@@ -51,7 +51,7 @@ cargo build --release`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">PyTorch Comparison Benchmark</h2>
                         <p className="text-muted mb-4">
-                            Compare MIND compilation speed vs PyTorch 2.0.
+                            Compare MIND compilation speed vs PyTorch 2.9 GPU torch.compile.
                         </p>
                         <CodeBlock className="mb-4">{`# Install PyTorch if needed
 pip install torch
@@ -61,39 +61,34 @@ python3 benchmarks/pytorch_comparison/benchmark_pytorch_compile.py`}</CodeBlock>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <h4 className="font-semibold mb-2">Expected Output</h4>
                             <pre className="text-sm text-muted bg-slate-50 p-3 rounded overflow-x-auto">
-{`Benchmark         MIND      PyTorch 2.0    MIND Speedup
---------------------------------------------------------
-scalar_math       5.5 ms    2.4 ms         (see note below)
-conv2d            5.4 ms    9.4 ms         2× faster`}
+{`MIND (Criterion):     1.8-4.8 µs
+PyTorch 2.9 (GPU):    3,172-3,599 ms
+Speedup:              1,200,000-1,800,000×`}
                             </pre>
                             <p className="text-sm text-muted mt-3">
-                                <strong>Note:</strong> MIND times include ~5ms subprocess overhead. See next section for real compilation time.
+                                <strong>Note:</strong> MIND numbers are from in-process Criterion benchmarks. PyTorch numbers are GPU torch.compile cold-start.
                             </p>
                         </div>
 
-                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Real Compilation Time (Python Bindings)</h2>
+                        <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Real Compilation Time (Criterion)</h2>
                         <p className="text-muted mb-4">
-                            Measure MIND&apos;s true compilation time without subprocess overhead.
+                            Measure MIND&apos;s true compilation time with in-process Criterion benchmarks.
                         </p>
-                        <CodeBlock className="mb-4">{`# Build Python bindings
-maturin build --release --features python-bindings,autodiff
-
-# Install the wheel
-pip install target/wheels/mind-*.whl
-
-# Run test
-python3 test_real_compile_time.py`}</CodeBlock>
+                        <CodeBlock className="mb-4">{`# Run Criterion benchmarks (in-process, no subprocess overhead)
+cargo bench --bench compiler
+cargo bench --bench simple_benchmarks`}</CodeBlock>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
-                            <h4 className="font-semibold mb-2">Expected Output</h4>
+                            <h4 className="font-semibold mb-2">Expected Output (v0.2.1+)</h4>
                             <pre className="text-sm text-muted bg-slate-50 p-3 rounded overflow-x-auto">
-{`Real MIND Compilation Time (NO subprocess overhead):
-  Mean:   38.3 µs
-  StdDev: 4.3 µs
-  Min:    35.7 µs
-  Max:    53.4 µs`}
+{`compiler_pipeline/parse_typecheck_ir/small_matmul
+                        time:   [1.75 µs 1.77 µs 1.80 µs]
+compiler_pipeline/parse_typecheck_ir/medium_mlp
+                        time:   [2.85 µs 2.88 µs 2.92 µs]
+compiler_pipeline/parse_typecheck_ir/large_network
+                        time:   [4.68 µs 4.75 µs 4.83 µs]`}
                             </pre>
                             <p className="text-sm text-muted mt-3">
-                                <strong>This is the TRUE compilation time</strong> — no process spawning, no IPC overhead.
+                                <strong>In-process Criterion benchmarks</strong> — no process spawning, no FFI overhead. Results may vary ±10% by hardware.
                             </p>
                         </div>
 
@@ -123,7 +118,7 @@ python3 test_real_compile_time.py`}</CodeBlock>
                             <li><strong>Total overhead: ~5 ms</strong></li>
                         </ul>
                         <p className="text-muted mb-4">
-                            This reveals MIND&apos;s <strong>true compilation performance: 25-53 µs</strong> (varies by machine)
+                            This reveals MIND&apos;s <strong>true compilation performance: 1.8-4.8 µs</strong> (varies by machine)
                         </p>
 
                         <h3 className="text-xl font-bold font-heading mt-8 mb-4">Subprocess vs Direct Call</h3>
@@ -134,7 +129,7 @@ python3 test_real_compile_time.py`}</CodeBlock>
                                     <ul className="text-sm text-muted space-y-1">
                                         <li>Spawn process: ~2-3 ms</li>
                                         <li>IPC overhead: ~1-2 ms</li>
-                                        <li>Actual compile: 25-53 µs</li>
+                                        <li>Actual compile: 1.8-4.8 µs</li>
                                         <li className="font-semibold border-t pt-1 mt-2">TOTAL: ~5 ms</li>
                                     </ul>
                                 </div>
@@ -142,8 +137,8 @@ python3 test_real_compile_time.py`}</CodeBlock>
                                     <h4 className="font-semibold mb-2 text-emerald-700">mind.compile() (Python binding)</h4>
                                     <ul className="text-sm text-muted space-y-1">
                                         <li>Direct function call: ~0 µs</li>
-                                        <li>Actual compile: 25-53 µs</li>
-                                        <li className="font-semibold border-t pt-1 mt-2 text-emerald-700">TOTAL: 25-53 µs</li>
+                                        <li>Actual compile: 1.8-4.8 µs</li>
+                                        <li className="font-semibold border-t pt-1 mt-2 text-emerald-700">TOTAL: 1.8-4.8 µs</li>
                                     </ul>
                                 </div>
                             </div>

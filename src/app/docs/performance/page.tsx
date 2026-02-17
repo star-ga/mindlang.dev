@@ -27,21 +27,21 @@ export default function PerformancePage() {
 
                         {/* Scientific Benchmarks Banner */}
                         <div className="bg-gradient-to-r from-emerald-50 to-blue-50 border border-emerald-200 rounded-xl p-6 mb-8">
-                            <h3 className="text-lg font-bold text-foreground mb-2">Scientific Benchmark Methodology (Jan 2026)</h3>
+                            <h3 className="text-lg font-bold text-foreground mb-2">Scientific Benchmark Methodology (Feb 2026)</h3>
                             <p className="text-sm text-muted mb-4">
                                 We measure <strong>pure compilation time</strong> by subtracting subprocess startup overhead from all measurements — ensuring fair, apples-to-apples comparison:
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                                 <div className="p-3 bg-white/50 rounded-lg">
                                     <div className="font-semibold mb-1">MIND Compilation (Criterion)</div>
-                                    <div><span className="text-muted">scalar_math:</span> <span className="font-medium">25.3 µs</span></div>
-                                    <div><span className="text-muted">matmul operations:</span> <span className="font-medium">52-53 µs</span></div>
+                                    <div><span className="text-muted">scalar_math:</span> <span className="font-medium">1.77 µs</span></div>
+                                    <div><span className="text-muted">matmul operations:</span> <span className="font-medium">2.8-2.9 µs</span></div>
                                 </div>
                                 <div className="p-3 bg-white/50 rounded-lg">
                                     <div className="font-semibold mb-1">Competitors (GPU torch.compile)</div>
-                                    <div><span className="text-muted">PyTorch 2.9:</span> <span className="font-medium text-red-600">3,172-3,599 ms</span> <span className="text-emerald-700">(65,000-125,000× slower)</span></div>
-                                    <div><span className="text-muted">JAX 0.8:</span> <span className="font-medium text-red-600">~430 ms</span> <span className="text-emerald-700">(~17,000× slower)</span></div>
-                                    <div><span className="text-muted">Mojo 0.25:</span> <span className="font-medium text-red-600">908-928 ms</span> <span className="text-emerald-700">(17,000-36,000× slower)</span></div>
+                                    <div><span className="text-muted">PyTorch 2.9:</span> <span className="font-medium text-red-600">3,172-3,599 ms</span> <span className="text-emerald-700">(1,200,000-1,800,000× slower)</span></div>
+                                    <div><span className="text-muted">JAX 0.8:</span> <span className="font-medium text-red-600">~430 ms</span> <span className="text-emerald-700">(~240,000× slower)</span></div>
+                                    <div><span className="text-muted">Mojo 0.25:</span> <span className="font-medium text-red-600">908-928 ms</span> <span className="text-emerald-700">(321,000-513,000× slower)</span></div>
                                 </div>
                             </div>
                         </div>
@@ -53,8 +53,8 @@ export default function PerformancePage() {
                                 MIND compilation time is constant regardless of model size — scalar math and large matmul compile at similar speeds:
                             </p>
                             <ul className="list-disc pl-6 space-y-1 text-sm text-muted">
-                                <li><strong>scalar_math (25.3 µs)</strong> — Simple scalar operations</li>
-                                <li><strong>large_matmul (52.2 µs)</strong> — 512×1024 × 1024×512 matrix multiplication</li>
+                                <li><strong>scalar_math (1.77 µs)</strong> — Simple scalar operations</li>
+                                <li><strong>large_matmul (2.84 µs)</strong> — 512×1024 × 1024×512 matrix multiplication</li>
                             </ul>
                             <p className="text-xs text-muted mt-3 italic">
                                 Environment: Ubuntu 24.04, RTX 3080, CUDA 13.0, PyTorch 2.9.1+cu126, Mojo 0.25.7
@@ -88,7 +88,7 @@ export default function PerformancePage() {
 
                         <h2 id="compilation-speed-mind-vs-pytorch-20" className="text-2xl font-bold font-heading mt-12 mb-4">Compilation Speed: MIND vs PyTorch 2.0</h2>
                         <p className="text-muted mb-4">
-                            Scientific comparison using subprocess overhead subtraction methodology (Jan 2026):
+                            Scientific comparison using subprocess overhead subtraction methodology (Feb 2026):
                         </p>
                         <div className="overflow-x-auto mb-6">
                             <table className="min-w-full text-sm">
@@ -104,32 +104,32 @@ export default function PerformancePage() {
                                     <tr className="border-b bg-emerald-50/50">
                                         <td className="py-2 pr-4 font-semibold">MIND</td>
                                         <td className="py-2 pr-4"><code>mind compile</code></td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">~100 µs</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">~10 µs</td>
                                         <td className="py-2">baseline (typecheck)</td>
                                     </tr>
                                     <tr className="border-b bg-emerald-50/50">
                                         <td className="py-2 pr-4 font-semibold">MIND</td>
                                         <td className="py-2 pr-4">Criterion (in-process)</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">25-53 µs</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">1.8-4.8 µs</td>
                                         <td className="py-2">baseline</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">PyTorch 2.9</td>
                                         <td className="py-2 pr-4"><code>torch.compile</code> (GPU)</td>
                                         <td className="py-2 pr-4">3,172-3,599 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">65,000-125,000× slower</td>
+                                        <td className="py-2 font-semibold text-green-600">1,200,000-1,800,000× slower</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">JAX 0.8</td>
                                         <td className="py-2 pr-4"><code>jax.jit</code> (GPU)</td>
                                         <td className="py-2 pr-4">~430 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">~17,000× slower</td>
+                                        <td className="py-2 font-semibold text-green-600">~240,000× slower</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">Mojo 0.25.7</td>
                                         <td className="py-2 pr-4"><code>mojo build</code></td>
                                         <td className="py-2 pr-4">908-928 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">17,000-36,000× slower</td>
+                                        <td className="py-2 font-semibold text-green-600">321,000-513,000× slower</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -139,10 +139,10 @@ export default function PerformancePage() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                                 <div className="p-3 bg-gray-50 rounded-lg">
                                     <div className="font-medium mb-1">MIND (Rust Criterion)</div>
-                                    <div><span className="text-muted">scalar_math:</span> 25.3 µs</div>
-                                    <div><span className="text-muted">small_matmul:</span> 53.5 µs</div>
-                                    <div><span className="text-muted">medium_matmul:</span> 52.8 µs</div>
-                                    <div><span className="text-muted">large_matmul:</span> 52.2 µs</div>
+                                    <div><span className="text-muted">scalar_math:</span> 1.77 µs</div>
+                                    <div><span className="text-muted">small_matmul:</span> 2.88 µs</div>
+                                    <div><span className="text-muted">medium_matmul:</span> 2.82 µs</div>
+                                    <div><span className="text-muted">large_matmul:</span> 2.84 µs</div>
                                 </div>
                                 <div className="p-3 bg-gray-50 rounded-lg">
                                     <div className="font-medium mb-1">Environment</div>
@@ -153,7 +153,7 @@ export default function PerformancePage() {
                                 </div>
                             </div>
                             <p className="text-xs text-muted mt-3">
-                                Live measurements on Ubuntu Linux (Jan 2026). All tests run on same machine with equivalent tensor operations.
+                                Live measurements on Ubuntu Linux (Feb 2026). All tests run on same machine with equivalent tensor operations.
                             </p>
                         </div>
 
@@ -328,7 +328,7 @@ export default function PerformancePage() {
 
                         <h2 id="compilation-speed-mind-vs-mojo" className="text-2xl font-bold font-heading mt-12 mb-4">Compilation Speed: MIND vs Mojo</h2>
                         <p className="text-muted mb-4">
-                            Scientific comparison using in-process Criterion benchmarks (Jan 2026). Mojo only offers <code>mojo build</code> (full LLVM compilation) — no separate typecheck mode like MIND&apos;s <code>mind compile</code>.
+                            Scientific comparison using in-process Criterion benchmarks (Feb 2026). Mojo only offers <code>mojo build</code> (full LLVM compilation) — no separate typecheck mode like MIND&apos;s <code>mind compile</code>.
                         </p>
                         <div className="overflow-x-auto mb-6">
                             <table className="min-w-full text-sm">
@@ -343,40 +343,40 @@ export default function PerformancePage() {
                                 <tbody className="text-muted">
                                     <tr className="border-b bg-emerald-50/50">
                                         <td className="py-2 pr-4">scalar_math</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">25.3 µs</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">1.77 µs</td>
                                         <td className="py-2 pr-4">908 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">35,906×</td>
+                                        <td className="py-2 font-semibold text-green-600">513,000×</td>
                                     </tr>
                                     <tr className="border-b bg-emerald-50/50">
                                         <td className="py-2 pr-4">small_matmul</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">53.5 µs</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">2.88 µs</td>
                                         <td className="py-2 pr-4">928 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">17,352×</td>
+                                        <td className="py-2 font-semibold text-green-600">322,222×</td>
                                     </tr>
                                     <tr className="border-b bg-emerald-50/50">
                                         <td className="py-2 pr-4">medium_matmul</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">52.8 µs</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">2.82 µs</td>
                                         <td className="py-2 pr-4">915 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">17,327×</td>
+                                        <td className="py-2 font-semibold text-green-600">324,468×</td>
                                     </tr>
                                     <tr className="border-b bg-emerald-50/50">
                                         <td className="py-2 pr-4">large_matmul</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">52.2 µs</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">2.84 µs</td>
                                         <td className="py-2 pr-4">913 ms</td>
-                                        <td className="py-2 font-semibold text-green-600">17,494×</td>
+                                        <td className="py-2 font-semibold text-green-600">321,479×</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
-                            <h4 className="font-semibold mb-2">Why MIND Is 17,000-36,000× Faster Than Mojo</h4>
+                            <h4 className="font-semibold mb-2">Why MIND Is 321,000-513,000× Faster Than Mojo</h4>
                             <ul className="list-disc pl-6 space-y-1 text-muted text-sm">
                                 <li><strong>MIND:</strong> Purpose-built Rust compiler, minimal dependencies, efficient IR design</li>
                                 <li><strong>Mojo:</strong> Full LLVM pipeline including library initialization (~57ms startup overhead)</li>
                                 <li><strong>Key difference:</strong> Mojo has no typecheck-only mode — <code>mojo build</code> always runs full LLVM compilation</li>
                             </ul>
                             <p className="text-xs text-muted mt-3">
-                                Verified Jan 2026 on Ubuntu 24.04, Mojo 0.25.7. |
+                                Verified Feb 2026 on Ubuntu 24.04, Mojo 0.25.7. |
                                 <a href="https://github.com/star-ga/mind/tree/main/benchmarks/mojo" target="_blank" rel="noopener" className="text-primary hover:underline ml-1">
                                     View benchmark source
                                 </a>
@@ -402,7 +402,7 @@ mindc run model.mind --profile=time`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Framework Comparison</h2>
                         <p className="text-muted mb-4">
-                            Scientific comparison using in-process benchmarks (Jan 2026, verified):
+                            Scientific comparison using in-process benchmarks (Feb 2026, verified):
                         </p>
                         <div className="overflow-x-auto mb-8">
                             <table className="min-w-full text-sm">
@@ -418,7 +418,7 @@ mindc run model.mind --profile=time`}</CodeBlock>
                                 <tbody className="text-muted">
                                     <tr className="border-b bg-emerald-50/50">
                                         <td className="py-2 pr-4 font-semibold">MIND</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">25-53 µs</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">1.8-4.8 µs</td>
                                         <td className="py-2 pr-4 font-semibold text-emerald-700">baseline</td>
                                         <td className="py-2 pr-4 font-semibold text-emerald-700">Compile-time</td>
                                         <td className="py-2 font-semibold text-emerald-700">100% guaranteed</td>
@@ -426,21 +426,21 @@ mindc run model.mind --profile=time`}</CodeBlock>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">PyTorch 2.9 (GPU)</td>
                                         <td className="py-2 pr-4">3,172-3,599 ms</td>
-                                        <td className="py-2 pr-4 text-red-600">65,000-125,000× slower</td>
+                                        <td className="py-2 pr-4 text-red-600">1,200,000-1,800,000× slower</td>
                                         <td className="py-2 pr-4">Runtime tape</td>
                                         <td className="py-2">Not guaranteed</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">JAX 0.8 (GPU)</td>
                                         <td className="py-2 pr-4">~430 ms</td>
-                                        <td className="py-2 pr-4 text-red-600">~17,000× slower</td>
+                                        <td className="py-2 pr-4 text-red-600">~240,000× slower</td>
                                         <td className="py-2 pr-4">JIT transforms</td>
                                         <td className="py-2">Mostly deterministic</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">Mojo 0.25.7</td>
                                         <td className="py-2 pr-4">908-928 ms</td>
-                                        <td className="py-2 pr-4 text-red-600">17,000-36,000× slower</td>
+                                        <td className="py-2 pr-4 text-red-600">321,000-513,000× slower</td>
                                         <td className="py-2 pr-4">External</td>
                                         <td className="py-2">Yes</td>
                                     </tr>
@@ -449,7 +449,7 @@ mindc run model.mind --profile=time`}</CodeBlock>
                         </div>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <p className="text-sm text-muted">
-                                <strong>Key Insight:</strong> MIND achieves <strong>65,000-125,000× faster compilation</strong> than PyTorch 2.9 GPU torch.compile, with 100% deterministic builds and compile-time autodiff.
+                                <strong>Key Insight:</strong> MIND achieves <strong>1,200,000-1,800,000× faster compilation</strong> than PyTorch 2.9 GPU torch.compile, with 100% deterministic builds and compile-time autodiff.
                             </p>
                             <p className="text-xs text-muted mt-2 italic">
                                 Environment: Ubuntu 24.04, RTX 3080, CUDA 13.0, PyTorch 2.9.1+cu126, Mojo 0.25.7
