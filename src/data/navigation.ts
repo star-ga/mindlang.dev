@@ -65,6 +65,7 @@ export const docsNavigation = [
             { name: "MIC-B Binary", href: "/docs/mic/binary" },
             { name: "MAP Protocol", href: "/docs/map" },
             { name: "MLIR Lowering", href: "/docs/mlir" },
+            { name: "Architecture Deep Dive", href: "/docs/architecture" },
             { name: "Runtime", href: "/docs/runtime" },
             { name: "FFI & Bindings", href: "/docs/ffi" },
         ],

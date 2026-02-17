@@ -293,6 +293,22 @@ export default function ComparePage() {
         </div>
       </section>
 
+      {/* Architecture Deep Dive CTA */}
+      <section className="section">
+        <div className="container">
+          <div className="max-w-3xl mx-auto p-8 rounded-2xl bg-gradient-to-br from-slate-50 to-blue-50 border border-blue-100 text-center">
+            <h2 className="text-2xl font-bold mb-4">Go deeper: Compiler Architecture</h2>
+            <p className="text-muted max-w-xl mx-auto mb-6">
+              See how MIND&rsquo;s compilation pipeline compares to PyTorch 2.0&rsquo;s TorchDynamo/TorchInductor stack &mdash;
+              from frontend parsing to IR design to code generation.
+            </p>
+            <Link href="/docs/architecture" className="btn btn--primary btn--lg">
+              Read the Architecture Deep Dive
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section">
         <div className="container text-center">
