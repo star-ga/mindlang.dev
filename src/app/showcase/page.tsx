@@ -133,6 +133,41 @@ export default function ShowcasePage() {
                                 </div>
                             </div>
                         </div>
+
+                        {/* mind-mem */}
+                        <div className="card card--outline p-0 overflow-hidden flex flex-col">
+                            <div className="h-48 bg-gradient-to-br from-emerald-900 to-teal-800 flex flex-col items-center justify-center gap-3">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img src="/favicon.svg" alt="MIND" className="h-20 w-auto" loading="lazy" />
+                                <span className="text-white text-3xl font-bold">mind-mem</span>
+                            </div>
+                            <div className="p-6 flex flex-col flex-1">
+                                <div className="mb-4">
+                                    <span className="inline-block px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-wider">
+                                        AI Memory
+                                    </span>
+                                </div>
+                                <h3 className="text-xl font-bold mb-2">Memory for AI Coding Agents</h3>
+                                <p className="text-muted text-sm flex-1">
+                                    Drop-in persistent memory shared across all AI coding clients. One workspace powers Claude Code, Codex, Gemini, Cursor, Windsurf, Zed, and OpenClaw simultaneously.
+                                </p>
+                                <div className="mt-4 p-3 bg-emerald-50 rounded-lg">
+                                    <span className="text-emerald-700 font-bold text-sm">Powered by MIND</span>
+                                    <span className="text-emerald-600 text-sm block">Up to 186x faster scoring with MIND kernels</span>
+                                    <span className="text-emerald-600 text-sm block">676 tests, zero external dependencies</span>
+                                </div>
+                                <div className="mt-6 pt-6 border-t border-gray-100">
+                                    <a
+                                        href="https://github.com/star-ga/mind-mem"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                                    >
+                                        View on GitHub <ArrowRight size={14} />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="mt-24 text-center bg-footer-bg dark:bg-card-background rounded-2xl p-12 border border-card-border">
