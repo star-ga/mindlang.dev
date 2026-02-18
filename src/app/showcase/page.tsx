@@ -18,7 +18,7 @@ export default function ShowcasePage() {
                         </p>
                     </div>
 
-                    <div className="grid grid--two">
+                    <div className="grid grid--three">
                         {/* Mind-Ray */}
                         <div className="card card--outline p-0 overflow-hidden flex flex-col">
                             <div className="h-48 bg-gradient-to-br from-blue-900 to-purple-900 flex flex-col items-center justify-center gap-3">
