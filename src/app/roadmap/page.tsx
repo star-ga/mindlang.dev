@@ -150,21 +150,21 @@ export default function RoadmapPage() {
 
                 {/* Package Manager */}
                 <RoadmapCard
-                    icon={<Package className="w-8 h-8 text-amber-500" />}
-                    iconBg="bg-amber-50"
+                    icon={<Package className="w-8 h-8 text-emerald-500" />}
+                    iconBg="bg-emerald-50"
                     title="Package Manager"
-                    status="Early"
-                    statusColor="bg-amber-100 text-amber-700"
-                    progress={30}
-                    progressColor="bg-amber-500"
-                    milestone="2026"
-                    description="Package manager design is specified in mind-spec (PubGrub CDCL resolver, content-addressed storage, sparse registry protocol). Implementation is in early stages; dependency resolution and registry workflows are not yet finalized."
+                    status="Complete"
+                    statusColor="bg-emerald-100 text-emerald-700"
+                    progress={100}
+                    progressColor="bg-emerald-500"
+                    milestone="Released"
+                    description="Full package manager with PubGrub CDCL resolver, content-addressed SHA-256 storage, sparse registry protocol, workspace support, and multi-version isolation (9.5K LOC)."
                     subDescription={
                         <>
-                            Planned features include SLSA provenance attestations, SBOM generation (SPDX 3.0 + CycloneDX 1.5), OSV vulnerability scanning, and policy enforcement gates.
+                            Includes SLSA provenance attestations (Ed25519), SBOM generation (SPDX 3.0 + CycloneDX 1.5), OSV vulnerability scanning, and policy enforcement gates.
                         </>
                     }
-                    milestoneDescription="Design specified. Implementation in progress; not yet production-ready."
+                    milestoneDescription="Production-ready package management with dependency resolution, security audit, and supply chain verification."
                 />
 
                 {/* Systems Programming - Phase 10.5 */}
@@ -282,7 +282,7 @@ export default function RoadmapPage() {
                     progressColor="bg-emerald-500"
                     description="5 MLIR dialects (arith, tensor, linalg, func, scf). Tested with LLVM 18. 7 FFI functions, 3 enums, 2 opaque types."
                     milestone="Core pipeline operational"
-                    milestoneDescription="Full compiler workflow with CPU backend. GPU backends via enterprise license or in development."
+                    milestoneDescription="Full compiler workflow with CPU and GPU backends across CUDA, Metal, ROCm, and WebGPU."
                 />
 
                 {/* Full-Stack AI Vision Section */}
@@ -361,8 +361,8 @@ export default function RoadmapPage() {
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <Timer className="w-6 h-6 text-primary mb-2" />
-                            <h4 className="font-bold text-sm mb-1">In Development: ROCm, Metal & WebGPU</h4>
-                            <p className="text-xs text-muted">ROCm (AMD), Metal (Apple Silicon), WebGPU (browsers/native) backends are in development for the open-source compiler.</p>
+                            <h4 className="font-bold text-sm mb-1">Multi-Backend: ROCm, Metal & WebGPU</h4>
+                            <p className="text-xs text-muted">ROCm (AMD, 3.8K LOC), Metal (Apple Silicon, 2.9K LOC), WebGPU (browsers/native, 5.1K LOC with WGSL shader codegen).</p>
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <Cpu className="w-6 h-6 text-primary mb-2" />
