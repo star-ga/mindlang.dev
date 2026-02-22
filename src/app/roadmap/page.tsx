@@ -177,13 +177,13 @@ export default function RoadmapPage() {
                     progress={0}
                     progressColor="bg-indigo-500"
                     milestone="2026"
-                    description="Extending MIND beyond tensor operations to support general systems programming: enum and struct types, if/else and while control flow, const declarations, byte slices, and bitwise operators."
+                    description="Extending MIND beyond tensor-only operations to support governance logic: enum and struct types, if/else and while control flow, const declarations, u32 bitfields, and bitwise operators. Byte-level operations deferred to Rust FFI."
                     subDescription={
                         <>
-                            Enables execution boundary kernels, access control policies, and deterministic governance logic — compiled with the same safety guarantees as tensor programs. See <a href="https://github.com/star-ga/mind/blob/main/examples/policy.mind" target="_blank" rel="noopener noreferrer" className="text-primary underline">policy.mind</a> reference example.
+                            MIND becomes a verifiable behavior language — expressing certified decisions alongside tensor computation. Rust FFI handles byte-level work (string matching, memory). See <a href="https://github.com/star-ga/mind/blob/main/examples/policy.mind" target="_blank" rel="noopener noreferrer" className="text-primary underline">policy.mind</a> design reference.
                         </>
                     }
-                    milestoneDescription="Three-tier implementation: control flow and constants, algebraic data types, and byte slice primitives. Spec additions in mind-spec future-extensions."
+                    milestoneDescription="Two-tier implementation: control flow and constants (Tier 1), then algebraic data types with enum and struct (Tier 2). Byte slices deferred to Rust FFI."
                 />
 
                 {/* BCI / Neuroscience - Phase 13 */}
