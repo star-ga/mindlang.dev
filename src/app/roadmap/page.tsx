@@ -167,6 +167,25 @@ export default function RoadmapPage() {
                     milestoneDescription="Design specified. Implementation in progress; not yet production-ready."
                 />
 
+                {/* Systems Programming - Phase 10.5 */}
+                <RoadmapCard
+                    icon={<Shield className="w-8 h-8 text-indigo-500" />}
+                    iconBg="bg-indigo-50"
+                    title="Systems Programming"
+                    status="Phase 10.5"
+                    statusColor="bg-indigo-100 text-indigo-700"
+                    progress={0}
+                    progressColor="bg-indigo-500"
+                    milestone="2026"
+                    description="Extending MIND beyond tensor operations to support general systems programming: enum and struct types, if/else and while control flow, const declarations, byte slices, and bitwise operators."
+                    subDescription={
+                        <>
+                            Enables execution boundary kernels, access control policies, and deterministic governance logic — compiled with the same safety guarantees as tensor programs. See <a href="https://github.com/star-ga/mind/blob/main/examples/policy.mind" target="_blank" rel="noopener noreferrer" className="text-primary underline">policy.mind</a> reference example.
+                        </>
+                    }
+                    milestoneDescription="Three-tier implementation: control flow and constants, algebraic data types, and byte slice primitives. Spec additions in mind-spec future-extensions."
+                />
+
                 {/* BCI / Neuroscience - Phase 13 */}
                 <RoadmapCard
                     icon={<Brain className="w-8 h-8 text-pink-600" />}
