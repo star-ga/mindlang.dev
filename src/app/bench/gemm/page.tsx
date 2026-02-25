@@ -127,8 +127,8 @@ async function benchMindLang(
     ],
   });
 
-  const wgX = Math.ceil(N / 16);
-  const wgY = Math.ceil(M / 16);
+  const wgX = Math.ceil(N / 64);
+  const wgY = Math.ceil(M / 64);
 
   function dispatch() {
     const enc = device.createCommandEncoder();
