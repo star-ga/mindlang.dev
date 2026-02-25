@@ -211,10 +211,11 @@ async function benchOnnxWeb(
 
   ort.env.wasm.numThreads = 1;
 
-  // Fetch pre-built ONNX MatMul model (dynamic shapes, validated at build time)
-  log("Fetching matmul.onnx model...");
-  const modelRes = await fetch("/bench/gemm/matmul.onnx");
-  if (!modelRes.ok) throw new Error(`Failed to fetch matmul.onnx: ${modelRes.status}`);
+  // Fetch static-shape ONNX MatMul model (gives ONNX RT best chance to optimize)
+  const modelFile = `matmul_${M}.onnx`;
+  log(`Fetching ${modelFile} (static ${M}x${M} shapes)...`);
+  const modelRes = await fetch(`/bench/gemm/${modelFile}`);
+  if (!modelRes.ok) throw new Error(`Failed to fetch ${modelFile}: ${modelRes.status}`);
   const modelBytes = new Uint8Array(await modelRes.arrayBuffer());
   log(`Model size: ${modelBytes.length} bytes`);
 
@@ -804,7 +805,7 @@ export default function GemmBenchPage() {
 
             <BenchPanel
               label="ONNX RT Web"
-              sublabel="ONNX Runtime Web 1.21 with WebGPU execution provider. Loads a validated MatMul model, creates InferenceSession, and runs inference."
+              sublabel="ONNX Runtime Web 1.21 with WebGPU execution provider. Loads a static-shape MatMul model (matching the selected size), creates InferenceSession, and runs inference."
               accentColor="text-amber-600"
               accentBg="bg-amber-50"
               accentBorder="hsl(38deg 92% 50%)"
@@ -892,9 +893,9 @@ export default function GemmBenchPage() {
             </p>
             <p className="text-muted mb-2">
               <span className="text-amber-600 font-bold">ONNX Runtime Web</span> v1.21 uses the WebGPU
-              execution provider. A validated single-node MatMul ONNX model with dynamic shapes is
-              fetched from <code>/bench/gemm/matmul.onnx</code>. Session init time (including ONNX graph
-              compilation to WGSL) is measured separately.
+              execution provider. A static-shape MatMul ONNX model matching the selected size is
+              loaded, giving ONNX RT full opportunity to specialize its kernel. Session init time
+              (including ONNX graph compilation to WGSL) is measured separately.
             </p>
             <p className="text-muted">
               Results vary by GPU, driver version, browser, and system load. Requires Chrome 113+,
