@@ -1,0 +1,51 @@
+# GEMM Benchmark - MIND Language Project Configuration
+#
+# Apples-to-apples WebGPU GEMM benchmark.
+# Compiles to WGSL compute shader for browser execution.
+#
+# Author: STARGA Inc. <noreply@star.ga>
+# License: MIT
+
+[package]
+name = "gemm-bench"
+version = "0.1.0"
+authors = ["STARGA Inc. <noreply@star.ga>"]
+license = "MIT"
+description = "4096x4096 GEMM benchmark — MindLang AOT WGSL vs ONNX Runtime Web"
+repository = "https://github.com/star-ga/mindlang.dev"
+keywords = ["benchmark", "gemm", "webgpu", "matrix", "mind", "tensor"]
+edition = "2025"
+
+[build]
+entry = "gemm.mind"
+sources = ["gemm.mind"]
+target = "webgpu"
+opt-level = 3
+debug = false
+shape-checking = true
+autodiff = false
+
+[runtime]
+backend = "webgpu"
+workgroup-size = [16, 16, 1]
+max-buffer-size = 536870912
+power-preference = "high-performance"
+async-compute = true
+
+[web]
+output-dir = "dist"
+template = "index.html"
+streaming = true
+threads = false
+canvas-id = "bench-output"
+
+[profile.release]
+opt-level = 3
+debug = false
+lto = true
+strip = true
+
+[dependencies]
+tensor = { version = "1.0", features = ["gpu"] }
+math = { version = "1.0" }
+io = { version = "1.0" }

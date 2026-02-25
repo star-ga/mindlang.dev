@@ -1,0 +1,193 @@
+// gemm.mind - Matrix Multiplication Benchmark for MindLang
+//
+// 4096×4096 GEMM (General Matrix Multiplication) on WebGPU.
+// Compiles to WGSL compute shader via mindc --target webgpu.
+//
+// Purpose: apples-to-apples benchmark against ONNX Runtime Web's
+// WebGPU backend performing the same operation.
+//
+// C = A × B where A: [M, K], B: [K, N], C: [M, N]
+//
+// Uses tiled matrix multiplication with shared memory for
+// optimal GPU occupancy. Tile size = 16×16 to match WebGPU
+// workgroup limits.
+//
+// Author: STARGA Inc. <noreply@star.ga>
+// License: MIT
+
+import tensor::zeros;
+import math::min;
+
+// =============================================================================
+// Configuration
+// =============================================================================
+
+fn tile_size() -> i32 { 16 }
+fn default_m() -> i32 { 4096 }
+fn default_n() -> i32 { 4096 }
+fn default_k() -> i32 { 4096 }
+
+// =============================================================================
+// Benchmark Uniforms
+// =============================================================================
+
+struct GemmParams {
+    M: u32,
+    N: u32,
+    K: u32,
+    alpha: f32,   // scalar multiplier (1.0 for pure GEMM)
+}
+
+// =============================================================================
+// Tiled GEMM Kernel
+// =============================================================================
+//
+// Each workgroup computes a 16×16 tile of the output matrix C.
+// Uses shared memory to cache tiles of A and B, reducing global
+// memory bandwidth by tile_size×.
+//
+// Data flow:
+//   1. Load tile of A [16×16] from global → shared memory
+//   2. Load tile of B [16×16] from global → shared memory
+//   3. Barrier (workgroupBarrier)
+//   4. Each thread accumulates 16 multiply-adds
+//   5. Advance to next tile along K dimension
+//   6. Write accumulated result to C
+
+#[kernel(workgroup = [16, 16, 1])]
+fn gemm_tiled(
+    params: GemmParams,
+    A: Tensor<f32, [M, K]>,       // input matrix A
+    B: Tensor<f32, [K, N]>,       // input matrix B
+    C: &mut Tensor<f32, [M, N]>   // output matrix C
+) {
+    let gid = global_invocation_id();
+    let lid = local_invocation_id();
+    let row = gid[1];  // output row
+    let col = gid[0];  // output column
+
+    // Shared memory tiles
+    var tile_a: Tensor<f32, [16, 16]> in shared;
+    var tile_b: Tensor<f32, [16, 16]> in shared;
+
+    let M = params.M;
+    let N = params.N;
+    let K = params.K;
+
+    // Accumulator for this thread's output element
+    var acc: f32 = 0.0;
+
+    // Number of tiles along K dimension
+    let num_tiles = (K + 15) / 16;
+
+    for t in 0..num_tiles {
+        let tile_offset = t * 16;
+
+        // Collaborative load: each thread loads one element into shared memory
+        let a_col = tile_offset + lid[0];
+        let b_row = tile_offset + lid[1];
+
+        // Bounds-checked load from A
+        tile_a[lid[1], lid[0]] = select(
+            row < M && a_col < K,
+            A[row, a_col],
+            0.0
+        );
+
+        // Bounds-checked load from B
+        tile_b[lid[1], lid[0]] = select(
+            b_row < K && col < N,
+            B[b_row, col],
+            0.0
+        );
+
+        // Synchronize: all threads must finish loading before computing
+        workgroup_barrier();
+
+        // Accumulate dot product for this tile
+        for k in 0..16 {
+            acc = acc + tile_a[lid[1], k] * tile_b[k, lid[0]];
+        }
+
+        // Synchronize before loading next tile
+        workgroup_barrier();
+    }
+
+    // Write result with scalar multiplier
+    if row < M && col < N {
+        C[row, col] = params.alpha * acc;
+    }
+}
+
+// =============================================================================
+// Naive GEMM (for comparison / correctness verification)
+// =============================================================================
+
+#[kernel(workgroup = [16, 16, 1])]
+fn gemm_naive(
+    params: GemmParams,
+    A: Tensor<f32, [M, K]>,
+    B: Tensor<f32, [K, N]>,
+    C: &mut Tensor<f32, [M, N]>
+) {
+    let gid = global_invocation_id();
+    let row = gid[1];
+    let col = gid[0];
+
+    if row >= params.M || col >= params.N {
+        return;
+    }
+
+    var acc: f32 = 0.0;
+    for k in 0..cast(params.K, i32) {
+        acc = acc + A[row, k] * B[k, col];
+    }
+
+    C[row, col] = params.alpha * acc;
+}
+
+// =============================================================================
+// Benchmark Entry
+// =============================================================================
+
+fn main() !io {
+    let M = default_m();
+    let N = default_n();
+    let K = default_k();
+
+    print("GEMM Benchmark: {}×{} × {}×{}", M, K, K, N);
+    print("Tile size: {}×{}", tile_size(), tile_size());
+    print("Workgroups: {}×{}", (N + 15) / 16, (M + 15) / 16);
+    print("Total FLOPs: {}", 2 * M * N * K);
+    print("");
+
+    // Initialize matrices
+    // In benchmark mode, runtime fills with random f32 in [0, 1)
+    let A = random([M, K]);
+    let B = random([K, N]);
+    let C = zeros([M, N]);
+
+    let params = GemmParams { M: cast(M, u32), N: cast(N, u32), K: cast(K, u32), alpha: 1.0 };
+
+    // Warmup (1 dispatch, not timed)
+    gemm_tiled(params, A, B, &mut C);
+    device_sync();
+
+    // Benchmark (N dispatches, timed)
+    let num_runs = 10;
+    let start = perf_now();
+
+    for i in 0..num_runs {
+        gemm_tiled(params, A, B, &mut C);
+    }
+    device_sync();
+
+    let elapsed_ms = perf_now() - start;
+    let avg_ms = elapsed_ms / cast(num_runs, f32);
+    let gflops = cast(2 * M * N * K, f64) / (cast(avg_ms, f64) * 1e6);
+
+    print("Results ({} runs):", num_runs);
+    print("  Avg time:  {:.2} ms", avg_ms);
+    print("  GFLOPS:    {:.1}", gflops);
+    print("  Bandwidth: {:.1} GB/s", cast(4 * (M*K + K*N + M*N), f64) / (cast(avg_ms, f64) * 1e6));
+}
