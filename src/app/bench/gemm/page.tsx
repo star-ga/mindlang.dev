@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -970,8 +971,164 @@ export default function GemmBenchPage() {
               Edge 113+, or another browser with WebGPU enabled.
             </p>
           </div>
+
+          {/* WebGPU Browser Instructions */}
+          <WebGpuInstructions />
         </div>
       </section>
     </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Collapsible WebGPU browser instructions
+// ---------------------------------------------------------------------------
+
+function BrowserRow({
+  icon,
+  name,
+  status,
+  steps,
+}: {
+  icon: string;
+  name: string;
+  status: "ok" | "flag" | "cli";
+  steps: React.ReactNode;
+}) {
+  const badge =
+    status === "ok" ? (
+      <span className="text-emerald-600 text-xs font-bold">enabled by default</span>
+    ) : status === "flag" ? (
+      <span className="text-amber-600 text-xs font-bold">flag required</span>
+    ) : (
+      <span className="text-amber-600 text-xs font-bold">launch flags</span>
+    );
+
+  return (
+    <div className="flex gap-3 py-3" style={{ borderBottom: "1px solid var(--card-border)" }}>
+      <div className="w-6 h-6 shrink-0 mt-0.5">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={icon} alt="" className="w-6 h-6" loading="lazy" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="font-bold text-sm">{name}</span>
+          {badge}
+        </div>
+        <div className="text-muted text-xs leading-relaxed">{steps}</div>
+      </div>
+    </div>
+  );
+}
+
+function WebGpuInstructions() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="card card--outline mt-6">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center justify-between w-full text-left"
+      >
+        <span className="font-bold text-sm" style={{ color: "var(--text-secondary)" }}>
+          How to enable WebGPU
+        </span>
+        <ChevronDown
+          size={16}
+          className={`text-muted transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      {open && (
+        <div className="mt-4">
+          <BrowserRow
+            icon="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg"
+            name="Chrome 113+ (Windows / macOS)"
+            status="ok"
+            steps="WebGPU enabled by default with native D3D12 / Metal backend."
+          />
+          <BrowserRow
+            icon="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg"
+            name="Chrome (older versions)"
+            status="flag"
+            steps={
+              <>
+                1. Open <code className="text-xs px-1 py-0.5 rounded" style={{ background: "var(--code-background)" }}>chrome://flags</code><br />
+                2. Search &ldquo;WebGPU&rdquo;<br />
+                3. Enable &ldquo;Unsafe WebGPU&rdquo;<br />
+                4. Relaunch browser
+              </>
+            }
+          />
+          <BrowserRow
+            icon="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg"
+            name="Firefox 121+ (Windows / macOS)"
+            status="ok"
+            steps="WebGPU enabled by default."
+          />
+          <BrowserRow
+            icon="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg"
+            name="Firefox (Linux)"
+            status="flag"
+            steps={
+              <>
+                1. Open <code className="text-xs px-1 py-0.5 rounded" style={{ background: "var(--code-background)" }}>about:config</code><br />
+                2. Set <code className="text-xs px-1 py-0.5 rounded" style={{ background: "var(--code-background)" }}>dom.webgpu.enabled</code> &rarr; true<br />
+                3. Set <code className="text-xs px-1 py-0.5 rounded" style={{ background: "var(--code-background)" }}>gfx.webgpu.force-enabled</code> &rarr; true<br />
+                4. Restart browser
+              </>
+            }
+          />
+          <BrowserRow
+            icon="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg"
+            name="Chrome / Chromium (Linux)"
+            status="cli"
+            steps={
+              <>
+                Run in terminal for native Vulkan GPU:
+                <code
+                  className="block mt-1.5 px-2 py-1.5 rounded text-xs font-mono cursor-pointer select-all"
+                  style={{ background: "var(--code-background)" }}
+                  title="Click to copy"
+                  onClick={(e) => {
+                    navigator.clipboard.writeText((e.target as HTMLElement).textContent ?? "");
+                  }}
+                >
+                  chromium --enable-unsafe-webgpu --use-angle=vulkan --enable-features=Vulkan
+                </code>
+                <span className="text-[10px] opacity-60 mt-1 block">
+                  Click to copy &bull; Replace &lsquo;chromium&rsquo; with &lsquo;google-chrome&rsquo; if needed
+                </span>
+              </>
+            }
+          />
+          <BrowserRow
+            icon="https://upload.wikimedia.org/wikipedia/commons/5/52/Safari_browser_logo.svg"
+            name="Safari 18+ (macOS Sequoia)"
+            status="ok"
+            steps="WebGPU enabled by default."
+          />
+          <BrowserRow
+            icon="https://upload.wikimedia.org/wikipedia/commons/5/52/Safari_browser_logo.svg"
+            name="Safari 17"
+            status="flag"
+            steps={
+              <>
+                1. Safari &rarr; Settings &rarr; Advanced<br />
+                2. Check &ldquo;Show Develop menu&rdquo;<br />
+                3. Develop &rarr; Feature Flags<br />
+                4. Enable &ldquo;WebGPU&rdquo;
+              </>
+            }
+          />
+          <BrowserRow
+            icon="https://upload.wikimedia.org/wikipedia/commons/9/98/Microsoft_Edge_logo_%282019%29.svg"
+            name="Edge 113+"
+            status="ok"
+            steps="WebGPU enabled by default (Chromium-based)."
+          />
+        </div>
+      )}
+    </div>
   );
 }
