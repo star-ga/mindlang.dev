@@ -168,6 +168,46 @@ export default function ShowcasePage() {
                                 </div>
                             </div>
                         </div>
+                        {/* GEMM Benchmark */}
+                        <div className="card card--outline p-0 overflow-hidden flex flex-col">
+                            <div className="h-48 bg-gradient-to-br from-cyan-900 to-blue-800 flex flex-col items-center justify-center gap-3">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img src="/favicon.svg" alt="MIND" className="h-20 w-auto" loading="lazy" />
+                                <span className="text-white text-3xl font-bold">GEMM Bench</span>
+                            </div>
+                            <div className="p-6 flex flex-col flex-1">
+                                <div className="mb-4">
+                                    <span className="inline-block px-2 py-1 rounded-full bg-cyan-100 text-cyan-700 text-xs font-bold uppercase tracking-wider">
+                                        WebGPU Benchmark
+                                    </span>
+                                </div>
+                                <h3 className="text-xl font-bold mb-2">In-Browser GEMM Benchmark</h3>
+                                <p className="text-muted text-sm flex-1">
+                                    Apples-to-apples WebGPU matrix multiplication benchmark. Compares MindLang AOT-compiled WGSL shaders against ONNX Runtime Web on your GPU, in your browser.
+                                </p>
+                                <div className="mt-4 p-3 bg-cyan-50 rounded-lg">
+                                    <span className="text-cyan-700 font-bold text-sm">Performance</span>
+                                    <span className="text-cyan-600 text-sm block">5-10x faster than ONNX Runtime Web</span>
+                                    <span className="text-cyan-600 text-sm block">~3 TFLOPS at 4096x4096 on WebGPU</span>
+                                </div>
+                                <div className="mt-6 pt-6 border-t border-gray-100 flex gap-4">
+                                    <a
+                                        href="/bench/gemm"
+                                        className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                                    >
+                                        Run Benchmark <ArrowRight size={14} />
+                                    </a>
+                                    <a
+                                        href="/bench/gemm/gemm.mind"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-muted font-bold text-sm flex items-center gap-1 hover:gap-2 hover:text-primary transition-all"
+                                    >
+                                        Source <ArrowRight size={14} />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="mt-24 text-center bg-footer-bg dark:bg-card-background rounded-2xl p-12 border border-card-border">
