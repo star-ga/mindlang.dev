@@ -15,6 +15,13 @@ interface BenchResult {
   runs: number;
 }
 
+/** Compute effective results when compile time is amortized across runs */
+function withCompileTime(r: BenchResult, M: number): BenchResult {
+  const effectiveAvgMs = r.avgMs + r.initMs / r.runs;
+  const gflops = (2 * M * M * M) / (effectiveAvgMs * 1e6);
+  return { ...r, avgMs: effectiveAvgMs, gflops, minDispatchMs: r.minDispatchMs + r.initMs / r.runs };
+}
+
 type BenchState = "idle" | "running" | "done" | "error";
 
 interface SideState {
@@ -311,11 +318,13 @@ function BenchPanel({
   btnClass,
   state,
   result,
+  rawResult,
   error,
   onRun,
   compareResult,
   isWinner,
   isLoser,
+  includeCompile,
 }: {
   label: string;
   sublabel: string;
@@ -327,11 +336,13 @@ function BenchPanel({
   btnClass: string;
   state: BenchState;
   result: BenchResult | null;
+  rawResult: BenchResult | null;
   error: string | null;
   onRun: () => void;
   compareResult: BenchResult | null;
   isWinner: boolean;
   isLoser: boolean;
+  includeCompile: boolean;
 }) {
   const isRunning = state === "running";
 
@@ -379,7 +390,7 @@ function BenchPanel({
       {/* Metrics */}
       <div className="mb-4">
         <MetricRow
-          label="Avg Time"
+          label={includeCompile ? "Avg Time (w/ compile)" : "Avg Time"}
           value={result ? result.avgMs.toFixed(2) : null}
           unit="ms"
           highlight={avgHighlight}
@@ -396,9 +407,17 @@ function BenchPanel({
         />
         <MetricRow
           label={label === "MindLang" ? "Shader Compile" : "Session Init"}
-          value={result ? result.initMs.toFixed(1) : null}
+          value={rawResult ? rawResult.initMs.toFixed(1) : null}
           unit="ms"
+          highlight={includeCompile && rawResult && compareResult ? (rawResult.initMs < compareResult.initMs ? "better" : rawResult.initMs > compareResult.initMs ? "worse" : null) : null}
         />
+        {includeCompile && rawResult && (
+          <MetricRow
+            label="Dispatch Only"
+            value={rawResult.avgMs.toFixed(2)}
+            unit="ms"
+          />
+        )}
       </div>
 
       {/* Error */}
@@ -478,9 +497,11 @@ function LogOutput({ lines }: { lines: string[] }) {
 function SpeedupBanner({
   mindResult,
   onnxResult,
+  includeCompile,
 }: {
   mindResult: BenchResult;
   onnxResult: BenchResult;
+  includeCompile: boolean;
 }) {
   const ratio = onnxResult.avgMs / mindResult.avgMs;
   const mindFaster = ratio > 1;
@@ -490,7 +511,9 @@ function SpeedupBanner({
 
   return (
     <div className="card card--outline text-center">
-      <p className="text-muted text-sm mb-2">Speedup</p>
+      <p className="text-muted text-sm mb-2">
+        Speedup{includeCompile ? " (incl. compile time)" : ""}
+      </p>
       <div className={`text-5xl font-black font-mono ${winnerColor} mb-1`}>
         {displayRatio.toFixed(2)}x
       </div>
@@ -506,6 +529,11 @@ function SpeedupBanner({
           <span className="text-amber-600 font-bold">OX</span> {onnxResult.avgMs.toFixed(2)} ms
         </span>
       </div>
+      {includeCompile && (
+        <p className="mt-2 text-xs text-muted">
+          Compile cost amortized across {mindResult.runs} run{mindResult.runs !== 1 ? "s" : ""}
+        </p>
+      )}
     </div>
   );
 }
@@ -557,6 +585,7 @@ const SIZE_OPTIONS = [
 export default function GemmBenchPage() {
   const [matrixSize, setMatrixSize] = useState(1024);
   const [numRuns, setNumRuns] = useState(5);
+  const [includeCompile, setIncludeCompile] = useState(false);
   const [gpuInfo, setGpuInfo] = useState<string | null>(null);
 
   const [mindState, setMindState] = useState<SideState>({ state: "idle", result: null, error: null });
@@ -669,17 +698,25 @@ export default function GemmBenchPage() {
   const bothDone = mindState.state === "done" && onnxState.state === "done";
   const eitherRunning = mindState.state === "running" || onnxState.state === "running";
 
+  // Compute effective results (with or without compile time amortized)
+  const mindEffective = mindState.result
+    ? includeCompile ? withCompileTime(mindState.result, matrixSize) : mindState.result
+    : null;
+  const onnxEffective = onnxState.result
+    ? includeCompile ? withCompileTime(onnxState.result, matrixSize) : onnxState.result
+    : null;
+
   const mindWins =
     bothDone &&
-    mindState.result !== null &&
-    onnxState.result !== null &&
-    mindState.result.avgMs < onnxState.result.avgMs;
+    mindEffective !== null &&
+    onnxEffective !== null &&
+    mindEffective.avgMs < onnxEffective.avgMs;
 
   const onnxWins =
     bothDone &&
-    mindState.result !== null &&
-    onnxState.result !== null &&
-    onnxState.result.avgMs < mindState.result.avgMs;
+    mindEffective !== null &&
+    onnxEffective !== null &&
+    onnxEffective.avgMs < mindEffective.avgMs;
 
   const activeLogLines = activeLog === "mind" ? mindLog : onnxLog;
 
@@ -765,6 +802,26 @@ export default function GemmBenchPage() {
               />
             </div>
 
+            <label className="flex items-center gap-2 cursor-pointer select-none">
+              <span className="text-muted text-xs font-medium uppercase tracking-wide whitespace-nowrap">
+                Include Compile
+              </span>
+              <button
+                role="switch"
+                aria-checked={includeCompile}
+                onClick={() => setIncludeCompile((v) => !v)}
+                className="relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none"
+                style={{
+                  background: includeCompile ? "var(--color-primary)" : "var(--card-border)",
+                }}
+              >
+                <span
+                  className="inline-block h-3.5 w-3.5 rounded-full bg-white transition-transform shadow-sm"
+                  style={{ transform: includeCompile ? "translateX(18px)" : "translateX(3px)" }}
+                />
+              </button>
+            </label>
+
             <div className="ml-auto">
               <button
                 onClick={runBoth}
@@ -777,9 +834,9 @@ export default function GemmBenchPage() {
           </div>
 
           {/* Speedup banner */}
-          {bothDone && mindState.result && onnxState.result && (
+          {bothDone && mindEffective && onnxEffective && (
             <div className="mb-6">
-              <SpeedupBanner mindResult={mindState.result} onnxResult={onnxState.result} />
+              <SpeedupBanner mindResult={mindEffective} onnxResult={onnxEffective} includeCompile={includeCompile} />
             </div>
           )}
 
@@ -795,12 +852,14 @@ export default function GemmBenchPage() {
               badgeText="text-blue-700"
               btnClass="btn--primary"
               state={mindState.state}
-              result={mindState.result}
+              result={mindEffective}
+              rawResult={mindState.result}
               error={mindState.error}
               onRun={runMindLang}
-              compareResult={onnxState.result}
+              compareResult={onnxEffective}
               isWinner={mindWins}
               isLoser={onnxWins}
+              includeCompile={includeCompile}
             />
 
             <BenchPanel
@@ -813,12 +872,14 @@ export default function GemmBenchPage() {
               badgeText="text-amber-700"
               btnClass="bg-amber-500 text-white hover:bg-amber-600"
               state={onnxState.state}
-              result={onnxState.result}
+              result={onnxEffective}
+              rawResult={onnxState.result}
               error={onnxState.error}
               onRun={runOnnx}
-              compareResult={mindState.result}
+              compareResult={mindEffective}
               isWinner={onnxWins}
               isLoser={mindWins}
+              includeCompile={includeCompile}
             />
           </div>
 
@@ -896,6 +957,13 @@ export default function GemmBenchPage() {
               execution provider. A static-shape MatMul ONNX model matching the selected size is
               loaded, giving ONNX RT full opportunity to specialize its kernel. Session init time
               (including ONNX graph compilation to WGSL) is measured separately.
+            </p>
+            <p className="text-muted mb-2">
+              <span className="font-bold" style={{ color: "var(--text-secondary)" }}>Include Compile</span> toggle
+              amortizes each side&apos;s compile/init cost across all timed runs:
+              effective&nbsp;=&nbsp;(compile&nbsp;+&nbsp;&Sigma;dispatch)&nbsp;/&nbsp;N.
+              MindLang&apos;s &ldquo;compile&rdquo; is fetching a pre-built WGSL file and creating a pipeline;
+              ONNX RT&apos;s init includes runtime WGSL shader generation from the ONNX graph.
             </p>
             <p className="text-muted">
               Results vary by GPU, driver version, browser, and system load. Requires Chrome 113+,

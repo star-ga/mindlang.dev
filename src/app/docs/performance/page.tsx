@@ -575,8 +575,62 @@ mindc run model.mind --profile=time`}</CodeBlock>
                             Performance scales with GPU capabilities. Benchmarks verified February 2026.
                         </p>
 
+                        <h2 id="webgpu-gemm" className="text-2xl font-bold font-heading mt-12 mb-4">WebGPU Runtime: GEMM Benchmark</h2>
+                        <p className="text-muted mb-4">
+                            In-browser WebGPU benchmark comparing MindLang AOT-compiled WGSL shaders against ONNX Runtime Web 1.21&apos;s WebGPU backend.
+                            Both perform the identical operation (C&nbsp;=&nbsp;A&nbsp;&times;&nbsp;B, f32). MindLang compiles <code>.mind</code> &rarr; optimized <code>.wgsl</code> at build time; ONNX RT generates shaders at runtime.
+                        </p>
+                        <div className="overflow-x-auto mb-6">
+                            <table className="min-w-full text-sm">
+                                <thead>
+                                    <tr className="border-b">
+                                        <th className="text-left py-2 pr-4 font-bold">Size</th>
+                                        <th className="text-left py-2 pr-4 font-bold">MindLang</th>
+                                        <th className="text-left py-2 pr-4 font-bold">ONNX RT Web</th>
+                                        <th className="text-left py-2 font-bold">Speedup</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-muted">
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">1024&times;1024</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">5.7 ms / 375 GFLOPS</td>
+                                        <td className="py-2 pr-4">25.7 ms / 83 GFLOPS</td>
+                                        <td className="py-2 font-semibold text-emerald-700">4.5x</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">2048&times;2048</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">9.3 ms / 1,843 GFLOPS</td>
+                                        <td className="py-2 pr-4">93.1 ms / 184 GFLOPS</td>
+                                        <td className="py-2 font-semibold text-emerald-700">10x</td>
+                                    </tr>
+                                    <tr className="border-b">
+                                        <td className="py-2 pr-4">4096&times;4096</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">47 ms / 2,905 GFLOPS</td>
+                                        <td className="py-2 pr-4">240 ms / 569 GFLOPS</td>
+                                        <td className="py-2 font-semibold text-emerald-700">5.1x</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="bg-card border border-border rounded-lg p-4 mb-8">
+                            <h4 className="font-semibold mb-2">Key Findings</h4>
+                            <p className="text-sm text-muted mb-2">
+                                MindLang is <strong>4.5-10x faster</strong> than ONNX Runtime Web across all matrix sizes. At 4096&times;4096, MindLang achieves <strong>~3 TFLOPS</strong> peak on consumer WebGPU hardware. The 4&times;4 register-tiled shader with 64&times;64 workgroup output delivers up to 2,905 GFLOPS — the advantage comes from AOT compilation eliminating runtime shader generation and per-op dispatch overhead.
+                            </p>
+                            <p className="text-sm text-muted mb-2">
+                                With the <strong>Include Compile Time</strong> toggle enabled, the advantage grows further: MindLang&apos;s compile cost is ~50-80 ms (fetch pre-built WGSL + pipeline creation) vs ONNX RT&apos;s ~500-2,000 ms (model load + runtime WGSL generation).
+                            </p>
+                            <p className="text-xs text-muted mt-3 italic">
+                                Chromium 131, WebGPU (Vulkan), Ubuntu 24.04. Static-shape ONNX models for fair comparison. Feb 2026.
+                                {" "}<a href="/bench/gemm" className="text-primary hover:underline">Run the benchmark yourself &rarr;</a>
+                            </p>
+                        </div>
+
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Learn More</h2>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
+                            <li>
+                                <a href="/bench/gemm" className="text-primary hover:underline">GEMM Benchmark (Interactive)</a> — Run MindLang vs ONNX RT Web in your browser
+                            </li>
                             <li>
                                 <a href="/docs/guides/benchmarks" className="text-primary hover:underline">Running Benchmarks</a> — Reproduce the results yourself
                             </li>

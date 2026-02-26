@@ -44,19 +44,18 @@ export default function BenchPage() {
                     </span>
                   </div>
                   <p className="text-muted text-sm leading-relaxed m-0">
-                    Tiled 4096&times;4096 GEMM on WebGPU. Compares MindLang AOT-compiled WGSL
+                    Tiled GEMM on WebGPU (1024&ndash;4096). Compares MindLang AOT-compiled WGSL
                     shaders against ONNX Runtime Web&apos;s WebGPU backend performing the identical
-                    operation. Measures average dispatch time, GFLOPS, and shader compile vs.
-                    session init overhead.
+                    operation. Measures dispatch time, GFLOPS, and optionally includes compile overhead.
                   </p>
-                  <div className="flex flex-wrap gap-4 mt-4 text-xs text-muted font-mono">
-                    <span>16&times;16 workgroups</span>
-                    <span>&middot;</span>
-                    <span>shared memory tiling</span>
-                    <span>&middot;</span>
-                    <span>f32 precision</span>
-                    <span>&middot;</span>
-                    <span>MindLang vs ONNX RT</span>
+                  <div className="flex flex-wrap gap-4 mt-4 text-xs font-mono">
+                    <span className="text-emerald-600 font-bold">5&ndash;10x faster</span>
+                    <span className="text-muted">&middot;</span>
+                    <span className="text-emerald-600 font-bold">~3 TFLOPS peak</span>
+                    <span className="text-muted">&middot;</span>
+                    <span className="text-muted">4&times;4 register tiling</span>
+                    <span className="text-muted">&middot;</span>
+                    <span className="text-muted">f32 precision</span>
                   </div>
                 </div>
                 <div className="text-muted text-xl shrink-0 self-center group-hover:text-primary transition-colors">
