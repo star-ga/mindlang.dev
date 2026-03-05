@@ -136,7 +136,7 @@ async function benchMindLang(
   });
 
   const wgX = Math.ceil(N / 64);
-  const wgY = Math.ceil(M / 64);
+  const wgY = Math.ceil(M / 128);
 
   function dispatch() {
     const enc = device.createCommandEncoder();
@@ -749,7 +749,7 @@ export default function GemmBenchPage() {
           <div className="mb-8">
             <p className="eyebrow">WebGPU Benchmark</p>
             <h1 className="page-title">GEMM — Matrix Multiplication</h1>
-            <p className="text-muted max-w-2xl leading-relaxed">
+            <p className="text-muted leading-relaxed">
               Apples-to-apples comparison: MindLang AOT-compiled WGSL shader vs ONNX Runtime
               Web&apos;s WebGPU backend. Same operation ({matrixSize}&times;{matrixSize} GEMM),
               same GPU, same browser — {flopsStr} of floating-point work per run.
@@ -845,7 +845,7 @@ export default function GemmBenchPage() {
           <div className="grid grid--two mb-6">
             <BenchPanel
               label="MindLang"
-              sublabel="AOT-compiled WGSL via mindc --target webgpu. Fetches pre-compiled gemm.wgsl, creates compute pipeline, and dispatches 16x16 workgroups directly."
+              sublabel="AOT-compiled WGSL via mindc --target webgpu. Fetches pre-compiled gemm.wgsl with 8x4 register tiling, vec4 loads, and bank-conflict-free shared memory. Dispatches 128x64 output tiles via 16x16 workgroups."
               accentColor="text-blue-600"
               accentBg="bg-blue-50"
               accentBorder="hsl(238deg 100% 50%)"
@@ -951,6 +951,8 @@ export default function GemmBenchPage() {
             <p className="text-muted mb-2">
               <span className="text-blue-600 font-bold">MindLang</span> uses a pre-compiled WGSL
               compute shader fetched from <code>/bench/gemm/gemm.wgsl</code>.
+              The shader uses 8&times;4 register tiling (32 FMAs per inner-loop iteration),
+              bank-conflict-free shared memory (stride-17 padding), and vec4 vectorized loads.
               Shader compile time is measured separately and not included in the dispatch average.
             </p>
             <p className="text-muted mb-2">
