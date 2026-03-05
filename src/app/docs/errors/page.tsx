@@ -114,7 +114,7 @@ stack trace:
                         <p className="text-muted mb-4">
                             For recoverable errors, use the Result type:
                         </p>
-                        <CodeBlock className="mb-8">{`fn load_model(path: str) -> Result<Model, Error> {
+                        <CodeBlock className="mb-8">{`fn load_model(path: &[u8]) -> Result<Model, Error> {
     if !exists(path) {
         return Err(Error::NotFound(path));
     }
