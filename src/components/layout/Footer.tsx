@@ -106,6 +106,16 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
+                                <Link href="/compliance" className="text-sm !text-slate-600 hover:!text-primary transition-colors">
+                                    Compliance
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/pilot" className="text-sm !text-slate-600 hover:!text-primary transition-colors">
+                                    Pilot Program
+                                </Link>
+                            </li>
+                            <li>
                                 <Link href="/pricing" className="text-sm !text-slate-600 hover:!text-primary transition-colors">
                                     Pricing
                                 </Link>

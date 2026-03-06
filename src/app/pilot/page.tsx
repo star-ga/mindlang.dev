@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Shield, Clock, FileCheck, Zap, ArrowRight, CheckCircle } from "lucide-react";
+import { Shield, Clock, FileCheck, Zap, CheckCircle } from "lucide-react";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -52,29 +52,50 @@ const migrationDeliverables = [
   "Single 32MB binary deployment (no Python runtime)",
 ];
 
+const phases = [
+  {
+    week: "Week 1-2",
+    title: "Assessment & Migration",
+    desc: "We analyze your existing model, map compliance requirements, and migrate one model from PyTorch/JAX to MIND.",
+  },
+  {
+    week: "Week 3-4",
+    title: "Verification & Compliance",
+    desc: "Run full compliance report generation, verify deterministic builds, and validate against your regulatory framework.",
+  },
+  {
+    week: "Week 5-6",
+    title: "Integration & Benchmarks",
+    desc: "Integrate with your CI/CD pipeline, benchmark performance, and generate pilot results report.",
+  },
+  {
+    week: "Week 7-8",
+    title: "Review & Next Steps",
+    desc: "Present findings to your team, discuss production migration path, and plan next steps.",
+  },
+];
+
 export default function PilotPage() {
   return (
     <>
-      <section className="hero !py-20">
+      <section className="hero !py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              Free Enterprise Trial
-            </div>
+            <p className="eyebrow">Free Enterprise Trial</p>
             <h1 className="!mb-6">MIND Compliance Pilot Program</h1>
             <p className="hero-lede">
               4-8 week free pilot for enterprise ML teams. Migrate one model,
               get full compliance artifacts, and see the difference compile-time
               guarantees make in regulated environments.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center mt-8">
+            <div className="hero-actions">
               <a
                 href={`mailto:${siteConfig.contactEmail}?subject=MIND%20Pilot%20Program%20Inquiry`}
-                className="btn btn--primary inline-flex items-center gap-2"
+                className="btn btn--primary btn--lg"
               >
-                Book a Demo <ArrowRight size={16} />
+                Book a Demo
               </a>
-              <Link href="/pricing" className="btn btn--outline">
+              <Link href="/pricing" className="btn btn--ghost btn--lg">
                 View Pricing
               </Link>
             </div>
@@ -82,28 +103,22 @@ export default function PilotPage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--alt">
         <div className="container">
-          <h2 className="text-center mb-12">Pilot Templates by Industry</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <h2 className="section-title">Pilot Templates by Industry</h2>
+          <div className="grid grid--three">
             {pilots.map((pilot) => (
-              <div key={pilot.vertical} className="card card--outline flex flex-col">
+              <div key={pilot.vertical} className="card card--outline">
                 <div className="flex items-center gap-3 mb-4">
-                  <pilot.icon className="text-primary" size={24} />
-                  <h3 className="text-xl font-bold">{pilot.vertical}</h3>
+                  <pilot.icon className="card-icon !mb-0" />
+                  <h3 className="!mb-0">{pilot.vertical}</h3>
                 </div>
                 <p className="text-sm text-muted mb-4">
                   <strong>Standards:</strong> {pilot.requirements}
                 </p>
-                <ul className="space-y-2 flex-1">
+                <ul className="list text-sm">
                   {pilot.deliverables.map((d) => (
-                    <li key={d} className="flex items-start gap-2 text-sm">
-                      <CheckCircle
-                        className="text-green-600 flex-shrink-0 mt-0.5"
-                        size={14}
-                      />
-                      <span>{d}</span>
-                    </li>
+                    <li key={d}>{d}</li>
                   ))}
                 </ul>
               </div>
@@ -112,79 +127,54 @@ export default function PilotPage() {
         </div>
       </section>
 
-      <section className="section bg-muted/30">
-        <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-center mb-8">Migration Deliverables</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {migrationDeliverables.map((d) => (
-                <div key={d} className="flex items-start gap-3 p-4 card">
-                  <CheckCircle
-                    className="text-green-600 flex-shrink-0 mt-0.5"
-                    size={18}
-                  />
-                  <span>{d}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="section">
         <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-center mb-8">How the Pilot Works</h2>
-            <div className="space-y-6">
-              {[
-                {
-                  week: "Week 1-2",
-                  title: "Assessment & Migration",
-                  desc: "We analyze your existing model, map compliance requirements, and migrate one model from PyTorch/JAX to MIND.",
-                },
-                {
-                  week: "Week 3-4",
-                  title: "Verification & Compliance",
-                  desc: "Run full compliance report generation, verify deterministic builds, and validate against your regulatory framework.",
-                },
-                {
-                  week: "Week 5-6",
-                  title: "Integration & Benchmarks",
-                  desc: "Integrate with your CI/CD pipeline, benchmark performance, and generate pilot results report.",
-                },
-                {
-                  week: "Week 7-8",
-                  title: "Review & Next Steps",
-                  desc: "Present findings to your team, discuss production migration path, and plan next steps.",
-                },
-              ].map((phase) => (
-                <div key={phase.week} className="flex gap-4">
-                  <div className="flex-shrink-0 w-24 text-sm font-bold text-primary">
-                    {phase.week}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">{phase.title}</h4>
-                    <p className="text-sm text-muted">{phase.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <h2 className="section-title">Migration Deliverables</h2>
+          <div className="grid grid--two max-w-3xl mx-auto">
+            {migrationDeliverables.map((d) => (
+              <div key={d} className="card flex items-start gap-3">
+                <CheckCircle
+                  className="text-green-600 flex-shrink-0 mt-0.5"
+                  size={18}
+                />
+                <span>{d}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section bg-primary/5">
+      <section className="section section--alt">
+        <div className="container">
+          <h2 className="section-title">How the Pilot Works</h2>
+          <div className="max-w-3xl mx-auto space-y-6">
+            {phases.map((phase) => (
+              <div key={phase.week} className="flex gap-4">
+                <div className="flex-shrink-0 w-24 text-sm font-bold text-primary">
+                  {phase.week}
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">{phase.title}</h4>
+                  <p className="text-sm text-muted">{phase.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section py-16 bg-white border-t border-card-border">
         <div className="container text-center">
-          <h2 className="mb-4">Ready to Start?</h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Start?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
             No commitment, no cost. We&apos;ll migrate one model and show you
             the compliance artifacts your regulatory team needs.
           </p>
           <a
             href={`mailto:${siteConfig.contactEmail}?subject=MIND%20Pilot%20Program%20Inquiry`}
-            className="btn btn--primary inline-flex items-center gap-2"
+            className="btn btn--primary btn--lg"
           >
-            Book a Demo <ArrowRight size={16} />
+            Book a Demo
           </a>
         </div>
       </section>

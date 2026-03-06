@@ -5,7 +5,6 @@ import {
   FileCheck,
   Lock,
   Hash,
-  ArrowRight,
   CheckCircle,
   AlertCircle,
   MinusCircle,
@@ -125,7 +124,7 @@ fn forward(x: Tensor<f32, ?, 784>) -> Tensor<f32, ?, 10> {
 export default function CompliancePage() {
   return (
     <>
-      <section className="hero !py-20">
+      <section className="hero !py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="!mb-6">Compliance Toolkit</h1>
@@ -138,34 +137,34 @@ export default function CompliancePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--alt">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid--two lg:!grid-cols-4 max-w-6xl mx-auto">
             {capabilities.map((cap) => (
               <div key={cap.title} className="card card--outline">
-                <cap.icon className="text-primary mb-4" size={28} />
-                <h3 className="text-lg font-bold mb-2">{cap.title}</h3>
-                <p className="text-sm text-muted">{cap.desc}</p>
+                <cap.icon className="card-icon" />
+                <h3>{cap.title}</h3>
+                <p>{cap.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section bg-muted/30">
+      <section className="section">
         <div className="container">
+          <h2 className="section-title">Audit Trail in Action</h2>
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-center mb-8">Audit Trail in Action</h2>
-            <pre className="bg-[var(--bg-code)] text-[var(--text-code)] p-6 rounded-lg overflow-x-auto text-sm leading-relaxed">
+            <pre>
               <code>{codeExample}</code>
             </pre>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--alt">
         <div className="container">
-          <h2 className="text-center mb-12">Regulatory Framework Checklists</h2>
+          <h2 className="section-title">Regulatory Framework Checklists</h2>
           <div className="space-y-12 max-w-5xl mx-auto">
             {frameworks.map((fw) => (
               <div key={fw.name} className="card card--outline p-8">
@@ -227,9 +226,9 @@ export default function CompliancePage() {
         </div>
       </section>
 
-      <section className="section bg-primary/5">
+      <section className="section py-16 bg-white border-t border-card-border">
         <div className="container text-center">
-          <h2 className="mb-4">Start a Compliance Pilot</h2>
+          <h2 className="text-3xl font-bold mb-6">Start a Compliance Pilot</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
             Free 4-8 week pilot. Migrate one model, get full compliance
             artifacts, and see exactly what MIND automates for your regulatory
@@ -237,9 +236,9 @@ export default function CompliancePage() {
           </p>
           <Link
             href="/pilot"
-            className="btn btn--primary inline-flex items-center gap-2"
+            className="btn btn--primary btn--lg"
           >
-            Learn About the Pilot <ArrowRight size={16} />
+            Learn About the Pilot
           </Link>
         </div>
       </section>

@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Migration Guide: PyTorch to MIND",
@@ -164,21 +163,17 @@ export default function MigrationPage() {
         <div className="container max-w-5xl mx-auto space-y-12">
           {comparisons.map((cmp) => (
             <div key={cmp.title}>
-              <h2 className="text-2xl font-bold mb-4">{cmp.title}</h2>
+              <h2 className="section-title !text-left !text-2xl !mb-4">{cmp.title}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                 <div>
-                  <div className="text-xs font-bold text-muted mb-1 uppercase tracking-wider">
-                    PyTorch
-                  </div>
-                  <pre className="bg-[var(--bg-code)] text-[var(--text-code)] p-4 rounded-lg overflow-x-auto text-sm leading-relaxed h-full">
+                  <p className="eyebrow">PyTorch</p>
+                  <pre className="h-full">
                     <code>{cmp.pytorch}</code>
                   </pre>
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-primary mb-1 uppercase tracking-wider">
-                    MIND
-                  </div>
-                  <pre className="bg-[var(--bg-code)] text-[var(--text-code)] p-4 rounded-lg overflow-x-auto text-sm leading-relaxed border border-primary/20 h-full">
+                  <p className="eyebrow" style={{ color: "var(--color-primary)" }}>MIND</p>
+                  <pre className="h-full" style={{ borderLeft: "3px solid var(--color-primary)" }}>
                     <code>{cmp.mind}</code>
                   </pre>
                 </div>
@@ -189,80 +184,76 @@ export default function MigrationPage() {
         </div>
       </section>
 
-      <section className="section bg-muted/30">
+      <section className="section section--alt">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-center mb-8">What Maps, What Doesn&apos;t</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b">
-                    <th className="text-left py-3 px-4">Feature</th>
-                    <th className="text-center py-3 px-4 w-24">Maps?</th>
-                    <th className="text-left py-3 px-4">Notes</th>
+          <h2 className="section-title">What Maps, What Doesn&apos;t</h2>
+          <div className="max-w-4xl mx-auto overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-card-border">
+                  <th className="text-left py-3 px-4">Feature</th>
+                  <th className="text-center py-3 px-4 w-24">Maps?</th>
+                  <th className="text-left py-3 px-4">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                {honestTable.map((row) => (
+                  <tr key={row.feature} className="border-b border-card-border">
+                    <td className="py-3 px-4">{row.feature}</td>
+                    <td className="py-3 px-4 text-center">
+                      {row.maps ? (
+                        <span className="text-green-600 font-bold">Yes</span>
+                      ) : (
+                        <span className="text-red-600 font-bold">No</span>
+                      )}
+                    </td>
+                    <td className="py-3 px-4 text-muted">{row.notes}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {honestTable.map((row) => (
-                    <tr key={row.feature} className="border-b">
-                      <td className="py-3 px-4">{row.feature}</td>
-                      <td className="py-3 px-4 text-center">
-                        {row.maps ? (
-                          <span className="text-green-600 font-bold">Yes</span>
-                        ) : (
-                          <span className="text-red-600 font-bold">No</span>
-                        )}
-                      </td>
-                      <td className="py-3 px-4 text-muted">{row.notes}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-center mb-8">Estimated Migration Effort</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b">
-                    <th className="text-left py-3 px-4">Model Complexity</th>
-                    <th className="text-left py-3 px-4">Effort</th>
-                    <th className="text-left py-3 px-4">MIND LOC</th>
+          <h2 className="section-title">Estimated Migration Effort</h2>
+          <div className="max-w-3xl mx-auto overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-card-border">
+                  <th className="text-left py-3 px-4">Model Complexity</th>
+                  <th className="text-left py-3 px-4">Effort</th>
+                  <th className="text-left py-3 px-4">MIND LOC</th>
+                </tr>
+              </thead>
+              <tbody>
+                {effortEstimates.map((row) => (
+                  <tr key={row.complexity} className="border-b border-card-border">
+                    <td className="py-3 px-4">{row.complexity}</td>
+                    <td className="py-3 px-4">{row.effort}</td>
+                    <td className="py-3 px-4 text-muted">{row.loc}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {effortEstimates.map((row) => (
-                    <tr key={row.complexity} className="border-b">
-                      <td className="py-3 px-4">{row.complexity}</td>
-                      <td className="py-3 px-4">{row.effort}</td>
-                      <td className="py-3 px-4 text-muted">{row.loc}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
-      <section className="section bg-primary/5">
+      <section className="section py-16 bg-white border-t border-card-border">
         <div className="container text-center">
-          <h2 className="mb-4">Need Help Migrating?</h2>
+          <h2 className="text-3xl font-bold mb-6">Need Help Migrating?</h2>
           <p className="text-muted mb-8 max-w-2xl mx-auto">
             Our pilot program includes hands-on migration support. We&apos;ll
             help you port your first model and verify compliance artifacts.
           </p>
           <Link
             href="/pilot"
-            className="btn btn--primary inline-flex items-center gap-2"
+            className="btn btn--primary btn--lg"
           >
-            Start a Pilot <ArrowRight size={16} />
+            Start a Pilot
           </Link>
         </div>
       </section>

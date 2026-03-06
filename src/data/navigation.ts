@@ -17,6 +17,8 @@ export const mainNavigation: NavItem[] = [
         label: "Enterprise",
         dropdown: [
             { url: "/enterprise", label: "Overview" },
+            { url: "/compliance", label: "Compliance" },
+            { url: "/pilot", label: "Pilot Program" },
             { url: "/pricing", label: "Pricing" },
             { url: "/security", label: "Security" },
             { url: "/enterprise-flow", label: "Adoption Flow" },
@@ -32,6 +34,7 @@ export const docsNavigation = [
             { name: "Introduction", href: "/docs" },
             { name: "Installation", href: "/docs/installation" },
             { name: "Quick Start", href: "/docs/quick-start" },
+            { name: "Migration Guide", href: "/docs/migration" },
             { name: "Using Core v1 Today", href: "/docs/using-core-v1" },
             { name: "Cookbook", href: "/docs/cookbook" },
             { name: "Running Benchmarks", href: "/docs/guides/benchmarks" },
