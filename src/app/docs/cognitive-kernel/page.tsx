@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DocsSidebar } from "@/components/ui/DocsSidebar";
 import { DocsHeader } from "@/components/ui/DocsHeader";
 import { PageNavigation } from "@/components/ui/PageNavigation";
+import { CodeBlock } from "@/components/ui/CodeBlock";
 
 export const metadata: Metadata = {
     title: "MIND Cognitive Kernel",
@@ -30,16 +31,14 @@ export default function CognitiveKernelPage() {
                         </p>
 
                         {/* ── Quick taste ── */}
-                        <pre className="!rounded-lg !border-l-4 !mb-8 !mt-2 text-sm" style={{ borderLeftColor: "var(--color-primary)" }}>
-                            <code>{`@kernel(profile = "guarded")
+                        <CodeBlock className="!mb-8 !mt-2">{`@kernel(profile = "guarded")
 fn agent(input: Intent, mem: &Memory) -> Result<Action, SagaRollback> {
     let ctx   = sense(input, mem)              // SENSE  — parse + validate
     let plan  = think(ctx)                     // THINK  — assemble context
     let out   = act(plan)                      // ACT    — execute model
     let proof = verify(out, ctx.constraints)   // VERIFY — check invariants
     learn(mem, proof)                          // LEARN  — snapshot + cache
-}`}</code>
-                        </pre>
+}`}</CodeBlock>
 
                         {/* ── Intent Parser ── */}
                         <div className="flex justify-center mb-8">
@@ -532,8 +531,7 @@ fn agent(input: Intent, mem: &Memory) -> Result<Action, SagaRollback> {
                             coordinator rolls back.
                         </p>
 
-                        <pre className="!rounded-lg !border-l-4 mb-4" style={{ borderLeftColor: "var(--color-primary)" }}>
-                            <code>{`// Medical image classifier with verification guardrails
+                        <CodeBlock className="mb-4">{`// Medical image classifier with verification guardrails
 import std.tensor
 import kernel.saga
 import kernel.verify
@@ -583,8 +581,7 @@ fn classify_image(raw: tensor<u8[height, width, 3]>,
             return Err(SagaRollback(reason))
         }
     }
-}`}</code>
-                        </pre>
+}`}</CodeBlock>
 
                         <p className="text-sm text-muted italic mb-10">
                             The <code>@kernel(profile = &quot;high-assurance&quot;)</code> decorator enables full constraint checking

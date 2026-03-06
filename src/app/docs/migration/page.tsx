@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { CodeBlock } from "@/components/ui/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Migration Guide: PyTorch to MIND",
@@ -153,15 +154,13 @@ export default function MigrationPage() {
                     <p className="text-xs font-bold text-muted mb-2 uppercase tracking-wider">
                       PyTorch
                     </p>
-                    <pre className="!rounded-lg"><code>{cmp.pytorch}</code></pre>
+                    <CodeBlock>{cmp.pytorch}</CodeBlock>
                   </div>
                   <div>
                     <p className="text-xs font-bold text-primary mb-2 uppercase tracking-wider">
                       MIND
                     </p>
-                    <pre className="!rounded-lg !border-l-4" style={{ borderLeftColor: "var(--color-primary)" }}>
-                      <code>{cmp.mind}</code>
-                    </pre>
+                    <CodeBlock>{cmp.mind}</CodeBlock>
                   </div>
                 </div>
                 <p className="text-sm text-muted italic">{cmp.note}</p>

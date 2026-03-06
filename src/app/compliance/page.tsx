@@ -9,6 +9,7 @@ import {
   AlertCircle,
   MinusCircle,
 } from "lucide-react";
+import { CodeBlock } from "@/components/ui/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Compliance Toolkit",
@@ -113,9 +114,7 @@ export default function CompliancePage() {
         <div className="container">
           <h2 className="section-title">Audit trail in action</h2>
           <div className="max-w-4xl mx-auto">
-            <pre>
-              <code>{codeExample}</code>
-            </pre>
+            <CodeBlock>{codeExample}</CodeBlock>
           </div>
         </div>
       </section>
