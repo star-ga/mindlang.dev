@@ -63,7 +63,7 @@ export default function BenchPage() {
                 </div>
               </div>
             </Link>
-            {/* Compiler Performance */}
+            {/* Compiler Performance — PyTorch */}
             <Link
               href="/docs/architecture#performance"
               className="card card--outline group hover:border-primary/40 transition-all no-underline"
@@ -75,24 +75,100 @@ export default function BenchPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-3 mb-2">
                     <h3 className="text-lg font-bold text-foreground m-0 group-hover:text-primary transition-colors">
-                      Compiler Performance &mdash; MIND vs PyTorch 2.10
+                      Compiler &mdash; MIND vs PyTorch 2.10
                     </h3>
                     <span className="text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">
                       Criterion.rs
                     </span>
                   </div>
                   <p className="text-muted text-sm leading-relaxed m-0">
-                    Frontend compilation speed (parse &rarr; typecheck &rarr; IR generation) measured against
-                    PyTorch <code>torch.compile</code> cold-start. Same platform: Ubuntu 24.04, Intel i7-5930K, RTX 3080, CUDA 12.8.
+                    Frontend compilation (parse &rarr; typecheck &rarr; IR) vs PyTorch <code>torch.compile</code> full
+                    cold-start pipeline. Ubuntu 24.04, i7-5930K, RTX 3080, CUDA 12.8.
                   </p>
                   <div className="flex flex-wrap gap-4 mt-4 text-xs font-mono">
-                    <span className="text-emerald-600 font-bold">56,000&times; scalar_math</span>
+                    <span className="text-emerald-600 font-bold">35,000&ndash;176,000&times; faster</span>
                     <span className="text-muted">&middot;</span>
-                    <span className="text-emerald-600 font-bold">176,000&times; conv2d</span>
+                    <span className="text-muted">176,000&times; conv2d</span>
                     <span className="text-muted">&middot;</span>
-                    <span className="text-emerald-600 font-bold">48,500&times; large_network</span>
+                    <span className="text-muted">122,000&times; simple_mlp</span>
                     <span className="text-muted">&middot;</span>
-                    <span className="text-muted">19-op IR surface</span>
+                    <span className="text-muted">1.8&ndash;15.5 &micro;s frontend</span>
+                  </div>
+                </div>
+                <div className="text-muted text-xl shrink-0 self-center group-hover:text-primary transition-colors">
+                  &rarr;
+                </div>
+              </div>
+            </Link>
+
+            {/* Compiler Performance — Mojo */}
+            <Link
+              href="/docs/guides/benchmarks"
+              className="card card--outline group hover:border-primary/40 transition-all no-underline"
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-emerald-50 shrink-0">
+                  <Zap className="w-7 h-7 text-emerald-500" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-3 mb-2">
+                    <h3 className="text-lg font-bold text-foreground m-0 group-hover:text-primary transition-colors">
+                      Compiler &mdash; MIND vs Mojo 0.26.1
+                    </h3>
+                    <span className="text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">
+                      Criterion.rs
+                    </span>
+                  </div>
+                  <p className="text-muted text-sm leading-relaxed m-0">
+                    Frontend compilation vs Mojo <code>mojo build</code> full LLVM compilation to native binary.
+                    Same platform, February 2026 verified.
+                  </p>
+                  <div className="flex flex-wrap gap-4 mt-4 text-xs font-mono">
+                    <span className="text-emerald-600 font-bold">135,000&ndash;458,000&times; faster</span>
+                    <span className="text-muted">&middot;</span>
+                    <span className="text-muted">458,000&times; scalar_math</span>
+                    <span className="text-muted">&middot;</span>
+                    <span className="text-muted">280,000&times; matmul</span>
+                    <span className="text-muted">&middot;</span>
+                    <span className="text-muted">135,000&times; mlp</span>
+                  </div>
+                </div>
+                <div className="text-muted text-xl shrink-0 self-center group-hover:text-primary transition-colors">
+                  &rarr;
+                </div>
+              </div>
+            </Link>
+
+            {/* Compiler Performance — JAX */}
+            <Link
+              href="/docs/guides/benchmarks"
+              className="card card--outline group hover:border-primary/40 transition-all no-underline"
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-emerald-50 shrink-0">
+                  <Zap className="w-7 h-7 text-emerald-500" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-3 mb-2">
+                    <h3 className="text-lg font-bold text-foreground m-0 group-hover:text-primary transition-colors">
+                      Compiler &mdash; MIND vs JAX 0.9
+                    </h3>
+                    <span className="text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">
+                      Criterion.rs
+                    </span>
+                  </div>
+                  <p className="text-muted text-sm leading-relaxed m-0">
+                    Frontend compilation vs JAX <code>jax.jit()</code> cold-start XLA compilation
+                    (cache disabled). RTX 3080, CUDA 12.8, JAX 0.9.0.1.
+                  </p>
+                  <div className="flex flex-wrap gap-4 mt-4 text-xs font-mono">
+                    <span className="text-emerald-600 font-bold">21,200&ndash;95,100&times; faster</span>
+                    <span className="text-muted">&middot;</span>
+                    <span className="text-muted">95,100&times; large_matmul</span>
+                    <span className="text-muted">&middot;</span>
+                    <span className="text-muted">58,600&times; simple_mlp</span>
+                    <span className="text-muted">&middot;</span>
+                    <span className="text-muted">43,100&times; small_matmul</span>
                   </div>
                 </div>
                 <div className="text-muted text-xl shrink-0 self-center group-hover:text-primary transition-colors">
