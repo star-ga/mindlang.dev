@@ -169,40 +169,40 @@ export default function RoadmapPage() {
 
                 {/* Systems Programming - Phase 10.5 */}
                 <RoadmapCard
-                    icon={<Shield className="w-8 h-8 text-indigo-500" />}
-                    iconBg="bg-indigo-50"
+                    icon={<Shield className="w-8 h-8 text-emerald-500" />}
+                    iconBg="bg-emerald-50"
                     title="Systems Programming"
-                    status="Phase 10.5"
-                    statusColor="bg-indigo-100 text-indigo-700"
-                    progress={0}
-                    progressColor="bg-indigo-500"
-                    milestone="2026"
-                    description="Extending MIND beyond tensor-only operations to support governance logic: enum and struct types, if/else and while control flow, const declarations, u32 bitfields, and bitwise operators. Byte-level operations deferred to Rust FFI."
+                    status="Complete"
+                    statusColor="bg-emerald-100 text-emerald-700"
+                    progress={100}
+                    progressColor="bg-emerald-500"
+                    milestone="Released"
+                    description="Governance logic runtime with enum and struct types, if/else and while control flow, const declarations, u32 bitfields, and bitwise operators. Byte-level operations via Rust FFI."
                     subDescription={
                         <>
-                            MIND becomes a verifiable behavior language — expressing certified decisions alongside tensor computation. Rust FFI handles byte-level work (string matching, memory). See <a href="https://github.com/star-ga/mind/blob/main/examples/policy.mind" target="_blank" rel="noopener noreferrer" className="text-primary underline">policy.mind</a> design reference.
+                            MIND is now a verifiable behavior language — expressing certified decisions alongside tensor computation. See <a href="https://github.com/star-ga/mind/blob/main/examples/policy.mind" target="_blank" rel="noopener noreferrer" className="text-primary underline">policy.mind</a> design reference.
                         </>
                     }
-                    milestoneDescription="Two-tier implementation: control flow and constants (Tier 1), then algebraic data types with enum and struct (Tier 2). Byte slices deferred to Rust FFI."
+                    milestoneDescription="Full two-tier implementation complete: control flow and constants (Tier 1), algebraic data types with enum and struct (Tier 2). Byte slices via Rust FFI."
                 />
 
                 {/* BCI / Neuroscience - Phase 13 */}
                 <RoadmapCard
-                    icon={<Brain className="w-8 h-8 text-pink-600" />}
-                    iconBg="bg-pink-50"
+                    icon={<Brain className="w-8 h-8 text-emerald-500" />}
+                    iconBg="bg-emerald-50"
                     title="BCI & Neuroscience"
-                    status="Phase 13"
-                    statusColor="bg-pink-100 text-pink-700"
-                    progress={5}
-                    progressColor="bg-pink-500"
-                    milestone="2026"
-                    description="Ultra-low latency runtime paths, streaming tensor support, and signal processing primitives for brain-computer interface and neuroscience applications."
+                    status="Complete"
+                    statusColor="bg-emerald-100 text-emerald-700"
+                    progress={100}
+                    progressColor="bg-emerald-500"
+                    milestone="Released"
+                    description="Ultra-low latency runtime with streaming tensor executor, circular buffer ring allocator, fixed-point Q16.16 arithmetic, sub-millisecond latency profiling, DMA-safe memory pinning, and safety-critical mode with NaN/overflow/bounds checking."
                     subDescription={
                         <>
-                            Targeting {"<"}1ms inference latency, pre-allocated memory pools, and deterministic timing guarantees for medical device certification.
+                            {"<"}1ms inference latency verified. Pre-allocated memory pools and deterministic timing guarantees for medical device certification (ISO 62304, ISO 26262).
                         </>
                     }
-                    milestoneDescription="Initial research and design phase. Runtime optimizations, signal processing stdlib, and language extensions planned for late 2026."
+                    milestoneDescription="Full BCI runtime stack: streaming executor (Phase 13.1), safety-critical mode (Phase 13.3), and signal processing primitives for neuroscience applications."
                 />
 
                 {/* Distributed Execution - Complete */}
