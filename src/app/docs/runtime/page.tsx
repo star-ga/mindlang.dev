@@ -136,9 +136,9 @@ for op in profile.operations {
                             <a href="https://github.com/star-ga/mind-spec/blob/main/spec/v1.0/runtime.md" target="_blank" rel="noopener" className="text-primary hover:underline">
                                 mind-spec/runtime.md
                             </a>{" "}
-                            and the runtime repository at{" "}
-                            <a href="https://github.com/star-ga/mind-runtime" target="_blank" rel="noopener" className="text-primary hover:underline">
-                                mind-runtime
+                            and the runtime is available as part of{" "}
+                            <a href="/enterprise" className="text-primary hover:underline">
+                                MIND Enterprise
                             </a>.
                         </p>
                     </div>

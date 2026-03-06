@@ -6,7 +6,7 @@ export const siteConfig = {
   url: "https://mindlang.dev",
   github: "https://github.com/star-ga/mind",
   specRepo: "https://github.com/star-ga/mind-spec",
-  runtimeRepo: "https://github.com/star-ga/mind-runtime",
+  runtimeRepo: "/enterprise",
   docsPath: "/docs",
   discord: "https://discord.gg/pg6eqrtgg",
   x: "https://x.com/mindlang",

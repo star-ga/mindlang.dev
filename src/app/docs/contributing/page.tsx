@@ -98,7 +98,7 @@ cargo build --all`}</CodeBlock>
                         <ul className="list-disc pl-6 space-y-2 text-muted mb-8">
                             <li><a href="https://github.com/star-ga/mind" target="_blank" rel="noopener" className="text-primary hover:underline">star-ga/mind</a> — Compiler and CLI (<code>mindc</code>)</li>
                             <li><a href="https://github.com/star-ga/mind-spec" target="_blank" rel="noopener" className="text-primary hover:underline">star-ga/mind-spec</a> — Language specification (normative)</li>
-                            <li><a href="https://github.com/star-ga/mind-runtime" target="_blank" rel="noopener" className="text-primary hover:underline">star-ga/mind-runtime</a> — CPU and GPU runtime implementations</li>
+                            <li><a href="/enterprise" className="text-primary hover:underline">mind-runtime</a> — CPU and GPU runtime implementations <span className="text-xs bg-blue-50 border border-blue-200 rounded px-1.5 py-0.5 ml-1">Commercial</span></li>
                         </ul>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">Getting Help</h2>

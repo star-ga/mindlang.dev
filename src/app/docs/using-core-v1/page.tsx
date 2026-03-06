@@ -48,7 +48,7 @@ mindc --stability`}</CodeBlock>
                         <CodeBlock className="mb-8">{`mindc simple.mind -o simple.ir`}</CodeBlock>
 
                         <h2 className="text-2xl font-bold font-heading mt-12 mb-4">3. Running through the CPU runtime</h2>
-                        <p className="text-muted mb-4">Use the runtime CLI (from <code>mind-runtime</code> repo):</p>
+                        <p className="text-muted mb-4">Use the runtime CLI (available via <a href="/enterprise" className="text-primary hover:underline">MIND Enterprise</a>):</p>
                         <CodeBlock className="mb-4">{`runtime run simple.ir --input x=[1,2,3,4]`}</CodeBlock>
                         <p className="text-muted mb-4">Expected output:</p>
                         <CodeBlock className="mb-8">{`[[2,4],[6,8]]`}</CodeBlock>
