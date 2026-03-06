@@ -384,10 +384,18 @@ export default function RoadmapPage() {
 
                     {/* Phase Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm border-2 border-emerald-200">
+                            <div className="flex items-center gap-2 mb-2">
+                                <CheckCircle className="w-5 h-5 text-emerald-600" />
+                                <span className="text-xs font-bold text-emerald-600 uppercase">Shipped — Q1 2026</span>
+                            </div>
+                            <h4 className="font-bold text-sm mb-1">Regulatory & Compliance Toolkit</h4>
+                            <p className="text-xs text-muted">SLSA L3 provenance, SBOM generation (SPDX 3.0 + CycloneDX 1.5), audit logs, mind_audit CLI, and regulatory checklists for FDA, EU AI Act, ISO 26262.</p>
+                        </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
                                 <Users className="w-5 h-5 text-violet-600" />
-                                <span className="text-xs font-bold text-violet-600 uppercase">Q2 2026</span>
+                                <span className="text-xs font-bold text-violet-600 uppercase">Q3 2026</span>
                             </div>
                             <h4 className="font-bold text-sm mb-1">Python Bridge Tooling</h4>
                             <p className="text-xs text-muted">PyTorch/JAX transpilers with auto-refinement suggestion. AI-assisted proof generation to resolve UNSAT errors.</p>
@@ -395,7 +403,7 @@ export default function RoadmapPage() {
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
                                 <Code className="w-5 h-5 text-violet-600" />
-                                <span className="text-xs font-bold text-violet-600 uppercase">Q3 2026</span>
+                                <span className="text-xs font-bold text-violet-600 uppercase">Q4 2026</span>
                             </div>
                             <h4 className="font-bold text-sm mb-1">Verified Model Zoo</h4>
                             <p className="text-xs text-muted">Certified neural network primitives with formal proofs. HuggingFace adapters with safety wrappers.</p>
@@ -403,7 +411,7 @@ export default function RoadmapPage() {
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
                                 <Layers className="w-5 h-5 text-violet-600" />
-                                <span className="text-xs font-bold text-violet-600 uppercase">Q4 2026</span>
+                                <span className="text-xs font-bold text-violet-600 uppercase">Q1 2027</span>
                             </div>
                             <h4 className="font-bold text-sm mb-1">Scalable Verification</h4>
                             <p className="text-xs text-muted">Tiered verification (L0-L3) with abstract interpretation. Incremental verification with proof caching.</p>
@@ -411,18 +419,10 @@ export default function RoadmapPage() {
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
                                 <Server className="w-5 h-5 text-violet-600" />
-                                <span className="text-xs font-bold text-violet-600 uppercase">Q1 2027</span>
+                                <span className="text-xs font-bold text-violet-600 uppercase">Q2 2027</span>
                             </div>
                             <h4 className="font-bold text-sm mb-1">Hardware & Cloud</h4>
                             <p className="text-xs text-muted">NVIDIA Blackwell, AMD MI400, Intel Gaudi 3. Verification-as-a-Service for complex proofs.</p>
-                        </div>
-                        <div className="bg-white/80 rounded-lg p-4 shadow-sm">
-                            <div className="flex items-center gap-2 mb-2">
-                                <FileCheck className="w-5 h-5 text-violet-600" />
-                                <span className="text-xs font-bold text-violet-600 uppercase">Q2 2027</span>
-                            </div>
-                            <h4 className="font-bold text-sm mb-1">Regulatory Alignment</h4>
-                            <p className="text-xs text-muted">Compliance toolkit shipped (SLSA L3, SBOM, audit logs). Expanding to automated certification workflows for ISO 26262, FDA 510(k), EU AI Act.</p>
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm border-2 border-violet-200">
                             <div className="flex items-center gap-2 mb-2">
