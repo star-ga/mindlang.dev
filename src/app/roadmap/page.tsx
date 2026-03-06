@@ -33,15 +33,15 @@ export default function RoadmapPage() {
 
                 {/* Core Language */}
                 <RoadmapCard
-                    icon={<Zap className="w-8 h-8 text-primary" />}
-                    iconBg="bg-blue-50"
+                    icon={<Zap className="w-8 h-8 text-emerald-500" />}
+                    iconBg="bg-emerald-50"
                     title="Core Language"
-                    status="Beta"
-                    statusColor="bg-slate-100 text-slate-600"
+                    status="Complete"
+                    statusColor="bg-emerald-100 text-emerald-700"
                     progress={100}
-                    progressColor="bg-primary"
-                    milestone="Q1 2026"
-                    description="v1.0-draft spec implemented. Static shapes & dtypes."
+                    progressColor="bg-emerald-500"
+                    milestone="Released"
+                    description="v1.0 spec implemented. Static shapes, dtypes, compile-time shape verification, and full type system."
                     subDescription={
                         <>
                             Core v1 conformance is defined and tested; see <Link href="/docs/conformance" className="text-primary underline">Conformance</Link> and <Link href="/docs/stability" className="text-primary underline">Stability</Link>.
@@ -292,7 +292,7 @@ export default function RoadmapPage() {
                         <h2 className="text-2xl font-bold text-foreground m-0">Full-Stack AI Vision</h2>
                     </div>
                     <p className="text-muted mb-6">
-                        MIND is evolving beyond a tensor language into a complete full-stack platform for AI development. Our vision encompasses the entire AI lifecycle from model development to production deployment.
+                        MIND is a complete full-stack platform for AI development — from model training to production deployment. The core infrastructure is shipped and production-ready.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
@@ -422,7 +422,7 @@ export default function RoadmapPage() {
                                 <span className="text-xs font-bold text-violet-600 uppercase">Q2 2027</span>
                             </div>
                             <h4 className="font-bold text-sm mb-1">Regulatory Alignment</h4>
-                            <p className="text-xs text-muted">Automated audit trails for ISO 26262, FDA 510(k), EU AI Act. Policy-as-Code enforcement.</p>
+                            <p className="text-xs text-muted">Compliance toolkit shipped (SLSA L3, SBOM, audit logs). Expanding to automated certification workflows for ISO 26262, FDA 510(k), EU AI Act.</p>
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm border-2 border-violet-200">
                             <div className="flex items-center gap-2 mb-2">
