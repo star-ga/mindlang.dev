@@ -86,8 +86,15 @@ export default function CognitiveKernelPage() {
                                         <div>
                                             <h5 className="font-bold text-sm mb-1">Saga Coordinator</h5>
                                             <p className="text-xs text-muted">
-                                                Compensating transactions on ACT failure. If a side effect cannot complete, the runtime rolls back to the last verified state.
+                                                Compensating transactions on ACT failure. If a side effect cannot complete,
+                                                the coordinator runs the reverse of each completed step (e.g., undo a database
+                                                write, revoke an API call, restore prior memory state) to return to the last
+                                                verified snapshot. Borrowed from distributed systems &mdash; every ACT
+                                                registers a compensating action before executing.
                                             </p>
+                                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-600 border border-blue-200 mt-2 inline-block">
+                                                Enterprise
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -150,6 +157,9 @@ export default function CognitiveKernelPage() {
                                             <p className="text-xs text-muted">
                                                 Deterministic re-execution or cached replay. Given the same inputs and snapshot, produces bit-identical output.
                                             </p>
+                                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-600 border border-blue-200 mt-2 inline-block">
+                                                Enterprise
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -186,6 +196,7 @@ export default function CognitiveKernelPage() {
                             <div className="p-5 rounded-lg border border-amber-300 bg-amber-50">
                                 <div className="flex items-center gap-2 mb-3">
                                     <span className="text-xs font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-700">HIGH-ASSURANCE</span>
+                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-600 border border-blue-200">Enterprise</span>
                                 </div>
                                 <p className="text-sm text-muted">
                                     Full constraint checking at every state transition. SHA-256 hash chain on every decision.
@@ -203,7 +214,10 @@ export default function CognitiveKernelPage() {
                                 </p>
                             </div>
                             <div className="p-4 rounded-lg border border-card-border bg-card-background">
-                                <h5 className="font-bold text-sm mb-2">Cognition Cache</h5>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <h5 className="font-bold text-sm">Cognition Cache</h5>
+                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-600 border border-blue-200">Enterprise</span>
+                                </div>
                                 <p className="text-xs text-muted">
                                     Outputs stored, keyed by intent and context. Identical queries return cached results
                                     without re-execution &mdash; determinism makes this safe.
@@ -285,16 +299,45 @@ export default function CognitiveKernelPage() {
                             </div>
                         </div>
 
+                        {/* ── Why Dual-Path Matters ── */}
+                        <h3 className="text-xl font-bold font-heading mt-10 mb-4">Why this is different from every other agent framework</h3>
+
                         <p className="text-muted mb-4">
-                            The key insight: external LLMs are treated as <strong>stochastic coprocessors</strong>, not trusted execution engines.
-                            Their outputs are event-sourced (recorded on first call) and replayed from cache on subsequent calls.
-                            This means an audit trail can prove exactly what the LLM produced, when, and what the system did with it.
+                            LangChain, CrewAI, AutoGen, and every other agent framework treats LLM calls as the execution engine.
+                            The LLM <em>is</em> the runtime &mdash; it decides what to do, calls tools, and returns results. If the LLM
+                            hallucinates, the agent acts on hallucinated data. There is no verification layer, no rollback, no audit trail.
                         </p>
 
-                        <p className="text-muted mb-10">
-                            The &ldquo;or&rdquo; between paths is a deployment choice. Safety-critical systems use MIND-native models exclusively.
-                            Agent systems that need LLM reasoning use the external path with full verification guardrails.
+                        <p className="text-muted mb-4">
+                            The Cognitive Kernel inverts this. The <strong>MIND runtime</strong> is the execution engine.
+                            External LLMs are treated as <strong>stochastic coprocessors</strong> &mdash; they provide reasoning suggestions,
+                            but every suggestion passes through the Verification Plane before any side effect executes.
+                            Their outputs are event-sourced (recorded with timestamp and context hash on first call) and replayed
+                            deterministically from cache on subsequent calls. This means:
                         </p>
+
+                        <ul className="list mb-6">
+                            <li><strong>Auditable:</strong> You can prove exactly what the LLM returned, when, with what prompt, and what the system did with it</li>
+                            <li><strong>Reproducible:</strong> Replaying from cache produces bit-identical execution traces &mdash; critical for compliance audits</li>
+                            <li><strong>Safe:</strong> If the LLM returns garbage, the Verification Layer rejects it and the Saga Coordinator rolls back &mdash; no hallucinated actions reach production</li>
+                            <li><strong>Cost-efficient:</strong> Identical queries hit the Cognition Cache instead of making another API call</li>
+                        </ul>
+
+                        <p className="text-muted mb-4">
+                            The &ldquo;or&rdquo; between paths is a deployment choice. Safety-critical systems (medical devices, autonomous vehicles)
+                            use MIND-native compiled models exclusively &mdash; zero stochastic components. Agent systems that need
+                            LLM reasoning use the external path with full verification guardrails. Hybrid systems can use both:
+                            a compiled MIND model for the core decision logic, with an LLM coprocessor for natural language understanding.
+                        </p>
+
+                        <div className="p-4 rounded-lg bg-slate-50 border border-card-border mb-10 text-sm">
+                            <strong>Example:</strong> A healthcare agent uses a MIND-native model (compiled, deterministic, FDA-auditable)
+                            for diagnostic classification. It calls Claude as a coprocessor to generate the patient-facing explanation.
+                            The explanation passes through the Verification Layer (checked for prohibited medical claims) before
+                            being delivered. If verification fails, the saga compensates by returning a generic safe response
+                            instead. The full trace &mdash; model prediction, LLM response, verification decision &mdash; is
+                            SHA-256 hashed into the audit log.
+                        </div>
 
                         {/* ── Comparison ── */}
                         <h2 className="text-2xl font-bold font-heading mt-16 mb-6" id="comparison">Standard LLM Stack vs MIND Cognitive Kernel</h2>
@@ -407,6 +450,75 @@ export default function CognitiveKernelPage() {
                             ))}
                         </div>
 
+                        {/* ── Code Example ── */}
+                        <h2 className="text-2xl font-bold font-heading mt-16 mb-6" id="example">Example: Agent with Verification</h2>
+
+                        <p className="text-muted mb-4">
+                            Here&rsquo;s what a cognitive kernel cycle looks like in MIND. This agent classifies a medical image
+                            and only acts on the result if the confidence exceeds a safety threshold &mdash; otherwise the saga
+                            coordinator rolls back.
+                        </p>
+
+                        <pre className="!rounded-lg !border-l-4 mb-4" style={{ borderLeftColor: "var(--color-primary)" }}>
+                            <code>{`// Medical image classifier with verification guardrails
+import std.tensor
+import kernel.saga
+import kernel.verify
+
+// SENSE: Parse and validate input
+fn sense(raw: tensor<u8[height, width, 3]>) -> tensor<f32[1, 3, 224, 224]> {
+    let normalized = cast<f32>(raw) / 255.0
+    let resized = resize_bilinear(normalized, [224, 224])
+    return reshape(resized, [1, 3, 224, 224])
+}
+
+// ACT: Run the compiled native model
+fn act(x: tensor<f32[1, 3, 224, 224]>,
+       model: CompiledModel) -> (tensor<f32[1, num_classes]>, f32) {
+    let logits = model.forward(x)
+    let probs = softmax(logits, axis=1)
+    let confidence = max(probs)
+    return (probs, confidence)
+}
+
+// VERIFY: Reject low-confidence predictions
+fn verify(probs: tensor<f32[1, num_classes]>,
+          confidence: f32,
+          threshold: f32) -> VerifyResult {
+    if confidence < threshold {
+        return VerifyResult::Reject("confidence below safety threshold")
+    }
+    let prediction = argmax(probs, axis=1)
+    return VerifyResult::Accept(prediction)
+}
+
+// Full kernel cycle with saga rollback
+@kernel(profile = "high-assurance")
+fn classify_image(raw: tensor<u8[height, width, 3]>,
+                  model: CompiledModel,
+                  threshold: f32) -> Result<i32, SagaRollback> {
+    let input = sense(raw)                           // SENSE
+    // THINK: context loaded from versioned snapshot (implicit)
+    let (probs, conf) = act(input, model)            // ACT
+    match verify(probs, conf, threshold) {           // VERIFY
+        Accept(class) => {
+            snapshot()                               // LEARN
+            return Ok(class)
+        }
+        Reject(reason) => {
+            saga_compensate()                        // Rollback
+            return Err(SagaRollback(reason))
+        }
+    }
+}`}</code>
+                        </pre>
+
+                        <p className="text-sm text-muted italic mb-10">
+                            The <code>@kernel(profile = &quot;high-assurance&quot;)</code> decorator enables full constraint checking
+                            and SHA-256 audit logging on every phase transition. In <code>lightweight</code> mode, verification
+                            runs asynchronously and the saga coordinator is bypassed.
+                        </p>
+
                         {/* ── Integration with mind-mem ── */}
                         <h2 className="text-2xl font-bold font-heading mt-16 mb-6" id="memory">Memory Integration</h2>
 
@@ -424,13 +536,32 @@ export default function CognitiveKernelPage() {
                             <li><strong>Drift detection:</strong> Identifies when stored knowledge diverges from source of truth</li>
                         </ul>
 
-                        <div className="p-4 rounded-lg bg-blue-50 border border-blue-200 mb-10 text-sm">
-                            <strong className="text-blue-800">Commercial feature:</strong>{" "}
-                            <span className="text-blue-700">
-                                The full Cognitive Kernel runtime (execution profiles, saga coordination, cognition cache,
-                                high-assurance mode) is part of the commercial <Link href="/enterprise" className="text-primary hover:underline">mind-runtime</Link>.
-                                The compiler, mind-mem, and MIND scoring kernels are Apache 2.0 open source.
-                            </span>
+                        <div className="p-5 rounded-lg bg-blue-50 border border-blue-200 mb-10 text-sm">
+                            <h4 className="font-bold text-blue-800 mb-2">What&rsquo;s open vs enterprise</h4>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <p className="font-semibold text-blue-800 text-xs uppercase tracking-wider mb-2">Apache 2.0 (open)</p>
+                                    <ul className="text-blue-700 space-y-1">
+                                        <li>MIND compiler + type checker</li>
+                                        <li>MIND IR + MLIR lowering</li>
+                                        <li>mind-mem (memory system)</li>
+                                        <li>MIND scoring kernels</li>
+                                        <li>Lightweight execution profile</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p className="font-semibold text-blue-800 text-xs uppercase tracking-wider mb-2">
+                                        Enterprise (<Link href="/enterprise" className="text-primary hover:underline">mind-runtime</Link>)
+                                    </p>
+                                    <ul className="text-blue-700 space-y-1">
+                                        <li>Saga Coordinator</li>
+                                        <li>High-Assurance profile</li>
+                                        <li>Cognition Cache</li>
+                                        <li>Replay Engine</li>
+                                        <li>Audit Logger (SHA-256 chain)</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
 
                         {/* ── CTA ── */}
