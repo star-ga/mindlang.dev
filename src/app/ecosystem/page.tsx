@@ -124,7 +124,7 @@ export default function EcosystemPage() {
                                 mind-mem
                             </span>
                             <span className="inline-flex items-center rounded-lg border border-blue-200 bg-blue-50 text-blue-700 px-2.5 py-0.5 text-xs font-bold">
-                                MIT
+                                Apache 2.0
                             </span>
                         </div>
 
