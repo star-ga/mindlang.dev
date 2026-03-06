@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
     title: "Showcase",
@@ -224,7 +225,7 @@ export default function ShowcasePage() {
                             We'd love to hear about your project. Submit your story to be featured in our showcase and newsletter.
                         </p>
                         <a
-                            href="mailto:showcase@mindlang.dev"
+                            href={`mailto:${siteConfig.contactEmail}?subject=Showcase%20Submission`}
                             className="btn btn--primary inline-flex items-center"
                         >
                             Submit Your Project
