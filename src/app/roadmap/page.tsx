@@ -392,21 +392,29 @@ export default function RoadmapPage() {
                             <h4 className="font-bold text-sm mb-1">Regulatory & Compliance Toolkit</h4>
                             <p className="text-xs text-muted">SLSA L3 provenance, SBOM generation (SPDX 3.0 + CycloneDX 1.5), audit logs, mind_audit CLI, and regulatory checklists for FDA, EU AI Act, ISO 26262.</p>
                         </div>
+                        <div className="bg-white/80 rounded-lg p-4 shadow-sm border-2 border-emerald-200">
+                            <div className="flex items-center gap-2 mb-2">
+                                <CheckCircle className="w-5 h-5 text-emerald-600" />
+                                <span className="text-xs font-bold text-emerald-600 uppercase">Shipped — Q1 2026</span>
+                            </div>
+                            <h4 className="font-bold text-sm mb-1">Model Examples & Migration Guide</h4>
+                            <p className="text-xs text-muted">CNN, autodiff, policy, edge models, and FFT examples. PyTorch → MIND migration guide with side-by-side comparisons live on the docs.</p>
+                        </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
                                 <Users className="w-5 h-5 text-violet-600" />
                                 <span className="text-xs font-bold text-violet-600 uppercase">Q2 2026</span>
                             </div>
                             <h4 className="font-bold text-sm mb-1">Python Bridge Tooling</h4>
-                            <p className="text-xs text-muted">PyTorch/JAX transpilers with auto-refinement suggestion. AI-assisted proof generation to resolve UNSAT errors.</p>
+                            <p className="text-xs text-muted">Automated PyTorch/JAX transpilers. AI-assisted proof generation to resolve UNSAT errors. Extends the existing migration guide into tooling.</p>
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
                                 <Code className="w-5 h-5 text-violet-600" />
                                 <span className="text-xs font-bold text-violet-600 uppercase">Q3 2026</span>
                             </div>
-                            <h4 className="font-bold text-sm mb-1">Verified Model Zoo</h4>
-                            <p className="text-xs text-muted">Certified neural network primitives with formal proofs. HuggingFace adapters with safety wrappers.</p>
+                            <h4 className="font-bold text-sm mb-1">Verified Model Zoo & HF Adapters</h4>
+                            <p className="text-xs text-muted">Expand examples into a certified model zoo with formal proofs. HuggingFace adapters with safety wrappers for popular architectures.</p>
                         </div>
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
@@ -423,14 +431,6 @@ export default function RoadmapPage() {
                             </div>
                             <h4 className="font-bold text-sm mb-1">Hardware & Cloud</h4>
                             <p className="text-xs text-muted">NVIDIA Blackwell, AMD MI400, Intel Gaudi 3. Verification-as-a-Service for complex proofs.</p>
-                        </div>
-                        <div className="bg-white/80 rounded-lg p-4 shadow-sm border-2 border-violet-200">
-                            <div className="flex items-center gap-2 mb-2">
-                                <Target className="w-5 h-5 text-violet-600" />
-                                <span className="text-xs font-bold text-violet-600 uppercase">Success Metrics</span>
-                            </div>
-                            <h4 className="font-bold text-sm mb-1">End of 2026 Targets</h4>
-                            <p className="text-xs text-muted">&lt;1 day to first verified model. &gt;10B params verification. 50+ certified layers. 100+ HF adapters.</p>
                         </div>
                     </div>
 
