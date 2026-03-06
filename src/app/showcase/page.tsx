@@ -187,8 +187,8 @@ export default function ShowcasePage() {
                                 </p>
                                 <div className="mt-4 p-3 bg-cyan-50 rounded-lg">
                                     <span className="text-cyan-700 font-bold text-sm">Performance</span>
-                                    <span className="text-cyan-600 text-sm block">5-10x faster than ONNX Runtime Web</span>
-                                    <span className="text-cyan-600 text-sm block">~3 TFLOPS at 4096x4096 on WebGPU</span>
+                                    <span className="text-cyan-600 text-sm block">7-19x faster than ONNX Runtime Web</span>
+                                    <span className="text-cyan-600 text-sm block">~4.5 TFLOPS at 4096x4096 on WebGPU</span>
                                 </div>
                                 <div className="mt-6 pt-6 border-t border-gray-100 flex gap-4">
                                     <a

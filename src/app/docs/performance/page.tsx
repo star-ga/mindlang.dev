@@ -593,21 +593,21 @@ mindc run model.mind --profile=time`}</CodeBlock>
                                 <tbody className="text-muted">
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">1024&times;1024</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">5.7 ms / 375 GFLOPS</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">3.4 ms / 628 GFLOPS</td>
                                         <td className="py-2 pr-4">25.7 ms / 83 GFLOPS</td>
-                                        <td className="py-2 font-semibold text-emerald-700">4.5x</td>
+                                        <td className="py-2 font-semibold text-emerald-700">7.5x</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">2048&times;2048</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">9.3 ms / 1,843 GFLOPS</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">4.9 ms / 3,535 GFLOPS</td>
                                         <td className="py-2 pr-4">93.1 ms / 184 GFLOPS</td>
-                                        <td className="py-2 font-semibold text-emerald-700">10x</td>
+                                        <td className="py-2 font-semibold text-emerald-700">19x</td>
                                     </tr>
                                     <tr className="border-b">
                                         <td className="py-2 pr-4">4096&times;4096</td>
-                                        <td className="py-2 pr-4 font-semibold text-emerald-700">47 ms / 2,905 GFLOPS</td>
+                                        <td className="py-2 pr-4 font-semibold text-emerald-700">31 ms / 4,451 GFLOPS</td>
                                         <td className="py-2 pr-4">240 ms / 569 GFLOPS</td>
-                                        <td className="py-2 font-semibold text-emerald-700">5.1x</td>
+                                        <td className="py-2 font-semibold text-emerald-700">7.7x</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -615,7 +615,7 @@ mindc run model.mind --profile=time`}</CodeBlock>
                         <div className="bg-card border border-border rounded-lg p-4 mb-8">
                             <h4 className="font-semibold mb-2">Key Findings</h4>
                             <p className="text-sm text-muted mb-2">
-                                MindLang is <strong>4.5-10x faster</strong> than ONNX Runtime Web across all matrix sizes. At 4096&times;4096, MindLang achieves <strong>~3 TFLOPS</strong> peak on consumer WebGPU hardware. The 4&times;4 register-tiled shader with 64&times;64 workgroup output delivers up to 2,905 GFLOPS — the advantage comes from AOT compilation eliminating runtime shader generation and per-op dispatch overhead.
+                                MindLang is <strong>7.5-19x faster</strong> than ONNX Runtime Web across all matrix sizes. At 4096&times;4096, MindLang achieves <strong>~4.5 TFLOPS</strong> peak on consumer WebGPU hardware. The 8&times;4 register-tiled shader with 128&times;64 workgroup output, bank-conflict-free shared memory, and vec4 vectorized loads delivers up to 4,451 GFLOPS — the advantage comes from AOT compilation with aggressive kernel optimization vs runtime shader generation.
                             </p>
                             <p className="text-sm text-muted mb-2">
                                 With the <strong>Include Compile Time</strong> toggle enabled, the advantage grows further: MindLang&apos;s compile cost is ~50-80 ms (fetch pre-built WGSL + pipeline creation) vs ONNX RT&apos;s ~500-2,000 ms (model load + runtime WGSL generation).

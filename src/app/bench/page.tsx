@@ -49,11 +49,11 @@ export default function BenchPage() {
                     operation. Measures dispatch time, GFLOPS, and optionally includes compile overhead.
                   </p>
                   <div className="flex flex-wrap gap-4 mt-4 text-xs font-mono">
-                    <span className="text-emerald-600 font-bold">5&ndash;10x faster</span>
+                    <span className="text-emerald-600 font-bold">7&ndash;19x faster</span>
                     <span className="text-muted">&middot;</span>
-                    <span className="text-emerald-600 font-bold">~3 TFLOPS peak</span>
+                    <span className="text-emerald-600 font-bold">~4.5 TFLOPS peak</span>
                     <span className="text-muted">&middot;</span>
-                    <span className="text-muted">4&times;4 register tiling</span>
+                    <span className="text-muted">8&times;4 register tiling</span>
                     <span className="text-muted">&middot;</span>
                     <span className="text-muted">f32 precision</span>
                   </div>

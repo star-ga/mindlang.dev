@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -11,6 +11,15 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
+      {/* Pilot Banner */}
+      <section className="bg-primary text-white py-3">
+        <div className="container text-center">
+          <Link href="/pilot" className="inline-flex items-center gap-2 text-sm font-medium hover:underline">
+            New: Free 4-8 week Compliance Pilot Program for enterprise teams <ArrowRight size={14} />
+          </Link>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="hero !py-16">
         <div className="container">
@@ -70,7 +79,7 @@ export default function PricingPage() {
             {/* Pro */}
             <div className="card card--outline flex flex-col border-2 border-primary relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold">
-                Coming Soon
+                Q2 2026
               </div>
 
               <div className="mb-6">
@@ -110,15 +119,18 @@ export default function PricingPage() {
                 </li>
               </ul>
 
-              <button className="btn btn--ghost w-full mt-auto" disabled>
-                Notify me
-              </button>
+              <a
+                href={`mailto:${siteConfig.contactEmail}?subject=MIND%20Pro%20Waitlist&body=I'd%20like%20to%20join%20the%20Pro%20tier%20waitlist.`}
+                className="btn btn--primary w-full mt-auto"
+              >
+                Join Waitlist
+              </a>
             </div>
 
             {/* Teams */}
             <div className="card card--outline flex flex-col relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold">
-                Coming Soon
+                Q2 2026
               </div>
 
               <div className="mb-6">
@@ -158,9 +170,12 @@ export default function PricingPage() {
                 </li>
               </ul>
 
-              <button className="btn btn--ghost w-full mt-auto" disabled>
-                Notify me
-              </button>
+              <a
+                href={`mailto:${siteConfig.contactEmail}?subject=MIND%20Teams%20Waitlist&body=I'd%20like%20to%20join%20the%20Teams%20tier%20waitlist.`}
+                className="btn btn--primary w-full mt-auto"
+              >
+                Join Waitlist
+              </a>
             </div>
 
             {/* Enterprise */}
@@ -252,17 +267,30 @@ export default function PricingPage() {
             <div>
               <h3 className="font-bold mb-2">When will Pro and Teams be available?</h3>
               <p className="text-muted text-sm">
-                Pro and Teams tiers are coming in Q2 2026. Sign up for notifications on the pricing page.
-                Enterprise customers can contact sales now for custom arrangements.
+                Pro and Teams tiers launch in Q2 2026. Join the waitlist above to be notified at launch and get early-access pricing.
+                Enterprise customers can contact sales now. Can&apos;t wait?{" "}
+                <Link href="/pilot" className="text-primary hover:underline">Start a free pilot</Link>{" "}
+                to evaluate MIND with your team today.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold mb-2">Can I start a pilot now?</h3>
+              <p className="text-muted text-sm">
+                Yes. Our{" "}
+                <Link href="/pilot" className="text-primary hover:underline">Compliance Pilot Program</Link>{" "}
+                is a free 4-8 week trial for enterprise ML teams. We&apos;ll migrate one model from PyTorch/JAX to MIND
+                and deliver full compliance artifacts for your regulatory framework (FDA, EU AI Act, ISO 26262).
               </p>
             </div>
 
             <div>
               <h3 className="font-bold mb-2">Do you offer academic or nonprofit pricing?</h3>
               <p className="text-muted text-sm">
-                Yes. We offer discounted or free access to Pro and Enterprise features for qualifying academic institutions and nonprofits.
+                Yes. We offer discounted or free access to Pro and Enterprise features for qualifying academic institutions,
+                research labs, and nonprofits. The Community Edition is always free for everyone.
                 Contact us at{" "}
-                <a href={`mailto:${siteConfig.contactEmail}`} className="text-primary hover:underline">
+                <a href={`mailto:${siteConfig.contactEmail}?subject=Academic%20%2F%20Nonprofit%20Inquiry`} className="text-primary hover:underline">
                   {siteConfig.contactEmail}
                 </a>{" "}
                 with details about your organization.
