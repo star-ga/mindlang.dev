@@ -70,6 +70,7 @@ export const docsNavigation = [
             { name: "MAP Protocol", href: "/docs/map" },
             { name: "MLIR Lowering", href: "/docs/mlir" },
             { name: "Architecture Deep Dive", href: "/docs/architecture" },
+            { name: "Cognitive Kernel", href: "/docs/cognitive-kernel" },
             { name: "Runtime", href: "/docs/runtime" },
             { name: "FFI & Bindings", href: "/docs/ffi" },
         ],

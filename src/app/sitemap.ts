@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/docs/std/math',
         '/docs/ir',
         '/docs/mlir',
+        '/docs/cognitive-kernel',
         '/docs/runtime',
         '/docs/ffi',
         '/docs/conformance',
