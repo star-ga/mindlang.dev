@@ -29,7 +29,7 @@ export default function EcosystemPage() {
             </section>
 
             <div className="container">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                     {/* MIND Compiler */}
                     <div className="card flex flex-col items-center text-center h-full hover:shadow-lg transition-shadow border border-card-border p-6 rounded-xl !bg-footer-bg">
@@ -105,6 +105,50 @@ export default function EcosystemPage() {
 
                         <a
                             href={siteConfig.specRepo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn bg-white text-primary shadow-sm hover:bg-gray-50 mt-6 self-center px-8"
+                        >
+                            View on GitHub
+                        </a>
+                    </div>
+
+                    {/* mind-mem */}
+                    <div className="card flex flex-col items-center text-center h-full hover:shadow-lg transition-shadow border border-card-border p-6 rounded-xl !bg-footer-bg">
+                        <div className="w-[100px] h-[100px] mb-6 text-violet-500 flex items-center justify-center">
+                            <img src="/img/ecosystem/mind-mem.svg" alt="mind-mem" className="w-full h-full" loading="lazy" />
+                        </div>
+
+                        <div className="flex items-center justify-center gap-2 mb-4 w-full">
+                            <span className="inline-flex items-center rounded-lg border border-slate-200 bg-white text-slate-700 px-2.5 py-0.5 text-xs font-bold">
+                                mind-mem
+                            </span>
+                            <span className="inline-flex items-center rounded-lg border border-blue-200 bg-blue-50 text-blue-700 px-2.5 py-0.5 text-xs font-bold">
+                                Apache 2.0
+                            </span>
+                        </div>
+
+                        <p className="text-muted leading-relaxed mb-6 flex-grow text-left w-full">
+                            Persistent, auditable memory for AI agents. Powers the Cognitive Kernel&rsquo;s Memory Plane with versioned storage, contradiction detection, and cryptographic audit chains.
+                        </p>
+
+                        <ul className="w-full mb-6 space-y-2 text-sm text-foreground text-left inline-block max-w-xs mx-auto list-none pl-0">
+                            <li className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-violet-500/50" /> Hybrid BM25 + Vector Retrieval
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-violet-500/50" /> MIND Scoring Kernels
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-violet-500/50" /> Cryptographic Audit Chain
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-violet-500/50" /> Drift Detection & Causal Graph
+                            </li>
+                        </ul>
+
+                        <a
+                            href="https://github.com/star-ga/mind-mem"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn bg-white text-primary shadow-sm hover:bg-gray-50 mt-6 self-center px-8"
