@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
+import { Check } from "lucide-react";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -11,15 +11,6 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
-      {/* Pilot Banner */}
-      <section className="bg-primary text-white py-3">
-        <div className="container text-center">
-          <Link href="/pilot" className="inline-flex items-center gap-2 text-sm font-medium hover:underline">
-            New: Free 4-8 week Compliance Pilot Program for enterprise teams <ArrowRight size={14} />
-          </Link>
-        </div>
-      </section>
-
       {/* Hero Section */}
       <section className="hero !py-16">
         <div className="container">
@@ -27,6 +18,8 @@ export default function PricingPage() {
             <h1 className="!mb-6">Pricing</h1>
             <p className="hero-lede">
               Start with the free Community Edition. Upgrade to Pro or Enterprise for commercial runtime, hosted control plane, and SLA-backed support.
+              Want to try before you commit?{" "}
+              <Link href="/pilot" className="text-primary hover:underline font-medium">Start a free pilot</Link>.
             </p>
           </div>
         </div>

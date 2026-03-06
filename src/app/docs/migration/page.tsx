@@ -47,16 +47,17 @@ loss.backward()  # Builds + walks tape at runtime
 optimizer.step()`,
     mind: `// Compile-time gradient generation
 @grad
-fn train_step(x: Tensor<f32, ?, 784>, target: Tensor<f32, ?, 10>, lr: f32) -> Tensor<f32, 1> {
+fn train_step(x: Tensor<f32, ?, 784>,
+              target: Tensor<f32, ?, 10>,
+              lr: f32) -> Tensor<f32, 1> {
     let pred = forward(x)
     let loss = cross_entropy(pred, target)
-    // Gradients fused into compiled kernel
     for param in parameters {
         param = sub(param, mul_scalar(grad(loss, param), lr))
     }
     loss
 }`,
-    note: "MIND's @grad compiles gradients at build time. The optimizer sees the full graph and fuses ops. 1,300x faster on benchmarks.",
+    note: "MIND's @grad compiles gradients at build time. The optimizer sees the full graph and fuses ops.",
   },
   {
     title: "Linear Layer",
@@ -78,33 +79,13 @@ param b1: Tensor<f32, 256>
 param W2: Tensor<f32, 256, 10>
 param b2: Tensor<f32, 10>
 
-fn forward(x: Tensor<f32, ?, 784>) -> Tensor<f32, ?, 10> {
-    let h = relu(add(matmul(x, W1), broadcast(b1, [?, 256])))
+fn forward(x: Tensor<f32, ?, 784>)
+    -> Tensor<f32, ?, 10> {
+    let h = relu(add(matmul(x, W1),
+                     broadcast(b1, [?, 256])))
     add(matmul(h, W2), broadcast(b2, [?, 10]))
 }`,
     note: "Explicit parameter tensors instead of opaque Module objects. Every shape is visible and verified.",
-  },
-  {
-    title: "Conv2d",
-    pytorch: `conv = nn.Conv2d(1, 16, kernel_size=3, padding=1)
-pool = nn.MaxPool2d(2)
-
-def forward(x):
-    # x: [B, 1, 28, 28]
-    x = pool(torch.relu(conv(x)))
-    # x: [B, 16, 14, 14]
-    return x`,
-    mind: `param conv_w: Tensor<f32, 3, 3, 1, 16>  // [H, W, C_in, C_out]
-param conv_b: Tensor<f32, 16>
-
-fn forward(x: Tensor<f32, ?, 28, 28, 1>) -> Tensor<f32, ?, 14, 14, 16> {
-    let c = conv2d(x, conv_w, stride=[1,1], padding="same")
-    let c = add(c, broadcast(conv_b, shape(c)))
-    let c = relu(c)
-    pool2d(c, kernel=[2,2], stride=[2,2], mode="max")
-    // Output shape [?, 14, 14, 16] verified at compile time
-}`,
-    note: "MIND uses NHWC format. Output shape is part of the function signature — the compiler verifies the pooling output matches.",
   },
   {
     title: "Model Export",
@@ -112,13 +93,13 @@ fn forward(x: Tensor<f32, ?, 28, 28, 1>) -> Tensor<f32, ?, 14, 14, 16> {
 torch.onnx.export(model, dummy_input, "model.onnx")
 traced = torch.jit.trace(model, dummy_input)
 traced.save("model.pt")
-# TensorRT, CoreML, etc. each need separate conversion`,
+# TensorRT, CoreML need separate conversion`,
     mind: `# Single source, multiple targets
-mindc build model.mind                    # CPU binary
-mindc build model.mind --target cuda      # GPU binary
-mindc build model.mind --target metal     # Metal binary
-mindc build model.mind --export onnx      # ONNX file
-# Same semantics, same output. No translation bugs.`,
+mindc build model.mind                 # CPU
+mindc build model.mind --target cuda   # GPU
+mindc build model.mind --target metal  # Metal
+mindc build model.mind --export onnx   # ONNX
+# Same semantics. No translation bugs.`,
     note: "No rewrite needed. The compiler handles target-specific code generation from the same source.",
   },
 ];
@@ -128,12 +109,12 @@ const honestTable = [
   { feature: "Shape-checked tensors", maps: true, notes: "Compile-time (vs runtime)" },
   { feature: "Autograd / autodiff", maps: true, notes: "Compile-time @grad" },
   { feature: "Custom CUDA kernels", maps: true, notes: "Via CUDA backend" },
+  { feature: "Distributed training (DDP)", maps: true, notes: "NCCL backend" },
+  { feature: "Model serving", maps: true, notes: "Built-in HTTP/gRPC" },
   { feature: "Dynamic computation graphs", maps: false, notes: "MIND is static-graph" },
   { feature: "Eager execution / REPL", maps: false, notes: "Compiled, not interpreted" },
   { feature: "Python ecosystem (pandas, sklearn)", maps: false, notes: "MIND has its own stdlib" },
   { feature: "Pre-trained model zoo (HuggingFace)", maps: false, notes: "Requires reimplementation" },
-  { feature: "Distributed training (DDP)", maps: true, notes: "NCCL backend" },
-  { feature: "Model serving", maps: true, notes: "Built-in HTTP/gRPC" },
 ];
 
 const effortEstimates = [
@@ -146,6 +127,7 @@ const effortEstimates = [
 export default function MigrationPage() {
   return (
     <>
+      {/* Hero Section */}
       <section className="hero !py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
@@ -159,101 +141,110 @@ export default function MigrationPage() {
         </div>
       </section>
 
+      {/* Comparisons */}
       <section className="section">
-        <div className="container max-w-5xl mx-auto space-y-12">
-          {comparisons.map((cmp) => (
-            <div key={cmp.title}>
-              <h2 className="section-title !text-left !text-2xl !mb-4">{cmp.title}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
-                <div>
-                  <p className="eyebrow">PyTorch</p>
-                  <pre className="h-full">
-                    <code>{cmp.pytorch}</code>
-                  </pre>
+        <div className="container">
+          <div className="max-w-5xl mx-auto space-y-16">
+            {comparisons.map((cmp) => (
+              <div key={cmp.title}>
+                <h2 className="text-2xl font-bold font-heading mb-4">{cmp.title}</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                  <div>
+                    <p className="text-xs font-bold text-muted mb-2 uppercase tracking-wider">
+                      PyTorch
+                    </p>
+                    <pre className="!rounded-lg"><code>{cmp.pytorch}</code></pre>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-primary mb-2 uppercase tracking-wider">
+                      MIND
+                    </p>
+                    <pre className="!rounded-lg !border-l-4" style={{ borderLeftColor: "var(--color-primary)" }}>
+                      <code>{cmp.mind}</code>
+                    </pre>
+                  </div>
                 </div>
-                <div>
-                  <p className="eyebrow" style={{ color: "var(--color-primary)" }}>MIND</p>
-                  <pre className="h-full" style={{ borderLeft: "3px solid var(--color-primary)" }}>
-                    <code>{cmp.mind}</code>
-                  </pre>
-                </div>
+                <p className="text-sm text-muted italic">{cmp.note}</p>
               </div>
-              <p className="text-sm text-muted italic">{cmp.note}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
+      {/* What Maps Table */}
       <section className="section section--alt">
         <div className="container">
-          <h2 className="section-title">What Maps, What Doesn&apos;t</h2>
-          <div className="max-w-4xl mx-auto overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-card-border">
-                  <th className="text-left py-3 px-4">Feature</th>
-                  <th className="text-center py-3 px-4 w-24">Maps?</th>
-                  <th className="text-left py-3 px-4">Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                {honestTable.map((row) => (
-                  <tr key={row.feature} className="border-b border-card-border">
-                    <td className="py-3 px-4">{row.feature}</td>
-                    <td className="py-3 px-4 text-center">
-                      {row.maps ? (
-                        <span className="text-green-600 font-bold">Yes</span>
-                      ) : (
-                        <span className="text-red-600 font-bold">No</span>
-                      )}
-                    </td>
-                    <td className="py-3 px-4 text-muted">{row.notes}</td>
+          <h2 className="section-title">What maps, what doesn&apos;t</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="card card--outline overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-card-border">
+                    <th className="text-left py-3 px-4 font-bold">Feature</th>
+                    <th className="text-center py-3 px-4 w-20 font-bold">Maps?</th>
+                    <th className="text-left py-3 px-4 font-bold">Notes</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {honestTable.map((row) => (
+                    <tr key={row.feature} className="border-b border-card-border last:border-b-0">
+                      <td className="py-2.5 px-4">{row.feature}</td>
+                      <td className="py-2.5 px-4 text-center">
+                        {row.maps ? (
+                          <span className="text-green-600 font-bold">Yes</span>
+                        ) : (
+                          <span className="text-muted font-bold">No</span>
+                        )}
+                      </td>
+                      <td className="py-2.5 px-4 text-muted">{row.notes}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Effort Estimates */}
       <section className="section">
         <div className="container">
-          <h2 className="section-title">Estimated Migration Effort</h2>
-          <div className="max-w-3xl mx-auto overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-card-border">
-                  <th className="text-left py-3 px-4">Model Complexity</th>
-                  <th className="text-left py-3 px-4">Effort</th>
-                  <th className="text-left py-3 px-4">MIND LOC</th>
-                </tr>
-              </thead>
-              <tbody>
-                {effortEstimates.map((row) => (
-                  <tr key={row.complexity} className="border-b border-card-border">
-                    <td className="py-3 px-4">{row.complexity}</td>
-                    <td className="py-3 px-4">{row.effort}</td>
-                    <td className="py-3 px-4 text-muted">{row.loc}</td>
+          <h2 className="section-title">Estimated migration effort</h2>
+          <div className="max-w-3xl mx-auto">
+            <div className="card card--outline overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-card-border">
+                    <th className="text-left py-3 px-4 font-bold">Model Complexity</th>
+                    <th className="text-left py-3 px-4 font-bold">Effort</th>
+                    <th className="text-left py-3 px-4 font-bold">MIND LOC</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {effortEstimates.map((row) => (
+                    <tr key={row.complexity} className="border-b border-card-border last:border-b-0">
+                      <td className="py-2.5 px-4">{row.complexity}</td>
+                      <td className="py-2.5 px-4">{row.effort}</td>
+                      <td className="py-2.5 px-4 text-muted">{row.loc}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* CTA */}
       <section className="section py-16 bg-white border-t border-card-border">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-6">Need Help Migrating?</h2>
-          <p className="text-muted mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6">Need help migrating?</h2>
+          <p className="text-muted max-w-xl mx-auto mb-8">
             Our pilot program includes hands-on migration support. We&apos;ll
             help you port your first model and verify compliance artifacts.
           </p>
-          <Link
-            href="/pilot"
-            className="btn btn--primary btn--lg"
-          >
-            Start a Pilot
+          <Link href="/pilot" className="btn btn--primary btn--lg">
+            Start a pilot
           </Link>
         </div>
       </section>

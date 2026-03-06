@@ -16,89 +16,6 @@ export const metadata: Metadata = {
     "MIND compliance toolkit: audit logs, SLSA L3 provenance, SBOM generation, deterministic builds, and regulatory checklists for FDA, EU AI Act, ISO 26262.",
 };
 
-const capabilities = [
-  {
-    icon: Hash,
-    title: "Deterministic Builds",
-    desc: "100% bit-identical output from identical source. SHA-256 verified at every stage: source, IR, binary. Cryptographic proof of reproducibility.",
-  },
-  {
-    icon: Lock,
-    title: "SLSA L3 Provenance",
-    desc: "Ed25519-signed build attestations following SLSA v1.0. Builder identity, source repository, build configuration, and reproducibility status.",
-  },
-  {
-    icon: FileCheck,
-    title: "SBOM Generation",
-    desc: "Automatic Software Bill of Materials in SPDX 3.0 and CycloneDX 1.5 formats. All transitive dependencies with license classification.",
-  },
-  {
-    icon: Shield,
-    title: "Audit Log Exporter",
-    desc: "Timestamped operation-level execution log for regulatory traceability. Every tensor operation, shape verification, and safety check recorded.",
-  },
-];
-
-const frameworks = [
-  {
-    name: "FDA 510(k) / De Novo",
-    standards: "IEC 62304, ISO 14971, ISO 13485",
-    autoItems: [
-      "Software verification (compile-time shape checks)",
-      "Configuration management (SLSA L3, SHA-256)",
-      "Reproducible builds (deterministic execution)",
-    ],
-    manualItems: [
-      "Risk management process documentation",
-      "Clinical performance studies",
-      "Predetermined change control plan",
-      "Device labeling",
-    ],
-    helpItems: [
-      "Cybersecurity (memory safety, supply chain)",
-      "Performance reporting (deterministic benchmarks)",
-      "Software development lifecycle support",
-    ],
-  },
-  {
-    name: "EU AI Act",
-    standards: "Regulation 2024/1689, Articles 9-17",
-    autoItems: [
-      "Record-keeping and logging (Article 12)",
-      "Build provenance and traceability",
-    ],
-    manualItems: [
-      "Data governance (Article 10)",
-      "Human oversight mechanisms (Article 14)",
-      "Quality management system (Article 17)",
-    ],
-    helpItems: [
-      "Risk management system (Article 9)",
-      "Technical documentation (Article 11)",
-      "Transparency (Article 13)",
-      "Accuracy and robustness (Article 15)",
-    ],
-  },
-  {
-    name: "ISO 26262",
-    standards: "Parts 6, 8, 9, 11 (Functional Safety)",
-    autoItems: [
-      "Software unit design (compile-time guarantees)",
-      "Software unit verification (static analysis)",
-    ],
-    manualItems: [
-      "ASIL classification and analysis (Part 9)",
-      "Software development plan (Part 6)",
-      "Hardware-software interface spec (Part 8)",
-    ],
-    helpItems: [
-      "Tool qualification evidence (Part 11)",
-      "Integration verification",
-      "Safety-critical runtime checks",
-    ],
-  },
-];
-
 const codeExample = `// Source: model.mind
 @audit(level="full")
 @provenance(slsa_level=3)
@@ -124,36 +41,69 @@ fn forward(x: Tensor<f32, ?, 784>) -> Tensor<f32, ?, 10> {
 export default function CompliancePage() {
   return (
     <>
+      {/* Hero Section */}
       <section className="hero !py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="!mb-6">Compliance Toolkit</h1>
             <p className="hero-lede">
-              What PyTorch, JAX, and Mojo literally cannot offer: automated
-              compliance artifacts, deterministic builds with cryptographic
-              proof, and regulatory checklists mapped to your framework.
+              Automated compliance artifacts, deterministic builds with
+              cryptographic proof, and regulatory checklists mapped to your
+              framework. What PyTorch, JAX, and Mojo cannot offer.
             </p>
           </div>
         </div>
       </section>
 
+      {/* Capabilities */}
       <section className="section section--alt">
         <div className="container">
-          <div className="grid grid--two lg:!grid-cols-4 max-w-6xl mx-auto">
-            {capabilities.map((cap) => (
-              <div key={cap.title} className="card card--outline">
-                <cap.icon className="card-icon" />
-                <h3>{cap.title}</h3>
-                <p>{cap.desc}</p>
-              </div>
-            ))}
+          <h2 className="section-title">What MIND provides</h2>
+
+          <div className="grid grid--two lg:!grid-cols-4">
+            <div className="card">
+              <Hash className="card-icon" />
+              <h3>Deterministic Builds</h3>
+              <p>
+                100% bit-identical output from identical source. SHA-256 verified
+                at every stage: source, IR, binary.
+              </p>
+            </div>
+
+            <div className="card">
+              <Lock className="card-icon" />
+              <h3>SLSA L3 Provenance</h3>
+              <p>
+                Ed25519-signed build attestations following SLSA v1.0. Builder
+                identity, source repository, and reproducibility status.
+              </p>
+            </div>
+
+            <div className="card">
+              <FileCheck className="card-icon" />
+              <h3>SBOM Generation</h3>
+              <p>
+                Automatic Software Bill of Materials in SPDX 3.0 and CycloneDX
+                1.5. All transitive dependencies with license classification.
+              </p>
+            </div>
+
+            <div className="card">
+              <Shield className="card-icon" />
+              <h3>Audit Log Exporter</h3>
+              <p>
+                Timestamped execution log for regulatory traceability. Every
+                tensor operation, shape verification, and safety check recorded.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Code Example */}
       <section className="section">
         <div className="container">
-          <h2 className="section-title">Audit Trail in Action</h2>
+          <h2 className="section-title">Audit trail in action</h2>
           <div className="max-w-4xl mx-auto">
             <pre>
               <code>{codeExample}</code>
@@ -162,83 +112,126 @@ export default function CompliancePage() {
         </div>
       </section>
 
+      {/* Regulatory Frameworks */}
       <section className="section section--alt">
         <div className="container">
-          <h2 className="section-title">Regulatory Framework Checklists</h2>
-          <div className="space-y-12 max-w-5xl mx-auto">
-            {frameworks.map((fw) => (
-              <div key={fw.name} className="card card--outline p-8">
-                <h3 className="text-2xl font-bold mb-1">{fw.name}</h3>
-                <p className="text-sm text-muted mb-6">{fw.standards}</p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-green-700 mb-3 flex items-center gap-2">
-                      <CheckCircle size={16} /> MIND Auto-Satisfies
-                    </h4>
-                    <ul className="space-y-2">
-                      {fw.autoItems.map((item) => (
-                        <li key={item} className="text-sm flex items-start gap-2">
-                          <CheckCircle
-                            className="text-green-600 flex-shrink-0 mt-0.5"
-                            size={12}
-                          />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-amber-700 mb-3 flex items-center gap-2">
-                      <AlertCircle size={16} /> MIND Helps With
-                    </h4>
-                    <ul className="space-y-2">
-                      {fw.helpItems.map((item) => (
-                        <li key={item} className="text-sm flex items-start gap-2">
-                          <AlertCircle
-                            className="text-amber-600 flex-shrink-0 mt-0.5"
-                            size={12}
-                          />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-muted mb-3 flex items-center gap-2">
-                      <MinusCircle size={16} /> You Still Need
-                    </h4>
-                    <ul className="space-y-2">
-                      {fw.manualItems.map((item) => (
-                        <li key={item} className="text-sm flex items-start gap-2">
-                          <MinusCircle
-                            className="text-muted flex-shrink-0 mt-0.5"
-                            size={12}
-                          />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <h2 className="section-title">Regulatory framework checklists</h2>
+          <p className="section-lede">
+            For each framework, we show what MIND automatically satisfies, where
+            it helps, and what your team still needs to provide.
+          </p>
+
+          <div className="grid grid--three">
+            {/* FDA */}
+            <div className="card card--outline">
+              <h3>FDA 510(k) / De Novo</h3>
+              <p className="text-muted text-sm mb-4">IEC 62304, ISO 14971, ISO 13485</p>
+
+              <h4 className="text-sm font-bold text-green-700 mb-2 flex items-center gap-1.5">
+                <CheckCircle size={14} /> Auto-satisfied
+              </h4>
+              <ul className="list text-sm mb-4">
+                <li>Software verification (compile-time shape checks)</li>
+                <li>Configuration management (SLSA L3, SHA-256)</li>
+                <li>Reproducible builds (deterministic execution)</li>
+              </ul>
+
+              <h4 className="text-sm font-bold text-amber-700 mb-2 flex items-center gap-1.5">
+                <AlertCircle size={14} /> MIND helps with
+              </h4>
+              <ul className="list text-sm mb-4">
+                <li>Cybersecurity (memory safety, supply chain)</li>
+                <li>Performance reporting (deterministic benchmarks)</li>
+              </ul>
+
+              <h4 className="text-sm font-bold text-muted mb-2 flex items-center gap-1.5">
+                <MinusCircle size={14} /> You still need
+              </h4>
+              <ul className="list text-sm">
+                <li>Risk management process documentation</li>
+                <li>Clinical performance studies</li>
+                <li>Device labeling</li>
+              </ul>
+            </div>
+
+            {/* EU AI Act */}
+            <div className="card card--outline">
+              <h3>EU AI Act</h3>
+              <p className="text-muted text-sm mb-4">Regulation 2024/1689, Articles 9-17</p>
+
+              <h4 className="text-sm font-bold text-green-700 mb-2 flex items-center gap-1.5">
+                <CheckCircle size={14} /> Auto-satisfied
+              </h4>
+              <ul className="list text-sm mb-4">
+                <li>Record-keeping and logging (Article 12)</li>
+                <li>Build provenance and traceability</li>
+              </ul>
+
+              <h4 className="text-sm font-bold text-amber-700 mb-2 flex items-center gap-1.5">
+                <AlertCircle size={14} /> MIND helps with
+              </h4>
+              <ul className="list text-sm mb-4">
+                <li>Risk management system (Article 9)</li>
+                <li>Technical documentation (Article 11)</li>
+                <li>Transparency (Article 13)</li>
+              </ul>
+
+              <h4 className="text-sm font-bold text-muted mb-2 flex items-center gap-1.5">
+                <MinusCircle size={14} /> You still need
+              </h4>
+              <ul className="list text-sm">
+                <li>Data governance (Article 10)</li>
+                <li>Human oversight mechanisms (Article 14)</li>
+                <li>Quality management system (Article 17)</li>
+              </ul>
+            </div>
+
+            {/* ISO 26262 */}
+            <div className="card card--outline">
+              <h3>ISO 26262</h3>
+              <p className="text-muted text-sm mb-4">Parts 6, 8, 9, 11 (Functional Safety)</p>
+
+              <h4 className="text-sm font-bold text-green-700 mb-2 flex items-center gap-1.5">
+                <CheckCircle size={14} /> Auto-satisfied
+              </h4>
+              <ul className="list text-sm mb-4">
+                <li>Software unit design (compile-time guarantees)</li>
+                <li>Software unit verification (static analysis)</li>
+              </ul>
+
+              <h4 className="text-sm font-bold text-amber-700 mb-2 flex items-center gap-1.5">
+                <AlertCircle size={14} /> MIND helps with
+              </h4>
+              <ul className="list text-sm mb-4">
+                <li>Tool qualification evidence (Part 11)</li>
+                <li>Integration verification</li>
+                <li>Safety-critical runtime checks</li>
+              </ul>
+
+              <h4 className="text-sm font-bold text-muted mb-2 flex items-center gap-1.5">
+                <MinusCircle size={14} /> You still need
+              </h4>
+              <ul className="list text-sm">
+                <li>ASIL classification and analysis (Part 9)</li>
+                <li>Software development plan (Part 6)</li>
+                <li>Hardware-software interface spec (Part 8)</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* CTA */}
       <section className="section py-16 bg-white border-t border-card-border">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-6">Start a Compliance Pilot</h2>
-          <p className="text-muted mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6">Start a compliance pilot</h2>
+          <p className="text-muted max-w-xl mx-auto mb-8">
             Free 4-8 week pilot. Migrate one model, get full compliance
             artifacts, and see exactly what MIND automates for your regulatory
             framework.
           </p>
-          <Link
-            href="/pilot"
-            className="btn btn--primary btn--lg"
-          >
-            Learn About the Pilot
+          <Link href="/pilot" className="btn btn--primary btn--lg">
+            Learn about the pilot
           </Link>
         </div>
       </section>
