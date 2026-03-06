@@ -29,6 +29,18 @@ export default function CognitiveKernelPage() {
                             a unified, verifiable execution model.
                         </p>
 
+                        {/* ── Quick taste ── */}
+                        <pre className="!rounded-lg !border-l-4 !mb-8 !mt-2 text-sm" style={{ borderLeftColor: "var(--color-primary)" }}>
+                            <code>{`@kernel(profile = "guarded")
+fn agent(input: Intent, mem: &Memory) -> Result<Action, SagaRollback> {
+    let ctx   = sense(input, mem)              // SENSE  — parse + validate
+    let plan  = think(ctx)                     // THINK  — assemble context
+    let out   = act(plan)                      // ACT    — execute model
+    let proof = verify(out, ctx.constraints)   // VERIFY — check invariants
+    learn(mem, proof)                          // LEARN  — snapshot + cache
+}`}</code>
+                        </pre>
+
                         {/* ── Intent Parser ── */}
                         <div className="flex justify-center mb-8">
                             <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 border-primary/30 bg-primary/5">
