@@ -69,7 +69,7 @@ export default function PilotPage() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center mt-8">
               <a
-                href={`mailto:${siteConfig.contact}?subject=MIND%20Pilot%20Program%20Inquiry`}
+                href={`mailto:${siteConfig.contactEmail}?subject=MIND%20Pilot%20Program%20Inquiry`}
                 className="btn btn--primary inline-flex items-center gap-2"
               >
                 Book a Demo <ArrowRight size={16} />
@@ -181,7 +181,7 @@ export default function PilotPage() {
             the compliance artifacts your regulatory team needs.
           </p>
           <a
-            href={`mailto:${siteConfig.contact}?subject=MIND%20Pilot%20Program%20Inquiry`}
+            href={`mailto:${siteConfig.contactEmail}?subject=MIND%20Pilot%20Program%20Inquiry`}
             className="btn btn--primary inline-flex items-center gap-2"
           >
             Book a Demo <ArrowRight size={16} />
