@@ -14,6 +14,14 @@ export default function PricingPage() {
       {/* Hero Section */}
       <section className="hero !py-16">
         <div className="container">
+          <div className="w-full overflow-hidden rounded-xl mb-8 shadow-lg bg-gray-200">
+            <img
+              src="/img/features/pricing.jpg"
+              alt="Pricing Banner"
+              className="w-full block object-cover"
+              style={{ height: "16vw", minHeight: "160px", maxHeight: "320px" }}
+            />
+          </div>
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="!mb-6">Pricing</h1>
             <p className="hero-lede">

@@ -44,6 +44,14 @@ export default function CompliancePage() {
       {/* Hero Section */}
       <section className="hero !py-16">
         <div className="container">
+          <div className="w-full overflow-hidden rounded-xl mb-8 shadow-lg bg-gray-200">
+            <img
+              src="/img/features/compliance.jpg"
+              alt="Compliance Banner"
+              className="w-full block object-cover"
+              style={{ height: "16vw", minHeight: "160px", maxHeight: "320px" }}
+            />
+          </div>
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="!mb-6">Compliance Toolkit</h1>
             <p className="hero-lede">

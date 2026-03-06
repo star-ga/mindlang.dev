@@ -11,6 +11,14 @@ export default function ShowcasePage() {
         <>
             <section className="section" style={{ marginTop: "1.25rem" }}>
                 <div className="container">
+                    <div className="w-full overflow-hidden rounded-xl mb-8 shadow-lg bg-gray-200">
+                        <img
+                            src="/img/features/showcase.jpg"
+                            alt="Showcase Banner"
+                            className="w-full block object-cover"
+                            style={{ height: "16vw", minHeight: "160px", maxHeight: "320px" }}
+                        />
+                    </div>
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <h1 className="page-title mb-6">Built with MIND</h1>
                         <p className="text-xl text-muted">

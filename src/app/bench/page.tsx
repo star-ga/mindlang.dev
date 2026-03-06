@@ -12,6 +12,14 @@ export default function BenchPage() {
     <>
       <section className="hero !py-16">
         <div className="container">
+          <div className="w-full overflow-hidden rounded-xl mb-8 shadow-lg bg-gray-200">
+            <img
+              src="/img/features/bench.jpg"
+              alt="Benchmarks Banner"
+              className="w-full block object-cover"
+              style={{ height: "16vw", minHeight: "160px", maxHeight: "320px" }}
+            />
+          </div>
           <div className="max-w-3xl mx-auto text-center">
             <p className="eyebrow">Performance</p>
             <h1 className="!mb-6">Benchmarks</h1>
