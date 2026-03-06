@@ -376,7 +376,7 @@ export default function RoadmapPage() {
                 <div className="!bg-gradient-to-r from-violet-50 to-purple-50 border-2 border-violet-200 rounded-xl p-8 mb-6">
                     <div className="flex items-center gap-3 mb-4">
                         <Sparkles className="w-8 h-8 text-violet-600" />
-                        <h2 className="text-2xl font-bold text-foreground m-0">Ecosystem Evolution (2026+)</h2>
+                        <h2 className="text-2xl font-bold text-foreground m-0">Ecosystem Evolution (2026)</h2>
                     </div>
                     <p className="text-muted mb-6">
                         Strategic roadmap for evolving MIND from a specialized safety-critical tool into a broader standard for high-assurance AI.
@@ -395,7 +395,7 @@ export default function RoadmapPage() {
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
                                 <Users className="w-5 h-5 text-violet-600" />
-                                <span className="text-xs font-bold text-violet-600 uppercase">Q3 2026</span>
+                                <span className="text-xs font-bold text-violet-600 uppercase">Q2 2026</span>
                             </div>
                             <h4 className="font-bold text-sm mb-1">Python Bridge Tooling</h4>
                             <p className="text-xs text-muted">PyTorch/JAX transpilers with auto-refinement suggestion. AI-assisted proof generation to resolve UNSAT errors.</p>
@@ -403,7 +403,7 @@ export default function RoadmapPage() {
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
                                 <Code className="w-5 h-5 text-violet-600" />
-                                <span className="text-xs font-bold text-violet-600 uppercase">Q4 2026</span>
+                                <span className="text-xs font-bold text-violet-600 uppercase">Q3 2026</span>
                             </div>
                             <h4 className="font-bold text-sm mb-1">Verified Model Zoo</h4>
                             <p className="text-xs text-muted">Certified neural network primitives with formal proofs. HuggingFace adapters with safety wrappers.</p>
@@ -411,7 +411,7 @@ export default function RoadmapPage() {
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
                                 <Layers className="w-5 h-5 text-violet-600" />
-                                <span className="text-xs font-bold text-violet-600 uppercase">Q1 2027</span>
+                                <span className="text-xs font-bold text-violet-600 uppercase">Q3 2026</span>
                             </div>
                             <h4 className="font-bold text-sm mb-1">Scalable Verification</h4>
                             <p className="text-xs text-muted">Tiered verification (L0-L3) with abstract interpretation. Incremental verification with proof caching.</p>
@@ -419,7 +419,7 @@ export default function RoadmapPage() {
                         <div className="bg-white/80 rounded-lg p-4 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
                                 <Server className="w-5 h-5 text-violet-600" />
-                                <span className="text-xs font-bold text-violet-600 uppercase">Q2 2027</span>
+                                <span className="text-xs font-bold text-violet-600 uppercase">Q4 2026</span>
                             </div>
                             <h4 className="font-bold text-sm mb-1">Hardware & Cloud</h4>
                             <p className="text-xs text-muted">NVIDIA Blackwell, AMD MI400, Intel Gaudi 3. Verification-as-a-Service for complex proofs.</p>
@@ -429,7 +429,7 @@ export default function RoadmapPage() {
                                 <Target className="w-5 h-5 text-violet-600" />
                                 <span className="text-xs font-bold text-violet-600 uppercase">Success Metrics</span>
                             </div>
-                            <h4 className="font-bold text-sm mb-1">2027 Targets</h4>
+                            <h4 className="font-bold text-sm mb-1">End of 2026 Targets</h4>
                             <p className="text-xs text-muted">&lt;1 day to first verified model. &gt;10B params verification. 50+ certified layers. 100+ HF adapters.</p>
                         </div>
                     </div>
