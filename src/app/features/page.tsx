@@ -121,6 +121,54 @@ export default function FeaturesPage() {
                 </div>
             </section>
 
+            {/* Cognitive Kernel Callout */}
+            <section className="section bg-gradient-to-r from-slate-900 to-slate-800 py-16">
+                <div className="container">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold mb-4">
+                                Runtime Architecture
+                            </span>
+                            <h2 className="text-3xl font-bold font-heading mb-4 !text-white">Cognitive Kernel</h2>
+                            <p className="text-slate-300 mb-6">
+                                The deterministic AI runtime that extends compiler guarantees into execution.
+                                Three isolated planes &mdash; Control, Memory, Verification &mdash; communicate through typed
+                                message channels. Every decision is logged, every output is verified, every failure rolls back.
+                            </p>
+                            <div className="flex flex-wrap gap-2 mb-6">
+                                {["SENSE", "THINK", "ACT", "VERIFY", "LEARN"].map(phase => (
+                                    <span key={phase} className="text-xs font-bold px-3 py-1 rounded-full bg-white/10 text-white/80">{phase}</span>
+                                ))}
+                            </div>
+                            <div className="flex flex-wrap gap-3">
+                                <Link href="/docs/cognitive-kernel" className="btn btn--primary">
+                                    Architecture docs
+                                </Link>
+                                <Link href="/compare" className="btn btn--ghost !text-white !border-white/20 hover:!bg-white/10">
+                                    Compare vs LangChain
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-3 gap-3">
+                            {[
+                                { name: "Control Plane", color: "border-emerald-400/40 bg-emerald-400/10", items: ["State Machine", "Constraint Engine", "Saga Coordinator"] },
+                                { name: "Memory Plane", color: "border-blue-400/40 bg-blue-400/10", items: ["Versioned Memory", "Snapshots", "Context Optimizer"] },
+                                { name: "Verification Plane", color: "border-amber-400/40 bg-amber-400/10", items: ["Verification Layer", "Audit Logger", "Replay Engine"] },
+                            ].map(plane => (
+                                <div key={plane.name} className={`rounded-lg border p-3 ${plane.color}`}>
+                                    <h4 className="text-xs font-bold text-white/80 mb-2 uppercase tracking-wider">{plane.name}</h4>
+                                    <ul className="space-y-1.5">
+                                        {plane.items.map(item => (
+                                            <li key={item} className="text-xs text-white/60">{item}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Full-Stack AI Section */}
             <section className="section bg-gradient-to-b from-slate-50 to-white py-20">
                 <div className="container">

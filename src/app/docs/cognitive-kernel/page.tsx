@@ -199,10 +199,13 @@ fn agent(input: Intent, mem: &Memory) -> Result<Action, SagaRollback> {
                             <div className="p-5 rounded-lg border border-primary/30 bg-primary/5">
                                 <div className="flex items-center gap-2 mb-3">
                                     <span className="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-700">GUARDED</span>
+                                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-500">Default</span>
                                 </div>
                                 <p className="text-sm text-muted">
-                                    Inline verification on ACT transitions. Outputs verified before side effects execute.
-                                    Default profile for production workloads.
+                                    Inline verification on ACT and VERIFY transitions &mdash; every model output is checked
+                                    against constraints <em>before</em> side effects execute. Saga rollback is active.
+                                    Audit log records decisions but without per-transition hashing.
+                                    The right balance of safety and latency for production workloads.
                                 </p>
                             </div>
                             <div className="p-5 rounded-lg border border-amber-300 bg-amber-50">
@@ -242,6 +245,64 @@ fn agent(input: Intent, mem: &Memory) -> Result<Action, SagaRollback> {
                                     any historical state for audit or debugging.
                                 </p>
                             </div>
+                        </div>
+
+                        {/* ── Profile Feature Matrix ── */}
+                        <div className="overflow-x-auto mb-10">
+                            <table className="w-full text-sm border-collapse">
+                                <thead>
+                                    <tr className="border-b-2 border-primary/20">
+                                        <th className="text-left py-3 pr-4 font-bold">Capability</th>
+                                        <th className="text-center py-3 px-3 font-bold">Lightweight</th>
+                                        <th className="text-center py-3 px-3 font-bold text-primary">Guarded</th>
+                                        <th className="text-center py-3 px-3 font-bold">High-Assurance</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-muted">
+                                    <tr className="border-b border-card-border">
+                                        <td className="py-2.5 pr-4">Deterministic execution</td>
+                                        <td className="text-center py-2.5">&#10003;</td>
+                                        <td className="text-center py-2.5">&#10003;</td>
+                                        <td className="text-center py-2.5">&#10003;</td>
+                                    </tr>
+                                    <tr className="border-b border-card-border">
+                                        <td className="py-2.5 pr-4">Constraint Engine</td>
+                                        <td className="text-center py-2.5 text-muted/50">Deferred</td>
+                                        <td className="text-center py-2.5">ACT + VERIFY</td>
+                                        <td className="text-center py-2.5">Every transition</td>
+                                    </tr>
+                                    <tr className="border-b border-card-border">
+                                        <td className="py-2.5 pr-4">Saga Coordinator (rollback)</td>
+                                        <td className="text-center py-2.5">&mdash;</td>
+                                        <td className="text-center py-2.5">&#10003;</td>
+                                        <td className="text-center py-2.5">&#10003;</td>
+                                    </tr>
+                                    <tr className="border-b border-card-border">
+                                        <td className="py-2.5 pr-4">Audit Logger</td>
+                                        <td className="text-center py-2.5">Basic</td>
+                                        <td className="text-center py-2.5">Structured</td>
+                                        <td className="text-center py-2.5">SHA-256 chain</td>
+                                    </tr>
+                                    <tr className="border-b border-card-border">
+                                        <td className="py-2.5 pr-4">Replay Engine</td>
+                                        <td className="text-center py-2.5">&mdash;</td>
+                                        <td className="text-center py-2.5">&mdash;</td>
+                                        <td className="text-center py-2.5">&#10003;</td>
+                                    </tr>
+                                    <tr className="border-b border-card-border">
+                                        <td className="py-2.5 pr-4">Cognition Cache</td>
+                                        <td className="text-center py-2.5">&mdash;</td>
+                                        <td className="text-center py-2.5">&mdash;</td>
+                                        <td className="text-center py-2.5">&#10003;</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="py-2.5 pr-4 font-semibold">License</td>
+                                        <td className="text-center py-2.5"><span className="text-xs font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-700">Apache 2.0</span></td>
+                                        <td className="text-center py-2.5"><span className="text-xs font-bold px-2 py-0.5 rounded bg-orange-50 text-orange-700">Commercial</span></td>
+                                        <td className="text-center py-2.5"><span className="text-xs font-bold px-2 py-0.5 rounded bg-orange-50 text-orange-700">Commercial</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
 
                         {/* ── Compiler Stack ── */}

@@ -200,6 +200,17 @@ export default function EcosystemPage() {
                     </div>
 
                 </div>
+
+                {/* Cognitive Kernel cross-link */}
+                <div className="mt-12 p-6 rounded-xl border border-primary/20 bg-primary/[0.03] text-center">
+                    <p className="text-sm text-muted mb-3">
+                        These components power the <strong>MIND Cognitive Kernel</strong> &mdash; a deterministic AI runtime
+                        with Control, Memory, and Verification planes.
+                    </p>
+                    <a href="/docs/cognitive-kernel" className="btn btn--primary btn--sm">
+                        Read the architecture docs
+                    </a>
+                </div>
             </div>
         </div>
     );
