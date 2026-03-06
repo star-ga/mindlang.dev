@@ -80,13 +80,10 @@ export default function SecurityPage() {
             <div className="card">
               <CheckCircle className="card-icon" />
               <h3>Dependency scanning</h3>
-              <p className="mb-4">
-                Automated scanning of compiler dependencies for known vulnerabilities.
-                SBOM (Software Bill of Materials) generation for compliance reporting.
+              <p>
+                Automated OSV vulnerability scanning of all dependencies.
+                SBOM generation in SPDX 3.0 and CycloneDX 1.5 formats for compliance reporting.
               </p>
-              <div className="text-xs bg-blue-50 border border-blue-200 rounded px-2 py-1 inline-block">
-                Planned
-              </div>
             </div>
           </div>
         </div>
@@ -208,17 +205,14 @@ export default function SecurityPage() {
             <div className="card">
               <h3 className="text-lg font-bold mb-3">Compliance reporting</h3>
               <p className="text-muted mb-4">
-                Automated generation of compliance artifacts: SBOMs, vulnerability reports, and access logs.
-                Integration with governance, risk, and compliance (GRC) platforms.
+                Automated generation of compliance artifacts: SBOMs, SLSA L3 provenance attestations, vulnerability reports, and audit logs.
+                CLI tooling via <code>mind_audit</code> for report generation, build verification, and provenance chains.
               </p>
               <ul className="list text-sm">
-                <li>CycloneDX SBOM export</li>
-                <li>CVE tracking and remediation workflows</li>
-                <li>Audit-ready report templates</li>
+                <li>SPDX 3.0 + CycloneDX 1.5 SBOM export</li>
+                <li>Ed25519-signed SLSA v1.0 provenance</li>
+                <li>Audit-ready report generation (FDA, EU AI Act, ISO 26262)</li>
               </ul>
-              <div className="text-xs bg-amber-50 border border-amber-200 rounded px-2 py-1 inline-block mt-3">
-                Planned
-              </div>
             </div>
           </div>
         </div>

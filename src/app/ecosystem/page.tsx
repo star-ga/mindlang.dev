@@ -129,15 +129,18 @@ export default function EcosystemPage() {
                         </div>
 
                         <p className="text-muted leading-relaxed mb-6 flex-grow text-left w-full">
-                            High-performance runtime extensions for massive distributed training and specific hardware accelerators.
+                            Production runtime with GPU acceleration, distributed training, compliance tooling, streaming execution, and safety-critical mode.
                         </p>
 
                         <ul className="w-full mb-6 space-y-2 text-sm text-foreground text-left inline-block max-w-xs mx-auto list-none pl-0">
                             <li className="flex items-center gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-orange-500/50" /> Massive Distributed Training
+                                <span className="w-1.5 h-1.5 rounded-full bg-orange-500/50" /> CUDA GPU & Distributed Training
                             </li>
                             <li className="flex items-center gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-orange-500/50" /> Custom Hardware Accelerators
+                                <span className="w-1.5 h-1.5 rounded-full bg-orange-500/50" /> Compliance & Audit Toolkit
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-orange-500/50" /> BCI / Safety-Critical Runtime
                             </li>
                             <li className="flex items-center gap-2">
                                 <span className="w-1.5 h-1.5 rounded-full bg-orange-500/50" /> Enterprise Support & SLAs
